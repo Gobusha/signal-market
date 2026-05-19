@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Analisis harga emas XAU/USD hari ini 19 Mei 2026 — harga spot di $4.558, tekanan inflasi AS, konflik Iran-Hormuz, dan outlook teknikal lengkap dari Indonesian Secret Entry." />
+  <meta property="og:title" content="Analisis Emas 19 Mei 2026: XAU/USD di $4.558, Tekanan Inflasi & Geopolitik — Indonesian Secret Entry" />
+  <meta property="og:description" content="Gold tertekan di bawah $4.600 akibat data inflasi AS yang panas, imbal hasil Treasury naik, dan negosiasi Iran masih deadlock. Baca analisis teknikal dan fundamental lengkap." />
+  <meta property="og:type" content="article" />
+  <title>Analisis Emas 19 Mei 2026: XAU/USD $4.558 — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ARTICLE HERO */
+    #article-hero {
+      position: relative;
+      padding: 80px 0 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,106,0,.08) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .article-hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 860px;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 24px; display: flex; gap: 0; align-items: center; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+    .atag-danger { border-color: var(--danger); color: var(--danger); }
+    .atag-success { border-color: var(--success); color: var(--success); }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 6vw, 4.8rem);
+      line-height: 1.0;
+      letter-spacing: .02em;
+      color: var(--text-bright);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .article-title .hl { color: var(--accent); }
+    .article-title .hl-danger { color: var(--danger); }
+
+    .article-meta {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .article-meta .sep { color: var(--border); }
+    .article-meta .live-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(255,51,51,.12); border: 1px solid rgba(255,51,51,.3);
+      color: var(--danger); padding: 2px 8px; border-radius: 99px; font-size: 9px;
+    }
+    .live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--danger); animation: pulse 1.5s infinite; }
+
+    /* Hero visual strip */
+    .hero-visual {
+      margin-top: 32px;
+      position: relative;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      height: 260px;
+      background: linear-gradient(160deg, #0d0800 0%, #1a1000 40%, #0a0a0a 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      width: 100%;
+      max-width: 100%;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(255,160,0,.12) 0%, transparent 70%);
+    }
+    .hero-diagram {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 100%;
+      padding: 0 24px;
+      overflow: hidden;
+    }
+    .chart-svg { width: 100%; height: auto; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ARTICLE BODY LAYOUT */
+    #article-body {
+      position: relative; z-index: 1;
+      padding: 0 0 96px;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { order: -1; }
+    }
+
+    /* PROSE */
+    .prose { max-width: 100%; min-width: 0; }
+
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      color: var(--text-bright);
+      letter-spacing: .04em;
+      line-height: 1.05;
+      margin: 36px 0 12px;
+      padding-top: 4px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+
+    .prose h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--accent2);
+      letter-spacing: .04em;
+      margin: 32px 0 12px;
+    }
+
+    .prose p {
+      color: var(--text);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .prose strong { color: var(--text-bright); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
+    .prose em { color: var(--accent2); font-style: italic; }
+
+    .prose ul, .prose ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .prose li {
+      color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px;
+    }
+    .prose li::marker { color: var(--accent); }
+
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    .prose-divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 36px 0;
+    }
+
+    /* Price ticker card */
+    .price-ticker {
+      border: 1px solid rgba(255,160,0,.25);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,120,0,.06) 100%);
+      padding: 20px 24px;
+      margin: 24px 0;
+      display: flex; flex-wrap: wrap; gap: 20px; align-items: center;
+    }
+    .ticker-main { flex: 1; min-width: 200px; }
+    .ticker-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+    .ticker-price { font-family: var(--font-display); font-size: 2.8rem; color: var(--text-bright); letter-spacing: .04em; line-height: 1; }
+    .ticker-price .unit { font-size: 1.2rem; color: var(--text-dim); }
+    .ticker-change { font-family: var(--font-mono); font-size: 11px; margin-top: 4px; }
+    .ticker-change.down { color: var(--danger); }
+    .ticker-change.up { color: var(--success); }
+    .ticker-stats { display: flex; flex-wrap: wrap; gap: 16px; }
+    .stat-item { }
+    .stat-label { font-family: var(--font-mono); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2px; }
+    .stat-val { font-family: var(--font-mono); font-size: 13px; color: var(--text-bright); font-weight: 600; }
+
+    /* Key point card */
+    .key-points {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 20px;
+      margin: 24px 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .key-points-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; min-width: 0; flex: 1; word-break: break-word; }
+
+    /* Concept block */
+    .concept-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .concept-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .concept-header .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .concept-body { padding: 20px; }
+
+    /* Level table */
+    .table-wrap { overflow-x: auto; margin: 24px 0; }
+    .prose table { width: 100%; border-collapse: collapse; min-width: 400px; }
+    .prose th {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); padding: 10px 14px; text-align: left;
+      border-bottom: 1px solid var(--border); background: var(--bg-card2);
+    }
+    .prose td { padding: 10px 14px; border-bottom: 1px solid rgba(42,42,42,.5); font-size: .88rem; }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:hover td { background: rgba(255,106,0,.03); }
+    td.bull { color: var(--success); font-weight: 600; font-family: var(--font-mono); font-size: .82rem; }
+    td.bear { color: var(--danger); font-weight: 600; font-family: var(--font-mono); font-size: .82rem; }
+    td.neutral { color: var(--accent2); font-family: var(--font-mono); font-size: .82rem; }
+
+    /* Share bar */
+    .share-bar {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+    }
+    .share-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-right: 4px; }
+    .share-btn {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 14px; border-radius: var(--radius);
+      border: 1px solid var(--border); color: var(--text-dim);
+      cursor: pointer; transition: all .2s; background: transparent;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* SIDEBAR */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); overflow: hidden;
+    }
+    @media (min-width: 769px) {
+      .sidebar-widget { position: sticky; top: 88px; }
+    }
+    .widget-head {
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .widget-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.4);} }
+    .widget-body { padding: 20px; }
+
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      display: block; padding: 7px 10px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em;
+      color: var(--text-dim); border-radius: var(--radius);
+      transition: all .2s;
+    }
+    .toc-list a:hover { color: var(--accent); background: rgba(255,106,0,.06); text-decoration: none; }
+    .toc-list a.active { color: var(--accent); border-left: 2px solid var(--accent); padding-left: 8px; }
+    .toc-list li + li { border-top: 1px solid var(--border); }
+
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+      transition: padding-left .2s;
+    }
+    .related-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-item:hover { padding-left: 4px; }
+    .related-body { flex: 1; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.35; }
+    .related-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; font-size: .75rem; }
+
+    /* Live price widget */
+    .price-widget {
+      border: 1px solid rgba(255,106,0,.2);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,106,0,.04) 100%);
+      overflow: hidden;
+    }
+    .price-widget-head {
+      padding: 12px 20px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .price-widget-body { padding: 16px 20px; }
+    .pw-price { font-family: var(--font-display); font-size: 2.2rem; color: var(--text-bright); letter-spacing: .04em; }
+    .pw-change { font-family: var(--font-mono); font-size: 10px; color: var(--danger); margin-bottom: 16px; }
+    .pw-levels { display: flex; flex-direction: column; gap: 8px; }
+    .pw-level { display: flex; justify-content: space-between; align-items: center; }
+    .pw-level-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); letter-spacing: .08em; }
+    .pw-level-val { font-family: var(--font-mono); font-size: 10px; font-weight: 600; }
+    .pw-level-val.bull { color: var(--success); }
+    .pw-level-val.bear { color: var(--danger); }
+    .pw-level-val.neutral { color: var(--accent2); }
+    .pw-divider { height: 1px; background: var(--border); margin: 8px 0; }
+
+    .cta-card {
+      border: 1px solid rgba(255,106,0,.2);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,106,0,.05) 100%);
+      padding: 24px;
+      text-align: center;
+    }
+    .cta-card .cta-emoji { font-size: 2.4rem; margin-bottom: 12px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: var(--radius);
+      transition: opacity .2s, transform .2s;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-1px); text-decoration: none; }
+
+    /* NEXT/PREV */
+    .article-nav {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+      position: relative; z-index: 1;
+    }
+    .article-nav-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    @media (max-width: 600px) { .article-nav-inner { grid-template-columns: 1fr; } }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color .3s, transform .25s;
+    }
+    .nav-card:hover { border-color: rgba(255,106,0,.3); transform: translateY(-2px); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat  { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; color: var(--accent); }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    @media (max-width: 768px) {
+      .container      { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body   { padding: 0 0 40px; }
+      .article-nav    { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+      #article-hero        { padding: 68px 0 0; }
+      .article-hero-inner  { max-width: 100%; }
+      .hero-visual         { height: 130px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .hero-diagram        { padding: 0 8px; }
+      .article-title       { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta        { gap: 6px; font-size: 9px; letter-spacing: .04em; margin-bottom: 16px; }
+      .article-tags        { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb          { margin-bottom: 12px; font-size: 9px; }
+      .breadcrumb .sep     { margin: 0 4px; }
+      .prose h2       { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose h3       { font-size: 1rem; margin: 16px 0 6px; }
+      .prose p        { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li       { font-size: .84rem; line-height: 1.6; margin-bottom: 4px; }
+      .price-ticker   { flex-direction: column; gap: 12px; padding: 14px; }
+      .ticker-price   { font-size: 2.2rem; }
+      .key-points     { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .concept-block  { margin: 14px 0; border-radius: var(--radius); }
+      .concept-body   { padding: 10px; }
+      .table-wrap     { margin: 12px 0; }
+      .prose table    { font-size: .78rem; min-width: 300px; }
+      .share-bar      { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .share-btn      { padding: 5px 9px; font-size: 8px; }
+      .article-sidebar { gap: 16px; }
+      .sidebar-widget  { position: static; }
+      .price-widget    { position: static !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">Signal<span>.</span>Market</div>
+      <ul class="nav-links">
+        <li><a href="index-v1.1.html">Trader Area</a></li>
+        <li><a href="index-v1.1.html#charts">Charts</a></li>
+        <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+        <li><a href="artikel-news.html" class="active">Artikel &amp; News</a></li>
+        <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      </ul>
+      <div class="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index-v1.1.html">Trader Area</a>
+      <a href="index-v1.1.html#charts">Charts</a>
+      <a href="index-v1.1.html#calendar">Calendar</a>
+      <a href="artikel-news.html">Artikel &amp; News</a>
+      <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<section id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a>
+        <span class="sep">›</span>
+        <a href="artikel-news.html">Artikel &amp; News</a>
+        <span class="sep">›</span>
+        <span>Analisis Emas</span>
+      </div>
+
+      <div class="article-tags">
+        <span class="atag">Gold · XAU/USD</span>
+        <span class="atag atag-danger">Bearish Bias</span>
+        <span class="atag atag-dim">Fundamental</span>
+        <span class="atag atag-dim">Teknikal</span>
+        <span class="atag atag-dim">Geopolitik</span>
+      </div>
+
+      <h1 class="article-title" style="white-space:nowrap; font-size:clamp(1rem, 4.4vw, 4.2rem);">
+        EMAS <span class="hl">$4.558</span> — INFLASI AS <span class="hl-danger">TEKUK</span> GOLD
+      </h1>
+
+      <div class="article-meta">
+        <span>✍️ ISE Research Desk</span>
+        <span class="sep">|</span>
+        <span>📅 19 Mei 2026</span>
+        <span class="sep">|</span>
+        <span>⏱ 8 menit baca</span>
+        <span class="sep">|</span>
+        <span class="live-badge"><span class="live-dot"></span> DATA AKTUAL</span>
+      </div>
+
+      <!-- Hero SVG Chart — Gold price chart illustration -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff9a40" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#ff9a40" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="dropFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#ff3333" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="glow2">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Grid lines -->
+            <line x1="0" y1="40" x2="780" y2="40" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="0" y1="80" x2="780" y2="80" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="0" y1="120" x2="780" y2="120" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="0" y1="160" x2="780" y2="160" stroke="#2a2a2a" stroke-width="1"/>
+
+            <!-- ATH label -->
+            <text x="12" y="28" fill="#666" font-size="9" font-family="IBM Plex Mono">ATH $5,595</text>
+            <line x1="0" y1="32" x2="780" y2="32" stroke="#ff6a00" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+
+            <!-- Price labels right -->
+            <text x="740" y="44" fill="#444" font-size="9" font-family="IBM Plex Mono">$5,200</text>
+            <text x="740" y="84" fill="#444" font-size="9" font-family="IBM Plex Mono">$4,900</text>
+            <text x="740" y="124" fill="#444" font-size="9" font-family="IBM Plex Mono">$4,600</text>
+            <text x="740" y="164" fill="#444" font-size="9" font-family="IBM Plex Mono">$4,300</text>
+
+            <!-- Bull run path (Jan-Apr rally to ATH then drop) -->
+            <!-- Area fill for bull segment -->
+            <path d="M 0,155 L 40,140 L 80,120 L 120,95 L 160,68 L 200,42 L 210,36 L 220,42 L 240,55 L 260,62 L 280,58 L 300,72 L 320,78 L 340,70 L 360,60 L 380,54 L 390,54 L 390,200 L 0,200 Z"
+                  fill="url(#goldFill)"/>
+            <!-- Bull line -->
+            <path d="M 0,155 L 40,140 L 80,120 L 120,95 L 160,68 L 200,42 L 210,36 L 220,42 L 240,55 L 260,62 L 280,58 L 300,72 L 320,78 L 340,70 L 360,60 L 380,54 L 390,54"
+                  fill="none" stroke="#ff9a40" stroke-width="2" filter="url(#glow2)"/>
+
+            <!-- Drop path (May selloff) -->
+            <path d="M 390,54 L 410,60 L 430,72 L 450,88 L 470,105 L 490,118 L 510,125 L 530,130 L 550,128 L 570,132 L 590,136 L 610,133 L 630,138 L 650,136 L 670,134 L 690,136 L 710,134 L 730,132"
+                  fill="none" stroke="#ff3333" stroke-width="2" filter="url(#glow2)"/>
+            <!-- Drop fill -->
+            <path d="M 390,54 L 410,60 L 430,72 L 450,88 L 470,105 L 490,118 L 510,125 L 530,130 L 550,128 L 570,132 L 590,136 L 610,133 L 630,138 L 650,136 L 670,134 L 690,136 L 710,134 L 730,132 L 730,200 L 390,200 Z"
+                  fill="url(#dropFill)"/>
+
+            <!-- ATH marker -->
+            <circle cx="210" cy="36" r="4" fill="#ff6a00" filter="url(#glow2)"/>
+            <text x="200" y="26" fill="#ff6a00" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">29 Jan ATH</text>
+
+            <!-- Current price marker -->
+            <circle cx="730" cy="132" r="5" fill="#ff3333" filter="url(#glow2)"/>
+            <line x1="730" y1="132" x2="730" y2="200" stroke="#ff3333" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+            <text x="718" y="150" fill="#ff3333" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">$4,558</text>
+
+            <!-- Support zone -->
+            <rect x="0" y="136" width="780" height="20" fill="rgba(34,197,94,0.05)" rx="0"/>
+            <line x1="0" y1="136" x2="730" y2="136" stroke="#22c55e" stroke-width="0.8" stroke-dasharray="5,5" opacity="0.4"/>
+            <text x="8" y="148" fill="#22c55e" font-size="8" font-family="IBM Plex Mono" opacity="0.7">Support $4,380–$4,220</text>
+
+            <!-- Date labels -->
+            <text x="10" y="192" fill="#444" font-size="9" font-family="IBM Plex Mono">Jan 26</text>
+            <text x="190" y="192" fill="#ff6a00" font-size="9" font-family="IBM Plex Mono">29 Jan</text>
+            <text x="380" y="192" fill="#444" font-size="9" font-family="IBM Plex Mono">Apr</text>
+            <text x="680" y="192" fill="#ff3333" font-size="9" font-family="IBM Plex Mono">19 Mei</text>
+          </svg>
+        </div>
+      </div><!-- hero-visual -->
+
+    </div><!-- article-hero-inner -->
+  </div><!-- container -->
+</section>
+
+<!-- ARTICLE BODY -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- MAIN ARTICLE -->
+      <article class="prose">
+
+        <!-- PRICE TICKER -->
+        <div class="price-ticker">
+          <div class="ticker-main">
+            <div class="ticker-label">XAU/USD · Spot Price · 19 Mei 2026</div>
+            <div class="ticker-price"><span class="unit">$</span> 4,558</div>
+            <div class="ticker-change down">▼ −0.12% dari hari sebelumnya · −5.78% dari bulan lalu</div>
+          </div>
+          <div class="ticker-stats">
+            <div class="stat-item">
+              <div class="stat-label">Range Hari Ini</div>
+              <div class="stat-val">$4,511 – $4,666</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">ATH (29 Jan 2026)</div>
+              <div class="stat-val">$5,595</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">52-Week Range</div>
+              <div class="stat-val">$3,204 – $5,595</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">YoY Change</div>
+              <div class="stat-val" style="color:var(--success);">+40.98%</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="ringkasan">Ringkasan Eksekutif</h2>
+        <p>Harga emas spot <strong>XAU/USD berada di $4.558 per troy ounce</strong> pada 19 Mei 2026, turun sekitar 0.12% dari penutupan sebelumnya. Logam mulia ini masih tertekan setelah mencatatkan penurunan mingguan hampir 4% — penurunan terbesar sejak pertengahan Maret — akibat kombinasi tiga faktor utama: data inflasi AS yang lebih panas dari ekspektasi, kenaikan imbal hasil US Treasury, dan penguatan dolar Amerika.</p>
+
+        <p>Meski demikian, emas masih mencatatkan kenaikan <strong>+40.98% year-over-year</strong> dan hanya sekitar 18% di bawah all-time high $5,595 yang dicetak pada 29 Januari 2026. Pasar kini fokus pada rilis notulensi FOMC tanggal 20 Mei dan data PMI Manufaktur &amp; Jasa untuk mendapatkan arah kebijakan The Fed selanjutnya.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠ Market Watch</div>
+          <p>Teknikal harian XAU/USD saat ini dinilai <strong>Strong Sell</strong> oleh mayoritas indikator. RSI berada sekitar 49, MACD menunjukkan koreksi aktif. Trader disarankan menunggu konfirmasi sebelum mengambil posisi baru.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="fundamental">Faktor Fundamental Penggerak Harga</h2>
+
+        <h3>1. Inflasi AS Melampaui Ekspektasi</h3>
+        <p>Data inflasi AS yang dirilis pertengahan Mei menjadi faktor penekan terbesar. Inflasi grosir (PPI) April melonjak pada laju tercepat sejak 2022, sementara inflasi konsumen (CPI) mencatat kenaikan terbesar sejak 2023. Angka ini jauh di atas konsensus analis, memicu repricing besar-besaran di pasar suku bunga.</p>
+
+        <p>Akibatnya, pasar <strong>sepenuhnya mengesampingkan pemotongan suku bunga Fed di 2026</strong>. Probabilitas rate cut di bulan Juni hanya 2.6%, sementara 97.4% pelaku pasar memperkirakan suku bunga tetap di 3.50–3.75%. Bahkan sebagian trader mulai memperhitungkan kemungkinan kenaikan suku bunga sebelum akhir tahun.</p>
+
+        <div class="callout">
+          <div class="callout-label">📊 Data Key</div>
+          <p>Suku bunga The Fed saat ini: <strong>3.50–3.75%</strong>. Probabilitas rate cut Juni: <strong>2.6%</strong>. Pasar sudah price-in skenario "higher for longer" bahkan "possible hike" Q4 2026.</p>
+        </div>
+
+        <h3>2. Konflik Timur Tengah &amp; Krisis Hormuz</h3>
+        <p>Paradoks geopolitik terus membayangi emas. Konflik Iran-AS yang awalnya mendorong safe-haven demand, kini justru menekan harga karena dampaknya pada ekspektasi inflasi. Blokade Selat Hormuz oleh AS sebagai respons terhadap program nuklir Iran telah mengganggu pengiriman energi global secara signifikan.</p>
+
+        <p>Harga energi naik ke level tertinggi pasca-perang, memperparah tekanan inflasi dan memperkuat argumen kubu hawkish di The Fed dan bank sentral lainnya. Di sisi lain, laporan yang belum terkonfirmasi pada 18 Mei menyebutkan adanya kemungkinan terobosan — AS dilaporkan akan mencabut sanksi minyak Iran jika Teheran menyetujui pembekuan program nuklirnya jangka panjang.</p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            <span>Mekanisme Paradoks Geopolitik Emas 2026</span>
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <p style="font-size:.85rem; color:var(--text-dim); margin-bottom:16px;">Mengapa konflik justru menekan gold, bukan menaikkannya:</p>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--accent); font-family:var(--font-mono); font-size:11px; flex-shrink:0; margin-top:2px;">01</span>
+                <div style="font-size:.85rem;"><strong style="color:var(--text-bright);">Konflik → Minyak Naik</strong> — Hormuz terganggu, supply energi berkurang, harga minyak naik ke level post-war high.</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--accent); font-family:var(--font-mono); font-size:11px; flex-shrink:0; margin-top:2px;">02</span>
+                <div style="font-size:.85rem;"><strong style="color:var(--text-bright);">Minyak Naik → Inflasi Tinggi</strong> — PPI &amp; CPI melonjak, inflasi producer side merembet ke konsumen.</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--accent); font-family:var(--font-mono); font-size:11px; flex-shrink:0; margin-top:2px;">03</span>
+                <div style="font-size:.85rem;"><strong style="color:var(--text-bright);">Inflasi Tinggi → Fed Hawkish</strong> — Suku bunga tinggi lebih lama, yield Treasury naik, dolar menguat.</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--accent); font-family:var(--font-mono); font-size:11px; flex-shrink:0; margin-top:2px;">04</span>
+                <div style="font-size:.85rem;"><strong style="color:var(--text-bright);">Fed Hawkish → Gold Tertekan</strong> — Real yield positif tinggi membuat investor beralih ke fixed-income vs logam tanpa kupon.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>3. Pelemahan Demand Fisik Global</h3>
+        <p>Menurut World Gold Council, total permintaan emas turun 10.13% di Q1 2026 dibandingkan Q4 2025. Yang paling menonjol adalah kontraksi tajam konsumsi perhiasan, yang ambles dari 437 ton menjadi 299.7 ton — turun 31.4% quarter-over-quarter. Investasi ETF juga rontok 64.55% menjadi hanya 62 ton.</p>
+
+        <p>Satu-satunya penopang demand adalah pembelian bank sentral yang justru naik 17.35% ke 243.7 ton, dan investasi bar &amp; koin yang meningkat 10.66%. Ini menjadi bantalan penting yang mencegah harga jatuh lebih dalam ke zona $4,200–$4,300.</p>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="teknikal">Analisis Teknikal XAU/USD</h2>
+        <p>Secara teknikal, struktur emas saat ini berada dalam fase <strong>corrective bearish</strong> setelah gagal mempertahankan area di atas $4,760 dan mengalami breakdown dari support $4,600. Berikut level-level kritis yang perlu diperhatikan:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Harga</th>
+                <th>Tipe</th>
+                <th>Signifikansi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Resistance 2</td>
+                <td class="neutral">$4,840</td>
+                <td class="neutral">R2</td>
+                <td>April 2026 high, ceiling saluran naik</td>
+              </tr>
+              <tr>
+                <td>Resistance 1</td>
+                <td class="neutral">$4,720</td>
+                <td class="neutral">R1</td>
+                <td>50 EMA, area rejection sebelumnya</td>
+              </tr>
+              <tr>
+                <td>Resistance Intraday</td>
+                <td class="bear">$4,630</td>
+                <td class="bear">R0</td>
+                <td>Supply zone, area jebakan buyer</td>
+              </tr>
+              <tr>
+                <td><strong>Harga Saat Ini</strong></td>
+                <td><strong>$4,558</strong></td>
+                <td class="neutral">SPOT</td>
+                <td>19 Mei 2026</td>
+              </tr>
+              <tr>
+                <td>Support 1</td>
+                <td class="bull">$4,500–$4,510</td>
+                <td class="bull">S1</td>
+                <td>Demand zone krusial, area decision</td>
+              </tr>
+              <tr>
+                <td>Support 2</td>
+                <td class="bull">$4,380–$4,220</td>
+                <td class="bull">S2</td>
+                <td>Zona support utama, floor EMA-200</td>
+              </tr>
+              <tr>
+                <td>Support Mayor</td>
+                <td class="bull">$4,300</td>
+                <td class="bull">S3</td>
+                <td>200 EMA — jika tembus, baru sebut reversal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="key-points">
+          <div class="key-points-title">Indikator Teknikal Saat Ini</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">📉</span><span class="kp-text"><strong>RSI (Daily):</strong> Sekitar 49 — zona netral cenderung melemah. Konfirmasi koreksi aktif tanpa oversold berlebihan.</span></div>
+            <div class="kp-item"><span class="kp-icon">📉</span><span class="kp-text"><strong>MACD:</strong> Menunjukkan momentum koreksi sedang berlangsung. Belum ada sinyal bullish crossover.</span></div>
+            <div class="kp-item"><span class="kp-icon">📊</span><span class="kp-text"><strong>EMA-20:</strong> Harga trading di bawah EMA20 — tekanan jual jangka pendek aktif.</span></div>
+            <div class="kp-item"><span class="kp-icon">✅</span><span class="kp-text"><strong>EMA-50 &amp; EMA-100:</strong> Harga masih di atas kedua EMA ini — terlalu dini bicara reversal tren mayor.</span></div>
+            <div class="kp-item"><span class="kp-icon">📐</span><span class="kp-text"><strong>Ascending Channel:</strong> Struktur channel naik masih intact. Harga berpotensi uji support channel sebelum bounce.</span></div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <div class="callout-label">💡 SMC Perspective</div>
+          <p>Dari sudut pandang Smart Money Concept, market saat ini sedang dalam fase <strong>distribution/retracement</strong> menuju demand zone $4,380–$4,220. Area ini berpotensi menjadi zona akumulasi institusional sebelum rally berikutnya. Waspadai liquidity sweep di bawah $4,500 sebelum reversal.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="event">Event Minggu Ini yang Perlu Dipantau</h2>
+        <p>Volatilitas emas diperkirakan tetap tinggi minggu ini seiring sejumlah rilis data makro kritis dari AS:</p>
+
+        <ul>
+          <li><strong>20 Mei 2026</strong> — Rilis Notulensi FOMC. Pelaku pasar akan membedah setiap kata terkait arah suku bunga dan respons The Fed terhadap data inflasi terkini.</li>
+          <li><strong>21 Mei 2026</strong> — Data Initial Jobless Claims dan PMI Manufaktur &amp; Jasa Mei. Angka lebih lemah dari ekspektasi bisa memicu rebound emas.</li>
+          <li><strong>22 Mei 2026</strong> — Michigan Consumer Inflation Expectations Mei. Jika ekspektasi inflasi konsumen menurun, emas bisa terkerek naik.</li>
+          <li><strong>Ongoing</strong> — Perkembangan negosiasi Iran-AS. Setiap laporan terobosan perdamaian berpotensi melemahkan dolar dan mendukung emas.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">📡 Outlook Minggu Ini</div>
+          <p>Jika notulensi FOMC lebih dovish dari ekspektasi dan data PMI melemah, XAU/USD berpeluang recovery ke $4,630–$4,720. Sebaliknya, jika data inflasi lebih panas atau negosiasi Iran kembali deadlock, tekanan ke $4,500–$4,380 terbuka lebar.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="outlook">Outlook Jangka Menengah</h2>
+        <p>Secara jangka menengah, struktur bull trend emas masih intact. Harga masih berada 18% di bawah ATH $5,595 dan sebagian besar proyeksi institusional masih bullish untuk semester kedua 2026. UBP mempertahankan target akhir tahun di $6,000, sementara konsensus institusional klip lebih konservatif di sekitar $4,750–$5,100.</p>
+
+        <p>Faktor struktural yang mendukung: <strong>pembelian bank sentral yang terus meningkat</strong> (+17.35% YoY), disiplin supply pertambangan, dan tekanan jangka panjang terhadap dolar AS akibat defisit fiskal yang membengkak. Selain itu, WGC memperkirakan faktor geopolitik akan terus memainkan peran kunci dalam mendukung permintaan emas sepanjang 2026 dan seterusnya.</p>
+
+        <div class="key-points">
+          <div class="key-points-title">Kesimpulan &amp; Trading Notes</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">🎯</span><span class="kp-text">Bias jangka pendek: <strong>Bearish/Netral</strong> selama harga di bawah $4,630. Konfirmasi bearish jika breakdown $4,500.</span></div>
+            <div class="kp-item"><span class="kp-icon">🔄</span><span class="kp-text">Zona akumulasi potensial: <strong>$4,380–$4,220</strong>. Area ini adalah support mayor sebelum outlook bullish kembali valid.</span></div>
+            <div class="kp-item"><span class="kp-icon">📈</span><span class="kp-text">Bias jangka menengah tetap <strong>Bullish</strong>. Selama EMA-50 tidak ditembus ke bawah, uptrend masih struktural.</span></div>
+            <div class="kp-item"><span class="kp-icon">⚡</span><span class="kp-text">Volatilitas tinggi minggu ini. <strong>Kelola risk ketat</strong>, gunakan stop loss, dan pantau FOMC minutes (20 Mei) serta PMI data (21 Mei).</span></div>
+            <div class="kp-item"><span class="kp-icon">⚠️</span><span class="kp-text">Ini adalah analisis, bukan rekomendasi investasi. Trading mengandung risiko tinggi. Selalu gunakan manajemen risiko yang proper.</span></div>
+          </div>
+        </div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <!-- Live Price Widget -->
+        <div class="price-widget">
+          <div class="price-widget-head">
+            <span>XAU/USD Live</span>
+            <span class="live-badge"><span class="live-dot"></span> 19 Mei 2026</span>
+          </div>
+          <div class="price-widget-body">
+            <div class="pw-price">$4,558</div>
+            <div class="pw-change">▼ −0.12% · Bearish Bias</div>
+            <div class="pw-levels">
+              <div class="pw-level">
+                <span class="pw-level-label">Resistance 2</span>
+                <span class="pw-level-val bear">$4,840</span>
+              </div>
+              <div class="pw-level">
+                <span class="pw-level-label">Resistance 1</span>
+                <span class="pw-level-val bear">$4,720</span>
+              </div>
+              <div class="pw-level">
+                <span class="pw-level-label">R Intraday</span>
+                <span class="pw-level-val bear">$4,630</span>
+              </div>
+              <div class="pw-divider"></div>
+              <div class="pw-level">
+                <span class="pw-level-label">Support 1</span>
+                <span class="pw-level-val bull">$4,500</span>
+              </div>
+              <div class="pw-level">
+                <span class="pw-level-label">Support 2</span>
+                <span class="pw-level-val bull">$4,380–$4,220</span>
+              </div>
+              <div class="pw-level">
+                <span class="pw-level-label">200 EMA Floor</span>
+                <span class="pw-level-val bull">$4,300</span>
+              </div>
+              <div class="pw-divider"></div>
+              <div class="pw-level">
+                <span class="pw-level-label">ATH 29 Jan</span>
+                <span class="pw-level-val neutral">$5,595</span>
+              </div>
+              <div class="pw-level">
+                <span class="pw-level-label">YoY Change</span>
+                <span class="pw-level-val bull">+40.98%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#ringkasan">Ringkasan Eksekutif</a></li>
+              <li><a href="#fundamental">Faktor Fundamental</a></li>
+              <li><a href="#teknikal">Analisis Teknikal</a></li>
+              <li><a href="#event">Event Minggu Ini</a></li>
+              <li><a href="#outlook">Outlook Jangka Menengah</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">SMC · Edukasi</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text);">Apa Itu Liquidity Sweep? Panduan Lengkap SMC</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · FOMC</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Dampak FOMC Minutes ke Market Komoditas</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Geopolitik · Energi</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Krisis Selat Hormuz dan Dampaknya ke Pasar Global</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Komoditas · Silver</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Analisis Silver: HSBC Naikkan Target ke $75/oz</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Analisa Live</h4>
+          <p>Dapatkan signal entry berbasis SMC, liquidity analysis, dan update market emas setiap hari di grup Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Telegram Gratis →</a>
+        </div>
+
+      </aside>
+
+    </div><!-- .article-layout -->
+  </div><!-- .container -->
+</div><!-- #article-body -->
+
+<!-- NEXT/PREV -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel dan news terkini</span>
+      </a>
+      <a href="artikel-liquidity-sweep.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Terkait →</span>
+        <span class="nav-cat">SMC · Edukasi</span>
+        <span class="nav-title">Apa Itu Liquidity Sweep? Panduan Lengkap SMC</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="index-v1.1.html#charts">Charts</a></li>
+          <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-gold-19mei2026.html" style="color:var(--accent);">Analisis Emas 19 Mei</a></li>
+          <li><a href="artikel-news.html">On-Chain Analysis</a></li>
+          <li><a href="artikel-news.html">DeFi</a></li>
+          <li><a href="artikel-news.html">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Analisis Emas 19 Mei 2026: XAU/USD $4.558 — Indonesian Secret Entry');
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+  }
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Analisis Emas 19 Mei 2026: XAU/USD $4.558, Inflasi AS Tekan Gold — @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

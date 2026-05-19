@@ -835,8 +835,19 @@
    ══════════════════════════════════════════════════════ */
 const ARTIKEL_DATA = [
   {
-    id: 1,
+    id: 8,
     featured: true,                          // ← hanya satu yang true
+    kategori: "Komoditas",
+    icon: "🥇",
+    judul: "Analisis Emas 19 Mei 2026: XAU/USD $4.558 — Inflasi AS Tekuk Gold",
+    deskripsi: "Harga emas spot tertekan di $4.558/oz setelah penurunan mingguan hampir 4%. Data inflasi AS yang panas, kenaikan yield Treasury, dan negosiasi Iran masih deadlock. Baca analisis teknikal & fundamental lengkap beserta level support-resistance kritis hari ini.",
+    url: "artikel-gold-19mei2026.html",
+    tanggal: "19 Mei 2026",
+    readTime: "8 min read"
+  },
+  {
+    id: 1,
+    featured: false,
     kategori: "Edukasi",
     icon: "📊",
     judul: "Apa Itu Liquidity Sweep dan Cara Membacanya di Chart",
@@ -926,6 +937,22 @@ const ARTIKEL_DATA = [
    ══════════════════════════════════════════════════════ */
 const NEWS_DATA = [
   {
+    id: 9,
+    judul: "XAU/USD $4.558 — Emas Turun 5.78% Sebulan, Inflasi AS & Hormuz Jadi Biang",
+    sumber: "ISE Research",
+    waktu: "Hari ini · 19 Mei 2026",
+    url: "artikel-gold-19mei2026.html",
+    badge: "bear"
+  },
+  {
+    id: 10,
+    judul: "FOMC Minutes Rilis 20 Mei — Pasar Nantikan Sinyal Arah Suku Bunga The Fed",
+    sumber: "Reuters",
+    waktu: "3 jam lalu",
+    url: "https://reuters.com",
+    badge: "watch"
+  },
+  {
     id: 1,
     judul: "Bitcoin Tembus $70K — Institusi Kembali Akumulasi Setelah ETF Approval",
     sumber: "CoinDesk",
@@ -935,7 +962,7 @@ const NEWS_DATA = [
   },
   {
     id: 2,
-    judul: "Fed Tahan Suku Bunga di 5.25% — Pasar Saham Reaksi Mixed",
+    judul: "Fed Tahan Suku Bunga di 3.50–3.75% — Probabilitas Rate Cut Juni Hanya 2.6%",
     sumber: "Reuters",
     waktu: "4 jam lalu",
     url: "https://reuters.com",
@@ -951,10 +978,10 @@ const NEWS_DATA = [
   },
   {
     id: 4,
-    judul: "Harga Emas Koreksi ke $2,150 Setelah Data CPI AS Lebih Tinggi",
-    sumber: "Bloomberg",
+    judul: "Gold Demand Turun 10% Q1 2026 — Jewelry Ambles 31%, ETF Rontok 64%",
+    sumber: "World Gold Council",
     waktu: "8 jam lalu",
-    url: "https://bloomberg.com",
+    url: "artikel-gold-19mei2026.html",
     badge: "bear"
   },
   {
@@ -1006,11 +1033,11 @@ const NEWS_DATA = [
    ✏️  EDIT TRENDING SIDEBAR DI SINI
    ══════════════════════════════════════════════════════ */
 const TRENDING_DATA = [
+  { judul: "Analisis Emas 19 Mei 2026: XAU/USD $4.558", kategori: "Komoditas · Gold" },
   { judul: "Liquidity Sweep Strategy", kategori: "Edukasi · SMC" },
-  { judul: "Bitcoin Halving 2024 Impact", kategori: "Crypto · Analisa" },
-  { judul: "Fed Rate Decision", kategori: "Makro · FOMC" },
-  { judul: "DeFi Protocol TVL Drop", kategori: "Crypto · On-Chain" },
+  { judul: "FOMC Minutes — Sinyal Suku Bunga The Fed", kategori: "Makro · FOMC" },
   { judul: "Gold vs BTC Safe Haven", kategori: "Komoditas · Crypto" },
+  { judul: "Krisis Hormuz & Dampak ke Market", kategori: "Geopolitik · Energi" },
 ];
 
 
@@ -1069,11 +1096,70 @@ function renderAll() {
   const featuredWrap = document.getElementById('featuredWrap');
   const featItem = ARTIKEL_DATA.find(a => a.featured && matchesFilter(a, search));
   if (featItem) {
+    const isGold = featItem.id === 8;
+    const goldSVG = `
+      <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <defs>
+          <linearGradient id="gf1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ff9a40" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#ff9a40" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="gf2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ff3333" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#ff3333" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="gl">
+            <feGaussianBlur stdDeviation="2.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- grid -->
+        <line x1="0" y1="44" x2="420" y2="44" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="0" y1="88" x2="420" y2="88" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="0" y1="132" x2="420" y2="132" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="0" y1="176" x2="420" y2="176" stroke="#2a2a2a" stroke-width="1"/>
+        <!-- ATH dashed line -->
+        <line x1="0" y1="34" x2="420" y2="34" stroke="#ff6a00" stroke-width="0.6" stroke-dasharray="5,4" opacity="0.4"/>
+        <text x="8" y="28" fill="#ff6a00" font-size="9" font-family="IBM Plex Mono, monospace" opacity="0.8">ATH $5,595</text>
+        <!-- price labels -->
+        <text x="390" y="48"  fill="#444" font-size="8" font-family="IBM Plex Mono, monospace">$5,200</text>
+        <text x="390" y="92"  fill="#444" font-size="8" font-family="IBM Plex Mono, monospace">$4,900</text>
+        <text x="390" y="136" fill="#444" font-size="8" font-family="IBM Plex Mono, monospace">$4,600</text>
+        <text x="390" y="180" fill="#444" font-size="8" font-family="IBM Plex Mono, monospace">$4,300</text>
+        <!-- bull run fill -->
+        <path d="M 0,168 L 22,154 L 44,136 L 66,110 L 88,80 L 110,50 L 116,38 L 122,50 L 132,64 L 144,70 L 154,66 L 166,78 L 178,84 L 190,76 L 202,66 L 210,60 L 210,220 L 0,220 Z" fill="url(#gf1)"/>
+        <!-- bull run line -->
+        <path d="M 0,168 L 22,154 L 44,136 L 66,110 L 88,80 L 110,50 L 116,38 L 122,50 L 132,64 L 144,70 L 154,66 L 166,78 L 178,84 L 190,76 L 202,66 L 210,60" fill="none" stroke="#ff9a40" stroke-width="2.2" filter="url(#gl)"/>
+        <!-- ATH marker -->
+        <circle cx="116" cy="38" r="4.5" fill="#ff6a00" filter="url(#gl)"/>
+        <text x="108" y="30" fill="#ff6a00" font-size="8" font-family="IBM Plex Mono, monospace" text-anchor="middle">29 Jan</text>
+        <!-- bear drop fill -->
+        <path d="M 210,60 L 222,68 L 236,82 L 250,100 L 265,118 L 278,132 L 292,140 L 308,146 L 322,144 L 336,148 L 350,152 L 364,149 L 378,153 L 392,151 L 392,220 L 210,220 Z" fill="url(#gf2)"/>
+        <!-- bear drop line -->
+        <path d="M 210,60 L 222,68 L 236,82 L 250,100 L 265,118 L 278,132 L 292,140 L 308,146 L 322,144 L 336,148 L 350,152 L 364,149 L 378,153 L 392,151" fill="none" stroke="#ff3333" stroke-width="2.2" filter="url(#gl)"/>
+        <!-- current price marker -->
+        <circle cx="392" cy="151" r="5" fill="#ff3333" filter="url(#gl)"/>
+        <line x1="392" y1="151" x2="392" y2="220" stroke="#ff3333" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+        <!-- support zone band -->
+        <rect x="0" y="153" width="420" height="22" fill="rgba(34,197,94,0.05)"/>
+        <line x1="0" y1="153" x2="390" y2="153" stroke="#22c55e" stroke-width="0.8" stroke-dasharray="5,5" opacity="0.45"/>
+        <text x="8" y="165" fill="#22c55e" font-size="8" font-family="IBM Plex Mono, monospace" opacity="0.75">Support $4,380–$4,220</text>
+        <!-- current price label -->
+        <text x="370" y="145" fill="#ff3333" font-size="9" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">$4,558</text>
+        <!-- date labels -->
+        <text x="6"   y="214" fill="#444" font-size="8" font-family="IBM Plex Mono, monospace">Jan 26</text>
+        <text x="104" y="214" fill="#ff6a00" font-size="8" font-family="IBM Plex Mono, monospace">29 Jan ATH</text>
+        <text x="204" y="214" fill="#444" font-size="8" font-family="IBM Plex Mono, monospace">Apr</text>
+        <text x="364" y="214" fill="#ff3333" font-size="8" font-family="IBM Plex Mono, monospace">19 Mei</text>
+      </svg>`;
+
+    const visualContent = isGold
+      ? `<div class="featured-visual" style="position:relative;overflow:hidden;background:linear-gradient(160deg,#0d0800 0%,#1a1000 40%,#0a0a0a 100%);">${goldSVG}</div>`
+      : `<div class="featured-visual"><div class="feat-icon">${featItem.icon || '📈'}</div></div>`;
+
     featuredWrap.innerHTML = `
       <div class="featured-card">
-        <div class="featured-visual">
-          <div class="feat-icon">${featItem.icon || '📈'}</div>
-        </div>
+        ${visualContent}
         <div class="featured-body">
           <div class="feat-meta">
             <span class="tag">${featItem.kategori}</span>
