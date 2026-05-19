@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yield US Treasury 30-tahun menembus 5% setelah Moody's menurunkan rating kredit AS dari Aaa ke Aa1. Analisis dampak ke pasar crypto, saham, dan ekonomi global." />
+  <meta property="og:title" content="US Treasury Yield Tembus 5%: Moody's Downgrade & Ancaman Fiskal Amerika — Indonesian Secret Entry" />
+  <meta property="og:description" content="Breakdown lengkap krisis yield US Treasury, downgrade Moody's, dan dampaknya ke pasar global dan crypto." />
+  <meta property="og:type" content="article" />
+  <title>US Treasury Yield Tembus 5%: Moody's Downgrade & Krisis Fiskal — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* ═══ NAVBAR ═══ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    .has-drop { position: relative; }
+    .has-drop .dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-width: 220px;
+      padding: 8px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══ ARTICLE HERO ═══ */
+    #article-hero {
+      position: relative;
+      padding: 80px 0 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,106,0,.08) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .article-hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 860px;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 24px; display: flex; gap: 0; align-items: center; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 6vw, 4.8rem);
+      line-height: 1.0;
+      letter-spacing: .02em;
+      color: var(--text-bright);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .article-title .hl { color: var(--accent); }
+
+    .article-meta {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .article-meta .sep { color: var(--border); }
+
+    /* Hero visual strip */
+    .hero-visual {
+      margin-top: 32px;
+      position: relative;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      height: 260px;
+      background: linear-gradient(160deg, #050a14 0%, #0a1425 40%, #0a0a0a 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      width: 100%;
+      max-width: 100%;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(255,51,51,.10) 0%, transparent 70%);
+    }
+    .hero-diagram {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 100%;
+      padding: 0 24px;
+      overflow: hidden;
+    }
+    .chart-svg { width: 100%; height: auto; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══ ARTICLE BODY LAYOUT ═══ */
+    #article-body {
+      position: relative; z-index: 1;
+      padding: 0 0 96px;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { order: -1; }
+    }
+
+    /* ═══ PROSE ═══ */
+    .prose { max-width: 100%; min-width: 0; }
+
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      color: var(--text-bright);
+      letter-spacing: .04em;
+      line-height: 1.05;
+      margin: 36px 0 12px;
+      padding-top: 4px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+
+    .prose h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--accent2);
+      letter-spacing: .04em;
+      margin: 32px 0 12px;
+    }
+
+    .prose p {
+      color: var(--text);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .prose strong { color: var(--text-bright); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
+    .prose em { color: var(--accent2); font-style: italic; }
+
+    .prose ul, .prose ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .prose li {
+      color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px;
+    }
+    .prose li::marker { color: var(--accent); }
+
+    /* Callout boxes */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    /* Divider */
+    .prose-divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 36px 0;
+    }
+
+    /* Key point card */
+    .key-points {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 20px;
+      margin: 24px 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .key-points-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; min-width: 0; flex: 1; word-break: break-word; }
+
+    /* Concept block */
+    .concept-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .concept-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .concept-header .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--danger); }
+    .concept-body { padding: 20px; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 0; margin: 8px 0; }
+    .step {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      font-family: var(--font-display); font-size: 2rem; line-height: 1;
+      color: var(--accent); opacity: .35;
+    }
+    .step-body h4 { font-size: .9rem; color: var(--text-bright); margin-bottom: 6px; }
+    .step-body p  { font-size: .85rem; color: var(--text-dim); margin-bottom: 0; overflow-wrap: break-word; }
+
+    /* Data table */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+    }
+    .prose table { width: 100%; border-collapse: collapse; min-width: 400px; }
+    .prose th {
+      background: var(--bg-card2); padding: 10px 14px;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); text-align: left; border-bottom: 1px solid var(--border);
+    }
+    .prose td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: .85rem; }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:hover td { background: rgba(255,106,0,.03); }
+    td.up   { color: var(--danger);  font-family: var(--font-mono); font-size: .82rem; }
+    td.down { color: var(--success); font-family: var(--font-mono); font-size: .82rem; }
+    td.mono { font-family: var(--font-mono); font-size: .82rem; color: var(--text-bright); }
+
+    /* Share */
+    .share-bar {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+    }
+    .share-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); }
+    .share-btn {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 14px; border-radius: var(--radius);
+      border: 1px solid var(--border); color: var(--text-dim);
+      cursor: pointer; transition: all .2s; background: transparent;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ═══ SIDEBAR ═══ */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); overflow: hidden;
+    }
+    @media (min-width: 769px) {
+      .sidebar-widget { position: sticky; top: 88px; }
+    }
+    .widget-head {
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .widget-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.4);} }
+    .widget-body { padding: 20px; }
+
+    /* TOC */
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      display: block; padding: 7px 10px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em;
+      color: var(--text-dim); border-radius: var(--radius);
+      transition: all .2s;
+    }
+    .toc-list a:hover { color: var(--accent); background: rgba(255,106,0,.06); text-decoration: none; }
+    .toc-list a.active { color: var(--accent); border-left: 2px solid var(--accent); padding-left: 8px; }
+    .toc-list li + li { border-top: 1px solid var(--border); }
+
+    /* Related */
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+      transition: padding-left .2s;
+    }
+    .related-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-item:hover { padding-left: 4px; }
+    .related-body { flex: 1; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.35; }
+    .related-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; font-size: .75rem; }
+
+    /* Live data strip */
+    .live-strip {
+      border: 1px solid rgba(255,51,51,.25);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,51,51,.04) 100%);
+      overflow: hidden;
+    }
+    .live-strip-head {
+      padding: 10px 16px; border-bottom: 1px solid rgba(255,51,51,.15);
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--danger); display: flex; align-items: center; gap: 8px;
+    }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--danger); animation: pulse 1.2s infinite; }
+    .yield-row {
+      padding: 10px 16px; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .yield-row:last-child { border-bottom: none; }
+    .yield-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
+    .yield-val { font-family: var(--font-display); font-size: 1.1rem; color: var(--danger); }
+    .yield-chg { font-family: var(--font-mono); font-size: 9px; color: var(--danger); }
+
+    /* CTA Banner */
+    .cta-card {
+      border: 1px solid rgba(255,106,0,.2);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,106,0,.05) 100%);
+      padding: 24px;
+      text-align: center;
+    }
+    .cta-card .cta-emoji { font-size: 2.4rem; margin-bottom: 12px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: var(--radius);
+      transition: opacity .2s, transform .2s;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-1px); text-decoration: none; }
+
+    /* Next/Prev */
+    .article-nav {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+      position: relative; z-index: 1;
+    }
+    .article-nav-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    @media (max-width: 600px) { .article-nav-inner { grid-template-columns: 1fr; } }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color .3s, transform .25s;
+    }
+    .nav-card:hover { border-color: rgba(255,106,0,.3); transform: translateY(-2px); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat  { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; color: var(--accent); }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    /* Scroll top */
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    /* Hero image */
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      position: absolute; inset: 0;
+    }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 768px) {
+      .container      { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body   { padding: 0 0 40px; }
+      .article-nav    { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+      #article-hero        { padding: 68px 0 0; }
+      .article-hero-inner  { max-width: 100%; }
+      .hero-visual         { height: 130px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .hero-diagram        { padding: 0 8px; }
+      .article-title       { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta        { gap: 6px; font-size: 9px; letter-spacing: .04em; margin-bottom: 16px; }
+      .article-tags        { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb          { margin-bottom: 12px; font-size: 9px; }
+      .breadcrumb .sep     { margin: 0 4px; }
+      .prose h2       { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose h3       { font-size: 1rem; margin: 16px 0 6px; }
+      .prose p        { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li       { font-size: .84rem; line-height: 1.6; margin-bottom: 4px; }
+      .prose ul, .prose ol { padding-left: 15px; margin-bottom: 12px; }
+      .prose strong   { word-break: break-word; }
+      .callout        { padding: 10px 12px; margin: 14px 0; }
+      .callout p      { font-size: .83rem; }
+      .key-points        { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .key-points-title  { font-size: 8px; margin-bottom: 8px; }
+      .kp-item           { gap: 8px; }
+      .kp-icon           { font-size: .8rem; }
+      .kp-text           { font-size: .81rem; line-height: 1.5; }
+      .concept-block     { margin: 14px 0; border-radius: var(--radius); }
+      .concept-header    { padding: 8px 12px; font-size: 8px; }
+      .concept-body      { padding: 10px; }
+      .step              { grid-template-columns: 24px 1fr; gap: 8px; padding: 12px 0; }
+      .step-num          { font-size: 1.1rem; }
+      .step-body h4      { font-size: .8rem; margin-bottom: 2px; }
+      .step-body p       { font-size: .78rem; }
+      .table-wrap        { margin: 12px 0; }
+      .prose table       { font-size: .78rem; min-width: 300px; }
+      .prose th          { padding: 7px 9px; font-size: 8px; }
+      .prose td          { padding: 7px 9px; }
+      .prose-divider     { margin: 16px 0; }
+      .share-bar         { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .share-label       { font-size: 9px; }
+      .share-btn         { padding: 5px 9px; font-size: 8px; letter-spacing: .06em; }
+      .article-sidebar   { gap: 16px; }
+      .sidebar-widget    { position: static; }
+      .widget-head       { padding: 9px 12px; font-size: 8px; }
+      .widget-body       { padding: 10px; }
+      .toc-list a        { padding: 5px 7px; font-size: 9px; }
+      .related-title     { font-size: .75rem; }
+      .cta-card          { padding: 16px; }
+      .cta-card h4       { font-size: 1.05rem; }
+      .cta-card p        { font-size: .77rem; }
+      .cta-btn           { font-size: 9px; padding: 8px 14px; }
+      .nav-card          { padding: 14px; }
+      .nav-card .nav-title { font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index-v1.1.html" class="nav-logo" style="text-decoration:none;">Signal<span>.</span>Market</a>
+      <ul class="nav-links">
+        <li><a href="index-v1.1.html">Trader Area</a></li>
+        <li><a href="index-v1.1.html#charts">Charts</a></li>
+        <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+        <li class="has-drop">
+          <a href="artikel-news.html" class="active">Artikel ▾</a>
+          <div class="dropdown">
+            <a href="artikel-liquidity-sweep.html">Liquidity Sweep</a>
+            <a href="artikel-news.html">On-Chain Analysis</a>
+            <a href="artikel-news.html">Fair Value Gap</a>
+            <a href="us-treasury-yield-5persen.html" style="color:var(--accent);">US Treasury Yield</a>
+          </div>
+        </li>
+        <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      </ul>
+      <div class="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index-v1.1.html">Trader Area</a>
+      <a href="index-v1.1.html#charts">Charts</a>
+      <a href="index-v1.1.html#calendar">Calendar</a>
+      <a href="artikel-news.html">Artikel &amp; News</a>
+      <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HERO ═══ -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a>
+        <span class="sep">/</span>
+        <a href="artikel-news.html">Artikel &amp; News</a>
+        <span class="sep">/</span>
+        <span>Makro · US Treasury</span>
+      </div>
+
+      <div class="article-tags">
+        <span class="atag">🔴 Breaking</span>
+        <span class="atag">Makro</span>
+        <span class="atag-dim">US Treasury</span>
+        <span class="atag-dim">Bonds</span>
+        <span class="atag-dim">Moody's</span>
+        <span class="atag-dim">FOMC</span>
+      </div>
+
+      <h1 class="article-title">
+        US TREASURY YIELD <span class="hl">TEMBUS 5%</span><br>
+        MOODY'S DOWNGRADE &amp; KRISIS FISKAL AMERICA
+      </h1>
+
+      <div class="article-meta">
+        <span>📅 19 Mei 2025</span>
+        <span class="sep">|</span>
+        <span>✍️ ISE Research Desk</span>
+        <span class="sep">|</span>
+        <span>⏱ ~9 menit baca</span>
+        <span class="sep">|</span>
+        <span>🏷 Makro · Bonds · Global Risk</span>
+      </div>
+
+      <!-- Hero Visual — yield curve SVG diagram -->
+      <div class="hero-visual">
+        <!-- Inline WebP-style gradient background untuk performa ringan -->
+        <div style="position:absolute;inset:0;background:linear-gradient(120deg,#050a18 0%,#0d1a2e 50%,#0a0a0a 100%);"></div>
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="yieldGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#ff3333" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Grid lines -->
+            <line x1="40" y1="20" x2="740" y2="20" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="40" y1="60" x2="740" y2="60" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="40" y1="100" x2="740" y2="100" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="40" y1="140" x2="740" y2="140" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="40" y1="180" x2="740" y2="180" stroke="#2a2a2a" stroke-width="1"/>
+            <!-- Y labels -->
+            <text x="34" y="24" font-family="IBM Plex Mono,monospace" font-size="9" fill="#555" text-anchor="end">5.2%</text>
+            <text x="34" y="64" font-family="IBM Plex Mono,monospace" font-size="9" fill="#555" text-anchor="end">4.8%</text>
+            <text x="34" y="104" font-family="IBM Plex Mono,monospace" font-size="9" fill="#555" text-anchor="end">4.4%</text>
+            <text x="34" y="144" font-family="IBM Plex Mono,monospace" font-size="9" fill="#555" text-anchor="end">4.0%</text>
+            <text x="34" y="184" font-family="IBM Plex Mono,monospace" font-size="9" fill="#555" text-anchor="end">3.6%</text>
+            <!-- Yield curve area -->
+            <polygon points="40,175 100,168 160,155 220,148 280,130 340,110 380,88 400,70 430,55 460,48 500,52 540,60 580,65 620,62 660,58 700,52 740,48 740,180 40,180" fill="url(#yieldGrad)"/>
+            <!-- 30Y yield line -->
+            <polyline points="40,175 100,168 160,155 220,148 280,130 340,110 380,88 400,70 430,55 460,48 500,52 540,60 580,65 620,62 660,58 700,52 740,48" fill="none" stroke="#ff3333" stroke-width="2" filter="url(#glow)"/>
+            <!-- 5% threshold line -->
+            <line x1="40" y1="48" x2="740" y2="48" stroke="#ff6a00" stroke-width="1" stroke-dasharray="6,4"/>
+            <text x="748" y="52" font-family="IBM Plex Mono,monospace" font-size="9" fill="#ff6a00">5%</text>
+            <!-- Current yield dot -->
+            <circle cx="740" cy="48" r="5" fill="#ff3333" filter="url(#glow)"/>
+            <circle cx="740" cy="48" r="9" fill="none" stroke="#ff3333" stroke-width="1" opacity="0.5">
+              <animate attributeName="r" values="9;14;9" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <!-- X labels -->
+            <text x="40"  y="196" font-family="IBM Plex Mono,monospace" font-size="9" fill="#444" text-anchor="middle">Sep'24</text>
+            <text x="160" y="196" font-family="IBM Plex Mono,monospace" font-size="9" fill="#444" text-anchor="middle">Nov'24</text>
+            <text x="280" y="196" font-family="IBM Plex Mono,monospace" font-size="9" fill="#444" text-anchor="middle">Jan'25</text>
+            <text x="400" y="196" font-family="IBM Plex Mono,monospace" font-size="9" fill="#444" text-anchor="middle">Mar'25</text>
+            <text x="500" y="196" font-family="IBM Plex Mono,monospace" font-size="9" fill="#444" text-anchor="middle">Apr'25</text>
+            <text x="620" y="196" font-family="IBM Plex Mono,monospace" font-size="9" fill="#444" text-anchor="middle">Mei'25</text>
+            <!-- Label -->
+            <text x="60" y="42" font-family="IBM Plex Mono,monospace" font-size="9" fill="#ff6a00" letter-spacing="2">30Y US TREASURY YIELD</text>
+            <!-- Moody's downgrade marker -->
+            <line x1="620" y1="20" x2="620" y2="180" stroke="#ff6a00" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+            <text x="622" y="36" font-family="IBM Plex Mono,monospace" font-size="8" fill="#ff6a00">MOODY'S</text>
+            <text x="622" y="47" font-family="IBM Plex Mono,monospace" font-size="8" fill="#ff6a00">DOWNGRADE</text>
+          </svg>
+        </div>
+      </div>
+
+    </div><!-- .article-hero-inner -->
+  </div>
+</div><!-- #article-hero -->
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- ═══════ MAIN CONTENT ═══════ -->
+      <article class="prose">
+
+        <!-- RINGKASAN -->
+        <div class="key-points">
+          <div class="key-points-title">Ringkasan Eksekutif</div>
+          <div class="kp-list">
+            <div class="kp-item">
+              <span class="kp-icon">🔴</span>
+              <span class="kp-text"><strong>30-year Treasury yield menembus 5.011%</strong> pada 19 Mei 2025 — pertama kali sejak April 2025, dan mendekati rekor tertinggi sejak Juli 2007.</span>
+            </div>
+            <div class="kp-item">
+              <span class="kp-icon">⚠️</span>
+              <span class="kp-text"><strong>Moody's mendowngrade rating kredit AS</strong> dari Aaa ke Aa1 pada 16 Mei 2025 — menjadikan semua lembaga rating besar kini memberi AS second-highest rating.</span>
+            </div>
+            <div class="kp-item">
+              <span class="kp-icon">📉</span>
+              <span class="kp-text"><strong>10-year yield di atas 4.5%</strong>, sementara defisit federal AS diperkirakan melonjak ke hampir 9% dari PDB — tertinggi dalam sejarah modern.</span>
+            </div>
+            <div class="kp-item">
+              <span class="kp-icon">🌏</span>
+              <span class="kp-text"><strong>China dan Jepang terus kurangi kepemilikan Treasury</strong>. Inggris kini menjadi pemegang asing terbesar kedua dengan $779.3 miliar.</span>
+            </div>
+            <div class="kp-item">
+              <span class="kp-icon">₿</span>
+              <span class="kp-text"><strong>Crypto merespons mixed</strong> — Bitcoin naik ke $106K di sisi lain, tapi Nasdaq futures turun ~2% mencerminkan risk-off sentiment yang meningkat.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <!-- SECTION 1 -->
+        <h2 id="apa-yang-terjadi">Apa yang Terjadi pada 19 Mei 2025?</h2>
+        <p>
+          Pasar obligasi global mengalami guncangan pada 19 Mei 2025 ketika yield US Treasury 30-tahun menembus level psikologis 5% untuk pertama kalinya sejak April 2025. Yield sempat mencapai intraday high di <strong>5.011%</strong> — level yang membuat seluruh komunitas investor global berhenti sejenak.
+        </p>
+        <p>
+          Ini bukan sekadar angka. Level 5% pada obligasi paling "aman" di dunia adalah sinyal bahwa investor mulai <em>meminta kompensasi lebih tinggi</em> untuk risiko yang mereka rasakan semakin nyata: defisit yang membengkak, utang yang melonjak, dan ketidakpastian kebijakan fiskal yang tak kunjung mereda.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠ Konteks Historis</div>
+          <p>Closing yield tertinggi 30-year Treasury dalam memori pasar modern adalah <strong>5.11% pada 19 Oktober 2023</strong> — level tertinggi sejak Juli 2007. Yield saat ini hanya 12 basis poin di bawah rekor tersebut. Penembusan ke atas bisa menjadi katalis kepanikan pasar yang lebih luas.</p>
+        </div>
+
+        <p>
+          Pemicu langsungnya adalah keputusan Moody's Ratings pada Jumat malam, 16 Mei 2025: <strong>AS kehilangan rating kredit Aaa yang telah disandangnya sejak 1919</strong>. Sebuah era berakhir.
+        </p>
+
+        <!-- SECTION 2 -->
+        <h2 id="moodys-downgrade">Moody's Downgrade: Apa Artinya?</h2>
+        <p>
+          Moody's menurunkan sovereign credit rating Amerika Serikat dari <strong>Aaa ke Aa1</strong> — satu notch di bawah tertinggi, dalam skala 21-notch mereka. Ini menyamakan posisi Moody's dengan S&amp;P (yang sudah downgrade AS ke AA+ sejak 2011) dan Fitch (yang downgrade ke AA+ pada 2023).
+        </p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            <span>Alasan Moody's Downgrade AS</span>
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Defisit Fiskal yang Tak Terkendali</h4>
+                  <p>Defisit federal AS diproyeksikan melonjak dari 6.4% PDB menjadi hampir 9% PDB — level yang tidak pernah terjadi di luar periode perang dunia atau krisis ekonomi besar.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>Biaya Bunga yang Meledak</h4>
+                  <p>Dengan utang federal melampaui $36 triliun dan yield yang tinggi, biaya debt servicing per tahun sudah melebihi anggaran pertahanan AS. Setiap refinancing memperburuk beban.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Kegagalan Politik Berulang</h4>
+                  <p>Moody's menyebut "successive US administrations and Congress have failed to agree on measures to reverse the trend of large annual fiscal deficits" — ini bukan masalah satu presiden, tapi pola sistemik.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>RUU Pajak yang Memperburuk Situasi</h4>
+                  <p>RUU "One Big Beautiful Bill Act" yang tengah dibahas Kongres diestimasi CBO akan menambah $3.4 triliun utang hingga 2034 — tepat di tengah downgrade, sinyal yang sangat buruk.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Deutsche Bank menyebut ini sebagai <strong>"major symbolic move"</strong> — bukan karena mengubah fundamental langsung, melainkan karena Moody's adalah yang terakhir bertahan di Aaa. Kini tidak ada lagi pagar terakhir. Semua lembaga rating besar sepakat: AS bukan lagi debitor paling aman di planet ini.
+        </p>
+
+        <!-- SECTION 3 -->
+        <h2 id="yield-curve-anatomy">Anatomi Krisis Yield Saat Ini</h2>
+        <p>
+          Untuk memahami mengapa ini penting, kita perlu melihat pergerakan yield secara menyeluruh. Ini bukan lonjakan tunggal — ini adalah tren yang telah berlangsung berbulan-bulan.
+        </p>
+
+        <!-- DATA TABLE -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Instrumen</th>
+                <th>Yield Saat Ini</th>
+                <th>vs Sep 2024</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>3-Month T-Bill</strong></td>
+                <td class="mono">4.30%</td>
+                <td class="down">↓ dari 5.00%</td>
+                <td style="color:var(--text-dim);font-size:.8rem;">Fed cuts traction</td>
+              </tr>
+              <tr>
+                <td><strong>2-Year Note</strong></td>
+                <td class="mono">3.69%</td>
+                <td class="down">↓ dari 4.19%</td>
+                <td style="color:var(--text-dim);font-size:.8rem;">Short end moderating</td>
+              </tr>
+              <tr>
+                <td><strong>10-Year Note</strong></td>
+                <td class="mono">4.50%+</td>
+                <td class="up">↑ dari 3.60%</td>
+                <td style="color:var(--danger);font-size:.8rem;">⚠ Critical watch</td>
+              </tr>
+              <tr>
+                <td><strong>20-Year Bond</strong></td>
+                <td class="mono">4.80%</td>
+                <td class="up">↑ dari 4.00%</td>
+                <td style="color:var(--danger);font-size:.8rem;">⚠ Elevated</td>
+              </tr>
+              <tr>
+                <td><strong>30-Year Bond</strong></td>
+                <td class="mono">5.011%</td>
+                <td class="up">↑ dari 4.64%</td>
+                <td style="color:var(--danger);font-size:.8rem;">🔴 Level alarm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Yang anomali adalah ini: <strong>Federal Reserve telah memangkas suku bunga sebesar 100 basis poin sejak September 2024</strong>, yang seharusnya menekan yield jangka pendek. Dan memang benar — 3-month T-bill turun dari 5% ke 4.3%. Tapi yield jangka panjang justru bergerak berlawanan, naik signifikan.
+        </p>
+
+        <div class="callout">
+          <div class="callout-label">💡 Mengapa Ini Anomali?</div>
+          <p>Secara normal, ketika Fed memotong suku bunga, seluruh yield curve harus turun. Ketika yield jangka panjang naik saat Fed memotong — itu adalah sinyal bahwa pasar tidak percaya pemerintah mampu mengendalikan defisit. Investor meminta "term premium" yang lebih tinggi sebagai kompensasi risiko.</p>
+        </div>
+
+        <!-- SECTION 4 -->
+        <h2 id="rollover-trap">Rollover Trap: Bom Waktu di Pasar Treasury</h2>
+        <p>
+          Ada dimensi tersembunyi yang lebih mengkhawatirkan dari sekadar level yield saat ini: <strong>struktur utang jangka pendek AS yang sangat fragil</strong>.
+        </p>
+        <p>
+          Selama masa jabatan Menteri Keuangan Janet Yellen, AS sangat bergantung pada penerbitan surat utang jangka pendek (terutama 2-year note) untuk membiayai defisit. Hasilnya? Pada 2025, sekitar <strong>$5 triliun Treasury akan jatuh tempo dalam dua tahun ke depan</strong> — artinya harus di-refinancing pada suku bunga pasar yang berlaku.
+        </p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            <span>Mekanisme Rollover Risk</span>
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Treasury Terbitkan T-Bills Masif</h4>
+                  <p>Untuk menutup defisit $2 triliun per tahun, Treasury membanjiri pasar dengan short-term paper. Ukuran auction membengkak drastis sejak 2021.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>Jatuh Tempo Massal Tiba</h4>
+                  <p>$5 triliun Treasury jatuh tempo dalam 2 tahun ke depan. Ini harus dirollover — diterbitkan ulang dengan kondisi pasar saat ini, yang berarti yield yang jauh lebih tinggi.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Biaya Bunga Membengkak Otomatis</h4>
+                  <p>Setiap 1% kenaikan yield pada $5 triliun utang = tambahan $50 miliar biaya bunga per tahun. Ini berulang setiap siklus refinancing.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>Risiko Sistemik</h4>
+                  <p>Jika satu auction besar gagal atau "weak", efeknya langsung ke repo market, short-term funding rates, dan seluruh risk asset global — termasuk crypto.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5 -->
+        <h2 id="asing-jual">Pemain Asing Mundur: Siapa yang Beli Treasury AS?</h2>
+        <p>
+          Salah satu perkembangan paling signifikan dalam dinamika pasar Treasury 2025 adalah <strong>pergeseran kepemilikan asing</strong> yang mencerminkan erosi kepercayaan terhadap aset AS.
+        </p>
+        <p>
+          Sebelumnya, China dan Jepang adalah dua pemegang asing terbesar US Treasury. Kini keduanya <strong>secara konsisten mengurangi kepemilikan selama 12 bulan terakhir</strong>. Akibatnya, Inggris naik posisi menjadi pemegang asing terbesar kedua dengan total <strong>$779.3 miliar</strong> — menggeser China.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">🚨 Implikasi Geopolitik</div>
+          <p>Pengurangan kepemilikan Treasury oleh China bukan sekadar keputusan investasi — ini adalah <strong>leverage geopolitik</strong>. Di tengah perang tarif Trump yang eskalatif, posisi China sebagai kreditur besar AS menjadi kartu negosiasi. Setiap berita dump Treasury China bisa langsung menekan dollar dan menaikkan yield.</p>
+        </div>
+
+        <p>
+          Untuk menarik pembeli baru menggantikan China dan Jepang, Treasury AS harus menawarkan yield yang lebih menarik — yang artinya membiarkan yield naik lebih tinggi lagi. Ini adalah lingkaran setan yang sulit diputus tanpa reformasi fiskal serius.
+        </p>
+
+        <!-- SECTION 6 -->
+        <h2 id="dampak-ke-market">Dampak ke Pasar: Crypto, Saham &amp; Dollar</h2>
+        <p>
+          Kenaikan yield Treasury jangka panjang bukan hanya masalah pasar obligasi — efeknya menjalar ke seluruh ekosistem aset finansial global.
+        </p>
+
+        <h3>Saham AS (Equity Market)</h3>
+        <p>
+          Nasdaq futures turun sekitar <strong>2%</strong> pada hari yield menembus 5%. Ini masuk akal secara mekanis: yield Treasury yang lebih tinggi adalah "rate bebas risiko" yang lebih tinggi, yang mengurangi nilai relatif ekuitas. Secara khusus, saham growth dan tech — yang valuasinya sangat bergantung pada diskon arus kas masa depan — paling terdampak.
+        </p>
+
+        <h3>Dollar AS (DXY)</h3>
+        <p>
+          Yang anomali adalah pelemahan dollar di tengah kenaikan yield. Secara teori, yield lebih tinggi harus menarik kapital asing dan memperkuat dollar. Tapi yang terjadi sebaliknya — dollar melemah, menunjukkan bahwa pasar lebih khawatir dengan <strong>risiko fiskal AS</strong> daripada tergiur yield tinggi. Ini adalah sinyal "sell America" yang sesungguhnya.
+        </p>
+
+        <h3>Crypto &amp; Bitcoin</h3>
+        <p>
+          Respons crypto lebih nuanced. Bitcoin sempat menyentuh <strong>$106,000</strong> sebelum downgrade, lalu merosot ke area $103,000. Bandingkan dengan April 2025 ketika 30-year yield pertama kali menyentuh 5% saat "tariff tantrum" — BTC waktu itu berada di sekitar $75,000. Artinya, meski environment makro memburuk, BTC telah pulih signifikan.
+        </p>
+
+        <div class="callout tip">
+          <div class="callout-label">💡 Perspektif Trader</div>
+          <p>Bagi trader crypto: yield 30-year di atas 5% adalah sinyal <strong>risk-off yang kuat</strong>. Historically, saat episode ini terjadi (April 2025, Oktober 2023), BTC mengalami tekanan jangka pendek sebelum eventual recovery. Monitor level ini sebagai macro trigger untuk sizing posisi.</p>
+        </div>
+
+        <!-- SECTION 7 -->
+        <h2 id="skenario-ke-depan">Skenario ke Depan: 3 Kemungkinan</h2>
+        <p>
+          Dengan yield di level ini dan tekanan fiskal yang besar, ada tiga skenario yang sedang dipertimbangkan oleh pelaku pasar institusional.
+        </p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            <span>Skenario Makro US Treasury 2025</span>
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">A</div>
+                <div class="step-body">
+                  <h4>🟡 Soft Landing dengan Reformasi Fiskal</h4>
+                  <p>Kongres berhasil meloloskan pemangkasan belanja yang meaningful. Yield stabil di 4.5–5%, pasar kembali percaya, dollar menguat. Probabilitas: rendah jika RUU pajak baru tetap jalan.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">B</div>
+                <div class="step-body">
+                  <h4>🔴 Yield Terus Naik ke 5.5%+</h4>
+                  <p>Defisit terus melebar, China dump lebih banyak Treasury, failed auction terjadi. Fed terpaksa intervensi (QE baru). Dollar crash, inflasi kembali, semua aset bergerak kaotik. Tail risk scenario.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">C</div>
+                <div class="step-body">
+                  <h4>🟠 Status Quo Volatile</h4>
+                  <p>Yield berfluktuasi antara 4.5–5.2%. Pasar hidup dengan volatilitas tinggi, risk premium naik secara permanen. Ini adalah base case sebagian besar analis saat ini.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Mizuho's Jordan Rochester memproyeksikan yield 10-year akan mencapai <strong>5% sebelum akhir 2025</strong> — yang jika terjadi, akan menjadi level tertinggi dalam lebih dari dua dekade.
+        </p>
+
+        <!-- SECTION 8 -->
+        <h2 id="dampak-ke-indonesia">Relevansi untuk Pasar Indonesia</h2>
+        <p>
+          Krisis yield US Treasury bukan hanya drama Amerika — <strong>efeknya langsung terasa di pasar negara berkembang termasuk Indonesia</strong> melalui beberapa saluran transmisi:
+        </p>
+
+        <ul>
+          <li><strong>Capital outflow:</strong> Yield AS yang lebih tinggi menarik kapital keluar dari emerging markets. Rupiah dan IHSG rentan tertekan saat yield US melonjak.</li>
+          <li><strong>BI rate pressure:</strong> Bank Indonesia harus mempertimbangkan mempertahankan atau menaikkan suku bunga untuk menjaga spread yang menarik vs Treasury AS.</li>
+          <li><strong>SBN (Surat Berharga Negara):</strong> Investor asing yang pegang SBN bisa exit jika yield AS memberikan return lebih menarik dengan risiko lebih rendah — persepsi.</li>
+          <li><strong>Harga komoditas:</strong> Dollar yang melemah paradoksalnya bisa positif untuk komoditas (CPO, batu bara, nikel) — baik untuk export Indonesia.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">📡 Watch List untuk Trader Indonesia</div>
+          <p>Pantau level: <strong>USD/IDR</strong> untuk tekanan rupiah, <strong>10-year SBN yield</strong> sebagai kompensasi terhadap Treasury AS, dan <strong>IHSG foreign flow</strong> untuk mendeteksi capital flight dini. Jika 30-year Treasury yield bertahan di atas 5%, siapkan skenario defensif.</p>
+        </div>
+
+        <!-- SECTION 9 -->
+        <h2 id="kesimpulan">Kesimpulan: Era Baru Risk Premium</h2>
+        <p>
+          Yang sedang kita saksikan bukan volatilitas pasar biasa. Ini adalah <strong>repricing fundamental dari aset paling "aman" di dunia</strong>. Ketika investor mulai mempertanyakan "safe haven" status US Treasury — dan bahkan status dollar AS sebagai reserve currency global — maka seluruh struktur pasar keuangan global bergeser.
+        </p>
+        <p>
+          Moody's downgrade adalah konfirmasi simbolik dari apa yang sudah pasar katakan: <strong>fiskal Amerika sudah tidak lagi sustainable dengan trajectory saat ini</strong>. $36 triliun utang, defisit $2 triliun per tahun, biaya bunga yang melebihi anggaran militer, dan tidak ada political will untuk reformasi nyata.
+        </p>
+        <p>
+          Bagi trader dan investor, ini adalah environment di mana <em>correlation breakdown</em> sering terjadi — saham dan bonds bisa turun bersamaan, dollar melemah saat yield naik, dan crypto bergerak tidak linier dengan risk appetite. <strong>Fleksibilitas, diversifikasi, dan pemahaman makro yang solid menjadi lebih kritis dari sebelumnya.</strong>
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠ Disclaimer</div>
+          <p>Artikel ini adalah analisa makro untuk keperluan edukasi dan tidak merupakan saran investasi. Selalu lakukan riset mandiri dan konsultasi dengan profesional keuangan sebelum mengambil keputusan investasi.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- ═══════ SIDEBAR ═══════ -->
+      <aside class="article-sidebar">
+
+        <!-- Live Yield Data -->
+        <div class="live-strip">
+          <div class="live-strip-head">
+            <div class="live-dot"></div>
+            Live Treasury Yield
+          </div>
+          <div class="yield-row">
+            <span class="yield-label">30Y Bond</span>
+            <div>
+              <div class="yield-val">5.01%</div>
+              <div class="yield-chg">▲ +0.08%</div>
+            </div>
+          </div>
+          <div class="yield-row">
+            <span class="yield-label">10Y Note</span>
+            <div>
+              <div class="yield-val" style="color:var(--accent2)">4.52%</div>
+              <div class="yield-chg" style="color:var(--accent2)">▲ +0.06%</div>
+            </div>
+          </div>
+          <div class="yield-row">
+            <span class="yield-label">2Y Note</span>
+            <div>
+              <div class="yield-val" style="color:var(--text-bright);font-size:.95rem;">3.69%</div>
+              <div class="yield-chg" style="color:var(--text-dim)">▲ +0.02%</div>
+            </div>
+          </div>
+          <div class="yield-row">
+            <span class="yield-label">Rating AS</span>
+            <div style="text-align:right">
+              <div style="font-family:var(--font-display);font-size:1rem;color:var(--danger);">Aa1</div>
+              <div style="font-family:var(--font-mono);font-size:8px;color:var(--danger);">MOODY'S ↓</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#apa-yang-terjadi">Apa yang Terjadi 19 Mei?</a></li>
+              <li><a href="#moodys-downgrade">Moody's Downgrade</a></li>
+              <li><a href="#yield-curve-anatomy">Anatomi Krisis Yield</a></li>
+              <li><a href="#rollover-trap">Rollover Trap</a></li>
+              <li><a href="#asing-jual">Pemain Asing Mundur</a></li>
+              <li><a href="#dampak-ke-market">Dampak ke Market</a></li>
+              <li><a href="#skenario-ke-depan">Skenario ke Depan</a></li>
+              <li><a href="#dampak-ke-indonesia">Relevansi Indonesia</a></li>
+              <li><a href="#kesimpulan">Kesimpulan</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · FOMC</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text);">Liquidity Sweep: Cara Institusi Berburu Stop Loss di Market</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · On-Chain</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">On-Chain Analysis: Membaca Pergerakan Smart Money di Blockchain</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · SMC</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Fair Value Gap (FVG): Panduan Lengkap untuk Trader SMC</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · Dollar</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">DXY dan Dampaknya ke Harga Crypto &amp; Komoditas</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Analisa Live</h4>
+          <p>Dapatkan analisa makro, update yield curve, dan signal entry harian di grup Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Telegram Gratis →</a>
+        </div>
+
+      </aside>
+
+    </div><!-- .article-layout -->
+  </div><!-- .container -->
+</div><!-- #article-body -->
+
+<!-- ═══ NEXT / PREV ═══ -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel dan news terkini</span>
+      </a>
+      <a href="artikel-liquidity-sweep.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Lainnya →</span>
+        <span class="nav-cat">Crypto · SMC</span>
+        <span class="nav-title">Apa Itu Liquidity Sweep? Panduan SMC Lengkap</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="index-v1.1.html#charts">Charts</a></li>
+          <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-news.html">On-Chain Analysis</a></li>
+          <li><a href="artikel-news.html">Fair Value Gap</a></li>
+          <li><a href="us-treasury-yield-5persen.html" style="color:var(--accent);">US Treasury Yield</a></li>
+          <li><a href="artikel-news.html">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('US Treasury Yield Tembus 5%: Moody\'s Downgrade & Krisis Fiskal Amerika — Indonesian Secret Entry');
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+  }
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('30Y US Treasury yield tembus 5% pasca Moody\'s downgrade AS! Breakdown lengkap oleh @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
