@@ -626,11 +626,11 @@
       <li class="has-drop">
         <a href="#" class="active">Artikel & News ▾</a>
         <div class="dropdown">
-          <a href="#" onclick="filterByCategory('Crypto')">Crypto</a>
-          <a href="#" onclick="filterByCategory('Saham')">Saham</a>
-          <a href="#" onclick="filterByCategory('Komoditas')">Komoditas</a>
-          <a href="#" onclick="filterByCategory('Edukasi')">Edukasi</a>
-          <a href="#" onclick="filterByCategory('Makro')">Makro Ekonomi</a>
+          <a href="#" onclick="filterByCategory('Crypto');return false;">Crypto</a>
+          <a href="#" onclick="filterByCategory('Saham');return false;">Saham</a>
+          <a href="#" onclick="filterByCategory('Komoditas');return false;">Komoditas</a>
+          <a href="#" onclick="filterByCategory('Edukasi');return false;">Edukasi</a>
+          <a href="#" onclick="filterByCategory('Makro');return false;">Makro Ekonomi</a>
         </div>
       </li>
       <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
@@ -916,6 +916,17 @@ const ARTIKEL_DATA = [
     tanggal: "22 Feb 2025",
     readTime: "10 min read"
   },
+  {
+    id: 9,
+    featured: false,
+    kategori: "Saham",
+    icon: "📉",
+    judul: "IHSG −24% YTD: Penurunan Terdalam di Asia 2026",
+    deskripsi: "IHSG ambruk ke 6.568 — turun lebih dari 24% YTD, penurunan terdalam di antara indeks global 2026. MSCI rebalancing, rupiah Rp17.680, BI rate naik, dan efek geopolitik Iran jadi penyebab utama. Analisis lengkap beserta strategi menghadapi volatilitas ekstrem.",
+    url: "news-ihsg-turun-tajam-2026.html",
+    tanggal: "19 Mei 2026",
+    readTime: "10 min read"
+  },
   /* ════ TEMPLATE TAMBAH ARTIKEL BARU — copy block ini ════
   {
     id: 8,                              // ← ganti angka (unik)
@@ -1002,11 +1013,12 @@ const NEWS_DATA = [
   },
   {
     id: 7,
-    judul: "IHSG Menguat 1.2% — Saham Perbankan Jadi Motor Utama",
-    sumber: "IDX",
-    waktu: "1 hari lalu",
-    url: "https://idx.co.id",
-    badge: "bull"
+    judul: "IHSG −24% YTD: Penurunan Terdalam di Asia 2026 — MSCI Rebalancing & Rupiah Rp17.680",
+    sumber: "ISE Research",
+    waktu: "Hari ini · 19 Mei 2026",
+    url: "news-ihsg-turun-tajam-2026.html",
+    badge: "bear",
+    kategori: "Saham"
   },
   {
     id: 8,
@@ -1033,10 +1045,10 @@ const NEWS_DATA = [
    ✏️  EDIT TRENDING SIDEBAR DI SINI
    ══════════════════════════════════════════════════════ */
 const TRENDING_DATA = [
+  { judul: "IHSG −24% YTD: Penurunan Terdalam di Asia 2026", kategori: "Saham · IHSG" },
   { judul: "Analisis Emas 19 Mei 2026: XAU/USD $4.558", kategori: "Komoditas · Gold" },
   { judul: "Liquidity Sweep Strategy", kategori: "Edukasi · SMC" },
   { judul: "FOMC Minutes — Sinyal Suku Bunga The Fed", kategori: "Makro · FOMC" },
-  { judul: "Gold vs BTC Safe Haven", kategori: "Komoditas · Crypto" },
   { judul: "Krisis Hormuz & Dampak ke Market", kategori: "Geopolitik · Energi" },
 ];
 
@@ -1079,7 +1091,9 @@ function matchesFilter(item, search) {
 }
 
 function matchesNews(item, search) {
-  const matchCat = activeFilter === 'semua' || activeFilter === 'news';
+  const matchCat =
+    activeFilter === 'semua' || activeFilter === 'news' ||
+    (item.kategori && item.kategori.toLowerCase() === activeFilter.toLowerCase());
   const matchSearch =
     !search ||
     item.judul?.toLowerCase().includes(search) ||
@@ -1254,8 +1268,23 @@ function renderTrending() {
 }
 
 // Init
-renderAll();
-renderTrending();
+// Pick up category filter passed via localStorage (e.g. from dropdown nav on article pages)
+const _savedFilter = localStorage.getItem('iseFilter');
+if (_savedFilter) {
+  localStorage.removeItem('iseFilter');
+  const matchingPill = [...document.querySelectorAll('.pill')].find(
+    p => p.textContent.trim().toLowerCase() === _savedFilter.toLowerCase()
+  );
+  if (matchingPill) {
+    setFilter(_savedFilter, matchingPill);
+  } else {
+    renderAll();
+    renderTrending();
+  }
+} else {
+  renderAll();
+  renderTrending();
+}
 
 // Navbar scroll
 const navbar = document.getElementById('navbar');

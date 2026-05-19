@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IHSG ambruk ke 6.568 — turun lebih dari 24% YTD, penurunan terdalam di antara indeks global 2026. Analisis penyebab, faktor risiko, dan strategi menghadapi volatilitas ekstrem." />
+  <meta property="og:title" content="IHSG −24% YTD: Penurunan Terdalam di Asia 2026 — Indonesian Secret Entry" />
+  <meta property="og:description" content="Update aktual 19 Mei 2026 — IHSG di 6.568, turun 24% YTD. MSCI rebalancing, rupiah Rp17.680, BI rate naik, Iran war effect." />
+  <meta property="og:type" content="article" />
+  <title>IHSG −24% YTD: Penurunan Terdalam di Asia 2026 — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.65; overflow-x: clip; width: 100%; word-break: break-word; overflow-wrap: break-word; }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: .4; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* NAVBAR */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(18px) saturate(180%); background: rgba(10,10,10,.88); border-bottom: 1px solid var(--border); transition: box-shadow .3s; }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: .08em; color: var(--text-bright); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+    .nav-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); padding: 8px 14px; border-radius: var(--radius); transition: color .2s, background .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); background: rgba(255,106,0,.08); text-decoration: none; }
+    .has-drop { position: relative; }
+    .has-drop .dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--bg-card2); border: 1px solid var(--border); border-radius: var(--radius); min-width: 220px; padding: 8px 0; box-shadow: 0 16px 40px rgba(0,0,0,.6); }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; } .burger { display: flex; }
+      .mobile-menu.open { display: flex; flex-direction: column; background: var(--bg-card); border-top: 1px solid var(--border); padding: 16px 24px 24px; gap: 2px; }
+      .mobile-menu a { display: block; padding: 10px 0; font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); border-bottom: 1px solid var(--border); }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* HERO */
+    #article-hero { position: relative; padding: 80px 0 0; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,51,51,.07) 0%, transparent 65%); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%); animation: gridShift 20s linear infinite; }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+    .article-hero-inner { position: relative; z-index: 1; width: 100%; max-width: 860px; padding-bottom: 0; overflow: hidden; }
+    .breadcrumb { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 24px; display: flex; gap: 0; align-items: center; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag { font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent); }
+    .atag-red { border-color: var(--danger); color: var(--danger); }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+    .article-title { font-family: var(--font-display); font-size: clamp(1.6rem, 6vw, 4.8rem); line-height: 1.0; letter-spacing: .02em; color: var(--text-bright); margin-bottom: 20px; opacity: 0; animation: fadeUp .6s .1s forwards; overflow-wrap: break-word; word-break: break-word; }
+    .article-title .hl { color: var(--accent); }
+    .article-title .hl-red { color: var(--danger); }
+    .article-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim); margin-bottom: 24px; opacity: 0; animation: fadeUp .6s .2s forwards; }
+    .article-meta .sep { color: var(--border); }
+    .live-badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; color: var(--danger); text-transform: uppercase; }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--danger); animation: blink 1.2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero-visual { margin-top: 32px; position: relative; border-radius: var(--radius-lg) var(--radius-lg) 0 0; overflow: hidden; height: 260px; background: linear-gradient(160deg, #110000 0%, #1a0500 40%, #0a0a0a 100%); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-bottom: none; width: 100%; max-width: 100%; }
+    .hero-visual::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(255,51,51,.10) 0%, transparent 70%); }
+    .hero-diagram { position: relative; z-index: 1; width: 100%; max-width: 100%; padding: 0 24px; overflow: hidden; }
+    .chart-svg { width: 100%; height: auto; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* BODY */
+    #article-body { position: relative; z-index: 1; padding: 0 0 96px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 32px; align-items: start; padding-top: 36px; }
+    @media (max-width: 1024px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { order: -1; } }
+
+    /* PROSE */
+    .prose { max-width: 100%; min-width: 0; }
+    .prose h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2.2rem); color: var(--text-bright); letter-spacing: .04em; line-height: 1.05; margin: 36px 0 12px; padding-top: 4px; }
+    .prose h2:first-child { margin-top: 0; }
+    .prose p { color: var(--text); font-size: .95rem; line-height: 1.8; margin-bottom: 18px; }
+    .prose strong { color: var(--text-bright); font-weight: 600; }
+    .prose em { color: var(--accent2); font-style: italic; }
+    .prose ul { padding-left: 20px; margin-bottom: 20px; }
+    .prose li { color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px; }
+    .prose li::marker { color: var(--accent); }
+
+    .callout { border-left: 3px solid var(--accent); background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%); border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; margin: 20px 0; }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    .key-points { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-card); padding: 20px; margin: 24px 0; }
+    .key-points-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--danger); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; flex: 1; word-break: break-word; }
+
+    /* Ticker */
+    .ticker-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+    .ticker-card { flex: 1; min-width: 130px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); padding: 12px 14px; }
+    .ticker-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; }
+    .ticker-value { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: .04em; line-height: 1; }
+    .ticker-change { font-family: var(--font-mono); font-size: 10px; margin-top: 3px; }
+    .ticker-change.down { color: var(--danger); }
+    .ticker-change.up   { color: var(--success); }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius); border: 1px solid var(--border); }
+    .prose table { width: 100%; border-collapse: collapse; font-size: .83rem; min-width: 340px; }
+    .prose th { background: var(--bg-card2); padding: 9px 13px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); text-align: left; border-bottom: 1px solid var(--border); }
+    .prose td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:hover td { background: rgba(255,255,255,.02); }
+    td.neg { color: var(--danger); font-weight: 600; }
+    td.pos { color: var(--success); font-weight: 600; }
+    td.neu { color: var(--accent2); font-weight: 600; }
+
+    .prose-divider { width: 48px; height: 2px; background: var(--danger); border-radius: 2px; margin: 32px 0; }
+
+    /* Share */
+    .share-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--border); margin-top: 32px; padding-top: 20px; }
+    .share-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+    .share-btn { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: var(--radius); border: 1px solid var(--border); background: none; color: var(--text-dim); cursor: pointer; transition: color .2s, border-color .2s; }
+    .share-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Sidebar */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-card); overflow: hidden; }
+    @media (min-width: 769px) { .sidebar-widget { position: sticky; top: 88px; } }
+    .widget-head { padding: 14px 20px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); display: flex; justify-content: space-between; align-items: center; }
+    .widget-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--danger); animation: blink 1.2s infinite; }
+    .widget-body { padding: 20px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a { display: block; padding: 7px 10px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim); border-radius: var(--radius); transition: all .2s; }
+    .toc-list a:hover { color: var(--accent); background: rgba(255,106,0,.06); text-decoration: none; }
+    .toc-list a.active { color: var(--accent); border-left: 2px solid var(--accent); padding-left: 8px; }
+    .toc-list li + li { border-top: 1px solid var(--border); }
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px solid var(--border); transition: padding-left .2s; }
+    .related-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-item:hover { padding-left: 4px; }
+    .related-body { flex: 1; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.35; }
+    .related-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; font-size: .75rem; }
+    .cta-card { border: 1px solid rgba(255,106,0,.2); border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,106,0,.05) 100%); padding: 24px; text-align: center; }
+    .cta-card .cta-emoji { font-size: 2.4rem; margin-bottom: 12px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); margin-bottom: 16px; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 10px 20px; border-radius: var(--radius); transition: opacity .2s, transform .2s; }
+    .cta-btn:hover { opacity: .9; transform: translateY(-1px); text-decoration: none; }
+
+    /* Article nav */
+    .article-nav { border-top: 1px solid var(--border); padding: 48px 0; position: relative; z-index: 1; }
+    .article-nav-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .article-nav-inner { grid-template-columns: 1fr; } }
+    .nav-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-card); padding: 24px; display: flex; flex-direction: column; gap: 8px; transition: border-color .3s, transform .25s; }
+    .nav-card:hover { border-color: rgba(255,106,0,.3); transform: translateY(-2px); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; color: var(--accent); }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; opacity: .6; }
+
+    #scrollTop { position: fixed; bottom: 28px; right: 28px; z-index: 99; width: 44px; height: 44px; background: var(--accent); color: #fff; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s; }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body { padding: 0 0 40px; }
+      .article-nav { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+      #article-hero { padding: 68px 0 0; }
+      .article-hero-inner { max-width: 100%; }
+      .hero-visual { height: 130px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .hero-diagram { padding: 0 8px; }
+      .article-title { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta { gap: 6px; font-size: 9px; margin-bottom: 16px; }
+      .article-tags { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb { margin-bottom: 12px; font-size: 9px; }
+      .prose h2 { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose p { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li { font-size: .84rem; }
+      .callout { padding: 10px 12px; margin: 14px 0; }
+      .key-points { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .ticker-row { gap: 8px; }
+      .ticker-card { min-width: 100px; padding: 10px 12px; }
+      .ticker-value { font-size: 1.2rem; }
+      .table-wrap { margin: 12px 0; }
+      .prose table { font-size: .78rem; min-width: 300px; }
+      .prose th { padding: 7px 9px; font-size: 8px; }
+      .prose td { padding: 7px 9px; }
+      .share-bar { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .article-sidebar { gap: 16px; }
+      .sidebar-widget { position: static; }
+      .widget-body { padding: 10px; }
+      .nav-card { padding: 16px; }
+      footer { padding: 20px 0 14px; }
+      .footer-inner { gap: 14px; margin-bottom: 20px; }
+    }
+    @media (max-width: 400px) { .article-title { font-size: 1.45rem; } .hero-visual { height: 100px; } }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Saham')">Saham</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Komoditas')">Komoditas</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Edukasi')">Edukasi</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Makro')">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a><span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a><span class="sep">/</span>
+        Saham Indonesia
+      </div>
+
+      <div class="article-tags">
+        <span class="atag atag-red">⚠ Breaking</span>
+        <span class="atag">Saham</span>
+        <span class="atag atag-dim">IHSG</span>
+        <span class="atag atag-dim">BEI</span>
+        <span class="atag atag-dim">Makro</span>
+      </div>
+
+      <h1 class="article-title">
+        <span class="hl-red">IHSG</span> <span class="hl">−24%</span> YTD<br>Penurunan Terdalam di Asia
+      </h1>
+
+      <div class="article-meta">
+        <span class="live-badge"><span class="live-dot"></span>Live Update</span>
+        <span class="sep">·</span>
+        <span>19 Mei 2026</span>
+        <span class="sep">·</span>
+        <span>🕐 5 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero Chart: IHSG downtrend 2026 -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="areaDn" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity=".14"/>
+                <stop offset="100%" stop-color="#ff3333" stop-opacity=".0"/>
+              </linearGradient>
+            </defs>
+            <!-- Grid -->
+            <line x1="0" y1="48"  x2="680" y2="48"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="100" x2="680" y2="100" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="150" x2="680" y2="150" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="200" x2="680" y2="200" stroke="#2a2a2a" stroke-width=".5"/>
+            <!-- Price labels -->
+            <text x="4" y="44"  font-family="IBM Plex Mono" font-size="8" fill="#555">8.900</text>
+            <text x="4" y="96"  font-family="IBM Plex Mono" font-size="8" fill="#555">7.800</text>
+            <text x="4" y="146" font-family="IBM Plex Mono" font-size="8" fill="#555">7.200</text>
+            <text x="4" y="196" font-family="IBM Plex Mono" font-size="8" fill="#555">6.500</text>
+            <!-- Trend line going down -->
+            <path d="M40,58 L110,70 L175,90 L240,108 L305,128 L370,145 L435,158 L500,168 L565,180 L630,193 L660,198 L680,200 L680,240 L40,240 Z" fill="url(#areaDn)"/>
+            <polyline points="40,58 110,70 175,90 240,108 305,128 370,145 435,158 500,168 565,180 630,193 660,198 680,200" fill="none" stroke="#ff3333" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Candles bearish -->
+            <line x1="110" y1="76" x2="110" y2="62" stroke="#ff3333" stroke-width="1.5"/><rect x="106" y="64" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <line x1="240" y1="114" x2="240" y2="100" stroke="#ff3333" stroke-width="1.5"/><rect x="236" y="102" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <line x1="370" y1="151" x2="370" y2="137" stroke="#ff3333" stroke-width="1.5"/><rect x="366" y="139" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <line x1="500" y1="174" x2="500" y2="160" stroke="#ff3333" stroke-width="1.5"/><rect x="496" y="162" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <!-- Bounce candle -->
+            <line x1="630" y1="197" x2="630" y2="183" stroke="#22c55e" stroke-width="1.5"/><rect x="626" y="185" width="8" height="10" fill="#22c55e" opacity=".7" rx="1"/>
+            <!-- Event markers -->
+            <line x1="175" y1="14" x2="175" y2="220" stroke="#ff6a00" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="178" y="28" font-family="IBM Plex Mono" font-size="7.5" fill="#ff6a00">MSCI Drop</text>
+            <line x1="370" y1="14" x2="370" y2="220" stroke="#ff3333" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="373" y="28" font-family="IBM Plex Mono" font-size="7.5" fill="#ff3333">BI Rate Naik</text>
+            <line x1="565" y1="14" x2="565" y2="220" stroke="#ff3333" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="568" y="72" font-family="IBM Plex Mono" font-size="7.5" fill="#ff3333">Iran War</text>
+            <text x="568" y="82" font-family="IBM Plex Mono" font-size="7" fill="#ff3333" opacity=".7">Oil Shock</text>
+            <!-- Current level -->
+            <line x1="655" y1="14" x2="655" y2="220" stroke="#ff3333" stroke-width="1" stroke-dasharray="2 3" opacity=".4"/>
+            <text x="568" y="194" font-family="IBM Plex Mono" font-size="8" fill="#ff3333">6.568 ▼</text>
+            <!-- Time labels -->
+            <text x="38"  y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Jan</text>
+            <text x="168" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Feb</text>
+            <text x="298" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Mar</text>
+            <text x="428" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Apr</text>
+            <text x="580" y="228" font-family="IBM Plex Mono" font-size="8" fill="#ff3333">Mei '26</text>
+            <!-- YTD badge -->
+            <rect x="540" y="10" width="100" height="22" rx="4" fill="rgba(255,51,51,.12)" stroke="#ff3333" stroke-width=".5"/>
+            <text x="548" y="24" font-family="IBM Plex Mono" font-size="8.5" fill="#ff3333" font-weight="600">YTD −24% 🔻</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <article class="prose">
+
+        <!-- Ticker Data Aktual -->
+        <div class="ticker-row">
+          <div class="ticker-card" style="border-color:rgba(255,51,51,.3)">
+            <div class="ticker-label">IHSG (19 Mei)</div>
+            <div class="ticker-value" style="color:var(--danger)">6.568</div>
+            <div class="ticker-change down">▼ −0.46% pembukaan</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">YTD 2026</div>
+            <div class="ticker-value" style="color:var(--danger)">−24%</div>
+            <div class="ticker-change down">Terdalam di Asia</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">USD/IDR</div>
+            <div class="ticker-value" style="color:var(--danger)">17.680</div>
+            <div class="ticker-change down">▼ Depresiasi</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">BI Rate (ekspektasi)</div>
+            <div class="ticker-value" style="color:var(--accent2)">5.00%</div>
+            <div class="ticker-change down">▲ dari 4.75%</div>
+          </div>
+        </div>
+
+        <div class="key-points">
+          <div class="key-points-title">Update 19 Mei 2026</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">📉</span><span class="kp-text">IHSG dibuka melemah ke <strong>6.568</strong> — koreksi <strong>5 hari beruntun</strong>, turun lebih dari 24% YTD dengan penurunan terdalam di antara indeks-indeks Asia Pasifik.</span></div>
+            <div class="kp-item"><span class="kp-icon">🏦</span><span class="kp-text"><strong>Rapat Dewan Gubernur Bank Indonesia</strong> berlangsung hari ini (19–20 Mei). Pasar mengekspektasikan kenaikan suku bunga ke <strong>5%</strong> untuk merespons rupiah yang terkapar di Rp17.680.</span></div>
+            <div class="kp-item"><span class="kp-icon">💸</span><span class="kp-text">Investor asing <strong>net sell Rp460 miliar</strong> pada Senin (18/5). Saham top dibuang: ANTM, BREN, AMMN, ADRO, DSSA. MSCI rebalancing memicu outflow Rp50,6 triliun.</span></div>
+            <div class="kp-item"><span class="kp-icon">⚔️</span><span class="kp-text">Konflik AS–Iran memicu <strong>lonjakan minyak di atas $100/barel</strong> — memperkuat kekhawatiran inflasi global dan tekanan suku bunga higher-for-longer yang memukul aset emerging market.</span></div>
+          </div>
+        </div>
+
+        <h2 id="mengapa-ihsg">Mengapa IHSG Turun Paling Dalam?</h2>
+
+        <p>IHSG mencatat penurunan lebih dari <strong>24% sejak awal 2026</strong> — jauh melampaui indeks-indeks global lainnya. India Nifty 50 hanya turun 9,6%, Shanghai 50 China melemah 3,17%, dan bahkan DAX Jerman hanya minus 2,78%. Ini bukan sekadar koreksi biasa — ini adalah kombinasi dari beberapa faktor yang secara bersamaan menghantam pasar modal Indonesia.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Fakta Mencengangkan</div>
+          <p>Pada perdagangan Senin (18/5), <strong>616 dari 820 saham</strong> ditutup di zona merah. Seluruh 11 sektor sektoral IDX-IC terkoreksi — dipimpin transportasi −6,2%, basic material −5,17%, dan industri −3,25%. Kapitalisasi pasar BEI menyusut ke Rp11.562 triliun.</p>
+        </div>
+
+        <h2 id="faktor-penyebab">Empat Faktor Penyebab Utama</h2>
+
+        <p>Setidaknya ada empat tekanan besar yang secara bersamaan memukul IHSG sepanjang 2026:</p>
+
+        <ul>
+          <li><strong>MSCI Rebalancing:</strong> Morgan Stanley Capital International menghapus 6 saham besar Indonesia dari indeks globalnya. Bobot Indonesia terpangkas 16bps dari 0,72% ke 0,56%, memicu potensi capital outflow hingga Rp50,6 triliun. Efek ini belum sepenuhnya tercerna pasar.</li>
+          <li><strong>Rupiah di Level Kritis:</strong> Nilai tukar rupiah menembus Rp17.680 per USD — rekor terendah terbaru. Pelemahan ini mendorong Bank Indonesia mempertimbangkan kenaikan suku bunga ke 5%, yang akan menekan valuasi saham lebih lanjut.</li>
+          <li><strong>Dampak Konflik AS–Iran:</strong> Harga minyak di atas $100/barel memperburuk neraca impor Indonesia, menekan rupiah, dan memicu kekhawatiran inflasi yang mengurangi ruang pelonggaran moneter BI.</li>
+          <li><strong>Sentimen Global Risk-Off:</strong> Kenaikan yield US Treasury ke 4,63% dan penguatan dolar AS menarik modal asing keluar dari seluruh pasar emerging market, termasuk Indonesia.</li>
+        </ul>
+
+        <h2 id="perbandingan-regional">Perbandingan Kinerja Regional</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Indeks</th>
+                <th>Negara</th>
+                <th>YTD 2026</th>
+                <th>18 Mei (Harian)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>IHSG</strong></td><td>🇮🇩 Indonesia</td><td class="neg">−24.0%</td><td class="neg">−1.85%</td></tr>
+              <tr><td>Nifty 50</td><td>🇮🇳 India</td><td class="neg">−9.6%</td><td class="neg">−0.08%</td></tr>
+              <tr><td>Shanghai</td><td>🇨🇳 China</td><td class="neg">−3.17%</td><td class="neg">−0.09%</td></tr>
+              <tr><td>Nikkei 225</td><td>🇯🇵 Jepang</td><td class="neu">−2.1%</td><td class="neg">−0.97%</td></tr>
+              <tr><td>Hang Seng</td><td>🇭🇰 HK</td><td class="neu">−4.2%</td><td class="neg">−1.11%</td></tr>
+              <tr><td>STI</td><td>🇸🇬 Singapura</td><td class="pos">+1.5%</td><td class="pos">+0.15%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="outlook-dan-strategi">Outlook &amp; Strategi untuk Investor</h2>
+
+        <p>Analis dari berbagai sekuritas memperkirakan IHSG berpotensi <em>technical rebound jangka pendek</em> jika tekanan jual asing mulai mereda. Stochastic oscillator sudah memasuki zona <em>oversold</em>, dan IHSG mendekati garis tren jangka panjang di area <strong>6.350–6.400</strong>.</p>
+
+        <p>Namun, <strong>keputusan suku bunga Bank Indonesia</strong> pada 20 Mei menjadi penentu arah jangka pendek. Kenaikan ke 5% bisa menambah tekanan jangka pendek meski memperkuat rupiah secara struktural.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Strategi Investor</div>
+          <p>Di tengah volatilitas tinggi, analis merekomendasikan <strong>buy on weakness</strong> secara selektif pada saham-saham yang sudah oversold dan memiliki fundamental kuat. Fokus pada saham yang diuntungkan kenaikan harga energi (MEDC, ELSA, PGAS) dan big caps perbankan defensif (BBCA, BMRI). Hindari averaging down secara membabi buta sebelum arah suku bunga BI jelas.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="kesimpulan">Kesimpulan</h2>
+
+        <p>Tekanan pada IHSG bersifat <strong>multidimensi</strong> — bukan sekadar koreksi teknikal biasa. Selama tiga faktor utama belum teratasi (stabilisasi rupiah, kepastian suku bunga BI, dan meredanya konflik AS-Iran), volatilitas akan tetap tinggi. Pantau keputusan RDG BI pada 20 Mei sebagai katalis paling dekat yang bisa mengubah arah pasar.</p>
+
+        <div class="callout">
+          <div class="callout-label">📡 Update Live</div>
+          <p>Ikuti analisa IHSG, signal saham, dan update makroekonomi Indonesia secara real-time di grup Telegram kami. <a href="https://t.me/smcentry" target="_blank">Join sekarang →</a></p>
+        </div>
+
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#mengapa-ihsg">Mengapa IHSG Turun Paling Dalam?</a></li>
+              <li><a href="#faktor-penyebab">4 Faktor Penyebab</a></li>
+              <li><a href="#perbandingan-regional">Perbandingan Regional</a></li>
+              <li><a href="#outlook-dan-strategi">Outlook &amp; Strategi</a></li>
+              <li><a href="#kesimpulan">Kesimpulan</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Event Kritis Minggu Ini</div>
+          <div class="widget-body">
+            <div class="kp-list">
+              <div class="kp-item"><span class="kp-icon">🔴</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--danger)">Sel–Rab 19–20 Mei</strong><br>RDG Bank Indonesia — keputusan suku bunga</span></div>
+              <div class="kp-item"><span class="kp-icon">🟠</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent)">Rab 20 Mei</strong><br>FOMC Minutes — arah The Fed</span></div>
+              <div class="kp-item"><span class="kp-icon">🟡</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent2)">Kam 21 Mei</strong><br>PMI &amp; Jobless Claims AS</span></div>
+              <div class="kp-item"><span class="kp-icon">⚔️</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--text-bright)">Ongoing</strong><br>Negosiasi AS–Iran &amp; harga minyak</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · Rupiah</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text)">Rupiah Tembus Rp17.680 — Mengapa &amp; Apa Dampaknya?</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Komoditas · Gold</div>
+                  <div class="related-title"><a href="artikel-gold-geopolitik.html" style="color:var(--text)">Gold $4,542 — Inflasi &amp; Iran Deadlock</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · SMC</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text)">Apa Itu Liquidity Sweep? Panduan SMC Lengkap</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Alert Live</h4>
+          <p>Update IHSG, signal saham, dan analisa BI rate langsung di Telegram.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Gratis →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT/PREV -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel &amp; news terkini</span>
+      </a>
+      <a href="artikel-gold-geopolitik.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Lainnya →</span>
+        <span class="nav-cat">Komoditas · Gold</span>
+        <span class="nav-title">Gold $4,542 — Inflasi &amp; Iran Deadlock</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Join Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-ihsg-mei2026.html" style="color:var(--accent)">IHSG Update</a></li>
+          <li><a href="artikel-gold-geopolitik.html">Gold &amp; Geopolitik</a></li>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-news.html">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' }).observe && sections.forEach(s => new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { tocLinks.forEach(l => l.classList.remove('active')); const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`); if (a) a.classList.add('active'); }}), { rootMargin: '-80px 0px -60% 0px' }}.observe(s));
+  function shareToTelegram() { const u = encodeURIComponent(location.href), t = encodeURIComponent('🔴 IHSG −24% YTD: Penurunan Terdalam di Asia 2026. Analisa lengkap @IDSecretEntry'); window.open(`https://t.me/share/url?url=${u}&text=${t}`, '_blank'); }
+  function shareToTwitter() { const u = encodeURIComponent(location.href), t = encodeURIComponent('🔴 IHSG −24% YTD — penurunan terdalam di Asia. MSCI rebalancing, rupiah Rp17.680, BI rate naik. Analisa @IDSecretEntry'); window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`, '_blank'); }
+  function copyLink() { navigator.clipboard.writeText(location.href).then(() => { const b = event.target; b.textContent = '✅ Copied!'; setTimeout(() => b.textContent = '🔗 Copy Link', 2000); }); }
+</script>
+</body>
+</html>
