@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artikel edukasi dan news terkini seputar crypto, saham, dan komoditas — Indonesian Secret Entry" />
+  <title>Artikel & News — Indonesian Secret Entry v1.1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ═══ NOISE OVERLAY ═══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    /* ═══ UTILITY ═══ */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .tag-news  { border-color: var(--accent2); color: var(--accent2); }
+    .tag-warn  { border-color: var(--danger);  color: var(--danger);  }
+    .tag-green { border-color: var(--success); color: var(--success); }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: .04em;
+      color: var(--text-bright);
+      line-height: 1.05;
+    }
+    .section-title span { color: var(--accent); }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 16px 0 28px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    .has-drop { position: relative; }
+    .has-drop .dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-width: 220px;
+      padding: 8px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PAGE HERO — mini breadcrumb style
+    ════════════════════════════════════════════════════════ */
+    #page-hero {
+      position: relative;
+      padding: 120px 0 64px;
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255,106,0,.07) 0%, transparent 70%);
+    }
+    .page-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 80%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+    .page-hero-content { position: relative; z-index: 1; }
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 20px;
+    }
+    .breadcrumb a { color: var(--text-dim); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--accent); margin: 0 8px; }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: .95;
+      letter-spacing: .03em;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+    }
+    .page-title .accent { color: var(--accent); }
+    .page-sub {
+      font-size: .95rem; color: var(--text-dim); max-width: 520px;
+      opacity: 0; animation: fadeUp .6s .25s forwards;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══════════════════════════════════════════════════════
+       FILTER / SEARCH BAR
+    ════════════════════════════════════════════════════════ */
+    #filter-bar {
+      position: sticky; top: 64px; z-index: 90;
+      background: rgba(10,10,10,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .filter-inner {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    }
+    .search-wrap {
+      flex: 1; min-width: 200px; max-width: 360px;
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: .06em;
+      padding: 9px 14px 9px 36px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-wrap input::placeholder { color: var(--text-dim); }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-icon {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--text-dim); font-size: 13px; pointer-events: none;
+    }
+    .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .pill {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      background: transparent;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .pill:hover  { border-color: var(--accent); color: var(--accent); }
+    .pill.active { border-color: var(--accent); color: var(--accent); background: rgba(255,106,0,.1); }
+    .result-count {
+      margin-left: auto;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .1em; color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MAIN CONTENT — 2-COLUMN LAYOUT
+    ════════════════════════════════════════════════════════ */
+    #main-content {
+      padding: 56px 0 96px;
+      position: relative; z-index: 1;
+    }
+    .content-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .content-layout { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ARTIKEL FEATURED (hero card besar)
+    ════════════════════════════════════════════════════════ */
+    .featured-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: border-color .3s, box-shadow .3s;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .featured-card:hover { border-color: rgba(255,106,0,.35); box-shadow: var(--glow); }
+    .featured-visual {
+      background: linear-gradient(135deg, #1a0a00 0%, #2a1200 50%, #0a0a0a 100%);
+      position: relative;
+      min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .featured-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(255,106,0,.12) 0%, transparent 70%);
+    }
+    .featured-visual .feat-icon {
+      font-size: 5rem; z-index: 1; position: relative;
+      filter: drop-shadow(0 0 24px rgba(255,106,0,.4));
+    }
+    .featured-body {
+      padding: 36px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .featured-body .feat-meta {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .featured-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--text-bright);
+      line-height: 1.1;
+      letter-spacing: .03em;
+    }
+    .featured-body p { font-size: .9rem; color: var(--text-dim); line-height: 1.7; }
+    .featured-body .read-time {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: .1em;
+    }
+    .featured-body .btn-read {
+      margin-top: auto;
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 9px 18px;
+      transition: all .2s;
+    }
+    .featured-body .btn-read:hover {
+      background: rgba(255,106,0,.1);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    @media (max-width: 700px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 160px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ARTIKEL GRID
+    ════════════════════════════════════════════════════════ */
+    .articles-section-title {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .articles-grid-main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .art-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 24px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: border-color .3s, transform .25s;
+      cursor: default;
+    }
+    .art-card:hover { border-color: rgba(255,106,0,.3); transform: translateY(-3px); }
+    .art-card-top {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
+    }
+    .art-card .cat-tag {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 99px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .art-card .art-num {
+      font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim); letter-spacing: .1em;
+    }
+    .art-card h3 { font-size: .9rem; color: var(--text-bright); line-height: 1.45; }
+    .art-card p  { font-size: .82rem; color: var(--text-dim); line-height: 1.6; flex: 1; }
+    .art-card-footer {
+      margin-top: 4px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .art-card-footer .art-link {
+      font-family: var(--font-mono); font-size: 10px;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--accent);
+    }
+    .art-card-footer .art-link:hover { text-decoration: underline; }
+    .art-card-footer .art-date {
+      font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim); letter-spacing: .06em;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NEWS FEED
+    ════════════════════════════════════════════════════════ */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      transition: border-color .25s, transform .2s;
+    }
+    .news-item:hover { border-color: rgba(255,106,0,.3); transform: translateX(3px); }
+    .news-idx {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--border);
+      line-height: 1;
+      user-select: none;
+    }
+    .news-body h4 {
+      font-size: .88rem; color: var(--text-bright);
+      line-height: 1.4; margin-bottom: 4px;
+    }
+    .news-body .news-meta {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    }
+    .news-body .news-source {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: .1em; color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .news-body .news-time {
+      font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim);
+    }
+    .news-badge {
+      font-family: var(--font-mono); font-size: 8px;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 99px;
+      white-space: nowrap;
+    }
+    .badge-new  { background: rgba(255,106,0,.15); color: var(--accent); border: 1px solid rgba(255,106,0,.3); }
+    .badge-bull { background: rgba(34,197,94,.12);  color: var(--success); border: 1px solid rgba(34,197,94,.3); }
+    .badge-bear { background: rgba(255,51,51,.12);  color: var(--danger);  border: 1px solid rgba(255,51,51,.3); }
+    .badge-watch{ background: rgba(255,154,64,.12); color: var(--accent2); border: 1px solid rgba(255,154,64,.3); }
+
+    /* ═══════════════════════════════════════════════════════
+       SIDEBAR
+    ════════════════════════════════════════════════════════ */
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+    .widget-head {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .widget-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.4);} }
+    .widget-body { padding: 20px; }
+
+    /* Trending */
+    .trending-list { display: flex; flex-direction: column; gap: 0; }
+    .trending-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding-left .2s;
+    }
+    .trending-item:last-child { border-bottom: none; }
+    .trending-item:hover { padding-left: 4px; }
+    .trend-num { font-family: var(--font-display); font-size: 1.4rem; color: var(--border); min-width: 24px; }
+    .trend-body { flex: 1; }
+    .trend-body .trend-title { font-size: .82rem; color: var(--text); line-height: 1.3; }
+    .trend-body .trend-cat   { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); letter-spacing: .08em; margin-top: 2px; }
+    .trend-arrow { color: var(--accent); font-size: .8rem; }
+
+    /* Kategori */
+    .cat-list { display: flex; flex-direction: column; gap: 6px; }
+    .cat-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .cat-row:hover { background: rgba(255,106,0,.06); }
+    .cat-row span { font-size: .85rem; color: var(--text); }
+    .cat-row .cat-count {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim);
+      background: var(--bg-card2);
+      padding: 2px 8px; border-radius: 99px;
+    }
+
+    /* Newsletter */
+    .nl-form { display: flex; flex-direction: column; gap: 10px; }
+    .nl-form p { font-size: .82rem; color: var(--text-dim); }
+    .nl-form input {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-mono); font-size: 11px;
+      padding: 10px 14px; outline: none;
+      transition: border-color .2s;
+    }
+    .nl-form input::placeholder { color: var(--text-dim); }
+    .nl-form input:focus { border-color: var(--accent); }
+    .nl-btn {
+      background: var(--accent); color: #fff;
+      border: none; border-radius: var(--radius);
+      padding: 10px 14px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: .1em; text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s;
+    }
+    .nl-btn:hover { opacity: .9; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION DIVIDERS
+    ════════════════════════════════════════════════════════ */
+    .section-gap { margin-top: 40px; }
+
+    /* ═══════════════════════════════════════════════════════
+       EMPTY STATE
+    ════════════════════════════════════════════════════════ */
+    .empty-state {
+      text-align: center; padding: 64px 24px;
+      color: var(--text-dim);
+    }
+    .empty-state .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: .4; }
+    .empty-state p { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+      position: relative; z-index: 1;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 32px; flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .footer-brand .logo-text {
+      font-family: var(--font-display); font-size: 1.6rem;
+      color: var(--text-bright); letter-spacing: .08em;
+    }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 14px;
+    }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    /* ═══ SCROLL TOP ═══ */
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4);
+      transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Trader Area</a></li>
+      <li><a href="index.html#charts">Charts</a></li>
+      <li><a href="index.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="#" class="active">Artikel & News ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="filterByCategory('Crypto')">Crypto</a>
+          <a href="#" onclick="filterByCategory('Saham')">Saham</a>
+          <a href="#" onclick="filterByCategory('Komoditas')">Komoditas</a>
+          <a href="#" onclick="filterByCategory('Edukasi')">Edukasi</a>
+          <a href="#" onclick="filterByCategory('Makro')">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Trader Area</a>
+    <a href="index.html#charts">Charts</a>
+    <a href="index.html#calendar">Calendar</a>
+    <a href="#artikel" class="active">Artikel</a>
+    <a href="#news">News</a>
+    <a href="https://t.me/smcentry" target="_blank">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════════════════ -->
+<section id="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      Artikel & News
+    </div>
+    <h1 class="page-title">Artikel <span class="accent">&</span><br>News</h1>
+    <p class="page-sub">Edukasi market, analisa terkini, dan news crypto · saham · komoditas yang perlu diketahui trader.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FILTER BAR
+════════════════════════════════════════════════════════ -->
+<div id="filter-bar">
+  <div class="container filter-inner">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="Cari artikel atau news..." oninput="renderAll()" />
+    </div>
+    <div class="filter-pills" id="filterPills">
+      <button class="pill active" onclick="setFilter('semua', this)">Semua</button>
+      <button class="pill" onclick="setFilter('Crypto', this)">Crypto</button>
+      <button class="pill" onclick="setFilter('Saham', this)">Saham</button>
+      <button class="pill" onclick="setFilter('Komoditas', this)">Komoditas</button>
+      <button class="pill" onclick="setFilter('Edukasi', this)">Edukasi</button>
+      <button class="pill" onclick="setFilter('Makro', this)">Makro</button>
+      <button class="pill" onclick="setFilter('news', this)">News Only</button>
+    </div>
+    <div class="result-count" id="resultCount">— items</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════ -->
+<div id="main-content">
+  <div class="container content-layout">
+
+    <!-- LEFT: Artikel + News -->
+    <div id="left-col">
+
+      <!-- FEATURED ARTIKEL -->
+      <div id="featuredWrap"></div>
+
+      <!-- ARTIKEL GRID -->
+      <div class="section-gap" id="artikel">
+        <div class="articles-section-title">
+          <span>Artikel Edukasi</span>
+          <span id="artikelCount"></span>
+        </div>
+        <div class="articles-grid-main" id="artikelGrid"></div>
+      </div>
+
+      <!-- NEWS FEED -->
+      <div class="section-gap" id="news">
+        <div class="articles-section-title">
+          <span>News Terkini</span>
+          <span id="newsCount"></span>
+        </div>
+        <div class="news-list" id="newsList"></div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <aside class="sidebar">
+
+      <!-- Trending -->
+      <div class="sidebar-widget">
+        <div class="widget-head">
+          Trending <div class="dot"></div>
+        </div>
+        <div class="widget-body">
+          <div class="trending-list" id="trendingList"></div>
+        </div>
+      </div>
+
+      <!-- Kategori -->
+      <div class="sidebar-widget">
+        <div class="widget-head">Kategori</div>
+        <div class="widget-body">
+          <div class="cat-list" id="catList"></div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="sidebar-widget">
+        <div class="widget-head">Update Signal</div>
+        <div class="widget-body">
+          <div class="nl-form">
+            <p>Dapatkan analisa dan signal terbaru langsung ke Telegram kamu.</p>
+            <a href="https://t.me/smcentry" target="_blank" class="nl-btn" style="display:block;text-align:center;text-decoration:none;padding:11px 14px;">
+              ✈️ &nbsp;Join Telegram Grup →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER — identik v1.1
+════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis & Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html#charts">Trader Area</a></li>
+          <li><a href="https://signal.mozellosite.com/market-today/" target="_blank">Market Today</a></li>
+          <li><a href="https://signal.mozellosite.com/multiple-asset-window/" target="_blank">Multiple Asset Window</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="#">Liquidity Sweep</a></li>
+          <li><a href="#">On-Chain Analysis</a></li>
+          <li><a href="#">Smart Contract</a></li>
+          <li><a href="#">DeFi</a></li>
+          <li><a href="#">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     DATA — EDIT DI SINI
+     ════════════════════════════════════════════════════
+
+     ARTIKEL:
+       Tambah objek baru ke array ARTIKEL_DATA.
+       Field: id, kategori, judul, deskripsi, url, tanggal, readTime, featured (true/false)
+       Hanya satu artikel boleh featured:true (ditampilkan sebagai hero card).
+
+     NEWS:
+       Tambah objek baru ke array NEWS_DATA.
+       Field: id, judul, sumber, waktu, url, badge ("new"|"bull"|"bear"|"watch")
+
+     TRENDING SIDEBAR:
+       Edit array TRENDING_DATA.
+
+════════════════════════════════════════════════════════ -->
+<script>
+
+/* ══════════════════════════════════════════════════════
+   ✏️  EDIT ARTIKEL DI SINI
+   Hapus item: delete seluruh object { ... },
+   Tambah item: copy salah satu object, paste di akhir array (sebelum ])
+   ══════════════════════════════════════════════════════ */
+const ARTIKEL_DATA = [
+  {
+    id: 1,
+    featured: true,                          // ← hanya satu yang true
+    kategori: "Edukasi",
+    icon: "📊",
+    judul: "Apa Itu Liquidity Sweep dan Cara Membacanya di Chart",
+    deskripsi: "Liquidity sweep adalah salah satu konsep kunci dalam Smart Money Concept (SMC). Pelajari bagaimana institusi menggunakan area likuiditas untuk mengeksekusi order besar sebelum reversal terjadi.",
+    url: "artikel-liquidity-sweep.html",
+    tanggal: "12 Jan 2025",
+    readTime: "7 min read"
+  },
+  {
+    id: 2,
+    featured: false,
+    kategori: "Crypto",
+    judul: "Pengertian On-Chain Analysis dan Cara Melakukannya",
+    deskripsi: "Panduan lengkap membaca data on-chain untuk memahami pergerakan whale dan aliran kapital di blockchain.",
+    url: "https://signal.mozellosite.com/istilah-dalam-market/pengertian-on-chain-analysis-dan-cara-melakukan/",
+    tanggal: "18 Jan 2025",
+    readTime: "9 min read"
+  },
+  {
+    id: 3,
+    featured: false,
+    kategori: "Crypto",
+    judul: "Apa Itu Smart Contract? Pengertian dan Cara Kerja",
+    deskripsi: "Smart contract adalah program yang berjalan otomatis di blockchain tanpa perantara. Ini fondasi DeFi dan Web3.",
+    url: "https://signal.mozellosite.com/istilah-dalam-market/apa-itu-smart-contract-pengertian-dan-cara-kerja/",
+    tanggal: "25 Jan 2025",
+    readTime: "6 min read"
+  },
+  {
+    id: 4,
+    featured: false,
+    kategori: "Crypto",
+    judul: "Memahami Revolusi Keuangan Digital: DeFi",
+    deskripsi: "DeFi (Decentralized Finance) mengubah cara kerja keuangan global. Pelajari protokol, risiko, dan peluangnya.",
+    url: "https://signal.mozellosite.com/istilah-dalam-market/memahami-revolusi-keuangan-digital-defi/",
+    tanggal: "1 Feb 2025",
+    readTime: "8 min read"
+  },
+  {
+    id: 5,
+    featured: false,
+    kategori: "Crypto",
+    judul: "Pengertian dan Peluang Investasi ICO Crypto",
+    deskripsi: "Panduan lengkap Initial Coin Offering dan cara mengevaluasi peluang investasi ICO dengan benar.",
+    url: "https://signal.mozellosite.com/istilah-dalam-market/pengertian-dan-peluang-investasi-ico-crypto/",
+    tanggal: "8 Feb 2025",
+    readTime: "5 min read"
+  },
+  {
+    id: 6,
+    featured: false,
+    kategori: "Crypto",
+    judul: "Memahami Staking Crypto dan Cara Melakukannya",
+    deskripsi: "Cara kerja staking crypto dan bagaimana mendapatkan passive income dari aset digital dengan risiko minimal.",
+    url: "https://signal.mozellosite.com/istilah-dalam-market/memahami-staking-crypto-dan-cara-melakukannya/",
+    tanggal: "15 Feb 2025",
+    readTime: "6 min read"
+  },
+  {
+    id: 7,
+    featured: false,
+    kategori: "Makro",
+    judul: "Makro Ekonomi Amerika dan Pengaruhnya ke Market",
+    deskripsi: "Memahami indikator ekonomi makro Amerika Serikat dan dampaknya terhadap crypto, saham, dan komoditas.",
+    url: "https://signal.mozellosite.com/istilah-dalam-market/makro-ekonomi-amerika/",
+    tanggal: "22 Feb 2025",
+    readTime: "10 min read"
+  },
+  /* ════ TEMPLATE TAMBAH ARTIKEL BARU — copy block ini ════
+  {
+    id: 8,                              // ← ganti angka (unik)
+    featured: false,
+    kategori: "Edukasi",               // Crypto / Saham / Komoditas / Edukasi / Makro
+    judul: "Judul Artikel Baru",
+    deskripsi: "Deskripsi singkat artikel ini maksimal 2 kalimat.",
+    url: "https://url-artikel.com/",
+    tanggal: "1 Mar 2025",
+    readTime: "5 min read"
+  },
+  ════════════════════════════════════════════════════════ */
+];
+
+
+/* ══════════════════════════════════════════════════════
+   ✏️  EDIT NEWS DI SINI
+   badge: "new" | "bull" | "bear" | "watch"
+   ══════════════════════════════════════════════════════ */
+const NEWS_DATA = [
+  {
+    id: 1,
+    judul: "Bitcoin Tembus $70K — Institusi Kembali Akumulasi Setelah ETF Approval",
+    sumber: "CoinDesk",
+    waktu: "2 jam lalu",
+    url: "https://coindesk.com",
+    badge: "bull"
+  },
+  {
+    id: 2,
+    judul: "Fed Tahan Suku Bunga di 5.25% — Pasar Saham Reaksi Mixed",
+    sumber: "Reuters",
+    waktu: "4 jam lalu",
+    url: "https://reuters.com",
+    badge: "watch"
+  },
+  {
+    id: 3,
+    judul: "Ethereum Upgrade Dencun Berhasil — Gas Fee Layer 2 Turun 90%",
+    sumber: "The Block",
+    waktu: "6 jam lalu",
+    url: "https://theblock.co",
+    badge: "bull"
+  },
+  {
+    id: 4,
+    judul: "Harga Emas Koreksi ke $2,150 Setelah Data CPI AS Lebih Tinggi",
+    sumber: "Bloomberg",
+    waktu: "8 jam lalu",
+    url: "https://bloomberg.com",
+    badge: "bear"
+  },
+  {
+    id: 5,
+    judul: "SEC Ajukan Banding Atas Putusan Ripple — XRP Turun 8%",
+    sumber: "CoinTelegraph",
+    waktu: "10 jam lalu",
+    url: "https://cointelegraph.com",
+    badge: "bear"
+  },
+  {
+    id: 6,
+    judul: "Binance Luncurkan Fitur Copy Trading untuk Pasar Asia",
+    sumber: "Binance Blog",
+    waktu: "12 jam lalu",
+    url: "https://binance.com",
+    badge: "new"
+  },
+  {
+    id: 7,
+    judul: "IHSG Menguat 1.2% — Saham Perbankan Jadi Motor Utama",
+    sumber: "IDX",
+    waktu: "1 hari lalu",
+    url: "https://idx.co.id",
+    badge: "bull"
+  },
+  {
+    id: 8,
+    judul: "Solana Network Congestion — Transaksi Gagal Meningkat 300%",
+    sumber: "Decrypt",
+    waktu: "1 hari lalu",
+    url: "https://decrypt.co",
+    badge: "watch"
+  },
+  /* ════ TEMPLATE TAMBAH NEWS BARU — copy block ini ════
+  {
+    id: 9,                              // ← ganti angka (unik)
+    judul: "Judul berita terbaru di sini",
+    sumber: "Nama Sumber",
+    waktu: "X jam lalu",
+    url: "https://url-berita.com/",
+    badge: "new"                        // "new" | "bull" | "bear" | "watch"
+  },
+  ════════════════════════════════════════════════════════ */
+];
+
+
+/* ══════════════════════════════════════════════════════
+   ✏️  EDIT TRENDING SIDEBAR DI SINI
+   ══════════════════════════════════════════════════════ */
+const TRENDING_DATA = [
+  { judul: "Liquidity Sweep Strategy", kategori: "Edukasi · SMC" },
+  { judul: "Bitcoin Halving 2024 Impact", kategori: "Crypto · Analisa" },
+  { judul: "Fed Rate Decision", kategori: "Makro · FOMC" },
+  { judul: "DeFi Protocol TVL Drop", kategori: "Crypto · On-Chain" },
+  { judul: "Gold vs BTC Safe Haven", kategori: "Komoditas · Crypto" },
+];
+
+
+/* ══════════════════════════════════════════════════════
+   ENGINE — tidak perlu diedit
+   ══════════════════════════════════════════════════════ */
+let activeFilter = 'semua';
+
+function setFilter(cat, el) {
+  activeFilter = cat;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderAll();
+}
+
+function filterByCategory(cat) {
+  activeFilter = cat;
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.textContent.trim().toLowerCase() === cat.toLowerCase());
+  });
+  renderAll();
+}
+
+function getSearch() {
+  return (document.getElementById('searchInput')?.value || '').toLowerCase();
+}
+
+function matchesFilter(item, search) {
+  const matchCat =
+    activeFilter === 'semua' ? true :
+    activeFilter === 'news'  ? false :
+    item.kategori?.toLowerCase() === activeFilter.toLowerCase();
+  const matchSearch =
+    !search ||
+    item.judul?.toLowerCase().includes(search) ||
+    item.deskripsi?.toLowerCase().includes(search) ||
+    item.kategori?.toLowerCase().includes(search);
+  return matchCat && matchSearch;
+}
+
+function matchesNews(item, search) {
+  const matchCat = activeFilter === 'semua' || activeFilter === 'news';
+  const matchSearch =
+    !search ||
+    item.judul?.toLowerCase().includes(search) ||
+    item.sumber?.toLowerCase().includes(search);
+  return matchCat && matchSearch;
+}
+
+const BADGE_LABEL = { new: 'New', bull: 'Bullish', bear: 'Bearish', watch: 'Watch' };
+
+function renderAll() {
+  const search = getSearch();
+
+  // Featured
+  const featuredWrap = document.getElementById('featuredWrap');
+  const featItem = ARTIKEL_DATA.find(a => a.featured && matchesFilter(a, search));
+  if (featItem) {
+    featuredWrap.innerHTML = `
+      <div class="featured-card">
+        <div class="featured-visual">
+          <div class="feat-icon">${featItem.icon || '📈'}</div>
+        </div>
+        <div class="featured-body">
+          <div class="feat-meta">
+            <span class="tag">${featItem.kategori}</span>
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:.08em;">Featured</span>
+          </div>
+          <h2>${featItem.judul}</h2>
+          <p>${featItem.deskripsi}</p>
+          <span class="read-time">🕐 ${featItem.readTime} &nbsp;·&nbsp; ${featItem.tanggal}</span>
+          <a class="btn-read" href="${featItem.url}" target="_blank">Baca Selengkapnya →</a>
+        </div>
+      </div>`;
+  } else {
+    featuredWrap.innerHTML = '';
+  }
+
+  // Artikel grid (non-featured)
+  const artikelGrid = document.getElementById('artikelGrid');
+  const artikelItems = ARTIKEL_DATA.filter(a => !a.featured && matchesFilter(a, search));
+  document.getElementById('artikelCount').textContent = artikelItems.length + ' artikel';
+  if (artikelItems.length === 0) {
+    artikelGrid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">🔍</div><p>Tidak ada artikel ditemukan</p></div>`;
+  } else {
+    artikelGrid.innerHTML = artikelItems.map((a, i) => `
+      <div class="art-card">
+        <div class="art-card-top">
+          <span class="cat-tag">${a.kategori}</span>
+          <span class="art-num">${String(i+1).padStart(2,'0')}</span>
+        </div>
+        <h3>${a.judul}</h3>
+        <p>${a.deskripsi}</p>
+        <div class="art-card-footer">
+          <a class="art-link" href="${a.url}" target="_blank">Baca →</a>
+          <span class="art-date">${a.tanggal}</span>
+        </div>
+      </div>`).join('');
+  }
+
+  // News list
+  const newsList = document.getElementById('newsList');
+  const newsItems = NEWS_DATA.filter(n => matchesNews(n, search));
+  document.getElementById('newsCount').textContent = newsItems.length + ' berita';
+  if (newsItems.length === 0) {
+    newsList.innerHTML = `<div class="empty-state"><div class="empty-icon">📰</div><p>Tidak ada news ditemukan</p></div>`;
+  } else {
+    newsList.innerHTML = newsItems.map((n, i) => `
+      <a href="${n.url}" target="_blank" style="text-decoration:none;color:inherit;">
+        <div class="news-item">
+          <div class="news-idx">${String(i+1).padStart(2,'0')}</div>
+          <div class="news-body">
+            <h4>${n.judul}</h4>
+            <div class="news-meta">
+              <span class="news-source">${n.sumber}</span>
+              <span class="news-time">· ${n.waktu}</span>
+            </div>
+          </div>
+          <span class="news-badge badge-${n.badge}">${BADGE_LABEL[n.badge]}</span>
+        </div>
+      </a>`).join('');
+  }
+
+  // Result count
+  const total = (featItem ? 1 : 0) + artikelItems.length + newsItems.length;
+  document.getElementById('resultCount').textContent = total + ' item';
+
+  // Update kategori sidebar
+  renderCatList();
+}
+
+function renderCatList() {
+  const catList = document.getElementById('catList');
+  const cats = ['Crypto','Saham','Komoditas','Edukasi','Makro'];
+  catList.innerHTML = cats.map(c => {
+    const count = ARTIKEL_DATA.filter(a => a.kategori === c).length;
+    return `<div class="cat-row" onclick="setFilter('${c}', null)">
+      <span>${c}</span>
+      <span class="cat-count">${count}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderTrending() {
+  const list = document.getElementById('trendingList');
+  list.innerHTML = TRENDING_DATA.map((t, i) => `
+    <div class="trending-item">
+      <div class="trend-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="trend-body">
+        <div class="trend-title">${t.judul}</div>
+        <div class="trend-cat">${t.kategori}</div>
+      </div>
+      <span class="trend-arrow">→</span>
+    </div>`).join('');
+}
+
+// Init
+renderAll();
+renderTrending();
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+});
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+</script>
+
+<!--
+╔══════════════════════════════════════════════════════════╗
+║        PANDUAN EDIT ARTIKEL & NEWS                       ║
+╠══════════════════════════════════════════════════════════╣
+║                                                          ║
+║  1. TAMBAH ARTIKEL                                       ║
+║     Cari ARTIKEL_DATA di <script>                        ║
+║     Copy template object di akhir array, isi datanya     ║
+║     Ganti id dengan angka unik                          ║
+║                                                          ║
+║  2. HAPUS ARTIKEL                                        ║
+║     Delete seluruh object { ... }, dari array            ║
+║                                                          ║
+║  3. EDIT ARTIKEL                                         ║
+║     Ubah field judul, deskripsi, url, tanggal, dll       ║
+║                                                          ║
+║  4. GANTI FEATURED ARTIKEL                               ║
+║     Set featured: false pada artikel lama                ║
+║     Set featured: true pada artikel baru                 ║
+║                                                          ║
+║  5. TAMBAH / HAPUS NEWS                                  ║
+║     Sama dengan artikel, edit NEWS_DATA array            ║
+║     Badge: "new" | "bull" | "bear" | "watch"            ║
+║                                                          ║
+║  6. EDIT TRENDING SIDEBAR                                ║
+║     Edit TRENDING_DATA array                             ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+-->
+
+</body>
+</html>

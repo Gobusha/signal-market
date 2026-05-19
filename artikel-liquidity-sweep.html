@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panduan lengkap Liquidity Sweep dalam Smart Money Concept (SMC) — cara membaca area likuiditas, stop hunt, dan reversal yang dipakai institusi di market crypto dan forex." />
+  <meta property="og:title" content="Apa Itu Liquidity Sweep? Panduan SMC untuk Trader — Indonesian Secret Entry" />
+  <meta property="og:description" content="Pelajari cara institusi memanfaatkan area likuiditas untuk mengeksekusi order besar sebelum reversal terjadi." />
+  <meta property="og:type" content="article" />
+  <title>Apa Itu Liquidity Sweep? — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ═══ NOISE OVERLAY ═══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    /* ═══ UTILITY ═══ */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    .has-drop { position: relative; }
+    .has-drop .dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-width: 220px;
+      padding: 8px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══ ARTICLE HERO ═══ */
+    #article-hero {
+      position: relative;
+      padding: 80px 0 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,106,0,.08) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .article-hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 860px;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 24px; display: flex; gap: 0; align-items: center; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 6vw, 4.8rem);
+      line-height: 1.0;
+      letter-spacing: .02em;
+      color: var(--text-bright);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .article-title .hl { color: var(--accent); }
+    .article-title--inline {
+      white-space: nowrap;
+      font-size: clamp(1rem, 5.5vw, 4.8rem);
+    }
+
+    .article-meta {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .article-meta .sep { color: var(--border); }
+
+    /* Hero visual strip */
+    .hero-visual {
+      margin-top: 32px;
+      position: relative;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      height: 260px;
+      background: linear-gradient(160deg, #140800 0%, #1f0d00 40%, #0a0a0a 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      width: 100%;
+      max-width: 100%;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(255,106,0,.14) 0%, transparent 70%);
+    }
+    .hero-diagram {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 100%;
+      padding: 0 24px;
+      overflow: hidden;
+    }
+
+    /* SVG Chart Diagram */
+    .chart-svg { width: 100%; height: auto; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══ ARTICLE BODY LAYOUT ═══ */
+    #article-body {
+      position: relative; z-index: 1;
+      padding: 0 0 96px;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { order: -1; }
+    }
+
+    /* ═══ PROSE ═══ */
+    .prose { max-width: 100%; min-width: 0; }
+
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      color: var(--text-bright);
+      letter-spacing: .04em;
+      line-height: 1.05;
+      margin: 36px 0 12px;
+      padding-top: 4px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+
+    .prose h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--accent2);
+      letter-spacing: .04em;
+      margin: 32px 0 12px;
+    }
+
+    .prose p {
+      color: var(--text);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .prose strong { color: var(--text-bright); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
+    .prose em { color: var(--accent2); font-style: italic; }
+
+    .prose ul, .prose ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .prose li {
+      color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px;
+    }
+    .prose li::marker { color: var(--accent); }
+
+    /* Callout boxes */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    /* Divider */
+    .prose-divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 36px 0;
+    }
+
+    /* Key point card */
+    .key-points {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 20px;
+      margin: 24px 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .key-points-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; min-width: 0; flex: 1; word-break: break-word; }
+
+    /* Concept diagram inline */
+    .concept-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .concept-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .concept-header .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .concept-body { padding: 20px; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 0; margin: 8px 0; }
+    .step {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      font-family: var(--font-display); font-size: 2rem; line-height: 1;
+      color: var(--accent); opacity: .35;
+    }
+    .step-body h4 { font-size: .9rem; color: var(--text-bright); margin-bottom: 6px; }
+    .step-body p  { font-size: .85rem; color: var(--text-dim); margin-bottom: 0; overflow-wrap: break-word; }
+
+    /* Table — scrollable on mobile */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .prose table {
+      width: 100%; border-collapse: collapse;
+      font-size: .83rem;
+      min-width: 360px;
+    }
+    .prose th {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); text-align: left; padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card2);
+      white-space: nowrap;
+    }
+    .prose td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:hover td { background: rgba(255,106,0,.03); }
+
+    /* Share bar */
+    .share-bar {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 32px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .share-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+    .share-btn {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 14px; border-radius: var(--radius);
+      border: 1px solid var(--border); color: var(--text-dim);
+      cursor: pointer; transition: all .2s; background: transparent;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ═══ SIDEBAR ═══ */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); overflow: hidden;
+    }
+    @media (min-width: 769px) {
+      .sidebar-widget { position: sticky; top: 88px; }
+    }
+    .widget-head {
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .widget-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.4);} }
+    .widget-body { padding: 20px; }
+
+    /* TOC */
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      display: block; padding: 7px 10px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em;
+      color: var(--text-dim); border-radius: var(--radius);
+      transition: all .2s;
+    }
+    .toc-list a:hover { color: var(--accent); background: rgba(255,106,0,.06); text-decoration: none; }
+    .toc-list a.active { color: var(--accent); border-left: 2px solid var(--accent); padding-left: 8px; }
+    .toc-list li + li { border-top: 1px solid var(--border); }
+
+    /* Related articles */
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+      transition: padding-left .2s;
+    }
+    .related-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-item:hover { padding-left: 4px; }
+    .related-body { flex: 1; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.35; }
+    .related-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; font-size: .75rem; }
+
+    /* CTA Banner */
+    .cta-card {
+      border: 1px solid rgba(255,106,0,.2);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,106,0,.05) 100%);
+      padding: 24px;
+      text-align: center;
+    }
+    .cta-card .cta-emoji { font-size: 2.4rem; margin-bottom: 12px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: var(--radius);
+      transition: opacity .2s, transform .2s;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-1px); text-decoration: none; }
+
+    /* ═══ NEXT/PREV ARTIKEL ═══ */
+    .article-nav {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+      position: relative; z-index: 1;
+    }
+    .article-nav-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    @media (max-width: 600px) { .article-nav-inner { grid-template-columns: 1fr; } }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color .3s, transform .25s;
+    }
+    .nav-card:hover { border-color: rgba(255,106,0,.3); transform: translateY(-2px); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat  { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; color: var(--accent); }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* ═══ FOOTER — identik v1.1 ═══ */
+    footer {
+      border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    /* ═══ SCROLL TOP ═══ */
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 768px) {
+      /* layout */
+      .container      { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body   { padding: 0 0 40px; }
+      .article-nav    { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+
+      /* hero */
+      #article-hero        { padding: 68px 0 0; }
+      .article-hero-inner  { max-width: 100%; }
+      .hero-visual         { height: 130px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .hero-diagram        { padding: 0 8px; }
+      .article-title       { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta        { gap: 6px; font-size: 9px; letter-spacing: .04em; margin-bottom: 16px; }
+      .article-tags        { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb          { margin-bottom: 12px; font-size: 9px; }
+      .breadcrumb .sep     { margin: 0 4px; }
+
+      /* prose */
+      .prose h2       { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose h3       { font-size: 1rem; margin: 16px 0 6px; }
+      .prose p        { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li       { font-size: .84rem; line-height: 1.6; margin-bottom: 4px; }
+      .prose ul, .prose ol { padding-left: 15px; margin-bottom: 12px; }
+      .prose strong   { word-break: break-word; }
+
+      /* callout */
+      .callout        { padding: 10px 12px; margin: 14px 0; }
+      .callout p      { font-size: .83rem; }
+
+      /* key-points */
+      .key-points        { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .key-points-title  { font-size: 8px; margin-bottom: 8px; }
+      .kp-item           { gap: 8px; }
+      .kp-icon           { font-size: .8rem; }
+      .kp-text           { font-size: .81rem; line-height: 1.5; }
+
+      /* concept blocks / steps */
+      .concept-block     { margin: 14px 0; border-radius: var(--radius); }
+      .concept-header    { padding: 8px 12px; font-size: 8px; }
+      .concept-body      { padding: 10px; }
+      .step              { grid-template-columns: 24px 1fr; gap: 8px; padding: 12px 0; }
+      .step-num          { font-size: 1.1rem; }
+      .step-body h4      { font-size: .8rem; margin-bottom: 2px; }
+      .step-body p       { font-size: .78rem; }
+
+      /* table */
+      .table-wrap        { margin: 12px 0; }
+      .prose table       { font-size: .78rem; min-width: 300px; }
+      .prose th          { padding: 7px 9px; font-size: 8px; }
+      .prose td          { padding: 7px 9px; }
+
+      /* prose divider & share */
+      .prose-divider     { margin: 16px 0; }
+      .share-bar         { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .share-label       { font-size: 9px; }
+      .share-btn         { padding: 5px 9px; font-size: 8px; letter-spacing: .06em; }
+
+      /* sidebar */
+      .article-sidebar   { gap: 16px; }
+      .sidebar-widget    { position: static; }
+      .widget-head       { padding: 9px 12px; font-size: 8px; }
+      .widget-body       { padding: 10px; }
+      .toc-list a        { padding: 5px 7px; font-size: 9px; }
+      .related-title     { font-size: .75rem; }
+      .cta-card          { padding: 14px; border-radius: var(--radius); }
+      .cta-card .cta-emoji { font-size: 1.6rem; margin-bottom: 6px; }
+      .cta-card h4       { font-size: 1rem; margin-bottom: 5px; }
+      .cta-card p        { font-size: .75rem; margin-bottom: 8px; }
+      .cta-btn           { font-size: 9px; padding: 8px 14px; }
+
+      /* nav prev/next */
+      .nav-card          { padding: 12px; gap: 4px; border-radius: var(--radius); }
+      .nav-card .nav-title { font-size: .8rem; }
+      .nav-card .nav-dir  { font-size: 8px; }
+
+      /* footer */
+      footer             { padding: 20px 0 14px; }
+      .footer-inner      { gap: 14px; margin-bottom: 20px; }
+      .footer-brand p    { font-size: 11px; max-width: 100%; }
+      .footer-nav h4     { margin-bottom: 8px; }
+      .footer-nav ul     { gap: 6px; }
+      .footer-nav ul a   { font-size: 11px; }
+      .footer-bottom     { padding-top: 14px; gap: 8px; }
+      .footer-bottom p   { font-size: 9px; }
+      .footer-bottom .disclaimer { font-size: 8px; }
+    }
+
+    @media (max-width: 400px) {
+      .article-title     { font-size: 1.45rem; }
+      .hero-visual       { height: 100px; }
+      .prose h2          { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html">Crypto</a>
+          <a href="artikel-news.html">Saham</a>
+          <a href="artikel-news.html">Komoditas</a>
+          <a href="artikel-news.html">Edukasi</a>
+          <a href="artikel-news.html">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="index-v1.1.html#charts">Charts</a>
+    <a href="index-v1.1.html#calendar">Calendar</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HERO ═══ -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a>
+        <span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a>
+        <span class="sep">/</span>
+        Liquidity Sweep
+      </div>
+
+      <div class="article-tags">
+        <span class="atag">Edukasi</span>
+        <span class="atag">SMC</span>
+        <span class="atag atag-dim">Smart Money</span>
+        <span class="atag atag-dim">Price Action</span>
+      </div>
+
+      <h1 class="article-title article-title--inline">
+        Apa Itu <span class="hl">Liquidity Sweep?</span>
+      </h1>
+
+      <div class="article-meta">
+        <span>12 Januari 2025</span>
+        <span class="sep">·</span>
+        <span>🕐 7 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero Chart Diagram (SVG) -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="candleUp" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22c55e" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#22c55e" stop-opacity=".4"/>
+              </linearGradient>
+              <linearGradient id="candleDn" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#ff3333" stop-opacity=".4"/>
+              </linearGradient>
+              <linearGradient id="sweepGlow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff6a00" stop-opacity=".0"/>
+                <stop offset="100%" stop-color="#ff6a00" stop-opacity=".15"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Grid lines -->
+            <line x1="0" y1="60"  x2="680" y2="60"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="120" x2="680" y2="120" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="180" x2="680" y2="180" stroke="#2a2a2a" stroke-width=".5"/>
+
+            <!-- Liquidity level (EQH) -->
+            <line x1="20" y1="72" x2="530" y2="72" stroke="#ff6a00" stroke-width="1" stroke-dasharray="6 4" opacity=".6"/>
+            <text x="535" y="76" font-family="IBM Plex Mono" font-size="9" fill="#ff6a00" opacity=".8">EQH / Liquidity</text>
+
+            <!-- Candles — uptrend forming -->
+            <line x1="60"  y1="185" x2="60"  y2="145" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="54"  y="158" width="12" height="27" fill="url(#candleUp)" rx="1"/>
+            <line x1="96"  y1="178" x2="96"  y2="138" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="90"  y="150" width="12" height="28" fill="url(#candleUp)" rx="1"/>
+            <line x1="132" y1="165" x2="132" y2="128" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="126" y="140" width="12" height="25" fill="url(#candleUp)" rx="1"/>
+            <line x1="168" y1="160" x2="168" y2="118" stroke="#d4d4d4" stroke-width="1.5"/>
+            <rect x="162" y="134" width="12" height="20" fill="#333" stroke="#666" stroke-width="1" rx="1"/>
+            <line x1="204" y1="155" x2="204" y2="108" stroke="#ff3333" stroke-width="1.5"/>
+            <rect x="198" y="120" width="12" height="30" fill="url(#candleDn)" rx="1"/>
+            <line x1="240" y1="148" x2="240" y2="95" stroke="#ff3333" stroke-width="1.5"/>
+            <rect x="234" y="105" width="12" height="38" fill="url(#candleDn)" rx="1"/>
+
+            <!-- SWEEP CANDLE -->
+            <line x1="276" y1="150" x2="276" y2="55" stroke="#ff6a00" stroke-width="2"/>
+            <rect x="270" y="100" width="12" height="44" fill="url(#candleDn)" rx="1"/>
+            <rect x="264" y="55" width="24" height="20" fill="#ff6a00" opacity=".12" rx="3"/>
+            <text x="294" y="68" font-family="IBM Plex Mono" font-size="9" fill="#ff6a00">← SWEEP</text>
+
+            <!-- Reversal candles -->
+            <line x1="312" y1="115" x2="312" y2="78" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="306" y="82" width="12" height="33" fill="url(#candleUp)" rx="1"/>
+            <line x1="348" y1="108" x2="348" y2="70" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="342" y="74" width="12" height="34" fill="url(#candleUp)" rx="1"/>
+            <line x1="384" y1="98"  x2="384" y2="58" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="378" y="62" width="12" height="36" fill="url(#candleUp)" rx="1"/>
+            <line x1="420" y1="90"  x2="420" y2="50" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="414" y="53" width="12" height="37" fill="url(#candleUp)" rx="1"/>
+            <line x1="456" y1="82"  x2="456" y2="42" stroke="#22c55e" stroke-width="1.5"/>
+            <rect x="450" y="45" width="12" height="37" fill="url(#candleUp)" rx="1"/>
+
+            <!-- Entry arrow -->
+            <polygon points="308,140 316,140 312,124" fill="#ff6a00" opacity=".9"/>
+            <text x="320" y="138" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">Entry</text>
+
+            <!-- Glow sweep bg -->
+            <rect x="258" y="55" width="36" height="200" fill="url(#sweepGlow)" rx="2"/>
+
+            <!-- Labels -->
+            <text x="30"  y="225" font-family="IBM Plex Mono" font-size="8" fill="#555">Akumulasi</text>
+            <text x="160" y="225" font-family="IBM Plex Mono" font-size="8" fill="#555">Distribusi</text>
+            <text x="265" y="225" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">Sweep</text>
+            <text x="350" y="225" font-family="IBM Plex Mono" font-size="8" fill="#555">Reversal</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- ═══════ PROSE CONTENT ═══════ -->
+      <article class="prose">
+
+        <div class="key-points">
+          <div class="key-points-title">Ringkasan Artikel</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">🎯</span><span class="kp-text">Liquidity sweep adalah momen ketika harga menembus area stop loss cluster sebelum berbalik arah tajam.</span></div>
+            <div class="kp-item"><span class="kp-icon">🏦</span><span class="kp-text">Institusi (smart money) secara sistematis memanfaatkan likuiditas ritel untuk mengeksekusi order besar mereka.</span></div>
+            <div class="kp-item"><span class="kp-icon">📍</span><span class="kp-text">Area likuiditas terbentuk di Equal Highs/Lows, swing high/low, dan level psikologis.</span></div>
+            <div class="kp-item"><span class="kp-icon">⚡</span><span class="kp-text">Konfirmasi entry terbaik adalah setelah sweep terjadi dan ada candle reversal disertai MSS (Market Structure Shift).</span></div>
+          </div>
+        </div>
+
+        <h2 id="apa-itu">Apa Itu Liquidity Sweep?</h2>
+
+        <p>Dalam dunia trading berbasis <strong>Smart Money Concept (SMC)</strong>, salah satu fenomena yang paling sering disalahpahami oleh trader ritel adalah <em>liquidity sweep</em> — atau yang sering disebut juga sebagai <em>stop hunt</em>, <em>false breakout</em>, atau <em>engineered liquidity grab</em>.</p>
+
+        <p>Secara sederhana, <strong>liquidity sweep adalah pergerakan harga yang secara sengaja menembus area di mana banyak stop loss order menumpuk</strong>, kemudian berbalik arah secara tajam. Harga "berburu" likuiditas yang tersimpan di level-level tersebut sebelum melanjutkan pergerakan sesungguhnya ke arah yang berlawanan.</p>
+
+        <p>Fenomena ini bukan kebetulan. Ini adalah mekanisme yang digunakan oleh <strong>institusi besar</strong> — bank, hedge fund, dan market maker — untuk mengisi order besar mereka tanpa menyebabkan slippage yang signifikan. Karena untuk membeli dalam volume sangat besar, mereka membutuhkan banyak penjual. Dan penjual paling banyak ada di mana? Tepat: di area stop loss.</p>
+
+        <div class="callout">
+          <div class="callout-label">💡 Konsep Dasar</div>
+          <p>Bayangkan kamu ingin membeli 10.000 BTC sekaligus. Tidak ada cukup penjual di harga saat ini. Solusi institusi: dorong harga turun ke area stop loss ritel, yang memaksa mereka menjual — dan institusi membeli semuanya. Setelah terisi penuh, harga naik tajam.</p>
+        </div>
+
+        <h2 id="mengapa-terjadi">Mengapa Liquidity Sweep Terjadi?</h2>
+
+        <p>Untuk memahami mengapa liquidity sweep terjadi, kita perlu memahami <strong>di mana likuiditas itu berada</strong>. Trader ritel memiliki kebiasaan yang sangat prediktabel dalam menempatkan stop loss mereka:</p>
+
+        <ul>
+          <li>Di <strong>bawah swing low</strong> (untuk posisi long) — "kalau turun ke sini, saya salah."</li>
+          <li>Di <strong>atas swing high</strong> (untuk posisi short) — "kalau naik ke sini, saya salah."</li>
+          <li>Di <strong>level psikologis bulat</strong> seperti $30,000, $50,000, atau $100.</li>
+          <li>Di <strong>Equal Highs / Equal Lows</strong> — area dimana harga sudah dua kali lebih menyentuh level yang sama tanpa berhasil menembusnya.</li>
+        </ul>
+
+        <p>Karena pola ini sangat konsisten dan dapat diprediksi, institusi menggunakannya sebagai "peta" untuk mencari likuiditas. Mereka tahu persis bahwa di bawah setiap swing low terdapat tumpukan sell order (stop loss dari buyer) yang jika dieksekusi, akan memberikan mereka likuiditas yang dibutuhkan untuk masuk posisi besar.</p>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="jenis">Jenis-Jenis Liquidity yang Di-Sweep</h2>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            <span>Tipe Likuiditas</span>
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tipe</th>
+                    <th>Lokasi</th>
+                    <th>Kekuatan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Buy-Side Liquidity (BSL)</strong></td>
+                    <td>Di atas swing high, EQH, resistance lama</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sell-Side Liquidity (SSL)</strong></td>
+                    <td>Di bawah swing low, EQL, support lama</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Equal Highs (EQH)</strong></td>
+                    <td>Dua atau lebih high yang sejajar</td>
+                    <td>⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Equal Lows (EQL)</strong></td>
+                    <td>Dua atau lebih low yang sejajar</td>
+                    <td>⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Trendline Liquidity</strong></td>
+                    <td>Sepanjang garis tren yang banyak digunakan</td>
+                    <td>⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Psychological Levels</strong></td>
+                    <td>Angka bulat: $50K, $100, $1.00</td>
+                    <td>⭐⭐⭐</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="cara-membaca">Cara Membaca Liquidity Sweep di Chart</h2>
+
+        <p>Mengidentifikasi liquidity sweep bukan hanya tentang melihat candle yang menembus level tertentu. Ada <strong>karakteristik spesifik</strong> yang membedakan sweep yang valid dari breakout biasa:</p>
+
+        <div class="concept-block">
+          <div class="concept-header"><span>Langkah Identifikasi</span><div class="dot"></div></div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Identifikasi Area Likuiditas</h4>
+                  <p>Tandai semua swing high dan swing low yang signifikan di timeframe yang kamu trading. Perhatikan khususnya area Equal Highs dan Equal Lows — ini adalah target utama institusi.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>Konfirmasi Struktur Pasar (Market Structure)</h4>
+                  <p>Sebelum sweep terjadi, biasanya ada tren yang berlawanan yang sudah cukup matang. Misalnya, dalam downtrend — harga turun cukup dalam hingga mencapai area sell-side liquidity di bawah.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Perhatikan Karakter Candle Saat Sweep</h4>
+                  <p>Candle sweep biasanya memiliki <strong>wick (sumbu) yang panjang</strong> menembus area likuiditas, namun <strong>badan candle (body) ditutup kembali di atas/bawah level tersebut</strong>. Ini menunjukkan penolakan harga yang kuat setelah likuiditas diambil.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>Cari Market Structure Shift (MSS)</h4>
+                  <p>Setelah sweep, tunggu konfirmasi berupa <strong>Market Structure Shift</strong> — momen di mana harga berhasil membuat higher high (setelah sweep sell-side) atau lower low (setelah sweep buy-side) yang mengubah karakter trend lokal.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">05</div>
+                <div class="step-body">
+                  <h4>Entry di Order Block atau FVG</h4>
+                  <p>Setelah MSS terkonfirmasi, cari entry di <strong>Order Block</strong> terdekat atau <strong>Fair Value Gap (FVG)</strong> yang dibentuk oleh candle sweeping. Inilah zona entry presisi ala smart money.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Peringatan</div>
+          <p>Tidak semua penembusan level adalah liquidity sweep. Jika harga menembus dan <strong>terus bergerak searah</strong> tanpa kembali, itu adalah breakout biasa. Sweep selalu diikuti oleh <strong>pembalikan arah yang kuat dan cepat</strong>.</p>
+        </div>
+
+        <h2 id="contoh-nyata">Contoh Nyata di Chart</h2>
+
+        <p>Mari kita bayangkan skenario pada chart Bitcoin (BTC/USDT) di timeframe 4 jam:</p>
+
+        <p><strong>Skenario Bullish Sweep (SSL Sweep):</strong></p>
+
+        <ol>
+          <li>BTC bergerak dalam downtrend selama beberapa hari, menciptakan serangkaian lower highs dan lower lows.</li>
+          <li>Terbentuk dua <em>Equal Lows</em> di area $61,500 — sinyal jelas bahwa likuiditas sell-side menumpuk di bawah level ini.</li>
+          <li>Harga turun tajam, menembus $61,500, menyentuh $61,100 (wick panjang ke bawah) — stop loss para buyer terkena, mereka terpaksa jual.</li>
+          <li>Dalam hitungan jam, harga berbalik naik dan ditutup kuat di atas $61,500 — institusi sudah selesai akumulasi.</li>
+          <li>Terbentuk MSS: harga membuat higher high pertama di timeframe 4H — konfirmasi trend reversal.</li>
+          <li>Entry ideal: di order block candle pertama yang naik setelah sweep, dengan stop loss di bawah low sweep ($61,050).</li>
+        </ol>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Tips Praktikal</div>
+          <p>Gunakan multi-timeframe analysis: identifikasi liquidity pool di HTF (daily/4H), kemudian zoom in ke LTF (1H/15M) untuk mencari entry yang lebih presisi setelah MSS terkonfirmasi. Ini akan meningkatkan rasio reward-to-risk kamu secara signifikan.</p>
+        </div>
+
+        <h2 id="liquidity-vs-breakout">Liquidity Sweep vs. Breakout Biasa — Cara Membedakannya</h2>
+
+        <p>Ini adalah pertanyaan yang paling sering diajukan pemula: <em>"Bagaimana saya tahu ini sweep atau breakout?"</em></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspek</th>
+                <th>Liquidity Sweep</th>
+                <th>Breakout Biasa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Penutupan candle</td>
+                <td>Ditutup kembali di balik level</td>
+                <td>Ditutup di luar level, berlanjut</td>
+              </tr>
+              <tr>
+                <td>Volume</td>
+                <td>Spike volume saat penembusan, lalu menurun</td>
+                <td>Volume tinggi dan sustained</td>
+              </tr>
+              <tr>
+                <td>Karakter wick</td>
+                <td>Wick sangat panjang melampaui level</td>
+                <td>Wick relatif pendek, body besar</td>
+              </tr>
+              <tr>
+                <td>Aksi setelah</td>
+                <td>Reversal tajam dan cepat</td>
+                <td>Konsolidasi atau kelanjutan trend</td>
+              </tr>
+              <tr>
+                <td>Konteks trend</td>
+                <td>Sering terjadi saat trend sudah matang/extended</td>
+                <td>Sering di awal/tengah trend</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="kesalahan-umum">Kesalahan Umum Trader Saat Menghadapi Sweep</h2>
+
+        <p>Memahami konsep liquidity sweep secara teori saja tidak cukup. Banyak trader yang sudah paham konsepnya tapi tetap melakukan kesalahan berulang:</p>
+
+        <ul>
+          <li><strong>Terlalu dini entry</strong> — masuk posisi saat candle sweep terbentuk, sebelum konfirmasi MSS. Akibatnya, jika harga terus bergerak searah sweep, kamu justru menjadi bagian dari likuiditas yang disapu.</li>
+          <li><strong>Tidak ada konteks higher timeframe</strong> — sweep yang terjadi berlawanan dengan tren besar biasanya gagal. Selalu check trend di HTF terlebih dahulu.</li>
+          <li><strong>Mengabaikan area premium/discount</strong> — masuk saat harga sudah terlalu jauh dari area value. Idealnya entry ada di zona FVG atau order block, bukan setelah harga sudah bergerak jauh.</li>
+          <li><strong>Stop loss terlalu ketat</strong> — menempatkan SL tepat di bawah low sweep padahal harga sering kali melakukan sedikit re-test sebelum melanjutkan. Berikan breathing room secukupnya.</li>
+          <li><strong>Overtrading sweep</strong> — mencari sweep di setiap timeframe dan setiap level. Fokus pada area likuiditas yang paling signifikan dan paling obvious — biasanya itulah yang benar-benar diincar institusi.</li>
+        </ul>
+
+        <h2 id="kesimpulan">Kesimpulan</h2>
+
+        <p>Liquidity sweep adalah salah satu konsep paling powerful dalam arsenal trader SMC. Memahaminya berarti kamu bisa <strong>berhenti menjadi mangsa</strong> institusi dan mulai <strong>mengikuti jejak mereka</strong>.</p>
+
+        <p>Kuncinya adalah sabar. Jangan reaktif saat melihat harga menembus level penting — ini sering kali adalah jebakan. Tunggu konfirmasi, cari MSS, dan entry di zona yang tepat. Dengan disiplin dan konsistensi, liquidity sweep bisa menjadi salah satu setup paling reliabel dalam trading kamu.</p>
+
+        <p>Ingat: <strong>smart money tidak bereaksi terhadap market — mereka yang menggerakkan market.</strong> Tugasmu adalah membaca pergerakan mereka, bukan melawan mereka.</p>
+
+        <div class="callout">
+          <div class="callout-label">📚 Selanjutnya Baca</div>
+          <p>Setelah paham liquidity sweep, langkah selanjutnya adalah belajar tentang <strong>Order Block</strong> dan <strong>Fair Value Gap (FVG)</strong> — dua komponen utama SMC lainnya yang menjadi zona entry presisi setelah sweep terjadi. <a href="artikel-news.html">Lihat semua artikel →</a></p>
+        </div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- ═══════ SIDEBAR ═══════ -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#apa-itu">Apa Itu Liquidity Sweep?</a></li>
+              <li><a href="#mengapa-terjadi">Mengapa Terjadi?</a></li>
+              <li><a href="#jenis">Jenis-Jenis Likuiditas</a></li>
+              <li><a href="#cara-membaca">Cara Membaca di Chart</a></li>
+              <li><a href="#contoh-nyata">Contoh Nyata</a></li>
+              <li><a href="#liquidity-vs-breakout">Sweep vs Breakout</a></li>
+              <li><a href="#kesalahan-umum">Kesalahan Umum</a></li>
+              <li><a href="#kesimpulan">Kesimpulan</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · SMC</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Pengertian Order Block dan Cara Trading Dengannya</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · SMC</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Fair Value Gap (FVG): Panduan Lengkap</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · On-Chain</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">On-Chain Analysis dan Cara Membacanya</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · FOMC</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Makro Ekonomi Amerika dan Dampaknya ke Market</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Analisa Live</h4>
+          <p>Dapatkan signal entry berbasis SMC, liquidity analysis, dan update market setiap hari di grup Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Telegram Gratis →</a>
+        </div>
+
+      </aside>
+
+    </div><!-- .article-layout -->
+  </div><!-- .container -->
+</div><!-- #article-body -->
+
+<!-- ═══ NEXT / PREV ═══ -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel dan news terkini</span>
+      </a>
+      <a href="artikel-news.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Berikutnya →</span>
+        <span class="nav-cat">Crypto · On-Chain</span>
+        <span class="nav-title">Pengertian On-Chain Analysis dan Cara Melakukannya</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="index-v1.1.html#charts">Charts</a></li>
+          <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html" style="color:var(--accent);">Liquidity Sweep</a></li>
+          <li><a href="artikel-news.html">On-Chain Analysis</a></li>
+          <li><a href="artikel-news.html">Smart Contract</a></li>
+          <li><a href="artikel-news.html">DeFi</a></li>
+          <li><a href="artikel-news.html">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  /* Mobile menu */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* TOC active highlight */
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  /* Share functions */
+  function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Apa Itu Liquidity Sweep? Panduan SMC — Indonesian Secret Entry');
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+  }
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Apa Itu Liquidity Sweep? Panduan lengkap SMC oleh @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

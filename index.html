@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Analisa market crypto, saham, dan komoditas dengan update news terkini yang menyediakan multiple window asset" />
+  <title>Indonesian Secret Entry — Real Trader Is Never Give Up In Market v1.1</title>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FONTS
+  ════════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS  — edit colors/fonts here
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;       /* orange — brand color */
+      --accent2:     #ff9a40;       /* light orange accent */
+      --danger:      #ff3333;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+
+      --radius:  8px;
+      --radius-lg: 16px;
+      --glow:    0 0 24px rgba(255,106,0,.18);
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ═══ NOISE OVERLAY ═══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    /* ═══ UTILITY ═══ */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: .04em;
+      color: var(--text-bright);
+      line-height: 1.05;
+    }
+    .section-title span { color: var(--accent); }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 16px 0 28px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    /* dropdown */
+    .nav-links .has-drop { position: relative; }
+    .nav-links .has-drop .dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-width: 260px;
+      padding: 8px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .nav-links .has-drop:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block; padding: 10px 18px !important;
+      border-radius: 0 !important;
+      font-size: 11px !important;
+    }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+
+    /* burger */
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(255,106,0,.07) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 20% 80%, rgba(255,154,64,.04) 0%, transparent 60%);
+    }
+    /* animated grid */
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.4) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      line-height: .95;
+      letter-spacing: .02em;
+      color: var(--text-bright);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .6s .35s forwards;
+    }
+    .hero-title .accent { color: var(--accent); }
+    .hero-sub {
+      font-size: 1rem; color: var(--text-dim); max-width: 480px;
+      margin-bottom: 40px;
+      opacity: 0; animation: fadeUp .6s .5s forwards;
+    }
+    .hero-buttons {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .6s .65s forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: .1em; text-transform: uppercase;
+      border-radius: var(--radius); cursor: pointer;
+      transition: all .25s; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 0 32px rgba(255,106,0,.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 48px rgba(255,106,0,.5); text-decoration: none; color: #ffffff; }
+    .btn-outline {
+      background: transparent; color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .btn-outline:hover { background: rgba(255,106,0,.08); transform: translateY(-2px); text-decoration: none; }
+
+    /* live ticker */
+    .hero-ticker {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+      border-top: 1px solid var(--border);
+      background: rgba(10,10,10,.7);
+      backdrop-filter: blur(10px);
+      padding: 10px 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex; gap: 48px; width: max-content;
+      animation: ticker 40s linear infinite;
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--text-dim); white-space: nowrap; letter-spacing: .05em;
+    }
+    .ticker-item .sym { color: var(--text-bright); margin-right: 6px; }
+    .ticker-item .up { color: var(--accent); }
+    .ticker-item .dn { color: var(--danger); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTIONS — shared
+    ════════════════════════════════════════════════════════ */
+    section { padding: 96px 0; position: relative; z-index: 1; }
+    section:nth-child(even) { background: rgba(14,21,32,.5); }
+
+    /* ═══════════════════════════════════════════════════════
+       CRYPTO WIDGET SECTION
+    ════════════════════════════════════════════════════════ */
+    #crypto-widget .widget-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TRADERS AREA (CHARTS)
+    ════════════════════════════════════════════════════════ */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 580px), 1fr));
+      gap: 20px;
+    }
+    .chart-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .chart-card:hover { border-color: rgba(255,106,0,.3); box-shadow: var(--glow); }
+    .chart-label {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .chart-label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.4);} }
+    .chart-card iframe { display: block; border: none; }
+
+    /* ═══════════════════════════════════════════════════════
+       ECONOMIC CALENDAR
+    ════════════════════════════════════════════════════════ */
+    .calendar-wrap {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      overflow: hidden; background: var(--bg-card);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       EBOOK / CTA BANNER
+    ════════════════════════════════════════════════════════ */
+    #ebook {
+      padding: 80px 0;
+    }
+    .ebook-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,106,0,.04) 100%);
+      display: flex; gap: 40px; align-items: center;
+      padding: 48px;
+      flex-wrap: wrap;
+    }
+    .ebook-img {
+      width: 160px; flex-shrink: 0;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 48px rgba(0,0,0,.6), var(--glow);
+    }
+    .ebook-body h2 { font-family: var(--font-display); font-size: 2rem; color: var(--text-bright); margin-bottom: 12px; }
+    .ebook-body p { color: var(--text-dim); max-width: 440px; margin-bottom: 24px; }
+
+    /* ═══════════════════════════════════════════════════════
+       ARTICLES / ISTILAH
+    ════════════════════════════════════════════════════════ */
+    /* ════════════════════════════════════════════════════
+       HOW TO EDIT: Add new articles to the .articles-grid
+       by copying one .article-card block.
+    ═════════════════════════════════════════════════════ */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .article-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 28px;
+      transition: border-color .3s, transform .3s;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .article-card:hover { border-color: rgba(255,106,0,.3); transform: translateY(-4px); }
+    .article-card .art-num {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: .1em;
+    }
+    .article-card h3 { font-size: .95rem; color: var(--text-bright); line-height: 1.4; }
+    .article-card .art-link {
+      margin-top: auto;
+      font-family: var(--font-mono); font-size: 10px;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--accent);
+    }
+    .article-card .art-link:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════════════════
+       SOCIAL / COMMUNITY
+    ════════════════════════════════════════════════════════ */
+    .social-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .social-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 32px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+      transition: border-color .3s;
+    }
+    .social-card:hover { border-color: rgba(255,106,0,.3); }
+    .social-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .social-card h3 { font-family: var(--font-mono); font-size: 13px; color: var(--text-bright); }
+    .social-card p { font-size: 13px; color: var(--text-dim); }
+    .ig-icon { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .tg-icon { background: #229ED9; }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 32px; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo-text {
+      font-family: var(--font-display); font-size: 1.6rem;
+      color: var(--text-bright); letter-spacing: .08em;
+    }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 14px;
+    }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    /* ═══════════════════════════════════════════════════════
+       SCROLL TO TOP
+    ════════════════════════════════════════════════════════ */
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #ffffff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4);
+      transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════ */
+
+    /* Tablet — 1024px */
+    /* ═══ TABLET 1024px ═══ */
+    @media (max-width: 1024px) {
+      .charts-grid { grid-template-columns: 1fr; }
+      .chart-card iframe { height: 360px; }
+      .articles-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    }
+
+    /* ═══ TABLET KECIL 768px ═══ */
+    @media (max-width: 768px) {
+      .container    { padding: 0 14px; }
+      section       { padding: 52px 0; }
+
+      /* Hero */
+      #hero           { min-height: auto; padding-top: 68px; padding-bottom: 52px; }
+      .hero-content   { max-width: 100%; }
+      .hero-title     { font-size: clamp(2rem, 9vw, 3rem); line-height: 1.05; margin-bottom: 10px; }
+      .hero-eyebrow   { font-size: 9px; letter-spacing: .12em; margin-bottom: 12px; }
+      .hero-sub       { font-size: .85rem; max-width: 100%; margin-bottom: 20px; }
+      .hero-buttons   { flex-direction: column; gap: 8px; }
+      .hero-buttons .btn { width: 100%; justify-content: center; font-size: 11px; padding: 11px 20px; }
+
+      /* Ticker */
+      .hero-ticker    { padding: 8px 0; }
+      .ticker-item    { font-size: 10px; margin-right: 20px; }
+
+      /* Section */
+      .section-title  { font-size: clamp(1.5rem, 6.5vw, 2.2rem); }
+      .tag            { font-size: 8px; padding: 3px 9px; }
+      .divider        { margin: 10px 0 20px; }
+
+      /* Charts */
+      .charts-grid    { grid-template-columns: 1fr; gap: 12px; }
+      .chart-card iframe { height: 300px; }
+      .chart-label    { font-size: 10px; padding: 9px 12px; }
+
+      /* Ebook */
+      .ebook-card     { padding: 22px 14px; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+      .ebook-img      { width: 100px; }
+      .ebook-body h2  { font-size: 1.4rem; margin-bottom: 8px; }
+      .ebook-body p   { font-size: .83rem; max-width: 100%; margin-bottom: 14px; }
+      .ebook-body .btn { width: 100%; justify-content: center; }
+
+      /* Articles */
+      .articles-grid  { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .article-card   { padding: 16px; gap: 8px; }
+      .article-card h3 { font-size: .83rem; }
+
+      /* Social */
+      .social-grid    { grid-template-columns: 1fr; gap: 10px; }
+      .social-card    { padding: 20px; gap: 10px; }
+      .social-card h3 { font-size: 12px; }
+      .social-card p  { font-size: 12px; }
+
+      /* Calendar */
+      .calendar-wrap  { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .calendar-wrap iframe { min-width: 560px; width: 100%; }
+
+      /* Crypto widget */
+      #crypto-widget  { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      #crypto-widget iframe { min-width: 340px; }
+
+      /* Footer */
+      .footer-inner   { flex-direction: column; gap: 18px; margin-bottom: 20px; }
+      .footer-brand p { font-size: 11px; max-width: 100%; }
+      .footer-nav h4  { margin-bottom: 8px; font-size: 8px; }
+      .footer-nav ul  { gap: 6px; }
+      .footer-nav ul a { font-size: 11px; }
+      .footer-bottom  { flex-direction: column; align-items: flex-start; gap: 6px; padding-top: 12px; }
+      .footer-bottom p { font-size: 9px; }
+      .footer-bottom .disclaimer { font-size: 8px; }
+
+      /* Scroll top */
+      #scrollTop      { bottom: 14px; right: 14px; width: 36px; height: 36px; font-size: 14px; }
+    }
+
+    /* ═══ MOBILE 480px ═══ */
+    @media (max-width: 480px) {
+      .container      { padding: 0 12px; }
+      section         { padding: 40px 0; }
+
+      #hero           { padding-top: 60px; padding-bottom: 40px; }
+      .hero-title     { font-size: clamp(1.7rem, 8.5vw, 2.4rem); }
+      .hero-sub       { font-size: .82rem; }
+      .hero-buttons .btn { padding: 10px 16px; font-size: 10px; }
+
+      .section-title  { font-size: clamp(1.3rem, 7vw, 1.8rem); }
+
+      .chart-card iframe { height: 240px; }
+
+      .articles-grid  { grid-template-columns: 1fr; }
+      .article-card   { padding: 14px; }
+
+      .ebook-card     { padding: 16px 12px; }
+      .ebook-img      { width: 85px; }
+      .ebook-body h2  { font-size: 1.2rem; }
+
+      .social-card    { padding: 16px; }
+      .social-icon    { width: 38px; height: 38px; font-size: 1rem; }
+    }
+
+    /* ═══ MOBILE XS 400px ═══ */
+    @media (max-width: 400px) {
+      .hero-title     { font-size: clamp(1.55rem, 8vw, 2rem); }
+      .section-title  { font-size: clamp(1.2rem, 7vw, 1.6rem); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR
+     HOW TO EDIT: Add/remove <li> items inside .nav-links
+     and the .mobile-menu section below.
+════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Trader Area</a></li>
+      <li><a href="#charts">Charts</a></li>
+      <li><a href="#calendar">Calendar</a></li>
+      <!-- DROPDOWN: Istilah -->
+      <li class="has-drop">
+        <a href="#articles">Istilah Market ▾</a>
+        <div class="dropdown">
+          <a href="artikel-liquidity-sweep.html">Apa Itu Liquidity Sweep?</a>
+          <a href="https://signal.mozellosite.com/istilah-dalam-market/pengertian-on-chain-analysis-dan-cara-melakukan/" target="_blank">On-Chain Analysis</a>
+          <a href="https://signal.mozellosite.com/istilah-dalam-market/apa-itu-smart-contract-pengertian-dan-cara-kerja/" target="_blank">Apa Itu Smart Contract?</a>
+          <a href="https://signal.mozellosite.com/istilah-dalam-market/memahami-revolusi-keuangan-digital-defi/" target="_blank">Revolusi DeFi</a>
+          <a href="https://signal.mozellosite.com/istilah-dalam-market/pengertian-dan-peluang-investasi-ico-crypto/" target="_blank">Investasi ICO Crypto</a>
+          <a href="https://signal.mozellosite.com/istilah-dalam-market/memahami-staking-crypto-dan-cara-melakukannya/" target="_blank">Staking Crypto</a>
+          <a href="https://signal.mozellosite.com/istilah-dalam-market/makro-ekonomi-amerika/" target="_blank">Makro Ekonomi Amerika</a>
+        </div>
+      </li>
+      <li><a href="artikel-news.html">Artikel & News</a></li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" class="btn btn-outline" style="padding:8px 16px;font-size:11px;">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">🏠 Trader Area</a>
+    <a href="#charts">📊 Charts</a>
+    <a href="#calendar">📅 Economic Calendar</a>
+    <a href="#crypto">🪙 Crypto Widget</a>
+    <a href="#articles">📚 Istilah Market</a>
+    <a href="artikel-news.html">📰 Artikel & News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">🏦 Live FOMC</a>
+    <a href="https://signal.mozellosite.com/index-macro/" target="_blank">📈 Index Macro</a>
+    <a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">🛒 Item Mall</a>
+    <a href="https://t.me/smcentry" target="_blank">💬 Join Grup Telegram</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">⬡ Indonesian Secret Entry</p>
+    <h1 class="hero-title">Real Trader<br>Is Never<br><span class="accent">Give Up</span></h1>
+    <p class="hero-sub">
+      Analisa market crypto, saham, dan komoditas dengan update news terkini.
+      Market Analysis &amp; Signal untuk semua level trader.
+    </p>
+    <div class="hero-buttons">
+      <a href="#charts" class="btn btn-primary">📊 Watchlist</a>
+      <a href="https://t.me/smcentry" target="_blank" class="btn btn-outline">💬 Join Grup</a>
+    </div>
+  </div>
+
+  <!-- Ticker bar — data live dari CoinGecko API, refresh tiap 60 detik -->
+  <div class="hero-ticker">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="ticker-item" style="color:var(--text-dim);font-family:var(--font-mono);font-size:11px;">⟳ Memuat data live…</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TOP CRYPTO WIDGET
+════════════════════════════════════════════════════════ -->
+<section id="crypto">
+  <div class="container">
+    <span class="tag">Live Data</span>
+    <h2 class="section-title" style="margin-top:16px;">Top <span>Cryptocurrencies</span></h2>
+    <div class="divider"></div>
+    <div class="widget-wrap" id="crypto-widget">
+      <iframe
+        src="https://id.widgets.investing.com/top-cryptocurrencies?theme=darkTheme&roundedCorners=true"
+        width="100%" height="490" frameborder="0" allowtransparency="true" scrolling="no"
+        style="display:block;">
+      </iframe>
+      <p style="padding:10px 20px;font-size:11px;color:var(--text-dim);border-top:1px solid var(--border);">
+        Powered by <a href="https://id.investing.com" target="_blank">Investing.com</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TRADERS AREA — CHARTS
+     HOW TO EDIT: Change pair_ID in the iframe src to
+     load a different asset chart from Investing.com
+════════════════════════════════════════════════════════ -->
+<section id="charts">
+  <div class="container">
+    <span class="tag">Traders Area</span>
+    <h2 class="section-title" style="margin-top:16px;">Live <span>Charts</span></h2>
+    <div class="divider"></div>
+    <p style="color:var(--text-dim);font-size:13px;margin-bottom:32px;font-style:italic;">
+      💡 Buka menggunakan PC/Laptop untuk analisis mendalam
+    </p>
+
+    <div class="charts-grid">
+
+      <!-- CHART 1: BTC -->
+      <div class="chart-card">
+        <div class="chart-label">
+          <span>BTC/USD — Bitcoin</span>
+          <span class="dot"></span>
+        </div>
+        <iframe
+          src="https://ssltvc.investing.com/?pair_ID=8827&height=480&width=960&interval=300&plotStyle=candles&domain_ID=1&lang_ID=1&timezone_ID=21"
+          width="100%" height="480" frameborder="0" allowtransparency="true" scrolling="no">
+        </iframe>
+      </div>
+
+      <!-- CHART 2: ETH -->
+      <div class="chart-card">
+        <div class="chart-label">
+          <span>ETH/USD — Ethereum</span>
+          <span class="dot"></span>
+        </div>
+        <iframe
+          src="https://ssltvc.investing.com/?pair_ID=945629&height=480&width=960&interval=300&plotStyle=candles&domain_ID=1&lang_ID=1&timezone_ID=21"
+          width="100%" height="480" frameborder="0" allowtransparency="true" scrolling="no">
+        </iframe>
+      </div>
+
+      <!-- CHART 3: SOL -->
+      <div class="chart-card">
+        <div class="chart-label">
+          <span>SOL/USD — Solana</span>
+          <span class="dot"></span>
+        </div>
+        <iframe
+          src="https://ssltvc.investing.com/?pair_ID=1058142&height=480&width=960&interval=300&plotStyle=candles&domain_ID=1&lang_ID=1&timezone_ID=21"
+          width="100%" height="480" frameborder="0" allowtransparency="true" scrolling="no">
+        </iframe>
+      </div>
+
+      <!-- CHART 4: BNB -->
+      <div class="chart-card">
+        <div class="chart-label">
+          <span>BNB/USD — Binance Coin</span>
+          <span class="dot"></span>
+        </div>
+        <iframe
+          src="https://ssltvc.investing.com/?pair_ID=1054919&height=480&width=960&interval=300&plotStyle=candles&domain_ID=1&lang_ID=1&timezone_ID=21"
+          width="100%" height="480" frameborder="0" allowtransparency="true" scrolling="no">
+        </iframe>
+      </div>
+
+    </div><!-- /charts-grid -->
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://signal.mozellosite.com/multiple-asset-window/" target="_blank" class="btn btn-outline">
+        📱 Masuk ke Halaman Window Asset ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ECONOMIC CALENDAR
+════════════════════════════════════════════════════════ -->
+<section id="calendar">
+  <div class="container">
+    <span class="tag">Market Events</span>
+    <h2 class="section-title" style="margin-top:16px;">Economic <span>Calendar</span></h2>
+    <div class="divider"></div>
+    <div class="calendar-wrap">
+      <iframe
+        src="https://sslecal2.investing.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,32,6,37,72,22,17,39,14,10,35,43,56,36,110,11,26,12,4,5&calType=week&timeZone=27&lang=1"
+        width="100%" height="600" frameborder="0" allowtransparency="true" scrolling="no"
+        style="display:block;">
+      </iframe>
+      <p style="padding:10px 20px;font-size:11px;color:var(--text-dim);border-top:1px solid var(--border);">
+        Real Time Economic Calendar by <a href="https://www.investing.com" target="_blank">Investing.com</a>
+      </p>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="https://signal.mozellosite.com/market-today/" target="_blank" class="btn btn-outline">
+        📅 Lihat Aktivitas Market Hari Ini ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     EBOOK CTA
+     HOW TO EDIT: Change href, image src, and text below
+════════════════════════════════════════════════════════ -->
+<section id="ebook" style="background:rgba(14,21,32,.5);">
+  <div class="container">
+    <div class="ebook-card">
+      <img
+        class="ebook-img"
+        src="https://site-2163517.mozfiles.com/files/2163517/Technical_Analysis_for_Mega_Profit_0000.jpg"
+        alt="Ebook Technical Analysis For Megaprofit"
+      />
+      <div class="ebook-body">
+        <span class="tag" style="margin-bottom:12px;">Free Download</span>
+        <h2>Download Ebook<br>Technical Analysis</h2>
+        <p>
+          Pelajari cara menganalisa market secara mendalam dengan metode Technical Analysis For Megaprofit.
+          Cocok untuk trader pemula hingga intermediate.
+        </p>
+        <a href="https://www.up-4ever.net/6camk8eqcxef" target="_blank" class="btn btn-primary">
+          ⬇ Download Ebook Gratis
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ISTILAH / ARTICLES
+     HOW TO EDIT: Copy one .article-card block to add a
+     new article. Update art-num, h3 title, and href.
+════════════════════════════════════════════════════════ -->
+<section id="articles">
+  <div class="container">
+    <span class="tag">Edukasi</span>
+    <h2 class="section-title" style="margin-top:16px;">Istilah <span>Dalam Market</span></h2>
+    <div class="divider"></div>
+
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <span class="art-num">01 / Liquidity</span>
+        <h3>Apa Itu Liquidity Sweep?</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Memahami konsep liquidity sweep dan bagaimana smart money memanipulasi pasar.</p>
+        <a class="art-link" href="artikel-liquidity-sweep.html">Baca Selengkapnya →</a>
+      </div>
+
+      <div class="article-card">
+        <span class="art-num">02 / On-Chain</span>
+        <h3>Pengertian On-Chain Analysis dan Cara Melakukan</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Analisis blockchain secara on-chain untuk memahami pergerakan market crypto.</p>
+        <a class="art-link" href="https://signal.mozellosite.com/istilah-dalam-market/pengertian-on-chain-analysis-dan-cara-melakukan/" target="_blank">Baca Selengkapnya →</a>
+      </div>
+
+      <div class="article-card">
+        <span class="art-num">03 / Blockchain</span>
+        <h3>Apa Itu Smart Contract: Pengertian dan Cara Kerja</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Penjelasan lengkap tentang smart contract dan implementasinya di dunia crypto.</p>
+        <a class="art-link" href="https://signal.mozellosite.com/istilah-dalam-market/apa-itu-smart-contract-pengertian-dan-cara-kerja/" target="_blank">Baca Selengkapnya →</a>
+      </div>
+
+      <div class="article-card">
+        <span class="art-num">04 / DeFi</span>
+        <h3>Memahami Revolusi Keuangan Digital DeFi</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Decentralized Finance dan bagaimana revolusi keuangan digital mengubah industri.</p>
+        <a class="art-link" href="https://signal.mozellosite.com/istilah-dalam-market/memahami-revolusi-keuangan-digital-defi/" target="_blank">Baca Selengkapnya →</a>
+      </div>
+
+      <div class="article-card">
+        <span class="art-num">05 / ICO</span>
+        <h3>Pengertian dan Peluang Investasi ICO Crypto</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Panduan lengkap Initial Coin Offering dan cara mengevaluasi peluang investasi ICO.</p>
+        <a class="art-link" href="https://signal.mozellosite.com/istilah-dalam-market/pengertian-dan-peluang-investasi-ico-crypto/" target="_blank">Baca Selengkapnya →</a>
+      </div>
+
+      <div class="article-card">
+        <span class="art-num">06 / Staking</span>
+        <h3>Memahami Staking Crypto dan Cara Melakukannya</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Cara kerja staking crypto dan bagaimana mendapatkan passive income dari aset digital.</p>
+        <a class="art-link" href="https://signal.mozellosite.com/istilah-dalam-market/memahami-staking-crypto-dan-cara-melakukannya/" target="_blank">Baca Selengkapnya →</a>
+      </div>
+
+      <div class="article-card">
+        <span class="art-num">07 / Macro</span>
+        <h3>Makro Ekonomi Amerika dan Pengaruhnya ke Market</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Memahami indikator ekonomi makro Amerika Serikat dan dampaknya terhadap crypto dan saham.</p>
+        <a class="art-link" href="https://signal.mozellosite.com/istilah-dalam-market/makro-ekonomi-amerika/" target="_blank">Baca Selengkapnya →</a>
+      </div>
+
+      <!-- ════ ADD NEW ARTICLE HERE — copy block below ════
+      <div class="article-card">
+        <span class="art-num">08 / JUDUL_KATEGORI</span>
+        <h3>Judul Artikel Baru</h3>
+        <p style="font-size:13px;color:var(--text-dim);">Deskripsi singkat artikel ini.</p>
+        <a class="art-link" href="URL_ARTIKEL" target="_blank">Baca Selengkapnya →</a>
+      </div>
+      ════════════════════════════════════════════════════ -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     COMMUNITY / SOCIAL
+     HOW TO EDIT: Update href and username text
+════════════════════════════════════════════════════════ -->
+<section id="community" style="background:rgba(14,21,32,.5);">
+  <div class="container">
+    <span class="tag">Community</span>
+    <h2 class="section-title" style="margin-top:16px;">Bergabung <span>Komunitas</span></h2>
+    <div class="divider"></div>
+
+    <div class="social-grid">
+
+      <div class="social-card">
+        <div class="social-icon ig-icon">📸</div>
+        <h3>Instagram</h3>
+        <p>Follow untuk update analisa dan signal market terkini.</p>
+        <a href="https://www.instagram.com/idsecretentry" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:11px;">
+          @idsecretentry ↗
+        </a>
+      </div>
+
+      <div class="social-card">
+        <div class="social-icon tg-icon">✈️</div>
+        <h3>Telegram Group</h3>
+        <p>Join grup diskusi trader aktif setiap hari. Signal, analisa, dan edukasi.</p>
+        <a href="https://t.me/smcentry" target="_blank" class="btn btn-primary" style="padding:10px 20px;font-size:11px;">
+          Join Grup ↗
+        </a>
+      </div>
+
+      <div class="social-card">
+        <div class="social-icon" style="background:#ff0050;font-size:1.4rem;">🛒</div>
+        <h3>Item Mall / TikTok Shop</h3>
+        <p>Kunjungi toko online kami untuk merchandise dan produk digital.</p>
+        <a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:11px;">
+          Kunjungi ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     HOW TO EDIT: Update links and copyright year
+════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis & Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#charts">Trader Area</a></li>
+          <li><a href="https://signal.mozellosite.com/market-today/" target="_blank">Market Today</a></li>
+          <li><a href="https://signal.mozellosite.com/multiple-asset-window/" target="_blank">Multiple Asset Window</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Edukasi</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="https://signal.mozellosite.com/istilah-dalam-market/pengertian-on-chain-analysis-dan-cara-melakukan/" target="_blank">On-Chain Analysis</a></li>
+          <li><a href="https://signal.mozellosite.com/istilah-dalam-market/apa-itu-smart-contract-pengertian-dan-cara-kerja/" target="_blank">Smart Contract</a></li>
+          <li><a href="https://signal.mozellosite.com/istilah-dalam-market/memahami-revolusi-keuangan-digital-defi/" target="_blank">DeFi</a></li>
+          <li><a href="https://signal.mozellosite.com/istilah-dalam-market/makro-ekonomi-amerika/" target="_blank">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════ -->
+<script>
+  // Navbar scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // ═══════════════════════════════════════════════════════
+  // LIVE TICKER — CoinGecko API (crypto) + allorigins proxy
+  // Refresh otomatis setiap 60 detik
+  // ═══════════════════════════════════════════════════════
+  const TICKER_ASSETS = [
+    // Crypto — dari CoinGecko
+    { sym: 'BTC/USDT',  id: 'bitcoin',       src: 'cg' },
+    { sym: 'ETH/USDT',  id: 'ethereum',      src: 'cg' },
+    { sym: 'SOL/USDT',  id: 'solana',        src: 'cg' },
+    { sym: 'BNB/USDT',  id: 'binancecoin',   src: 'cg' },
+    { sym: 'XRP/USDT',  id: 'ripple',        src: 'cg' },
+    // Macro — dari Yahoo Finance via allorigins proxy
+    { sym: 'GOLD',      id: 'GC=F',          src: 'yf' },
+    { sym: 'DXY',       id: 'DX-Y.NYB',      src: 'yf' },
+    { sym: 'S&P 500',   id: '^GSPC',         src: 'yf' },
+  ];
+
+  function buildTickerHTML(items) {
+    // Duplikat untuk seamless infinite scroll
+    const half = items.map(it => {
+      const dir  = it.change >= 0 ? 'up' : 'dn';
+      const arrow = it.change >= 0 ? '▲' : '▼';
+      const pct  = Math.abs(it.change).toFixed(2);
+      const price = it.price ? ` <span style="color:var(--text);opacity:.7;">${formatPrice(it.price, it.sym)}</span>` : '';
+      return `<span class="ticker-item"><span class="sym">${it.sym}</span>${price} <span class="${dir}">${arrow} ${pct}%</span></span>`;
+    }).join('');
+    return half + half; // duplicate for loop
+  }
+
+  function formatPrice(p, sym) {
+    if (sym === 'DXY') return p.toFixed(2);
+    if (p >= 1000) return '$' + p.toLocaleString('en-US', {maximumFractionDigits: 0});
+    if (p >= 1)    return '$' + p.toFixed(2);
+    return '$' + p.toFixed(4);
+  }
+
+  async function fetchCryptoData(ids) {
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids.join(',')}&vs_currencies=usd&include_24hr_change=true`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('CoinGecko error');
+    return res.json();
+  }
+
+  async function fetchYahooData(symbol) {
+    // Gunakan allorigins sebagai CORS proxy untuk Yahoo Finance
+    const yahooUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=2d`;
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(yahooUrl)}`;
+    const res = await fetch(proxyUrl);
+    if (!res.ok) throw new Error('Proxy error');
+    const data = await res.json();
+    const parsed = JSON.parse(data.contents);
+    const result = parsed.chart.result[0];
+    const meta   = result.meta;
+    const price  = meta.regularMarketPrice;
+    const prev   = meta.previousClose || meta.chartPreviousClose;
+    const change = ((price - prev) / prev) * 100;
+    return { price, change };
+  }
+
+  async function loadLiveTicker() {
+    try {
+      const cgAssets = TICKER_ASSETS.filter(a => a.src === 'cg');
+      const yfAssets = TICKER_ASSETS.filter(a => a.src === 'yf');
+
+      // Fetch crypto
+      const cgData = await fetchCryptoData(cgAssets.map(a => a.id));
+
+      const results = [];
+
+      for (const asset of cgAssets) {
+        const d = cgData[asset.id];
+        if (d) {
+          results.push({
+            sym: asset.sym,
+            price: d.usd,
+            change: d.usd_24h_change || 0,
+          });
+        }
+      }
+
+      // Fetch macro satu per satu (async parallel)
+      const yfResults = await Promise.allSettled(
+        yfAssets.map(async a => {
+          const d = await fetchYahooData(a.id);
+          return { sym: a.sym, price: d.price, change: d.change };
+        })
+      );
+
+      yfResults.forEach(r => {
+        if (r.status === 'fulfilled') results.push(r.value);
+      });
+
+      // Susun urutan sesuai TICKER_ASSETS
+      const ordered = TICKER_ASSETS
+        .map(a => results.find(r => r.sym === a.sym))
+        .filter(Boolean);
+
+      if (ordered.length > 0) {
+        const track = document.getElementById('tickerTrack');
+        track.innerHTML = buildTickerHTML(ordered);
+        // Reset animasi agar seamless
+        track.style.animation = 'none';
+        track.offsetHeight; // force reflow
+        track.style.animation = '';
+      }
+    } catch (err) {
+      console.warn('Ticker fetch error:', err);
+      // Fallback: tampilkan pesan error ringan, tidak crash
+      const track = document.getElementById('tickerTrack');
+      if (track.children.length <= 1) {
+        track.innerHTML = '<span class="ticker-item" style="color:var(--text-dim);font-family:var(--font-mono);font-size:11px;">⚠ Data market tidak tersedia — cek koneksi</span>';
+      }
+    }
+  }
+
+  // Load saat halaman buka, lalu refresh tiap 60 detik
+  loadLiveTicker();
+  setInterval(loadLiveTicker, 60000);
+</script>
+</body>
+</html>
