@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WTI crude oil melonjak ke $106/b setelah Selat Hormuz de facto tertutup sejak 28 Feb 2026. EIA proyeksikan inventory draw 8,5 juta b/d Q2 2026. Analisis supply shock, dampak ke inflasi, dan strategi trading." />
+  <meta property="og:title" content="USOIL $106/b: Selat Hormuz Tertutup & Supply Shock Terbesar Sejak 2022 — Indonesian Secret Entry" />
+  <meta property="og:type" content="article" />
+  <title>USOIL $106/b: Selat Hormuz Tertutup & Supply Shock Terbesar Sejak 2022 — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:#0a0a0a; --bg-card:#111111; --bg-card2:#171717; --border:#2a2a2a;
+      --accent:#ff6a00; --accent2:#ff9a40; --danger:#ff3333; --success:#22c55e;
+      --oil:#c8860a; --oil2:#f0a830;
+      --text:#d4d4d4; --text-dim:#666666; --text-bright:#ffffff;
+      --font-display:'Bebas Neue',sans-serif; --font-mono:'IBM Plex Mono',monospace; --font-body:'IBM Plex Sans',sans-serif;
+      --radius:8px; --radius-lg:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.65;overflow-x:clip;word-break:break-word;overflow-wrap:break-word}
+    img{max-width:100%;display:block} a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+    .container{max-width:1280px;margin:0 auto;padding:0 16px}
+
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(18px) saturate(180%);background:rgba(10,10,10,.88);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+    #navbar.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--text-bright)} .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding:8px 14px;border-radius:var(--radius);transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(255,106,0,.08);text-decoration:none}
+    .has-drop{position:relative}
+    .has-drop .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);min-width:220px;padding:8px 0;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+    .has-drop:hover .dropdown{display:block}
+    .dropdown a{display:block;padding:10px 18px !important;border-radius:0 !important;font-size:11px !important}
+    .dropdown a:hover{background:rgba(255,106,0,.06) !important}
+    .burger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+    .burger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+    .mobile-menu{display:none}
+    @media(max-width:860px){.nav-links{display:none}.burger{display:flex}.mobile-menu.open{display:flex;flex-direction:column;background:var(--bg-card);border-top:1px solid var(--border);padding:16px 24px 24px;gap:2px}.mobile-menu a{display:block;padding:10px 0;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border)}.mobile-menu a:hover{color:var(--accent)}}
+
+    /* HERO */
+    #article-hero{position:relative;padding:80px 0 0;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(200,134,10,.09) 0%,transparent 65%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,42,42,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(42,42,42,.3) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 100% 100% at 50% 0%,black 0%,transparent 75%);animation:gridShift 20s linear infinite}
+    @keyframes gridShift{from{background-position:0 0}to{background-position:48px 48px}}
+    .article-hero-inner{position:relative;z-index:1;width:100%;max-width:860px;padding-bottom:0;overflow:hidden}
+    .breadcrumb{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;display:flex;gap:0;align-items:center;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color .2s} .breadcrumb a:hover{color:var(--accent);text-decoration:none} .breadcrumb .sep{color:var(--accent);margin:0 10px}
+    .article-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;opacity:0;animation:fadeUp .5s .05s forwards}
+    .atag{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--accent);color:var(--accent)}
+    .atag-oil{border-color:var(--oil);color:var(--oil2)} .atag-dim{border-color:var(--border);color:var(--text-dim)} .atag-red{border-color:var(--danger);color:var(--danger)}
+    .article-title{font-family:var(--font-display);font-size:clamp(1.6rem,6vw,4.8rem);line-height:1.0;letter-spacing:.02em;color:var(--text-bright);margin-bottom:20px;opacity:0;animation:fadeUp .6s .1s forwards;overflow-wrap:break-word;word-break:break-word}
+    .article-title .hl{color:var(--accent)} .article-title .hl-oil{color:var(--oil2)}
+    .article-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+    .article-meta .sep{color:var(--border)}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--oil2);text-transform:uppercase}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--oil2);animation:blink 1.2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero-visual{margin-top:32px;position:relative;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;height:260px;background:linear-gradient(160deg,#100900 0%,#1e1000 40%,#0a0a0a 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-bottom:none;width:100%;max-width:100%}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 60%,rgba(200,134,10,.10) 0%,transparent 70%)}
+    .hero-diagram{position:relative;z-index:1;width:100%;max-width:100%;padding:0 24px;overflow:hidden}
+    .chart-svg{width:100%;height:auto}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+    /* BODY */
+    #article-body{position:relative;z-index:1;padding:0 0 96px}
+    .article-layout{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding-top:36px}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}.article-sidebar{order:-1}}
+
+    /* PROSE */
+    .prose{max-width:100%;min-width:0}
+    .prose h2{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.2rem);color:var(--text-bright);letter-spacing:.04em;line-height:1.05;margin:36px 0 12px;padding-top:4px}
+    .prose h2:first-child{margin-top:0}
+    .prose p{color:var(--text);font-size:.95rem;line-height:1.8;margin-bottom:18px}
+    .prose strong{color:var(--text-bright);font-weight:600} .prose em{color:var(--accent2);font-style:italic}
+    .prose ul{padding-left:20px;margin-bottom:20px}
+    .prose li{color:var(--text);font-size:.93rem;line-height:1.75;margin-bottom:8px}
+    .prose li::marker{color:var(--oil2)}
+
+    .callout{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(255,106,0,.06) 0%,transparent 100%);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:20px 0}
+    .callout.warn{border-color:var(--danger);background:linear-gradient(90deg,rgba(255,51,51,.06) 0%,transparent 100%)}
+    .callout.tip{border-color:var(--success);background:linear-gradient(90deg,rgba(34,197,94,.06) 0%,transparent 100%)}
+    .callout.oil{border-color:var(--oil);background:linear-gradient(90deg,rgba(200,134,10,.06) 0%,transparent 100%)}
+    .callout-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .callout.warn .callout-label{color:var(--danger)} .callout.tip .callout-label{color:var(--success)} .callout.oil .callout-label{color:var(--oil2)}
+    .callout p{margin-bottom:0}
+
+    .key-points{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:20px;margin:24px 0}
+    .key-points-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--oil2);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .key-points-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .kp-list{display:flex;flex-direction:column;gap:12px}
+    .kp-item{display:flex;gap:10px;align-items:flex-start}
+    .kp-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .kp-text{font-size:.88rem;color:var(--text);line-height:1.55;flex:1;word-break:break-word}
+
+    /* Ticker */
+    .ticker-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+    .ticker-card{flex:1;min-width:130px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-card);padding:12px 14px}
+    .ticker-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+    .ticker-value{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:1}
+    .ticker-change{font-family:var(--font-mono);font-size:10px;margin-top:3px}
+    .ticker-change.up{color:var(--danger)} .ticker-change.dn{color:var(--success)} .ticker-change.neu{color:var(--accent2)}
+
+    /* Table */
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border)}
+    .prose table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:340px}
+    .prose th{background:var(--bg-card2);padding:9px 13px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;border-bottom:1px solid var(--border)}
+    .prose td{padding:9px 13px;border-bottom:1px solid var(--border);vertical-align:top}
+    .prose tr:last-child td{border-bottom:none} .prose tr:hover td{background:rgba(255,255,255,.02)}
+    td.up{color:var(--danger);font-weight:600} td.dn{color:var(--success);font-weight:600} td.neu{color:var(--accent2);font-weight:600} td.oil{color:var(--oil2);font-weight:600}
+
+    .prose-divider{width:48px;height:2px;background:var(--oil);border-radius:2px;margin:32px 0}
+
+    .share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:20px}
+    .share-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .share-btn{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius);border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;transition:color .2s,border-color .2s}
+    .share-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+    /* Sidebar */
+    .article-sidebar{display:flex;flex-direction:column;gap:24px}
+    .sidebar-widget{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);overflow:hidden}
+    @media(min-width:769px){.sidebar-widget{position:sticky;top:88px}}
+    .widget-head{padding:14px 20px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center}
+    .widget-head .dot{width:7px;height:7px;border-radius:50%;background:var(--oil2);animation:blink 1.2s infinite}
+    .widget-body{padding:20px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc-list a{display:block;padding:7px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);border-radius:var(--radius);transition:all .2s}
+    .toc-list a:hover{color:var(--accent);background:rgba(255,106,0,.06);text-decoration:none}
+    .toc-list a.active{color:var(--oil2);border-left:2px solid var(--oil2);padding-left:8px}
+    .toc-list li+li{border-top:1px solid var(--border)}
+    .related-list{display:flex;flex-direction:column;gap:12px}
+    .related-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid var(--border);transition:padding-left .2s}
+    .related-item:last-child{border-bottom:none;padding-bottom:0} .related-item:hover{padding-left:4px}
+    .related-body{flex:1}
+    .related-cat{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+    .related-title{font-size:.8rem;color:var(--text);line-height:1.35}
+    .related-arrow{color:var(--accent);flex-shrink:0;margin-top:2px;font-size:.75rem}
+    .cta-card{border:1px solid rgba(200,134,10,.25);border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--bg-card) 0%,rgba(200,134,10,.05) 100%);padding:24px;text-align:center}
+    .cta-card .cta-emoji{font-size:2.4rem;margin-bottom:12px}
+    .cta-card h4{font-family:var(--font-display);font-size:1.3rem;color:var(--text-bright);margin-bottom:8px}
+    .cta-card p{font-size:.8rem;color:var(--text-dim);margin-bottom:16px}
+    .cta-btn{display:inline-block;background:var(--oil);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border-radius:var(--radius);transition:opacity .2s,transform .2s}
+    .cta-btn:hover{opacity:.9;transform:translateY(-1px);text-decoration:none}
+
+    /* Article nav */
+    .article-nav{border-top:1px solid var(--border);padding:48px 0;position:relative;z-index:1}
+    .article-nav-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.article-nav-inner{grid-template-columns:1fr}}
+    .nav-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .3s,transform .25s}
+    .nav-card:hover{border-color:rgba(200,134,10,.35);transform:translateY(-2px);text-decoration:none}
+    .nav-card .nav-dir{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .nav-card .nav-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--oil2)}
+    .nav-card .nav-title{font-size:.9rem;color:var(--text-bright);line-height:1.4}
+    .nav-next{text-align:right}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:48px 0 32px;position:relative;z-index:1}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+    .footer-brand .logo-text{font-family:var(--font-display);font-size:1.6rem;color:var(--text-bright);letter-spacing:.08em}
+    .footer-brand .logo-text span{color:var(--accent)}
+    .footer-brand p{font-size:12px;color:var(--text-dim);margin-top:8px;max-width:280px}
+    .footer-nav h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
+    .footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-nav ul a{font-size:13px;color:var(--text-dim)} .footer-nav ul a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+    .footer-bottom .disclaimer{font-size:10px;opacity:.6}
+    #scrollTop{position:fixed;bottom:28px;right:28px;z-index:99;width:44px;height:44px;background:var(--oil);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,134,10,.4);transition:transform .2s}
+    #scrollTop:hover{transform:scale(1.1)} #scrollTop.show{display:flex}
+
+    @media(max-width:768px){
+      .container{padding:0 14px} .article-layout{grid-template-columns:1fr;gap:20px;padding-top:24px}
+      #article-body{padding:0 0 40px} .article-nav{padding:24px 0} .article-nav-inner{grid-template-columns:1fr}
+      #article-hero{padding:68px 0 0} .article-hero-inner{max-width:100%}
+      .hero-visual{height:130px;margin-top:16px;border-radius:var(--radius) var(--radius) 0 0} .hero-diagram{padding:0 8px}
+      .article-title{font-size:1.7rem;line-height:1.05;margin-bottom:10px}
+      .article-meta{gap:6px;font-size:9px;margin-bottom:16px} .article-tags{gap:5px;margin-bottom:10px} .breadcrumb{margin-bottom:12px;font-size:9px}
+      .prose h2{font-size:1.2rem;margin:24px 0 8px} .prose p{font-size:.85rem;line-height:1.68;margin-bottom:11px} .prose li{font-size:.84rem}
+      .callout{padding:10px 12px;margin:14px 0} .key-points{padding:12px;margin:14px 0;border-radius:var(--radius)}
+      .ticker-row{gap:8px} .ticker-card{min-width:100px;padding:10px 12px} .ticker-value{font-size:1.2rem}
+      .table-wrap{margin:12px 0} .prose table{font-size:.78rem;min-width:300px} .prose th{padding:7px 9px;font-size:8px} .prose td{padding:7px 9px}
+      .share-bar{margin-top:20px;padding-top:16px;gap:6px}
+      .article-sidebar{gap:16px} .sidebar-widget{position:static} .widget-body{padding:10px} .nav-card{padding:16px}
+      footer{padding:20px 0 14px} .footer-inner{gap:14px;margin-bottom:20px}
+    }
+    @media(max-width:400px){.article-title{font-size:1.45rem} .hero-visual{height:100px}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Komoditas')">Komoditas</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Makro')">Makro Ekonomi</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Crypto')">Crypto</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Saham')">Saham</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a><span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a><span class="sep">/</span>
+        Komoditas · Crude Oil
+      </div>
+
+      <div class="article-tags">
+        <span class="atag atag-red">🔴 Breaking</span>
+        <span class="atag atag-oil">⛽ USOIL</span>
+        <span class="atag">Komoditas</span>
+        <span class="atag atag-dim">WTI</span>
+        <span class="atag atag-dim">Hormuz</span>
+        <span class="atag atag-dim">OPEC</span>
+      </div>
+
+      <h1 class="article-title">
+        <span class="hl-oil">USOIL $106/B</span><br>SELAT HORMUZ TERTUTUP &amp; SUPPLY SHOCK
+      </h1>
+
+      <div class="article-meta">
+        <span class="live-badge"><span class="live-dot"></span>Live Update</span>
+        <span class="sep">·</span>
+        <span>25 Mei 2026</span>
+        <span class="sep">·</span>
+        <span>🕐 5 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero: WTI price chart SVG inline — tanpa HTTP request, ringan -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="oilUp" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c8860a" stop-opacity=".22"/>
+                <stop offset="100%" stop-color="#c8860a" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="glo"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Grid -->
+            <line x1="0" y1="28" x2="680" y2="28" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="78" x2="680" y2="78" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="128" x2="680" y2="128" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="178" x2="680" y2="178" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="215" x2="680" y2="215" stroke="#2a2a2a" stroke-width=".5"/>
+            <!-- Y labels -->
+            <text x="4" y="24"  font-family="IBM Plex Mono" font-size="8" fill="#555">$138</text>
+            <text x="4" y="74"  font-family="IBM Plex Mono" font-size="8" fill="#555">$110</text>
+            <text x="4" y="124" font-family="IBM Plex Mono" font-size="8" fill="#555">$80</text>
+            <text x="4" y="174" font-family="IBM Plex Mono" font-size="8" fill="#555">$60</text>
+            <text x="4" y="211" font-family="IBM Plex Mono" font-size="8" fill="#555">$45</text>
+            <!-- Area fill -->
+            <path d="M40,190 L100,185 L160,178 L210,182 L250,175 L290,168 L330,185 L370,178 L410,80 L450,46 L480,32 L500,58 L540,68 L580,72 L630,70 L660,68 L660,230 L40,230 Z" fill="url(#oilUp)" opacity=".85"/>
+            <!-- WTI price line -->
+            <polyline points="40,190 100,185 160,178 210,182 250,175 290,168 330,185 370,178 410,80 450,46 480,32 500,58 540,68 580,72 630,70 660,68" fill="none" stroke="#c8860a" stroke-width="2.5" stroke-linejoin="round" filter="url(#glo)"/>
+            <!-- Candles sideways/base -->
+            <line x1="160" y1="174" x2="160" y2="182" stroke="#888" stroke-width="1.5"/><rect x="156" y="175" width="8" height="7" fill="#888" opacity=".6" rx="1"/>
+            <line x1="290" y1="164" x2="290" y2="173" stroke="#ff3333" stroke-width="1.5"/><rect x="286" y="166" width="8" height="7" fill="#ff3333" opacity=".55" rx="1"/>
+            <!-- Spike up candles -->
+            <line x1="410" y1="74" x2="410" y2="87" stroke="#c8860a" stroke-width="1.5"/><rect x="406" y="75" width="8" height="12" fill="#c8860a" opacity=".85" rx="1"/>
+            <line x1="450" y1="40" x2="450" y2="53" stroke="#c8860a" stroke-width="2"/><rect x="446" y="42" width="8" height="11" fill="#c8860a" opacity=".9" rx="1"/>
+            <line x1="480" y1="27" x2="480" y2="39" stroke="#f0a830" stroke-width="2"/><rect x="476" y="29" width="8" height="10" fill="#f0a830" opacity=".95" rx="1"/>
+            <!-- Consolidation post spike -->
+            <line x1="580" y1="68" x2="580" y2="77" stroke="#22c55e" stroke-width="1.5"/><rect x="576" y="69" width="8" height="8" fill="#22c55e" opacity=".55" rx="1"/>
+            <line x1="630" y1="66" x2="630" y2="74" stroke="#ff3333" stroke-width="1.5"/><rect x="626" y="67" width="8" height="7" fill="#ff3333" opacity=".5" rx="1"/>
+            <!-- Event markers -->
+            <line x1="330" y1="10" x2="330" y2="215" stroke="#ff3333" stroke-width="1" stroke-dasharray="3 3" opacity=".45"/>
+            <text x="334" y="20" font-family="IBM Plex Mono" font-size="7.5" fill="#ff3333">Konflik Iran</text>
+            <text x="334" y="30" font-family="IBM Plex Mono" font-size="7" fill="#ff3333" opacity=".7">28 Feb'26</text>
+            <line x1="480" y1="10" x2="480" y2="215" stroke="#f0a830" stroke-width="1" stroke-dasharray="3 3" opacity=".55"/>
+            <text x="484" y="20" font-family="IBM Plex Mono" font-size="7.5" fill="#f0a830">ATH $138/b</text>
+            <text x="484" y="30" font-family="IBM Plex Mono" font-size="7" fill="#f0a830" opacity=".7">7 Apr'26</text>
+            <line x1="580" y1="10" x2="580" y2="215" stroke="#c8860a" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="584" y="20" font-family="IBM Plex Mono" font-size="7.5" fill="#c8860a">Hormuz</text>
+            <text x="584" y="30" font-family="IBM Plex Mono" font-size="7" fill="#c8860a" opacity=".7">Parsial Buka</text>
+            <!-- Current price badge -->
+            <rect x="472" y="192" width="152" height="22" rx="4" fill="rgba(200,134,10,.14)" stroke="#c8860a" stroke-width=".5"/>
+            <text x="480" y="207" font-family="IBM Plex Mono" font-size="8.5" fill="#f0a830" font-weight="600">WTI ~$106/b · Volatile 🔶</text>
+            <!-- Support/Resistance -->
+            <line x1="40" y1="68" x2="660" y2="68" stroke="#ff6a00" stroke-width="1" stroke-dasharray="4 3" opacity=".35"/>
+            <text x="4" y="64" font-family="IBM Plex Mono" font-size="7.5" fill="#ff6a00">Res $110</text>
+            <line x1="40" y1="128" x2="660" y2="128" stroke="#22c55e" stroke-width="1" stroke-dasharray="4 3" opacity=".3"/>
+            <text x="4" y="124" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e" opacity=".8">Sup $80</text>
+            <!-- X labels -->
+            <text x="32"  y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Jan'26</text>
+            <text x="155" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Feb'26</text>
+            <text x="310" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Mar'26</text>
+            <text x="440" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Apr'26</text>
+            <text x="580" y="228" font-family="IBM Plex Mono" font-size="8" fill="#f0a830">Mei'26</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <article class="prose">
+
+        <!-- Ticker -->
+        <div class="ticker-row">
+          <div class="ticker-card" style="border-color:rgba(200,134,10,.4)">
+            <div class="ticker-label">WTI (Mei'26)</div>
+            <div class="ticker-value" style="color:var(--oil2)">$106/b</div>
+            <div class="ticker-change up">▲ +$46 dari Feb</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Brent Apr Avg</div>
+            <div class="ticker-value" style="color:var(--oil2)">$117/b</div>
+            <div class="ticker-change up">▲ ATH $138 Apr 7</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Inventory Draw</div>
+            <div class="ticker-value" style="color:var(--danger)">8,5 M</div>
+            <div class="ticker-change up">▲ b/d Q2 2026</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Hormuz Traffic</div>
+            <div class="ticker-value" style="color:var(--accent2)">~20%</div>
+            <div class="ticker-change neu">↔ Global supply</div>
+          </div>
+        </div>
+
+        <div class="key-points">
+          <div class="key-points-title">Update 25 Mei 2026</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">⛽</span><span class="kp-text">WTI crude oil di kisaran <strong>$106/b</strong> pada Mei 2026 — naik $46 dari rata-rata Februari. Selat Hormuz, jalur transit <strong>~20% pasokan minyak global</strong>, de facto tertutup sejak 28 Februari 2026 akibat eskalasi militer AS-Iran.</span></div>
+            <div class="kp-item"><span class="kp-icon">🔴</span><span class="kp-text">Brent spot price rata-rata <strong>$117/b di April 2026</strong> — tertinggi sejak Juni 2022 pasca invasi Rusia ke Ukraina. Daily high menyentuh <strong>$138/b pada 7 April</strong>, level yang memicu alarm inflasi di seluruh bank sentral global.</span></div>
+            <div class="kp-item"><span class="kp-icon">🏭</span><span class="kp-text">EIA proyeksikan global oil inventory draw <strong>8,5 juta b/d di Q2 2026</strong>. Irak, Saudi, Kuwait, UAE, Qatar, dan Bahrain bersama-sama menghentikan <strong>10,5 juta b/d</strong> produksi di April akibat dampak konflik.</span></div>
+            <div class="kp-item"><span class="kp-icon">🇦🇪</span><span class="kp-text"><strong>UAE keluar dari OPEC</strong> efektif 1 Mei 2026, memangkas spare capacity OPEC dari 3,8 menjadi <strong>2,5 juta b/d</strong> di 2027 — membuat pasar lebih rentan terhadap disruption supply di masa depan.</span></div>
+            <div class="kp-item"><span class="kp-icon">🇺🇸</span><span class="kp-text">Ekspor minyak mentah AS melonjak ke rekor <strong>6 juta b/d</strong> untuk mengisi kekosongan supply Timur Tengah. Namun volume ini masih belum cukup menutup defisit yang ditinggalkan penutupan Hormuz.</span></div>
+          </div>
+        </div>
+
+        <h2 id="krisis-hormuz">Selat Hormuz: Chokepoint yang Menggoyang Dunia</h2>
+
+        <p>Selat Hormuz — jalur laut sempit antara Iran dan Semenanjung Arab — sebelum konflik mengalirkan hampir <strong>20% pasokan minyak global</strong>. Ketika jalur ini de facto tertutup sejak 28 Februari 2026 akibat eskalasi militer AS-Iran, efeknya langsung terasa ke seluruh rantai pasokan energi dunia.</p>
+
+        <p>EIA melaporkan bahwa implied volatility Brent kini berada di level tertinggi sejak awal pandemi COVID-19. Saudi Arabia, UAE, dan produsen Teluk lainnya secara kolektif menghentikan <strong>10,5 juta b/d</strong> produksi — sebagian besar karena ketidakmampuan kapal tanker untuk berlayar aman melalui kawasan konflik.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">🚨 Status Terkini Hormuz</div>
+          <p>EIA (12 Mei 2026) memproyeksikan Selat Hormuz mulai dibuka parsial <strong>akhir Mei 2026</strong>, dengan pemulihan bertahap hingga akhir 2026. Namun volume lalu lintas kapal diperkirakan tidak akan kembali ke level pra-konflik hingga <strong>awal 2027</strong>. Ketidakpastian ini menjaga tekanan harga tetap tinggi.</p>
+        </div>
+
+        <h2 id="dampak-supply-demand">Supply Shock: Harga Naik, Demand Tertekan</h2>
+
+        <p>Paradoks menarik terbentuk di pasar minyak Mei 2026: harga melonjak drastis, namun demand secara bersamaan melambat akibat gangguan ekonomi yang ditimbulkan oleh harga tinggi itu sendiri. EIA merevisi proyeksi pertumbuhan demand global 2026 turun dari <strong>0,6 juta b/d menjadi hanya 0,2 juta b/d</strong>.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Instrumen</th>
+                <th>Harga / Level</th>
+                <th>Perubahan</th>
+                <th>Konteks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>WTI Crude (USOIL)</strong></td><td class="oil">~$106/b</td><td class="up">+76% dari Feb</td><td style="font-size:.8rem;color:var(--text-dim)">Konflik Hormuz</td></tr>
+              <tr><td><strong>Brent Apr rata-rata</strong></td><td class="oil">$117/b</td><td class="up">Tertinggi sejak Jun'22</td><td style="font-size:.8rem;color:var(--text-dim)">Peak supply shock</td></tr>
+              <tr><td><strong>Brent ATH Apr 7</strong></td><td class="up">$138/b</td><td class="up">Daily intraday</td><td style="font-size:.8rem;color:var(--text-dim)">Panic premium</td></tr>
+              <tr><td><strong>OPEC Basket Apr</strong></td><td class="oil">$108,79/b</td><td class="neu">−$7,57 m-o-m</td><td style="font-size:.8rem;color:var(--text-dim)">Koreksi dari puncak</td></tr>
+              <tr><td><strong>Global Inventory Draw Q2</strong></td><td class="up">8,5 juta b/d</td><td class="up">Record pace</td><td style="font-size:.8rem;color:var(--text-dim)">EIA STEO Mei</td></tr>
+              <tr><td><strong>US Crude Exports</strong></td><td class="dn">6 juta b/d</td><td class="dn">Record high</td><td style="font-size:.8rem;color:var(--text-dim)">Isi gap Hormuz</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="dampak-ke-indonesia">Dampak ke Indonesia &amp; Trader Lokal</h2>
+
+        <p>Lonjakan harga minyak global berdampak langsung ke Indonesia melalui beberapa saluran:</p>
+
+        <ul>
+          <li><strong>Subsidi BBM membengkak:</strong> Pemerintah Indonesia menghadapi tekanan fiskal tambahan akibat harga crude tinggi — potensi kenaikan harga BBM subsidi atau pembengkakan defisit APBN.</li>
+          <li><strong>Inflasi naik:</strong> Harga energi yang mahal mendorong biaya transportasi dan produksi, yang pada akhirnya menekan daya beli masyarakat dan mempersulit langkah BI untuk memangkas suku bunga.</li>
+          <li><strong>Saham energi &amp; pertambangan naik:</strong> Emiten seperti AKRA, PGAS, dan MEDC mendapat sentimen positif dari kenaikan harga minyak global.</li>
+          <li><strong>Rupiah tertekan:</strong> Impor minyak yang mahal memperlebar defisit neraca berjalan, yang memberi tekanan tambahan pada nilai tukar rupiah.</li>
+        </ul>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Level Watch untuk Trader USOIL</div>
+          <p>Support kunci: <strong>$89–$91/b</strong> (pivot institusional jika Hormuz mulai normal). Resistance: <strong>$110–$115/b</strong>. Jika Hormuz tidak kunjung dibuka penuh hingga Juli, harga bisa retesting area <strong>$120–$138</strong>. EIA proyeksikan harga mulai turun ke <strong>$89/b di Q4 2026</strong> saat produksi Timur Tengah pulih.</p>
+        </div>
+
+        <div class="callout oil">
+          <div class="callout-label">⚠️ Disclaimer</div>
+          <p>Artikel ini adalah analisa makro untuk keperluan edukasi dan tidak merupakan saran investasi. Trading komoditas mengandung risiko tinggi. Selalu lakukan riset mandiri sebelum mengambil posisi.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#krisis-hormuz">Selat Hormuz: Chokepoint</a></li>
+              <li><a href="#dampak-supply-demand">Supply Shock & Harga</a></li>
+              <li><a href="#dampak-ke-indonesia">Dampak ke Indonesia</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Level Kritis WTI</div>
+          <div class="widget-body">
+            <div class="kp-list">
+              <div class="kp-item"><span class="kp-icon">🔴</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--danger)">ATH</strong><br>$138/b — 7 Apr 2026</span></div>
+              <div class="kp-item"><span class="kp-icon">🟠</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--oil2)">Saat Ini</strong><br>~$106/b (Mei'26)</span></div>
+              <div class="kp-item"><span class="kp-icon">🟡</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent)">Resistance</strong><br>$110 – $115/b</span></div>
+              <div class="kp-item"><span class="kp-icon">🟢</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--success)">Support / Pivot</strong><br>$89 – $91/b</span></div>
+              <div class="kp-item"><span class="kp-icon">⭐</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--text-bright)">Target Q4 2026</strong><br>$89/b (EIA forecast)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · US Treasury</div>
+                  <div class="related-title"><a href="us-treasury-yield-5persen.html" style="color:var(--text)">US Treasury Yield Tembus 5%: Moody's Downgrade & Krisis Fiskal</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · Bitcoin</div>
+                  <div class="related-title"><a href="news-bitcoin-mei2026.html" style="color:var(--text)">Bitcoin $75K: ETF Outflow vs Supply Crunch & CLARITY Act</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · IHSG</div>
+                  <div class="related-title"><a href="news-ihsg-turun-tajam-2026.html" style="color:var(--text)">IHSG −24% YTD: Penurunan Terdalam di Asia 2026</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">⛽</div>
+          <h4>Signal &amp; Alert Komoditas</h4>
+          <p>Update harian USOIL, Gold, dan komoditas lain langsung di Telegram.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Gratis →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT/PREV -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel &amp; news terkini</span>
+      </a>
+      <a href="us-treasury-yield-5persen.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Lainnya →</span>
+        <span class="nav-cat">Makro · Bonds</span>
+        <span class="nav-title">US Treasury Yield Tembus 5%: Moody's Downgrade & Krisis Fiskal</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Join Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="news-usoil-mei2026.html" style="color:var(--oil2)">USOIL Update</a></li>
+          <li><a href="us-treasury-yield-5persen.html">US Treasury Yield</a></li>
+          <li><a href="news-bitcoin-mei2026.html">Bitcoin Update</a></li>
+          <li><a href="news-bbca-mei2026.html">BBCA Update</a></li>
+          <li><a href="news-tlkm-mei2026.html">TLKM Update</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  sections.forEach(s => new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' }).observe(s));
+  function shareToTelegram() {
+    const u = encodeURIComponent(location.href);
+    const t = encodeURIComponent('⛽ USOIL $106/b: Selat Hormuz tertutup, inventory draw 8,5 juta b/d. Supply shock terbesar sejak 2022. Analisa lengkap @IDSecretEntry');
+    window.open(`https://t.me/share/url?url=${u}&text=${t}`, '_blank');
+  }
+  function shareToTwitter() {
+    const u = encodeURIComponent(location.href);
+    const t = encodeURIComponent('⛽ #USOIL $106/b: Selat Hormuz de facto tertutup sejak Feb 2026. Brent ATH $138 di April. EIA: inventory draw 8,5 juta b/d Q2. Dampak ke Indonesia & level kritis — @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(location.href).then(() => {
+      const b = event.target; b.textContent = '✅ Copied!';
+      setTimeout(() => b.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+</body>
+</html>
