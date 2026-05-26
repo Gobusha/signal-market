@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TLKM di Rp2.890 — turun 16% dalam 3 bulan. Laba bersih anjlok 20,5%, tapi buyback Rp1 T, spin-off InfraNexia Rp35,8 T, dan target dividen yield 4,6% bisa jadi katalis balik arah." />
+  <meta property="og:title" content="TLKM Rp2.890: Laba Anjlok 20% vs Buyback & InfraNexia Spin-Off — Indonesian Secret Entry" />
+  <meta property="og:description" content="Update aktual Mei 2026 — TLKM di Rp2.890, laba bersih turun 20,5%, buyback Rp1 T tunggu RUPS 8 Juni, InfraNexia spin-off fase 2 jalan. Analisis teknikal & fundamental lengkap." />
+  <meta property="og:type" content="article" />
+  <title>TLKM Rp2.890: Laba Anjlok 20% vs Buyback & InfraNexia — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:#0a0a0a;--bg-card:#111111;--bg-card2:#171717;--border:#2a2a2a;
+      --accent:#ff6a00;--accent2:#ff9a40;--danger:#ff3333;--success:#22c55e;
+      --text:#d4d4d4;--text-dim:#666666;--text-bright:#ffffff;
+      --tlkm:#e63946;
+      --font-display:'Bebas Neue',sans-serif;--font-mono:'IBM Plex Mono',monospace;--font-body:'IBM Plex Sans',sans-serif;
+      --radius:8px;--radius-lg:16px;--glow:0 0 24px rgba(255,106,0,.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.65;overflow-x:clip;width:100%;word-break:break-word;overflow-wrap:break-word}
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+    .container{max-width:1280px;margin:0 auto;padding:0 16px}
+
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(18px) saturate(180%);background:rgba(10,10,10,.88);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+    #navbar.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--text-bright)}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding:8px 14px;border-radius:var(--radius);transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(255,106,0,.08);text-decoration:none}
+    .has-drop{position:relative}
+    .has-drop .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);min-width:220px;padding:8px 0;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+    .has-drop:hover .dropdown{display:block}
+    .dropdown a{display:block;padding:10px 18px !important;border-radius:0 !important;font-size:11px !important}
+    .dropdown a:hover{background:rgba(255,106,0,.06) !important}
+    .burger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+    .burger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+    .mobile-menu{display:none}
+    @media(max-width:860px){.nav-links{display:none}.burger{display:flex}.mobile-menu.open{display:flex;flex-direction:column;background:var(--bg-card);border-top:1px solid var(--border);padding:16px 24px 24px;gap:2px}.mobile-menu a{display:block;padding:10px 0;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border)}.mobile-menu a:hover{color:var(--accent)}}
+
+    /* HERO */
+    #article-hero{position:relative;padding:80px 0 0;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(230,57,70,.07) 0%,transparent 65%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,42,42,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(42,42,42,.3) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 100% 100% at 50% 0%,black 0%,transparent 75%);animation:gridShift 20s linear infinite}
+    @keyframes gridShift{from{background-position:0 0}to{background-position:48px 48px}}
+    .article-hero-inner{position:relative;z-index:1;width:100%;max-width:860px;padding-bottom:0;overflow:hidden}
+    .breadcrumb{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;display:flex;gap:0;align-items:center;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color .2s}
+    .breadcrumb a:hover{color:var(--accent);text-decoration:none}
+    .breadcrumb .sep{color:var(--accent);margin:0 10px}
+    .article-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;opacity:0;animation:fadeUp .5s .05s forwards}
+    .atag{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--accent);color:var(--accent)}
+    .atag-red{border-color:var(--danger);color:var(--danger)}
+    .atag-dim{border-color:var(--border);color:var(--text-dim)}
+    .atag-ok{border-color:var(--success);color:var(--success)}
+    .article-title{font-family:var(--font-display);font-size:clamp(1.6rem,6vw,4.8rem);line-height:1.0;letter-spacing:.02em;color:var(--text-bright);margin-bottom:20px;opacity:0;animation:fadeUp .6s .1s forwards;overflow-wrap:break-word;word-break:break-word}
+    .article-title .hl{color:var(--accent)}
+    .article-title .hl-red{color:var(--danger)}
+    .article-title .hl-ok{color:var(--success)}
+    .article-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+    .article-meta .sep{color:var(--border)}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--danger);text-transform:uppercase}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--danger);animation:blink 1.2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero-visual{margin-top:32px;position:relative;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;height:260px;background:linear-gradient(160deg,#0e0000 0%,#180500 40%,#0a0a0a 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-bottom:none;width:100%;max-width:100%}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 60%,rgba(230,57,70,.09) 0%,transparent 70%)}
+    .hero-diagram{position:relative;z-index:1;width:100%;max-width:100%;padding:0 24px;overflow:hidden}
+    .chart-svg{width:100%;height:auto}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+    /* BODY */
+    #article-body{position:relative;z-index:1;padding:0 0 96px}
+    .article-layout{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding-top:36px}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}.article-sidebar{order:-1}}
+
+    /* PROSE */
+    .prose{max-width:100%;min-width:0}
+    .prose h2{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.2rem);color:var(--text-bright);letter-spacing:.04em;line-height:1.05;margin:36px 0 12px;padding-top:4px}
+    .prose h2:first-child{margin-top:0}
+    .prose p{color:var(--text);font-size:.95rem;line-height:1.8;margin-bottom:18px}
+    .prose strong{color:var(--text-bright);font-weight:600}
+    .prose em{color:var(--accent2);font-style:italic}
+    .prose ul{padding-left:20px;margin-bottom:20px}
+    .prose li{color:var(--text);font-size:.93rem;line-height:1.75;margin-bottom:8px}
+    .prose li::marker{color:var(--accent)}
+
+    .callout{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(255,106,0,.06) 0%,transparent 100%);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:20px 0}
+    .callout.warn{border-color:var(--danger);background:linear-gradient(90deg,rgba(255,51,51,.06) 0%,transparent 100%)}
+    .callout.tip{border-color:var(--success);background:linear-gradient(90deg,rgba(34,197,94,.06) 0%,transparent 100%)}
+    .callout-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .callout.warn .callout-label{color:var(--danger)}
+    .callout.tip .callout-label{color:var(--success)}
+    .callout p{margin-bottom:0}
+
+    .key-points{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:20px;margin:24px 0}
+    .key-points-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--danger);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .key-points-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .kp-list{display:flex;flex-direction:column;gap:12px}
+    .kp-item{display:flex;gap:10px;align-items:flex-start}
+    .kp-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .kp-text{font-size:.88rem;color:var(--text);line-height:1.55;flex:1;word-break:break-word}
+
+    /* Ticker */
+    .ticker-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+    .ticker-card{flex:1;min-width:130px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-card);padding:12px 14px}
+    .ticker-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+    .ticker-value{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:1}
+    .ticker-change{font-family:var(--font-mono);font-size:10px;margin-top:3px}
+    .ticker-change.down{color:var(--danger)}
+    .ticker-change.up{color:var(--success)}
+    .ticker-change.neu{color:var(--accent2)}
+
+    /* Table */
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border)}
+    .prose table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:340px}
+    .prose th{background:var(--bg-card2);padding:9px 13px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;border-bottom:1px solid var(--border)}
+    .prose td{padding:9px 13px;border-bottom:1px solid var(--border);vertical-align:top}
+    .prose tr:last-child td{border-bottom:none}
+    .prose tr:hover td{background:rgba(255,255,255,.02)}
+    td.neg{color:var(--danger);font-weight:600}
+    td.pos{color:var(--success);font-weight:600}
+    td.neu{color:var(--accent2);font-weight:600}
+
+    .prose-divider{width:48px;height:2px;background:var(--danger);border-radius:2px;margin:32px 0}
+
+    /* Share */
+    .share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:20px}
+    .share-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .share-btn{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius);border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;transition:color .2s,border-color .2s}
+    .share-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+    /* Sidebar */
+    .article-sidebar{display:flex;flex-direction:column;gap:24px}
+    .sidebar-widget{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);overflow:hidden}
+    @media(min-width:769px){.sidebar-widget{position:sticky;top:88px}}
+    .widget-head{padding:14px 20px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center}
+    .widget-head .dot{width:7px;height:7px;border-radius:50%;background:var(--danger);animation:blink 1.2s infinite}
+    .widget-body{padding:20px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc-list a{display:block;padding:7px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);border-radius:var(--radius);transition:all .2s}
+    .toc-list a:hover{color:var(--accent);background:rgba(255,106,0,.06);text-decoration:none}
+    .toc-list a.active{color:var(--accent);border-left:2px solid var(--accent);padding-left:8px}
+    .toc-list li+li{border-top:1px solid var(--border)}
+    .related-list{display:flex;flex-direction:column;gap:12px}
+    .related-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid var(--border);transition:padding-left .2s}
+    .related-item:last-child{border-bottom:none;padding-bottom:0}
+    .related-item:hover{padding-left:4px}
+    .related-body{flex:1}
+    .related-cat{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+    .related-title{font-size:.8rem;color:var(--text);line-height:1.35}
+    .related-arrow{color:var(--accent);flex-shrink:0;margin-top:2px;font-size:.75rem}
+    .cta-card{border:1px solid rgba(255,106,0,.2);border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--bg-card) 0%,rgba(255,106,0,.05) 100%);padding:24px;text-align:center}
+    .cta-card .cta-emoji{font-size:2.4rem;margin-bottom:12px}
+    .cta-card h4{font-family:var(--font-display);font-size:1.3rem;color:var(--text-bright);margin-bottom:8px}
+    .cta-card p{font-size:.8rem;color:var(--text-dim);margin-bottom:16px}
+    .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border-radius:var(--radius);transition:opacity .2s,transform .2s}
+    .cta-btn:hover{opacity:.9;transform:translateY(-1px);text-decoration:none}
+
+    /* Article nav */
+    .article-nav{border-top:1px solid var(--border);padding:48px 0;position:relative;z-index:1}
+    .article-nav-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.article-nav-inner{grid-template-columns:1fr}}
+    .nav-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .3s,transform .25s}
+    .nav-card:hover{border-color:rgba(255,106,0,.3);transform:translateY(-2px);text-decoration:none}
+    .nav-card .nav-dir{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .nav-card .nav-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--accent)}
+    .nav-card .nav-title{font-size:.9rem;color:var(--text-bright);line-height:1.4}
+    .nav-next{text-align:right}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:48px 0 32px;position:relative;z-index:1}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+    .footer-brand .logo-text{font-family:var(--font-display);font-size:1.6rem;color:var(--text-bright);letter-spacing:.08em}
+    .footer-brand .logo-text span{color:var(--accent)}
+    .footer-brand p{font-size:12px;color:var(--text-dim);margin-top:8px;max-width:280px}
+    .footer-nav h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
+    .footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-nav ul a{font-size:13px;color:var(--text-dim)}
+    .footer-nav ul a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+    .footer-bottom .disclaimer{font-size:10px;opacity:.6}
+
+    #scrollTop{position:fixed;bottom:28px;right:28px;z-index:99;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,106,0,.4);transition:transform .2s}
+    #scrollTop:hover{transform:scale(1.1)}
+    #scrollTop.show{display:flex}
+
+    @media(max-width:768px){
+      .container{padding:0 14px}
+      .article-layout{grid-template-columns:1fr;gap:20px;padding-top:24px}
+      #article-body{padding:0 0 40px}
+      .article-nav{padding:24px 0}
+      .article-nav-inner{grid-template-columns:1fr}
+      #article-hero{padding:68px 0 0}
+      .article-hero-inner{max-width:100%}
+      .hero-visual{height:130px;margin-top:16px;border-radius:var(--radius) var(--radius) 0 0}
+      .hero-diagram{padding:0 8px}
+      .article-title{font-size:1.7rem;line-height:1.05;margin-bottom:10px}
+      .article-meta{gap:6px;font-size:9px;margin-bottom:16px}
+      .article-tags{gap:5px;margin-bottom:10px}
+      .breadcrumb{margin-bottom:12px;font-size:9px}
+      .prose h2{font-size:1.2rem;margin:24px 0 8px}
+      .prose p{font-size:.85rem;line-height:1.68;margin-bottom:11px}
+      .prose li{font-size:.84rem}
+      .callout{padding:10px 12px;margin:14px 0}
+      .key-points{padding:12px;margin:14px 0;border-radius:var(--radius)}
+      .ticker-row{gap:8px}
+      .ticker-card{min-width:100px;padding:10px 12px}
+      .ticker-value{font-size:1.2rem}
+      .table-wrap{margin:12px 0}
+      .prose table{font-size:.78rem;min-width:300px}
+      .prose th{padding:7px 9px;font-size:8px}
+      .prose td{padding:7px 9px}
+      .share-bar{margin-top:20px;padding-top:16px;gap:6px}
+      .article-sidebar{gap:16px}
+      .sidebar-widget{position:static}
+      .widget-body{padding:10px}
+      .nav-card{padding:16px}
+      footer{padding:20px 0 14px}
+      .footer-inner{gap:14px;margin-bottom:20px}
+    }
+    @media(max-width:400px){.article-title{font-size:1.45rem}.hero-visual{height:100px}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Saham')">Saham</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Komoditas')">Komoditas</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Edukasi')">Edukasi</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Makro')">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a><span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a><span class="sep">/</span>
+        Saham Indonesia
+      </div>
+
+      <div class="article-tags">
+        <span class="atag atag-red">📉 Koreksi</span>
+        <span class="atag">Saham · TLKM</span>
+        <span class="atag atag-dim">BEI · Telkom</span>
+        <span class="atag atag-dim">Telekomunikasi</span>
+        <span class="atag atag-ok">Buyback Aktif</span>
+      </div>
+
+      <h1 class="article-title">
+        <span class="hl-red">TLKM</span> Rp2.890<br>Laba <span class="hl-red">−20%</span> vs <span class="hl-ok">Buyback</span> &amp; InfraNexia
+      </h1>
+
+      <div class="article-meta">
+        <span class="live-badge"><span class="live-dot"></span>Live Update</span>
+        <span class="sep">·</span>
+        <span>26 Mei 2026</span>
+        <span class="sep">·</span>
+        <span>🕐 7 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero Chart: TLKM Mei 2026 — inline SVG, no external image request -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="areaDn" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity=".14"/>
+                <stop offset="100%" stop-color="#ff3333" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="areaBounce" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22c55e" stop-opacity=".10"/>
+                <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="gl"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Grid -->
+            <line x1="0" y1="38"  x2="680" y2="38"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="90"  x2="680" y2="90"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="142" x2="680" y2="142" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="194" x2="680" y2="194" stroke="#2a2a2a" stroke-width=".5"/>
+            <!-- Price labels -->
+            <text x="4" y="34"  font-family="IBM Plex Mono" font-size="8" fill="#555">3,990</text>
+            <text x="4" y="86"  font-family="IBM Plex Mono" font-size="8" fill="#555">3,500</text>
+            <text x="4" y="138" font-family="IBM Plex Mono" font-size="8" fill="#555">3,100</text>
+            <text x="4" y="190" font-family="IBM Plex Mono" font-size="8" fill="#555">2,700</text>
+            <!-- Area fill downtrend -->
+            <path d="M50,44 L120,50 L200,64 L280,90 L350,112 L420,138 L480,155 L540,168 L590,178 L630,185 L660,190 L660,240 L50,240 Z" fill="url(#areaDn)" opacity=".65"/>
+            <!-- Main price line TLKM — downtrend from 3.990 peak to 2.890 -->
+            <polyline points="50,44 120,50 200,64 280,90 350,112 420,138 480,155 540,168 590,178 630,185 660,190" fill="none" stroke="#ff3333" stroke-width="2.5" stroke-linejoin="round" filter="url(#gl)"/>
+            <!-- Candles bearish — key sell-off points -->
+            <line x1="200" y1="70" x2="200" y2="56" stroke="#ff3333" stroke-width="1.5"/><rect x="196" y="58" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <line x1="350" y1="118" x2="350" y2="104" stroke="#ff3333" stroke-width="1.5"/><rect x="346" y="106" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <line x1="480" y1="161" x2="480" y2="147" stroke="#ff3333" stroke-width="1.5"/><rect x="476" y="149" width="8" height="12" fill="#ff3333" opacity=".7" rx="1"/>
+            <!-- Minor bounce — buyback support -->
+            <line x1="600" y1="174" x2="600" y2="183" stroke="#22c55e" stroke-width="1.5"/><rect x="596" y="174" width="8" height="9" fill="#22c55e" opacity=".6" rx="1"/>
+            <!-- Event markers -->
+            <line x1="200" y1="12" x2="200" y2="215" stroke="#ff6a00" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="204" y="23" font-family="IBM Plex Mono" font-size="7.5" fill="#ff6a00">Laba Turun</text>
+            <text x="204" y="33" font-family="IBM Plex Mono" font-size="7" fill="#ff6a00" opacity=".7">FY2025</text>
+            <line x1="350" y1="12" x2="350" y2="215" stroke="#ff3333" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="354" y="23" font-family="IBM Plex Mono" font-size="7.5" fill="#ff3333">Lap. Tahunan</text>
+            <text x="354" y="33" font-family="IBM Plex Mono" font-size="7" fill="#ff3333" opacity=".7">12 Mei 2026</text>
+            <line x1="540" y1="12" x2="540" y2="215" stroke="#22c55e" stroke-width="1" stroke-dasharray="3 3" opacity=".45"/>
+            <text x="544" y="23" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e">Buyback</text>
+            <text x="544" y="33" font-family="IBM Plex Mono" font-size="7" fill="#22c55e" opacity=".7">Rp1 T</text>
+            <!-- Support zone -->
+            <line x1="50" y1="202" x2="660" y2="202" stroke="#22c55e" stroke-width="1" stroke-dasharray="4 3" opacity=".3"/>
+            <text x="54" y="215" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e" opacity=".75">Support 2.700–2.800</text>
+            <!-- Current price label -->
+            <text x="568" y="200" font-family="IBM Plex Mono" font-size="8" fill="#ff3333">2.890 ▼</text>
+            <!-- Time labels -->
+            <text x="44"  y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Agt'25</text>
+            <text x="174" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Nov'25</text>
+            <text x="318" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Feb'26</text>
+            <text x="444" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Apr'26</text>
+            <text x="580" y="228" font-family="IBM Plex Mono" font-size="8" fill="#ff3333">Mei'26</text>
+            <!-- Peak label -->
+            <text x="44" y="40" font-family="IBM Plex Mono" font-size="7.5" fill="#666">52W High 3.990</text>
+            <!-- YTD badge -->
+            <rect x="552" y="56" width="104" height="28" rx="4" fill="rgba(255,51,51,.12)" stroke="#ff3333" stroke-width=".8" opacity=".9"/>
+            <text x="558" y="68" font-family="IBM Plex Mono" font-size="7" fill="#ff3333">YTD  −16.09%</text>
+            <text x="558" y="79" font-family="IBM Plex Mono" font-size="7" fill="#ff3333">3M   −16.09%</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- PROSE -->
+      <article class="prose">
+
+        <!-- Ticker cards -->
+        <div class="ticker-row">
+          <div class="ticker-card">
+            <div class="ticker-label">TLKM · 26 Mei 2026</div>
+            <div class="ticker-value" style="color:var(--danger)">Rp2.890</div>
+            <div class="ticker-change down">▼ −3,7% MoM · −16,1% 3 bulan</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">52W Range</div>
+            <div class="ticker-value" style="color:var(--text-bright)">2.560</div>
+            <div class="ticker-change neu">— 3.990 (high)</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Laba Bersih 2025</div>
+            <div class="ticker-value" style="color:var(--danger)">17,8 T</div>
+            <div class="ticker-change down">▼ −20,5% YoY</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Est. Yield Dividen</div>
+            <div class="ticker-value" style="color:var(--success)">4,6%</div>
+            <div class="ticker-change up">▲ Base case 2026</div>
+          </div>
+        </div>
+
+        <div class="key-points">
+          <div class="key-points-title">Update 26 Mei 2026</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">📉</span><span class="kp-text">TLKM berada di <strong>Rp2.890</strong> per saham — turun sekitar 16% dalam 3 bulan terakhir dari area Rp3.600 di Februari 2026. Analis menempatkan support kunci di <strong>Rp2.700–2.800</strong> dan resistance pertama di <strong>Rp3.050–3.100</strong>.</span></div>
+            <div class="kp-item"><span class="kp-icon">💼</span><span class="kp-text">Buyback saham hingga <strong>Rp1 triliun</strong> diumumkan 1 Mei 2026, mencakup saham di BEI dan ADR di NYSE. Pelaksanaan menunggu persetujuan RUPS yang dijadwalkan <strong>8 Juni 2026</strong>. Dana dari kas internal, tanpa pinjaman baru.</span></div>
+            <div class="kp-item"><span class="kp-icon">🏗️</span><span class="kp-text">Spin-off InfraNexia fase 2 ditargetkan selesai sepanjang 2026. Total nilai aset yang dikelola InfraNexia mencapai <strong>Rp90 triliun</strong>, dengan fase 1 senilai Rp35,8 T sudah efektif sejak 1 Januari 2026.</span></div>
+            <div class="kp-item"><span class="kp-icon">📊</span><span class="kp-text">TSR 2025 mencapai <strong>35,7%</strong> meski pendapatan turun 2,2% dan laba turun 20,5%. EBITDA margin tetap solid di <strong>50,24%</strong> — mencerminkan efisiensi operasional yang terjaga.</span></div>
+          </div>
+        </div>
+
+        <h2 id="mengapa-turun">Mengapa TLKM Tertekan?</h2>
+
+        <p>Saham Telkom Indonesia (TLKM) mencatat tekanan signifikan sepanjang kuartal pertama dan kedua 2026. Dari level Rp3.600 di Februari, harga tergerus hingga ke kisaran <strong>Rp2.890</strong> per 26 Mei 2026 — koreksi sekitar 19,7% hanya dalam 3 bulan. Ini bukan angka kecil untuk saham BUMN blue chip.</p>
+
+        <p>Akar masalahnya bersifat berlapis: laporan tahunan 2025 yang diterbitkan 12 Mei 2026 mengonfirmasi <strong>laba bersih turun 20,5% menjadi Rp17,8 triliun</strong> (dari Rp22,4 triliun di 2024), sementara pendapatan konsolidasi merosot 2,2% ke Rp146,7 triliun. Ini adalah kinerja yang meleset dari target yang dipasang manajemen di awal tahun.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Paradoks TLKM 2026</div>
+          <p>Di satu sisi, bisnis Telkom <strong>masih menghasilkan kas operasi di atas Rp60 triliun per tahun</strong> dan EBITDA margin di 50%. Di sisi lain, laba bersih amblas 20% dan harga saham koreksi 16% dalam 3 bulan. Ini bukan krisis fundamental — ini adalah repricing akibat kombinasi tekanan kompetisi seluler, beban akuntansi, dan sentimen IHSG yang secara keseluruhan melemah 24% YTD.</p>
+        </div>
+
+        <h2 id="faktor-tekanan">Tiga Faktor Tekanan Utama</h2>
+
+        <ul>
+          <li><strong>Tekanan Kompetisi Segmen Seluler:</strong> Pendapatan Telkomsel tertekan akibat perang harga paket data yang intensif. Pengguna makin berpindah ke aplikasi pesan instan (WhatsApp, Telegram) sehingga pendapatan SMS dan telepon konvensional terus terkikis. Pelanggan Telkomsel tercatat turun, memperburuk revenue mix.</li>
+          <li><strong>Percepatan Depresiasi &amp; Penyesuaian Akuntansi:</strong> Penurunan laba 20,5% tidak mencerminkan kerusakan bisnis — manajemen secara eksplisit menyebut percepatan depresiasi aset dan penyesuaian kebijakan akuntansi sebagai bagian penguatan tata kelola. Ini sifatnya sementara namun berdampak besar pada bottom line 2025.</li>
+          <li><strong>Sentimen IHSG &amp; Capital Outflow:</strong> Dengan IHSG ambruk 24% YTD dan asing keluar dari pasar Indonesia, TLKM sebagai salah satu saham big cap BUMN ikut terdampak aksi jual mekanis dari fund manager yang melakukan rebalancing portofolio.</li>
+        </ul>
+
+        <h2 id="fundamental">Bedah Fundamental: Kuat di Operasional</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Metrik</th><th>2025</th><th>2024</th><th>Perubahan</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Pendapatan</strong></td><td>Rp146,7 T</td><td>Rp149,9 T</td><td class="neg">−2,2%</td></tr>
+              <tr><td><strong>Laba Bersih</strong></td><td>Rp17,8 T</td><td>Rp22,4 T</td><td class="neg">−20,5%</td></tr>
+              <tr><td><strong>EBITDA Margin</strong></td><td>50,24%</td><td>~51%</td><td class="neu">Stabil</td></tr>
+              <tr><td><strong>Total Shareholder Return</strong></td><td>35,7%</td><td>—</td><td class="pos">+35,7%</td></tr>
+              <tr><td><strong>Debt/EBITDA Ratio</strong></td><td>1,04x</td><td>—</td><td class="neu">Target 0,9x</td></tr>
+              <tr><td><strong>Capex/Revenue</strong></td><td>~18%</td><td>—</td><td class="neu">Target 15–20%</td></tr>
+              <tr><td><strong>InfraNexia Aset Fase 1</strong></td><td>Rp35,8 T</td><td>—</td><td class="pos">Efektif Jan'26</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Yang perlu diperhatikan: meski laba bersih turun, <strong>kas operasi Telkom tetap kuat</strong> di atas Rp60 triliun. EBITDA margin di 50,24% adalah salah satu yang tertinggi di antara operator telekomunikasi Asia Tenggara. Penurunan laba lebih bersifat accounting-driven daripada operational collapse.</p>
+
+        <h2 id="katalis-positif">Katalis Positif: Buyback, InfraNexia, Dividen</h2>
+
+        <p>Di balik tekanan harga, ada tiga katalis yang bisa menjadi pembalik tren dalam 3–6 bulan ke depan:</p>
+
+        <p><strong>1. Buyback Rp1 Triliun.</strong> Pengumuman buyback 1 Mei 2026 adalah sinyal manajemen bahwa mereka menilai saham TLKM undervalued. Dengan sumber dana dari kas internal, buyback ini tidak menambah beban utang. Jika RUPS 8 Juni menyetujui, eksekusi buyback bisa menjadi katalis kenaikan harga secara bertahap.</p>
+
+        <p><strong>2. Monetisasi InfraNexia.</strong> Spin-off bisnis fiber ke InfraNexia adalah langkah strategis yang berpotensi membuka nilai tersembunyi. Dengan total aset infrastruktur Rp90 triliun yang akan dikelola InfraNexia, ada peluang besar untuk menarik investor eksternal atau IPO InfraNexia di masa depan — yang akan menjadi katalis valuasi signifikan bagi TLKM sebagai induk.</p>
+
+        <p><strong>3. Estimasi Dividen Yield 4,6%.</strong> Dengan base case payout 80% dari laba Rp17,8 triliun, estimasi dividen sekitar <strong>Rp143–144 per saham</strong>. Dihitung dari harga Rp2.890, yield dividen bisa mencapai <strong>4,9–5,0%</strong> — sangat kompetitif dibanding SBN atau deposito bank.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Level Watch untuk Investor</div>
+          <p>Konsensus 17 analis merekomendasikan <em>Buy</em> dengan target rata-rata <strong>Rp3.813</strong> (high Rp4.500, low Rp3.000). Upside potensial dari harga Rp2.890 mencapai <strong>+31,9%</strong>. Zona akumulasi yang diperhatikan: <strong>Rp2.700–2.800</strong> dengan stoploss di bawah Rp2.560 (52W low).</p>
+        </div>
+
+        <h2 id="teknikal">Teknikal Singkat</h2>
+
+        <p>Secara teknikal TLKM masih dalam tren turun jangka pendek. Harga berada di bawah MA20 dan MA50, dengan RSI di zona netral-lemah. Resistance terdekat di <strong>Rp3.000–3.050</strong> (area psikologis + MA20), kemudian <strong>Rp3.100–3.200</strong>. Support kuat di <strong>Rp2.700–2.800</strong> dan 52-week low Rp2.560. Sinyal reversal baru valid jika harga mampu menutup di atas Rp3.100 secara konsisten.</p>
+
+        <div class="callout">
+          <div class="callout-label">📡 Kesimpulan</div>
+          <p>TLKM 2026 adalah cerita tentang transformasi yang sedang berjalan: tekanan jangka pendek dari kinerja 2025 yang melemah vs. katalis jangka menengah dari buyback, InfraNexia, dan target pertumbuhan low-to-mid single digit 2026. Untuk investor value dengan horizon 12–18 bulan, level Rp2.700–2.900 menarik untuk diakumulasi secara bertahap. <a href="https://t.me/smcentry" target="_blank">Update signal TLKM tersedia di Telegram kami →</a></p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#mengapa-turun">Mengapa TLKM Tertekan?</a></li>
+              <li><a href="#faktor-tekanan">3 Faktor Tekanan Utama</a></li>
+              <li><a href="#fundamental">Bedah Fundamental</a></li>
+              <li><a href="#katalis-positif">Katalis Positif</a></li>
+              <li><a href="#teknikal">Teknikal Singkat</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Level Kritis TLKM</div>
+          <div class="widget-body">
+            <div class="kp-list">
+              <div class="kp-item"><span class="kp-icon">🔴</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--danger)">Stoploss</strong><br>Di bawah Rp2.560 (52W Low)</span></div>
+              <div class="kp-item"><span class="kp-icon">🟡</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent2)">Akumulasi</strong><br>Rp2.700 – Rp2.800</span></div>
+              <div class="kp-item"><span class="kp-icon">🟠</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent)">Resistance 1</strong><br>Rp3.000 – Rp3.050</span></div>
+              <div class="kp-item"><span class="kp-icon">🟢</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--success)">Target Analis</strong><br>Rp3.813 (konsensus)</span></div>
+              <div class="kp-item"><span class="kp-icon">⭐</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--text-bright)">High Target</strong><br>Rp4.500</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · BBCA</div>
+                  <div class="related-title"><a href="news-bbca-mei2026.html" style="color:var(--text)">BBCA Tertekan ke Rp5.950: Foreign Net Sell &amp; NIM Menyusut</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · IHSG</div>
+                  <div class="related-title"><a href="news-ihsg-turun-tajam-2026.html" style="color:var(--text)">IHSG −24% YTD: Penurunan Terdalam di Asia 2026</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Komoditas · Gold</div>
+                  <div class="related-title"><a href="artikel-gold-19mei2026.html" style="color:var(--text)">Analisis Emas 19 Mei 2026: XAU/USD $4.558</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · SMC</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text)">Apa Itu Liquidity Sweep? Panduan SMC Lengkap</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Alert Live</h4>
+          <p>Update TLKM, signal saham BEI, dan analisa makro Indonesia langsung di Telegram.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Gratis →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT/PREV -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel &amp; news terkini</span>
+      </a>
+      <a href="news-bbca-mei2026.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Lainnya →</span>
+        <span class="nav-cat">Saham · BBCA</span>
+        <span class="nav-title">BBCA Tertekan ke Rp5.950: Foreign Net Sell &amp; NIM Menyusut</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Join Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel Saham</h4>
+        <ul>
+          <li><a href="news-tlkm-mei2026.html" style="color:var(--accent)">TLKM Update</a></li>
+          <li><a href="news-bbca-mei2026.html">BBCA Update</a></li>
+          <li><a href="news-ihsg-turun-tajam-2026.html">IHSG −24% YTD</a></li>
+          <li><a href="us-treasury-yield-5persen.html">US Treasury Yield</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  sections.forEach(s => new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' }).observe(s));
+  function shareToTelegram() { const u = encodeURIComponent(location.href), t = encodeURIComponent('📉 TLKM Rp2.890: laba anjlok 20,5%, tapi buyback Rp1 T & InfraNexia spin-off jadi katalis. Buy on weakness? Analisa @IDSecretEntry'); window.open(`https://t.me/share/url?url=${u}&text=${t}`, '_blank'); }
+  function shareToTwitter()  { const u = encodeURIComponent(location.href), t = encodeURIComponent('📉 TLKM −16% dalam 3 bulan: laba FY25 turun 20%, buyback Rp1 T tunggu RUPS, InfraNexia Rp35,8 T jalan. Analisa lengkap @IDSecretEntry'); window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`, '_blank'); }
+  function copyLink() { navigator.clipboard.writeText(location.href).then(() => { const b = event.target; b.textContent = '✅ Copied!'; setTimeout(() => b.textContent = '🔗 Copy Link', 2000); }); }
+</script>
+</body>
+</html>
