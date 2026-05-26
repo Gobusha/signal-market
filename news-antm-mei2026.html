@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ANTM di Rp3.030 — dihapus dari MSCI Small Cap 29 Mei 2026, turun 14% sepekan. Tapi laba Q1 melejit +60% ke Rp3,66 T, bebas utang, dan megaproyek EV Battery bareng Huayou Cobalt sedang berjalan senyap." />
+  <meta property="og:title" content="ANTM Rp3.030: Didepak MSCI vs Laba +60% & EV Battery — Indonesian Secret Entry" />
+  <meta property="og:description" content="Update aktual Mei 2026 — ANTM dihapus MSCI Small Cap, tekanan jual mekanis. Tapi fundamental kuat: laba Q1 +60%, bebas utang, hilirisasi EV jalan. Buy on weakness atau tunggu?" />
+  <meta property="og:type" content="article" />
+  <title>ANTM Rp3.030: Didepak MSCI vs Laba +60% & EV Battery — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#0a0a0a;--bg-card:#111111;--bg-card2:#171717;--border:#2a2a2a;
+      --accent:#ff6a00;--accent2:#ff9a40;--danger:#ff3333;--success:#22c55e;
+      --gold:#f4c430;
+      --text:#d4d4d4;--text-dim:#666666;--text-bright:#ffffff;
+      --font-display:'Bebas Neue',sans-serif;--font-mono:'IBM Plex Mono',monospace;--font-body:'IBM Plex Sans',sans-serif;
+      --radius:8px;--radius-lg:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.65;overflow-x:clip;width:100%;word-break:break-word;overflow-wrap:break-word}
+    img{max-width:100%;display:block;border-radius:var(--radius)}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+    .container{max-width:1280px;margin:0 auto;padding:0 16px}
+
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(18px) saturate(180%);background:rgba(10,10,10,.88);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+    #navbar.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--text-bright)}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding:8px 14px;border-radius:var(--radius);transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(255,106,0,.08);text-decoration:none}
+    .has-drop{position:relative}
+    .has-drop .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);min-width:220px;padding:8px 0;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+    .has-drop:hover .dropdown{display:block}
+    .dropdown a{display:block;padding:10px 18px !important;border-radius:0 !important;font-size:11px !important}
+    .dropdown a:hover{background:rgba(255,106,0,.06) !important}
+    .burger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+    .burger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+    .mobile-menu{display:none}
+    @media(max-width:860px){.nav-links{display:none}.burger{display:flex}.mobile-menu.open{display:flex;flex-direction:column;background:var(--bg-card);border-top:1px solid var(--border);padding:16px 24px 24px;gap:2px}.mobile-menu a{display:block;padding:10px 0;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border)}.mobile-menu a:hover{color:var(--accent)}}
+
+    /* HERO */
+    #article-hero{position:relative;padding:80px 0 0;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(244,196,48,.06) 0%,transparent 65%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,42,42,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(42,42,42,.3) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 100% 100% at 50% 0%,black 0%,transparent 75%);animation:gridShift 20s linear infinite}
+    @keyframes gridShift{from{background-position:0 0}to{background-position:48px 48px}}
+    .article-hero-inner{position:relative;z-index:1;width:100%;max-width:860px;padding-bottom:0;overflow:hidden}
+    .breadcrumb{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;display:flex;gap:0;align-items:center;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color .2s}
+    .breadcrumb a:hover{color:var(--accent);text-decoration:none}
+    .breadcrumb .sep{color:var(--accent);margin:0 10px}
+    .article-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;opacity:0;animation:fadeUp .5s .05s forwards}
+    .atag{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--accent);color:var(--accent)}
+    .atag-red{border-color:var(--danger);color:var(--danger)}
+    .atag-dim{border-color:var(--border);color:var(--text-dim)}
+    .atag-ok{border-color:var(--success);color:var(--success)}
+    .atag-gold{border-color:var(--gold);color:var(--gold)}
+    .article-title{font-family:var(--font-display);font-size:clamp(1.6rem,6vw,4.8rem);line-height:1.0;letter-spacing:.02em;color:var(--text-bright);margin-bottom:20px;opacity:0;animation:fadeUp .6s .1s forwards;overflow-wrap:break-word;word-break:break-word}
+    .article-title .hl{color:var(--accent)}
+    .article-title .hl-red{color:var(--danger)}
+    .article-title .hl-gold{color:var(--gold)}
+    .article-title .hl-ok{color:var(--success)}
+    .article-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+    .article-meta .sep{color:var(--border)}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--danger);text-transform:uppercase}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--danger);animation:blink 1.2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero-visual{margin-top:32px;position:relative;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;height:260px;background:linear-gradient(160deg,#0d0a00 0%,#1a1400 40%,#0a0a0a 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-bottom:none;width:100%;max-width:100%}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 60%,rgba(244,196,48,.07) 0%,transparent 70%)}
+    .hero-diagram{position:relative;z-index:1;width:100%;max-width:100%;padding:0 24px;overflow:hidden}
+    .chart-svg{width:100%;height:auto}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+    /* BODY */
+    #article-body{position:relative;z-index:1;padding:0 0 96px}
+    .article-layout{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding-top:36px}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}.article-sidebar{order:-1}}
+
+    /* PROSE */
+    .prose{max-width:100%;min-width:0}
+    .prose h2{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.2rem);color:var(--text-bright);letter-spacing:.04em;line-height:1.05;margin:36px 0 12px;padding-top:4px}
+    .prose h2:first-child{margin-top:0}
+    .prose p{color:var(--text);font-size:.95rem;line-height:1.8;margin-bottom:18px}
+    .prose strong{color:var(--text-bright);font-weight:600}
+    .prose em{color:var(--accent2);font-style:italic}
+    .prose ul{padding-left:20px;margin-bottom:20px}
+    .prose li{color:var(--text);font-size:.93rem;line-height:1.75;margin-bottom:8px}
+    .prose li::marker{color:var(--gold)}
+
+    .callout{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(255,106,0,.06) 0%,transparent 100%);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:20px 0}
+    .callout.warn{border-color:var(--danger);background:linear-gradient(90deg,rgba(255,51,51,.06) 0%,transparent 100%)}
+    .callout.tip{border-color:var(--success);background:linear-gradient(90deg,rgba(34,197,94,.06) 0%,transparent 100%)}
+    .callout.gold{border-color:var(--gold);background:linear-gradient(90deg,rgba(244,196,48,.06) 0%,transparent 100%)}
+    .callout-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .callout.warn .callout-label{color:var(--danger)}
+    .callout.tip .callout-label{color:var(--success)}
+    .callout.gold .callout-label{color:var(--gold)}
+    .callout p{margin-bottom:0}
+
+    .key-points{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:20px;margin:24px 0}
+    .key-points-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .key-points-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .kp-list{display:flex;flex-direction:column;gap:12px}
+    .kp-item{display:flex;gap:10px;align-items:flex-start}
+    .kp-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .kp-text{font-size:.88rem;color:var(--text);line-height:1.55;flex:1;word-break:break-word}
+
+    /* Ticker */
+    .ticker-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+    .ticker-card{flex:1;min-width:130px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-card);padding:12px 14px}
+    .ticker-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+    .ticker-value{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:1}
+    .ticker-change{font-family:var(--font-mono);font-size:10px;margin-top:3px}
+    .ticker-change.down{color:var(--danger)}
+    .ticker-change.up{color:var(--success)}
+    .ticker-change.neu{color:var(--accent2)}
+
+    /* Content image (webp) */
+    .content-img{width:100%;border-radius:var(--radius-lg);border:1px solid var(--border);margin:24px 0;overflow:hidden;position:relative;background:var(--bg-card)}
+    .content-img img{width:100%;height:auto;display:block;object-fit:cover}
+    .img-caption{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--text-dim);padding:8px 14px;border-top:1px solid var(--border);text-align:center}
+    .img-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d0a00 0%,#1a1400 100%);color:var(--gold);font-family:var(--font-mono);font-size:11px;letter-spacing:.1em}
+
+    /* Table */
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border)}
+    .prose table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:340px}
+    .prose th{background:var(--bg-card2);padding:9px 13px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;border-bottom:1px solid var(--border)}
+    .prose td{padding:9px 13px;border-bottom:1px solid var(--border);vertical-align:top}
+    .prose tr:last-child td{border-bottom:none}
+    .prose tr:hover td{background:rgba(255,255,255,.02)}
+    td.neg{color:var(--danger);font-weight:600}
+    td.pos{color:var(--success);font-weight:600}
+    td.neu{color:var(--accent2);font-weight:600}
+    td.gld{color:var(--gold);font-weight:600}
+
+    .prose-divider{width:48px;height:2px;background:var(--gold);border-radius:2px;margin:32px 0}
+
+    /* Share */
+    .share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:20px}
+    .share-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .share-btn{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius);border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;transition:color .2s,border-color .2s}
+    .share-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+    /* Sidebar */
+    .article-sidebar{display:flex;flex-direction:column;gap:24px}
+    .sidebar-widget{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);overflow:hidden}
+    @media(min-width:769px){.sidebar-widget{position:sticky;top:88px}}
+    .widget-head{padding:14px 20px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center}
+    .widget-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 1.2s infinite}
+    .widget-body{padding:20px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc-list a{display:block;padding:7px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);border-radius:var(--radius);transition:all .2s}
+    .toc-list a:hover{color:var(--accent);background:rgba(255,106,0,.06);text-decoration:none}
+    .toc-list a.active{color:var(--accent);border-left:2px solid var(--accent);padding-left:8px}
+    .toc-list li+li{border-top:1px solid var(--border)}
+    .related-list{display:flex;flex-direction:column;gap:12px}
+    .related-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid var(--border);transition:padding-left .2s}
+    .related-item:last-child{border-bottom:none;padding-bottom:0}
+    .related-item:hover{padding-left:4px}
+    .related-body{flex:1}
+    .related-cat{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+    .related-title{font-size:.8rem;color:var(--text);line-height:1.35}
+    .related-arrow{color:var(--accent);flex-shrink:0;margin-top:2px;font-size:.75rem}
+    .cta-card{border:1px solid rgba(244,196,48,.2);border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--bg-card) 0%,rgba(244,196,48,.04) 100%);padding:24px;text-align:center}
+    .cta-card .cta-emoji{font-size:2.4rem;margin-bottom:12px}
+    .cta-card h4{font-family:var(--font-display);font-size:1.3rem;color:var(--text-bright);margin-bottom:8px}
+    .cta-card p{font-size:.8rem;color:var(--text-dim);margin-bottom:16px}
+    .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border-radius:var(--radius);transition:opacity .2s,transform .2s}
+    .cta-btn:hover{opacity:.9;transform:translateY(-1px);text-decoration:none}
+
+    /* Article nav */
+    .article-nav{border-top:1px solid var(--border);padding:48px 0;position:relative;z-index:1}
+    .article-nav-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.article-nav-inner{grid-template-columns:1fr}}
+    .nav-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .3s,transform .25s}
+    .nav-card:hover{border-color:rgba(255,106,0,.3);transform:translateY(-2px);text-decoration:none}
+    .nav-card .nav-dir{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .nav-card .nav-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--accent)}
+    .nav-card .nav-title{font-size:.9rem;color:var(--text-bright);line-height:1.4}
+    .nav-next{text-align:right}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:48px 0 32px;position:relative;z-index:1}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+    .footer-brand .logo-text{font-family:var(--font-display);font-size:1.6rem;color:var(--text-bright);letter-spacing:.08em}
+    .footer-brand .logo-text span{color:var(--accent)}
+    .footer-brand p{font-size:12px;color:var(--text-dim);margin-top:8px;max-width:280px}
+    .footer-nav h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
+    .footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-nav ul a{font-size:13px;color:var(--text-dim)}
+    .footer-nav ul a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+    .footer-bottom .disclaimer{font-size:10px;opacity:.6}
+
+    #scrollTop{position:fixed;bottom:28px;right:28px;z-index:99;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,106,0,.4);transition:transform .2s}
+    #scrollTop:hover{transform:scale(1.1)}
+    #scrollTop.show{display:flex}
+
+    @media(max-width:768px){
+      .container{padding:0 14px}
+      .article-layout{grid-template-columns:1fr;gap:20px;padding-top:24px}
+      #article-body{padding:0 0 40px}
+      .article-nav{padding:24px 0}
+      .article-nav-inner{grid-template-columns:1fr}
+      #article-hero{padding:68px 0 0}
+      .article-hero-inner{max-width:100%}
+      .hero-visual{height:130px;margin-top:16px;border-radius:var(--radius) var(--radius) 0 0}
+      .hero-diagram{padding:0 8px}
+      .article-title{font-size:1.7rem;line-height:1.05;margin-bottom:10px}
+      .article-meta{gap:6px;font-size:9px;margin-bottom:16px}
+      .article-tags{gap:5px;margin-bottom:10px}
+      .breadcrumb{margin-bottom:12px;font-size:9px}
+      .prose h2{font-size:1.2rem;margin:24px 0 8px}
+      .prose p{font-size:.85rem;line-height:1.68;margin-bottom:11px}
+      .prose li{font-size:.84rem}
+      .callout{padding:10px 12px;margin:14px 0}
+      .key-points{padding:12px;margin:14px 0;border-radius:var(--radius)}
+      .ticker-row{gap:8px}
+      .ticker-card{min-width:100px;padding:10px 12px}
+      .ticker-value{font-size:1.2rem}
+      .table-wrap{margin:12px 0}
+      .prose table{font-size:.78rem;min-width:300px}
+      .prose th{padding:7px 9px;font-size:8px}
+      .prose td{padding:7px 9px}
+      .content-img{margin:14px 0}
+      .img-placeholder{height:120px}
+      .share-bar{margin-top:20px;padding-top:16px;gap:6px}
+      .article-sidebar{gap:16px}
+      .sidebar-widget{position:static}
+      .widget-body{padding:10px}
+      .nav-card{padding:16px}
+      footer{padding:20px 0 14px}
+      .footer-inner{gap:14px;margin-bottom:20px}
+    }
+    @media(max-width:400px){.article-title{font-size:1.45rem}.hero-visual{height:100px}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Saham')">Saham</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Komoditas')">Komoditas</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Edukasi')">Edukasi</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Makro')">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a><span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a><span class="sep">/</span>
+        Saham Indonesia
+      </div>
+
+      <div class="article-tags">
+        <span class="atag atag-red">⚠ MSCI Drop</span>
+        <span class="atag atag-gold">🥇 Emas · Nikel</span>
+        <span class="atag atag-dim">ANTM · BEI</span>
+        <span class="atag atag-dim">Pertambangan</span>
+        <span class="atag atag-ok">Laba +60% Q1</span>
+      </div>
+
+      <h1 class="article-title">
+        <span class="hl-red">ANTM</span> <span class="hl">Rp3.030</span><br>Didepak <span class="hl-red">MSCI</span> vs Laba <span class="hl-ok">+60%</span>
+      </h1>
+
+      <div class="article-meta">
+        <span class="live-badge"><span class="live-dot"></span>Live Update</span>
+        <span class="sep">·</span>
+        <span>26 Mei 2026</span>
+        <span class="sep">·</span>
+        <span>🕐 6 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero Chart ANTM: ATH 4.970 Jan → koreksi ke 3.030 Mei 2026 — inline SVG, zero HTTP request -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="areaUp" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f4c430" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#f4c430" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="areaDn" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity=".14"/>
+                <stop offset="100%" stop-color="#ff3333" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="gl"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Grid -->
+            <line x1="0" y1="36"  x2="680" y2="36"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="88"  x2="680" y2="88"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="140" x2="680" y2="140" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="192" x2="680" y2="192" stroke="#2a2a2a" stroke-width=".5"/>
+            <!-- Price labels -->
+            <text x="4" y="32"  font-family="IBM Plex Mono" font-size="8" fill="#555">4,970</text>
+            <text x="4" y="84"  font-family="IBM Plex Mono" font-size="8" fill="#555">4,200</text>
+            <text x="4" y="136" font-family="IBM Plex Mono" font-size="8" fill="#555">3,500</text>
+            <text x="4" y="188" font-family="IBM Plex Mono" font-size="8" fill="#555">2,800</text>
+
+            <!-- Rally phase area fill (Agt'25 → ATH Jan'26) -->
+            <path d="M50,178 L120,155 L200,118 L270,82 L310,48 L330,38 L330,240 L50,240 Z" fill="url(#areaUp)" opacity=".7"/>
+            <!-- Rally line -->
+            <polyline points="50,178 120,155 200,118 270,82 310,48 330,38" fill="none" stroke="#f4c430" stroke-width="2.5" stroke-linejoin="round" filter="url(#gl)"/>
+
+            <!-- Correction phase area fill (ATH → now) -->
+            <path d="M330,38 L380,58 L430,82 L470,105 L510,128 L550,148 L590,162 L630,172 L660,178 L660,240 L330,240 Z" fill="url(#areaDn)" opacity=".65"/>
+            <!-- Correction line -->
+            <polyline points="330,38 380,58 430,82 470,105 510,128 550,148 590,162 630,172 660,178" fill="none" stroke="#ff3333" stroke-width="2.5" stroke-linejoin="round" filter="url(#gl)"/>
+
+            <!-- Candle marks — key points -->
+            <!-- Rally candles -->
+            <line x1="200" y1="112" x2="200" y2="124" stroke="#f4c430" stroke-width="1.5"/><rect x="196" y="112" width="8" height="12" fill="#f4c430" opacity=".6" rx="1"/>
+            <!-- ATH marker -->
+            <circle cx="330" cy="38" r="5" fill="#f4c430" filter="url(#gl)"/>
+            <!-- Correction candles -->
+            <line x1="470" y1="99"  x2="470" y2="111"  stroke="#ff3333" stroke-width="1.5"/><rect x="466" y="101" width="8" height="10" fill="#ff3333" opacity=".7" rx="1"/>
+            <line x1="590" y1="156" x2="590" y2="168"  stroke="#ff3333" stroke-width="1.5"/><rect x="586" y="158" width="8" height="10" fill="#ff3333" opacity=".7" rx="1"/>
+
+            <!-- Event lines -->
+            <line x1="330" y1="12" x2="330" y2="215" stroke="#f4c430" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+            <text x="334" y="22" font-family="IBM Plex Mono" font-size="7.5" fill="#f4c430">ATH 4.970</text>
+            <text x="334" y="32" font-family="IBM Plex Mono" font-size="7" fill="#f4c430" opacity=".7">26 Jan 2026</text>
+
+            <line x1="430" y1="12" x2="430" y2="215" stroke="#ff6a00" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="434" y="22" font-family="IBM Plex Mono" font-size="7.5" fill="#ff6a00">Laba Q1</text>
+            <text x="434" y="32" font-family="IBM Plex Mono" font-size="7" fill="#ff6a00" opacity=".7">+60% YoY</text>
+
+            <line x1="590" y1="12" x2="590" y2="215" stroke="#ff3333" stroke-width="1" stroke-dasharray="3 3" opacity=".45"/>
+            <text x="594" y="22" font-family="IBM Plex Mono" font-size="7.5" fill="#ff3333">MSCI Drop</text>
+            <text x="594" y="32" font-family="IBM Plex Mono" font-size="7" fill="#ff3333" opacity=".7">29 Mei 2026</text>
+
+            <!-- Support zone -->
+            <line x1="50" y1="198" x2="660" y2="198" stroke="#22c55e" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
+            <text x="54" y="213" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e" opacity=".75">Buy on weakness 2.830–2.910</text>
+
+            <!-- Current price -->
+            <text x="564" y="196" font-family="IBM Plex Mono" font-size="8" fill="#ff3333">3.030 ▼</text>
+
+            <!-- Time labels -->
+            <text x="44"  y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Agt'25</text>
+            <text x="190" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Nov'25</text>
+            <text x="316" y="228" font-family="IBM Plex Mono" font-size="8" fill="#f4c430">Jan'26</text>
+            <text x="450" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Mar'26</text>
+            <text x="596" y="228" font-family="IBM Plex Mono" font-size="8" fill="#ff3333">Mei'26</text>
+
+            <!-- YTD badge -->
+            <rect x="10" y="50" width="108" height="28" rx="4" fill="rgba(244,196,48,.10)" stroke="#f4c430" stroke-width=".8" opacity=".9"/>
+            <text x="16" y="62" font-family="IBM Plex Mono" font-size="7" fill="#f4c430">ATH → now  −39%</text>
+            <text x="16" y="73" font-family="IBM Plex Mono" font-size="7" fill="#ff3333">1W  −14,29%</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <article class="prose">
+
+        <!-- Ticker row -->
+        <div class="ticker-row">
+          <div class="ticker-card">
+            <div class="ticker-label">ANTM · 26 Mei 2026</div>
+            <div class="ticker-value" style="color:var(--danger)">Rp3.030</div>
+            <div class="ticker-change down">▼ −14,29% sepekan · −39% dari ATH</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">ATH · 26 Jan 2026</div>
+            <div class="ticker-value" style="color:var(--gold)">Rp4.970</div>
+            <div class="ticker-change neu">52W High</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Laba Bersih Q1 2026</div>
+            <div class="ticker-value" style="color:var(--success)">Rp3,66 T</div>
+            <div class="ticker-change up">▲ +60% YoY</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Yield Dividen TTM</div>
+            <div class="ticker-value" style="color:var(--success)">4,91%</div>
+            <div class="ticker-change up">▲ Rp151,77/saham</div>
+          </div>
+        </div>
+
+        <div class="key-points">
+          <div class="key-points-title">Update 26 Mei 2026</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">📉</span><span class="kp-text">ANTM tergerus ke <strong>Rp3.030</strong> — turun 14,29% hanya dalam sepekan terakhir sejak 12 Mei 2026. Pemicu utama: <strong>ANTM didepak dari MSCI Small Cap Index</strong>, berlaku efektif penutupan 29 Mei 2026, memicu aksi jual mekanis dari fund tracker global.</span></div>
+            <div class="kp-item"><span class="kp-icon">📈</span><span class="kp-text">Di sisi fundamental, ANTM justru sedang dalam kondisi terbaik dalam beberapa tahun: <strong>laba bersih Q1 2026 melejit +60% YoY ke Rp3,66 triliun</strong>, penjualan bersih Rp29,32 triliun, dan neraca bebas utang bank.</span></div>
+            <div class="kp-item"><span class="kp-icon">🥇</span><span class="kp-text">Bisnis emas mendominasi <strong>81% dari total penjualan</strong>. ASP emas tercatat US$5.180/oz (+73% YoY), meski volume turun 38% YoY. Retail emas Antam sempat menyentuh rekor Rp3,16 juta per gram domestik.</span></div>
+            <div class="kp-item"><span class="kp-icon">⚡</span><span class="kp-text">Megaproyek EV Battery terintegrasi bersama Huayou Cobalt ditandatangani 30 Januari 2026 — tujuh proyek dari tambang, HPAL, katoda, hingga daur ulang baterai. Ini katalis jangka panjang terbesar ANTM yang belum sepenuhnya di-price-in pasar.</span></div>
+          </div>
+        </div>
+
+        <h2 id="msci-effect">Efek MSCI — Tekanan Jual yang Bersifat Mekanis</h2>
+
+        <p>Penurunan tajam ANTM dalam sepekan terakhir bukan dipicu kerusakan fundamental. Penurunan performa saham ini bertepatan dengan pengumuman tinjauan indeks Mei 2026 oleh MSCI, di mana ANTM menjadi salah satu dari 13 saham Indonesia yang didepak dari MSCI Small Cap Index — berlaku efektif pada penutupan 29 Mei 2026.</p>
+
+        <p>Konsekuensinya langsung: fund manager yang melacak indeks MSCI wajib menjual ANTM secara mekanis sebelum tanggal tersebut — bukan karena pilihan, tapi karena mandat. Ditambah berkembangnya rumor regulasi ekspor satu pintu lewat entitas negara yang menimbulkan kekhawatiran terkait potensi kontrol harga dan pemangkasan margin bagi eksportir, tekanan jual makin bertumpuk.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Penting Dipahami</div>
+          <p>Ini adalah tipikal <strong>"forced selling"</strong> — bukan sinyal fundamental memburuk. Setelah tanggal efektif 29 Mei lewat dan selling pressure mekanis mereda, harga berpotensi pulih ke level yang lebih mencerminkan fundamental. MNC Sekuritas memproyeksikan koreksi masih berpotensi berlanjut ke rentang Rp2.830–2.910 sebelum memberikan rekomendasi buy on weakness.</p>
+        </div>
+
+        <h2 id="fundamental">Fundamental Kuat: Laba +60%, Bebas Utang</h2>
+
+        <p>Berdasarkan keterbukaan informasi BEI tanggal 28 April 2026, ANTM melaporkan laba bersih Rp3,66 triliun pada Q1 2026, dengan penjualan bersih mencapai Rp29,32 triliun — kinerja yang didorong oleh segmen emas, nikel, serta bauksit dan alumina yang tumbuh solid.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Metrik</th><th>Q1 2026</th><th>Q1 2025</th><th>Δ YoY</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Laba Bersih</strong></td><td>Rp3,66 T</td><td>Rp2,13 T</td><td class="pos">+60% ↑</td></tr>
+              <tr><td><strong>Laba Usaha</strong></td><td>Rp4,50 T</td><td>Rp2,69 T</td><td class="pos">+67,3% ↑</td></tr>
+              <tr><td><strong>Penjualan Bersih</strong></td><td>Rp29,32 T</td><td>—</td><td class="pos">Solid</td></tr>
+              <tr><td><strong>ASP Emas</strong></td><td>US$5.180/oz</td><td>US$2.995/oz</td><td class="pos">+73% ↑</td></tr>
+              <tr><td><strong>ASP Bijih Nikel</strong></td><td>US$67/wmt</td><td>US$44,7/wmt</td><td class="pos">+50% ↑</td></tr>
+              <tr><td><strong>Produksi Bijih Nikel</strong></td><td>3,88 juta wmt</td><td>—</td><td class="neu">Stabil</td></tr>
+              <tr><td><strong>Utang Bank</strong></td><td>Nihil</td><td>—</td><td class="pos">Bebas utang</td></tr>
+              <tr><td><strong>Yield Dividen TTM</strong></td><td>4,91%</td><td>—</td><td class="gld">Rp151,77/shm</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>BRI Danareksa Sekuritas merevisi naik target harga ANTM menjadi Rp4.900, dengan rekomendasi beli dipertahankan berdasarkan proyeksi P/E 12,9x untuk 2026 sejalan rata-rata historis lima tahun. Kinerja positif ini terutama didorong oleh kenaikan harga komoditas, khususnya emas dan bijih nikel.</p>
+
+        <h2 id="ev-battery">Katalis Jangka Panjang: Megaproyek EV Battery</h2>
+
+        <p>Pada 30 Januari 2026, ANTM menandatangani Framework Agreement terkait proyek Industri Baterai Kendaraan Listrik (EV) Terintegrasi bersama PT Industri Baterai Indonesia (IBI) dan konsorsium yang dimotori Huayou Cobalt. Ada tujuh proyek utama yang disepakati, mulai dari tambang, smelter, pabrik HPAL, katoda, hingga daur ulang baterai.</p>
+
+        <p>Ini adalah jangkar transformasi ANTM dari sekadar produsen bijih nikel menjadi pemain rantai nilai baterai EV global. Dengan nikel sebagai bahan baku utama baterai lithium, posisi ANTM di atas cadangan nikel terbesar Indonesia menjadikannya aset strategis jangka panjang yang nilainya belum sepenuhnya tercermin di harga saham saat ini.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Level Watch Investor</div>
+          <p>MNC Sekuritas merekomendasikan buy on weakness di area Rp2.830–2.910 dengan target harga pertama Rp3.210 dan target kedua Rp3.320 — potensi upside hingga 17% dari zona akumulasi. Konsensus 16 analis menempatkan target rata-rata Rp4.481, dengan high target Rp6.000.</p>
+        </div>
+
+        <h2 id="teknikal">Teknikal Singkat</h2>
+
+        <p>RSI ANTM 14-hari berada di 46,99 (netral), sementara MACD di −43,4 (sell). Signal harian menunjukkan Strong Sell dengan 2 indikator buy dan 10 indikator sell dari moving average MA5 hingga MA200. Namun perlu dicatat bahwa tekanan ini bersifat mekanis dan berpotensi mereda setelah 29 Mei. Support kritis di <strong>Rp2.830–2.910</strong>, resistance pertama di <strong>Rp3.210–3.320</strong>.</p>
+
+        <div class="callout gold">
+          <div class="callout-label">📡 Kesimpulan</div>
+          <p>ANTM adalah paradoks klasik: <strong>fundamental terkuat dalam beberapa tahun, harga tertekan oleh faktor teknis eksternal</strong>. Setelah tanggal efektif MSCI 29 Mei berlalu, tekanan jual mekanis berpotensi mereda. Bagi investor value dengan horizon 12 bulan, area <strong>Rp2.830–2.910 adalah zona akumulasi yang layak dicermati</strong>. Stoploss di bawah Rp2.560. <a href="https://t.me/smcentry" target="_blank">Signal ANTM live di Telegram kami →</a></p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#msci-effect">Efek MSCI — Forced Selling</a></li>
+              <li><a href="#fundamental">Fundamental: Laba +60%</a></li>
+              <li><a href="#ev-battery">Katalis EV Battery</a></li>
+              <li><a href="#teknikal">Teknikal Singkat</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Level Kritis ANTM</div>
+          <div class="widget-body">
+            <div class="kp-list">
+              <div class="kp-item"><span class="kp-icon">🔴</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--danger)">Stoploss</strong><br>Di bawah Rp2.560</span></div>
+              <div class="kp-item"><span class="kp-icon">🟡</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent2)">Buy Zone</strong><br>Rp2.830 – Rp2.910</span></div>
+              <div class="kp-item"><span class="kp-icon">🟠</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent)">Target 1</strong><br>Rp3.210</span></div>
+              <div class="kp-item"><span class="kp-icon">🟢</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--success)">Target 2</strong><br>Rp3.320</span></div>
+              <div class="kp-item"><span class="kp-icon">⭐</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--gold)">Konsensus Analis</strong><br>Rp4.481 (avg) · Rp4.900 (BRI DS)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · BBCA</div>
+                  <div class="related-title"><a href="news-bbca-mei2026.html" style="color:var(--text)">BBCA Tertekan ke Rp5.950: Foreign Net Sell &amp; NIM Menyusut</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · TLKM</div>
+                  <div class="related-title"><a href="news-tlkm-mei2026.html" style="color:var(--text)">TLKM Rp2.890: Laba −20% vs Buyback &amp; InfraNexia</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Komoditas · Gold</div>
+                  <div class="related-title"><a href="artikel-gold-19mei2026.html" style="color:var(--text)">Analisis Emas XAU/USD $4.558 — Inflasi AS Tekuk Gold</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · SMC</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text)">Apa Itu Liquidity Sweep? Panduan SMC Lengkap</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">⛏️</div>
+          <h4>Signal Saham Live</h4>
+          <p>Update ANTM, BBCA, TLKM, dan analisa BEI harian langsung di Telegram.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Gratis →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT/PREV -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel &amp; news terkini</span>
+      </a>
+      <a href="news-tlkm-mei2026.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Lainnya →</span>
+        <span class="nav-cat">Saham · TLKM</span>
+        <span class="nav-title">TLKM Rp2.890: Laba −20% vs Buyback &amp; InfraNexia Spin-Off</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Join Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel Saham</h4>
+        <ul>
+          <li><a href="news-antm-mei2026.html" style="color:var(--accent)">ANTM Update</a></li>
+          <li><a href="news-tlkm-mei2026.html">TLKM Update</a></li>
+          <li><a href="news-bbca-mei2026.html">BBCA Update</a></li>
+          <li><a href="news-ihsg-turun-tajam-2026.html">IHSG −24% YTD</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  sections.forEach(s => new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' }).observe(s));
+  function shareToTelegram() { const u = encodeURIComponent(location.href), t = encodeURIComponent('📉 ANTM didepak MSCI Small Cap → turun 14% sepekan. Tapi laba Q1 +60%, bebas utang, EV Battery jalan. Buy on weakness? Analisa @IDSecretEntry'); window.open(`https://t.me/share/url?url=${u}&text=${t}`, '_blank'); }
+  function shareToTwitter()  { const u = encodeURIComponent(location.href), t = encodeURIComponent('📉 ANTM Rp3.030: dihapus MSCI forced selling, tapi laba +60%, emas ASP +73%, EV Battery Framework signed. Paradoks klasik. Analisa @IDSecretEntry'); window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`, '_blank'); }
+  function copyLink() { navigator.clipboard.writeText(location.href).then(() => { const b = event.target; b.textContent = '✅ Copied!'; setTimeout(() => b.textContent = '🔗 Copy Link', 2000); }); }
+</script>
+</body>
+</html>
