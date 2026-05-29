@@ -783,10 +783,12 @@
       <div class="footer-nav">
         <h4>Artikel</h4>
         <ul>
+          <li><a href="news-ptro-mei2026.html" style="color:var(--accent)">PTRO Update</a></li>
           <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
           <li><a href="artikel-onchain-analysis.html">On-Chain Analysis</a></li>
           <li><a href="artikel-smart-contract.html">Smart Contract</a></li>
           <li><a href="artikel-defi.html">DeFi</a></li>
+        </ul>
           <li><a href="#">Makro Ekonomi</a></li>
         </ul>
       </div>
@@ -997,6 +999,17 @@ const ARTIKEL_DATA = [
     tanggal: "25 Mei 2026",
     readTime: "5 min read"
   },
+  {
+    id: 15,
+    featured: false,
+    kategori: "Saham",
+    icon: "⛏️",
+    judul: "PTRO Rp4.850: Turun 60% dari ATH, Tapi Revenue +84% & Backlog US$4,5 M",
+    deskripsi: "PTRO ambles lebih dari 60% dari ATH Rp13.000 ke Rp4.850 di tengah tekanan IHSG dan sentimen risk-off. Tapi fundamental justru solid: revenue Q1 melejit +84%, backlog kontrak US$4,5 miliar, dan ekspansi Papua Nugini & Pakistan. Target analis Rp8.000–Rp17.000.",
+    url: "news-ptro-mei2026.html",
+    tanggal: "29 Mei 2026",
+    readTime: "6 min read"
+  },
   /* ════ TEMPLATE TAMBAH ARTIKEL BARU — copy block ini ════
   {
     id: 8,                              // ← ganti angka (unik)
@@ -1017,6 +1030,15 @@ const ARTIKEL_DATA = [
    badge: "new" | "bull" | "bear" | "watch"
    ══════════════════════════════════════════════════════ */
 const NEWS_DATA = [
+  {
+    id: 15,
+    judul: "PTRO Rp4.850 — Turun 60% dari ATH, Revenue +84% & Backlog US$4,5 M Tetap Solid",
+    sumber: "ISE Research",
+    waktu: "Hari ini · 29 Mei 2026",
+    url: "news-ptro-mei2026.html",
+    badge: "watch",
+    kategori: "Saham"
+  },
   {
     id: 15,
     judul: "ANTM Rp3.030: Didepak MSCI Small Cap 29 Mei — Laba Q1 +60%, EV Battery Jalan",
@@ -1131,6 +1153,7 @@ const NEWS_DATA = [
    ✏️  EDIT TRENDING SIDEBAR DI SINI
    ══════════════════════════════════════════════════════ */
 const TRENDING_DATA = [
+  { judul: "PTRO Rp4.850: Revenue +84% & Backlog US$4,5 M — Reversal Setup?", kategori: "Saham · PTRO", url: "news-ptro-mei2026.html", target: "_self" },
   { judul: "ANTM Didepak MSCI vs Laba +60% — Buy on Weakness?", kategori: "Saham · ANTM", url: "news-antm-mei2026.html", target: "_self" },
   { judul: "Bitcoin ETF Outflow vs Supply Crunch — Ke Mana BTC Selanjutnya?", kategori: "Crypto · Bitcoin", url: "news-bitcoin-mei2026.html", target: "_self" },
   { judul: "IHSG −24% YTD: Penurunan Terdalam di Asia 2026", kategori: "Saham · IHSG", url: "news-ihsg-turun-tajam-2026.html", target: "_self" },
