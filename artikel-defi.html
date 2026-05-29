@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panduan lengkap DeFi (Decentralized Finance) — pengertian, cara kerja, protokol utama, risiko nyata, dan mengapa ini menjadi revolusi terbesar dalam sejarah keuangan global." />
+  <meta property="og:title" content="Memahami Revolusi Keuangan Digital: DeFi — Indonesian Secret Entry" />
+  <meta property="og:description" content="Pelajari bagaimana DeFi menghapus perantara keuangan, cara protokol seperti Uniswap dan Aave bekerja, serta risiko yang perlu dipahami sebelum terjun ke ekosistem ini." />
+  <meta property="og:type" content="article" />
+  <title>Memahami Revolusi Keuangan Digital: DeFi — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ═══ NOISE OVERLAY ═══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    /* ═══ UTILITY ═══ */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    .has-drop { position: relative; }
+    .has-drop .dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-width: 220px;
+      padding: 8px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══ ARTICLE HERO ═══ */
+    #article-hero {
+      position: relative;
+      padding: 80px 0 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,106,0,.08) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .article-hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 860px;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 24px; display: flex; gap: 0; align-items: center; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 6vw, 4.8rem);
+      line-height: 1.0;
+      letter-spacing: .02em;
+      color: var(--text-bright);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .article-title .hl { color: var(--accent); }
+    .article-title--inline {
+      white-space: nowrap;
+      font-size: clamp(1rem, 5.5vw, 4.8rem);
+    }
+
+    .article-meta {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .article-meta .sep { color: var(--border); }
+
+    .hero-visual {
+      margin-top: 32px;
+      position: relative;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      height: 260px;
+      background: linear-gradient(160deg, #000a18 0%, #001228 40%, #0a0a0a 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      width: 100%;
+      max-width: 100%;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(255,106,0,.07) 0%, transparent 70%);
+    }
+    .hero-diagram {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 100%;
+      padding: 0 24px;
+      overflow: hidden;
+    }
+    .chart-svg { width: 100%; height: auto; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══ ARTICLE BODY LAYOUT ═══ */
+    #article-body {
+      position: relative; z-index: 1;
+      padding: 0 0 96px;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { order: -1; }
+    }
+
+    /* ═══ PROSE ═══ */
+    .prose { max-width: 100%; min-width: 0; }
+
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      color: var(--text-bright);
+      letter-spacing: .04em;
+      line-height: 1.05;
+      margin: 36px 0 12px;
+      padding-top: 4px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+
+    .prose h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--accent2);
+      letter-spacing: .04em;
+      margin: 32px 0 12px;
+    }
+
+    .prose p {
+      color: var(--text);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .prose strong { color: var(--text-bright); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
+    .prose em { color: var(--accent2); font-style: italic; }
+
+    .prose ul, .prose ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .prose li {
+      color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px;
+    }
+    .prose li::marker { color: var(--accent); }
+
+    /* Callout boxes */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    /* Divider */
+    .prose-divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 36px 0;
+    }
+
+    /* Key point card */
+    .key-points {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 20px;
+      margin: 24px 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .key-points-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; min-width: 0; flex: 1; word-break: break-word; }
+
+    /* Concept block */
+    .concept-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .concept-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .concept-header .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .concept-body { padding: 20px; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 0; margin: 8px 0; }
+    .step {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      font-family: var(--font-display); font-size: 2rem; line-height: 1;
+      color: var(--accent); opacity: .35;
+    }
+    .step-body h4 { font-size: .9rem; color: var(--text-bright); margin-bottom: 6px; }
+    .step-body p  { font-size: .85rem; color: var(--text-dim); margin-bottom: 0; overflow-wrap: break-word; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .prose table {
+      width: 100%; border-collapse: collapse;
+      font-size: .83rem;
+      min-width: 360px;
+    }
+    .prose th {
+      background: var(--bg-card2);
+      padding: 10px 14px;
+      text-align: left;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .prose td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:nth-child(even) td { background: rgba(255,255,255,.015); }
+
+    /* Share bar */
+    .share-bar {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .share-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); margin-right: 4px;
+    }
+    .share-btn {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 14px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text-dim); cursor: pointer; transition: .2s;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ═══ SIDEBAR ═══ */
+    .article-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-widget {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      position: sticky; top: 84px;
+    }
+    .widget-head {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .widget-head .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .widget-body { padding: 12px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      display: block; padding: 6px 10px; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em;
+      color: var(--text-dim); transition: .2s;
+    }
+    .toc-list a:hover, .toc-list a.active { color: var(--accent); background: rgba(255,106,0,.07); text-decoration: none; }
+
+    .related-list { display: flex; flex-direction: column; gap: 2px; }
+    .related-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px; border-radius: var(--radius); gap: 8px;
+      transition: background .2s; cursor: pointer;
+    }
+    .related-item:hover { background: var(--bg-card2); }
+    .related-body { flex: 1; min-width: 0; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.4; }
+    .related-arrow { color: var(--text-dim); flex-shrink: 0; font-size: .9rem; }
+
+    .cta-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #111 0%, #0d0d0d 100%);
+      padding: 20px;
+      text-align: center;
+    }
+    .cta-card .cta-emoji { font-size: 2rem; margin-bottom: 10px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; letter-spacing: .04em; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block; padding: 10px 20px;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      border-radius: var(--radius); transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .85; text-decoration: none; }
+
+    /* ═══ ARTICLE NAV ═══ */
+    .article-nav { border-top: 1px solid var(--border); padding: 32px 0; }
+    .article-nav-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 16px 20px;
+      display: flex; flex-direction: column; gap: 6px;
+      transition: border-color .2s, background .2s;
+    }
+    .nav-card:hover { border-color: var(--accent); background: var(--bg-card2); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat { font-family: var(--font-mono); font-size: 9px; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    /* ═══ SCROLL TOP ═══ */
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 768px) {
+      .container      { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body   { padding: 0 0 40px; }
+      .article-nav    { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+      #article-hero        { padding: 68px 0 0; }
+      .article-hero-inner  { max-width: 100%; }
+      .hero-visual         { height: 130px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .hero-diagram        { padding: 0 8px; }
+      .article-title       { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta        { gap: 6px; font-size: 9px; letter-spacing: .04em; margin-bottom: 16px; }
+      .article-tags        { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb          { margin-bottom: 12px; font-size: 9px; }
+      .breadcrumb .sep     { margin: 0 4px; }
+      .prose h2       { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose h3       { font-size: 1rem; margin: 16px 0 6px; }
+      .prose p        { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li       { font-size: .84rem; line-height: 1.6; margin-bottom: 4px; }
+      .prose ul, .prose ol { padding-left: 15px; margin-bottom: 12px; }
+      .callout        { padding: 10px 12px; margin: 14px 0; }
+      .callout p      { font-size: .83rem; }
+      .key-points        { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .key-points-title  { font-size: 8px; margin-bottom: 8px; }
+      .kp-item           { gap: 8px; }
+      .kp-icon           { font-size: .8rem; }
+      .kp-text           { font-size: .81rem; line-height: 1.5; }
+      .concept-block     { margin: 14px 0; border-radius: var(--radius); }
+      .concept-header    { padding: 8px 12px; font-size: 8px; }
+      .concept-body      { padding: 10px; }
+      .step              { grid-template-columns: 24px 1fr; gap: 8px; padding: 12px 0; }
+      .step-num          { font-size: 1.1rem; }
+      .step-body h4      { font-size: .8rem; margin-bottom: 2px; }
+      .step-body p       { font-size: .78rem; }
+      .table-wrap        { margin: 12px 0; }
+      .prose table       { font-size: .78rem; min-width: 300px; }
+      .prose th          { padding: 7px 9px; font-size: 8px; }
+      .prose td          { padding: 7px 9px; }
+      .prose-divider     { margin: 16px 0; }
+      .share-bar         { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .share-label       { font-size: 9px; }
+      .share-btn         { padding: 5px 9px; font-size: 8px; letter-spacing: .06em; }
+      .article-sidebar   { gap: 16px; }
+      .sidebar-widget    { position: static; }
+      .widget-head       { padding: 9px 12px; font-size: 8px; }
+      .widget-body       { padding: 10px; }
+      .toc-list a        { padding: 5px 7px; font-size: 9px; }
+      .related-title     { font-size: .75rem; }
+      .cta-card          { padding: 14px; border-radius: var(--radius); }
+      .cta-card .cta-emoji { font-size: 1.6rem; margin-bottom: 6px; }
+      .cta-card h4       { font-size: 1rem; margin-bottom: 5px; }
+      .cta-card p        { font-size: .75rem; margin-bottom: 8px; }
+      .cta-btn           { font-size: 9px; padding: 8px 14px; }
+      .nav-card          { padding: 12px; gap: 4px; border-radius: var(--radius); }
+      .nav-card .nav-title { font-size: .8rem; }
+      .nav-card .nav-dir  { font-size: 8px; }
+      footer             { padding: 20px 0 14px; }
+      .footer-inner      { gap: 14px; margin-bottom: 20px; }
+      .footer-brand p    { font-size: 11px; max-width: 100%; }
+      .footer-nav h4     { margin-bottom: 8px; }
+      .footer-nav ul     { gap: 6px; }
+      .footer-nav ul a   { font-size: 11px; }
+      .footer-bottom     { padding-top: 14px; gap: 8px; }
+      .footer-bottom p   { font-size: 9px; }
+      .footer-bottom .disclaimer { font-size: 8px; }
+    }
+
+    @media (max-width: 400px) {
+      .article-title     { font-size: 1.45rem; }
+      .hero-visual       { height: 100px; }
+      .prose h2          { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html">Crypto</a>
+          <a href="artikel-news.html">Saham</a>
+          <a href="artikel-news.html">Komoditas</a>
+          <a href="artikel-news.html">Edukasi</a>
+          <a href="artikel-news.html">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="index-v1.1.html#charts">Charts</a>
+    <a href="index-v1.1.html#calendar">Calendar</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HERO ═══ -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a>
+        <span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a>
+        <span class="sep">/</span>
+        DeFi
+      </div>
+
+      <div class="article-tags">
+        <span class="atag">Edukasi</span>
+        <span class="atag">Crypto</span>
+        <span class="atag atag-dim">Blockchain</span>
+        <span class="atag atag-dim">Web3</span>
+        <span class="atag atag-dim">Ethereum</span>
+      </div>
+
+      <h1 class="article-title article-title--inline">
+        Revolusi <span class="hl">DeFi:</span> Keuangan Tanpa Bank
+      </h1>
+
+      <div class="article-meta">
+        <span>1 Februari 2025</span>
+        <span class="sep">·</span>
+        <span>🕐 8 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero SVG Diagram -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff6a00" stop-opacity=".2"/>
+                <stop offset="100%" stop-color="#ff6a00" stop-opacity=".03"/>
+              </linearGradient>
+              <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7dd3fc" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#7dd3fc" stop-opacity=".03"/>
+              </linearGradient>
+              <linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22c55e" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#22c55e" stop-opacity=".03"/>
+              </linearGradient>
+              <filter id="glow2">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Grid lines -->
+            <line x1="0" y1="60"  x2="680" y2="60"  stroke="#1a1a1a" stroke-width="1"/>
+            <line x1="0" y1="120" x2="680" y2="120" stroke="#1a1a1a" stroke-width="1"/>
+            <line x1="0" y1="180" x2="680" y2="180" stroke="#1a1a1a" stroke-width="1"/>
+
+            <!-- User node (left) -->
+            <rect x="20" y="80" width="90" height="56" rx="6" fill="url(#blueGrad)" stroke="#7dd3fc" stroke-width="1" stroke-opacity=".5"/>
+            <text x="65" y="102" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#7dd3fc">USER</text>
+            <text x="65" y="116" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#666">Wallet / dApp</text>
+            <circle cx="65" cy="127" r="3" fill="#7dd3fc" opacity=".4"/>
+
+            <!-- Arrow User → Blockchain -->
+            <line x1="112" y1="108" x2="195" y2="108" stroke="#7dd3fc" stroke-width="1.5" stroke-opacity=".4" stroke-dasharray="5 3"/>
+            <polygon points="193,104 201,108 193,112" fill="#7dd3fc" opacity=".5"/>
+            <text x="153" y="101" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#444">on-chain tx</text>
+
+            <!-- Blockchain / Smart Contract (center) -->
+            <rect x="205" y="58" width="148" height="104" rx="10" fill="none" stroke="#ff6a00" stroke-width="2" stroke-opacity=".18"/>
+            <rect x="209" y="62" width="140" height="96" rx="8" fill="url(#nodeGrad)" stroke="#ff6a00" stroke-width="1.5" stroke-opacity=".85"/>
+            <text x="279" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00" font-weight="600">SMART CONTRACT</text>
+            <text x="223" y="106" font-family="IBM Plex Mono" font-size="7" fill="#ff9a40">Lend</text>
+            <text x="223" y="118" font-family="IBM Plex Mono" font-size="7" fill="#7dd3fc">Swap</text>
+            <text x="223" y="130" font-family="IBM Plex Mono" font-size="7" fill="#22c55e">Stake</text>
+            <text x="265" y="106" font-family="IBM Plex Mono" font-size="7" fill="#666">→ Aave / Compound</text>
+            <text x="265" y="118" font-family="IBM Plex Mono" font-size="7" fill="#666">→ Uniswap / Curve</text>
+            <text x="265" y="130" font-family="IBM Plex Mono" font-size="7" fill="#666">→ Lido / Yearn</text>
+            <circle cx="279" cy="74" r="4" fill="#ff6a00" opacity=".65" filter="url(#glow2)"/>
+
+            <!-- Arrow Blockchain → Protocol outputs -->
+            <line x1="351" y1="108" x2="432" y2="80" stroke="#ff6a00" stroke-width="1.2" stroke-opacity=".4" stroke-dasharray="4 3"/>
+            <line x1="351" y1="108" x2="432" y2="108" stroke="#7dd3fc" stroke-width="1.2" stroke-opacity=".4" stroke-dasharray="4 3"/>
+            <line x1="351" y1="108" x2="432" y2="136" stroke="#22c55e" stroke-width="1.2" stroke-opacity=".4" stroke-dasharray="4 3"/>
+
+            <!-- Output box 1: Yield -->
+            <rect x="434" y="60" width="88" height="40" rx="5" fill="url(#nodeGrad)" stroke="#ff6a00" stroke-width="1" stroke-opacity=".5"/>
+            <text x="478" y="76" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.5" fill="#ff9a40">YIELD / APY</text>
+            <text x="478" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#666">interest earned</text>
+
+            <!-- Output box 2: Liquidity -->
+            <rect x="434" y="88" width="88" height="40" rx="5" fill="url(#blueGrad)" stroke="#7dd3fc" stroke-width="1" stroke-opacity=".5"/>
+            <text x="478" y="103" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.5" fill="#7dd3fc">LIQUIDITY</text>
+            <text x="478" y="115" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#666">LP tokens</text>
+
+            <!-- Output box 3: Staking -->
+            <rect x="434" y="116" width="88" height="40" rx="5" fill="url(#greenGrad)" stroke="#22c55e" stroke-width="1" stroke-opacity=".5"/>
+            <text x="478" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e">STAKING</text>
+            <text x="478" y="143" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#666">passive reward</text>
+
+            <!-- TVL label -->
+            <text x="600" y="90" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00" font-weight="600">TVL</text>
+            <text x="600" y="104" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#fff" font-weight="600">$100B+</text>
+            <text x="600" y="116" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#444">total value locked</text>
+            <circle cx="600" cy="80" r="3.5" fill="#ff6a00" opacity=".6" filter="url(#glow2)"/>
+
+            <!-- Bottom label -->
+            <text x="279" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.5" fill="#333">permissionless · trustless · transparent · borderless</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- LEFT: Main prose -->
+      <article class="prose">
+
+        <h2 id="pengertian">Apa Itu DeFi?</h2>
+
+        <p><strong>DeFi (Decentralized Finance)</strong> atau Keuangan Terdesentralisasi adalah ekosistem aplikasi dan protokol keuangan yang dibangun di atas teknologi blockchain — terutama Ethereum — yang beroperasi tanpa perantara seperti bank, broker, atau lembaga keuangan konvensional.</p>
+
+        <p>Bayangkan semua layanan yang ditawarkan bank: pinjaman, tabungan berbunga, pertukaran mata uang, asuransi, dan investasi. DeFi menghadirkan semua itu, namun dijalankan oleh <strong>smart contract</strong> — kode yang berjalan otomatis dan tidak bisa disensor, dimanipulasi, atau dihentikan oleh pihak manapun.</p>
+
+        <div class="key-points">
+          <div class="key-points-title">Inti dari DeFi</div>
+          <div class="kp-list">
+            <div class="kp-item"><div class="kp-icon">🔓</div><div class="kp-text"><strong>Open access</strong> — Siapa saja dengan koneksi internet dan crypto wallet bisa menggunakan layanan DeFi, tanpa KYC, tanpa rekening bank, tanpa izin dari siapapun.</div></div>
+            <div class="kp-item"><div class="kp-icon">🤖</div><div class="kp-text"><strong>Dijalankan kode, bukan manusia</strong> — Aturan sistemnya transparan, konsisten, dan tidak bisa diubah secara sepihak setelah di-deploy.</div></div>
+            <div class="kp-item"><div class="kp-icon">🌐</div><div class="kp-text"><strong>Borderless</strong> — Tidak mengenal batas negara, regulasi lokal, atau jam operasional. Berjalan 24/7, 365 hari setahun.</div></div>
+            <div class="kp-item"><div class="kp-icon">🔍</div><div class="kp-text"><strong>Transparan sepenuhnya</strong> — Semua transaksi tercatat di blockchain yang bisa diverifikasi oleh siapapun, kapanpun.</div></div>
+          </div>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="mengapa-penting">Mengapa DeFi Penting bagi Trader?</h2>
+
+        <p>Bagi trader dan investor, DeFi bukan sekadar tren teknologi — ini adalah infrastruktur keuangan baru yang sudah memproses triliunan dolar. Memahami DeFi berarti memahami <em>layer</em> fundamental di bawah sebagian besar pergerakan harga crypto.</p>
+
+        <p>Saat TVL (Total Value Locked) DeFi meningkat, artinya kapital mengalir masuk ke ekosistem — ini bullish untuk Ethereum dan aset terkait. Saat terjadi exploit besar di protokol DeFi, dampaknya bisa merembet ke seluruh pasar dalam hitungan menit.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">📊 Skala Ekosistem</div>
+          <p>DeFi telah memproses lebih dari <strong>$100 miliar dalam Total Value Locked (TVL)</strong> di puncaknya pada 2021, dan kembali tumbuh solid pasca bear market 2022. Protokol seperti Uniswap secara rutin memproses volume trading lebih besar dari bursa saham regional.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="cara-kerja">Cara Kerja DeFi</h2>
+
+        <p>Semua aktivitas DeFi bertumpu pada dua komponen utama: <strong>blockchain</strong> sebagai buku besar terdesentralisasi, dan <strong>smart contract</strong> sebagai mesin eksekusi otomatis. Ketika kamu berinteraksi dengan protokol DeFi, kamu sebenarnya sedang mengirim instruksi ke sebuah smart contract yang akan mengeksekusinya sesuai aturan yang sudah tertulis dalam kode.</p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            <span>Alur Transaksi DeFi</span>
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Koneksi Wallet</h4>
+                  <p>Pengguna menghubungkan non-custodial wallet (MetaMask, Rabby, dsb.) ke dApp. Private key tetap di tangan pengguna — protokol tidak pernah memegang asetmu.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>Approval Transaksi</h4>
+                  <p>Pengguna menyetujui interaksi dengan smart contract dan membayar gas fee — biaya komputasi yang dibayar ke validator jaringan Ethereum.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Eksekusi Smart Contract</h4>
+                  <p>Protokol menjalankan logika yang sudah terprogram: swap token, deposit ke liquidity pool, pinjam aset, atau mint stablecoin — semua terjadi on-chain secara otomatis.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>Settlement Final</h4>
+                  <p>Transaksi dikonfirmasi oleh jaringan, tercatat permanen di blockchain, dan tidak bisa dibatalkan atau diubah oleh siapapun — termasuk pembuat protokol.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="protokol-utama">Protokol DeFi Utama yang Perlu Diketahui</h2>
+
+        <p>Ekosistem DeFi terdiri dari ratusan protokol, namun beberapa kategori dan pemain utama mendominasi sebagian besar TVL dan volume:</p>
+
+        <h3>Decentralized Exchange (DEX)</h3>
+        <p>DEX memungkinkan pengguna menukar token secara langsung wallet-to-wallet, tanpa order book dan tanpa pihak ketiga yang memegang dana. <strong>Uniswap</strong> adalah pionir model Automated Market Maker (AMM) — harga ditentukan oleh rasio token dalam liquidity pool, bukan oleh buyer dan seller secara langsung.</p>
+
+        <h3>Lending & Borrowing</h3>
+        <p><strong>Aave</strong> dan <strong>Compound</strong> memungkinkan siapapun meminjamkan aset crypto dan mendapat bunga, atau meminjam dengan jaminan (collateral) aset lain. Semua aturan bunga diatur algoritmik berdasarkan supply dan demand secara real-time — tidak ada negosiasi, tidak ada loan officer.</p>
+
+        <h3>Stablecoins Terdesentralisasi</h3>
+        <p><strong>DAI</strong> dari MakerDAO adalah stablecoin yang nilainya dipatok ke USD namun dijaga oleh smart contract dan over-collateralization, bukan oleh dolar fisik di bank. Ini memungkinkan unit akun yang stabil dalam ekosistem DeFi yang sangat volatil.</p>
+
+        <h3>Yield Farming & Liquidity Mining</h3>
+        <p>Pengguna menyediakan likuiditas ke protokol dan mendapat imbalan berupa fee transaksi plus token governance protokol tersebut. Yield farming menjadi fenomena besar di 2020 ("DeFi Summer") yang mendorong TVL dari ratusan juta ke puluhan miliar dolar dalam hitungan bulan.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Kategori</th>
+                <th>Protokol Utama</th>
+                <th>Fungsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>DEX / AMM</strong></td>
+                <td>Uniswap, Curve, SushiSwap</td>
+                <td>Swap token tanpa perantara</td>
+              </tr>
+              <tr>
+                <td><strong>Lending</strong></td>
+                <td>Aave, Compound, MakerDAO</td>
+                <td>Pinjam &amp; pinjamkan aset crypto</td>
+              </tr>
+              <tr>
+                <td><strong>Stablecoins</strong></td>
+                <td>DAI, USDC, FRAX</td>
+                <td>Nilai stabil dalam ekosistem DeFi</td>
+              </tr>
+              <tr>
+                <td><strong>Yield Aggregator</strong></td>
+                <td>Yearn Finance, Convex</td>
+                <td>Optimasi otomatis hasil yield farming</td>
+              </tr>
+              <tr>
+                <td><strong>Derivatives</strong></td>
+                <td>dYdX, GMX, Synthetix</td>
+                <td>Trading perpetual &amp; synthetic assets</td>
+              </tr>
+              <tr>
+                <td><strong>Liquid Staking</strong></td>
+                <td>Lido, Rocket Pool</td>
+                <td>Staking ETH + tetap bisa pakai di DeFi</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="keunggulan">Keunggulan DeFi vs Keuangan Tradisional</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspek</th>
+                <th>DeFi</th>
+                <th>Keuangan Tradisional (CeFi)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Akses</td>
+                <td>Terbuka, cukup punya wallet</td>
+                <td>KYC, rekening bank, batas geografis</td>
+              </tr>
+              <tr>
+                <td>Transparansi</td>
+                <td>Semua on-chain, bisa diaudit publik</td>
+                <td>Operasional internal tertutup</td>
+              </tr>
+              <tr>
+                <td>Custody Aset</td>
+                <td>Non-custodial — kamu pegang kuncinya</td>
+                <td>Bank/exchange pegang asetmu</td>
+              </tr>
+              <tr>
+                <td>Jam Operasi</td>
+                <td>24/7/365, tidak pernah tutup</td>
+                <td>Jam kerja, hari libur, maintenance</td>
+              </tr>
+              <tr>
+                <td>Biaya</td>
+                <td>Gas fee (variabel, bisa mahal saat congestion)</td>
+                <td>Fee tetap, spread, biaya admin</td>
+              </tr>
+              <tr>
+                <td>Imbal Hasil</td>
+                <td>Potensi APY tinggi (dengan risiko sepadan)</td>
+                <td>Bunga rendah, terkontrol regulasi</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="risiko">Risiko DeFi yang Wajib Dipahami</h2>
+
+        <p>DeFi bukan surga tanpa risiko. Justru, risiko di DeFi bersifat unik dan berbeda dari instrumen keuangan konvensional. Memahaminya adalah prasyarat sebelum mengalokasikan kapital apapun.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Smart Contract Risk</div>
+          <p>Bug dalam kode smart contract bisa dieksploitasi secara permanen. Lebih dari <strong>$2 miliar</strong> hilang akibat exploit DeFi sepanjang 2022 saja. Tidak ada FDIC, tidak ada bailout, tidak ada jalan kembali — aset yang hilang karena exploit mayoritas tidak bisa direcovery.</p>
+        </div>
+
+        <ul>
+          <li><strong>Impermanent Loss</strong> — Ketika kamu menyediakan likuiditas ke AMM, perubahan harga relatif antar token bisa membuat nilai posisimu lebih rendah dibanding hanya holding token tersebut. Ini bukan kerugian permanen kecuali kamu menarik likuiditas.</li>
+          <li><strong>Oracle Manipulation</strong> — Protokol DeFi bergantung pada oracle (seperti Chainlink) untuk data harga dari dunia luar. Jika oracle dimanipulasi atau dieksploitasi, seluruh protokol bisa dirampok seketika.</li>
+          <li><strong>Regulasi</strong> — Lanskap hukum DeFi masih dalam tahap awal di hampir semua yurisdiksi. Perubahan regulasi mendadak bisa berdampak besar pada valuasi token dan operasional protokol.</li>
+          <li><strong>Volatilitas Ekstrem</strong> — Nilai aset yang dijadikan collateral bisa turun tajam dalam waktu singkat, memicu likuidasi paksa yang beruntun dan memperkuat crash.</li>
+          <li><strong>Rug Pull & Scam</strong> — Banyak proyek DeFi abal-abal yang dibuat hanya untuk menarik dana lalu kabur (exit scam). DYOR (Do Your Own Research) bukan sekadar slogan — ini survival skill.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">🔐 Prinsip Dasar Keamanan DeFi</div>
+          <p>Gunakan hanya protokol yang sudah diaudit oleh firma keamanan terpercaya (Certik, Trail of Bits, OpenZeppelin). Diversifikasi protokol. Jangan pernah mengalokasikan lebih dari yang sanggup kamu relakan sepenuhnya.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="masa-depan">Masa Depan DeFi</h2>
+
+        <p>DeFi terus berevolusi melampaui batas Ethereum. Layer-2 networks seperti Arbitrum dan Optimism menurunkan gas fee drastis, membuka DeFi bagi pengguna kecil yang sebelumnya tidak ekonomis. Blockchain lain seperti Solana, Avalanche, dan Cosmos membangun ekosistem DeFi mereka sendiri yang saling berinteroperabilitas.</p>
+
+        <p>Tren yang sedang membentuk DeFi generasi berikutnya: <strong>Real World Assets (RWA)</strong> — tokenisasi obligasi, properti, dan komoditas ke dalam protokol DeFi; <strong>Intent-based Trading</strong> yang menyederhanakan UX; dan <strong>AI-integrated protocols</strong> yang mengotomasi manajemen posisi.</p>
+
+        <div class="key-points">
+          <div class="key-points-title">Indikator DeFi untuk Trader</div>
+          <div class="kp-list">
+            <div class="kp-item"><div class="kp-icon">📈</div><div class="kp-text"><strong>TVL (Total Value Locked)</strong> — Ukuran utama kesehatan ekosistem. TVL naik = kapital masuk = bullish untuk ETH dan ekosistem terkait.</div></div>
+            <div class="kp-item"><div class="kp-icon">💧</div><div class="kp-text"><strong>DEX Volume</strong> — Volume Uniswap dan Curve mencerminkan aktivitas on-chain. Spike volume bisa jadi sinyal awal pergerakan harga besar.</div></div>
+            <div class="kp-item"><div class="kp-icon">🏦</div><div class="kp-text"><strong>Lending Rates</strong> — Bunga pinjam-meminjam Aave/Compound mencerminkan sentiment leverage pasar. Rate sangat tinggi = tanda pasar overheat.</div></div>
+            <div class="kp-item"><div class="kp-icon">🔒</div><div class="kp-text"><strong>ETH Staked (Lido)</strong> — Semakin banyak ETH di-stake, semakin sedikit yang beredar bebas di market. Ini jadi salah satu faktor supply constraint ETH.</div></div>
+          </div>
+        </div>
+
+        <h2 id="kesimpulan">Kesimpulan</h2>
+
+        <p>DeFi bukan hanya inovasi teknologi — ini adalah reimaginasi fundamental tentang bagaimana sistem keuangan seharusnya bekerja. Dengan menghilangkan perantara, DeFi mengembalikan kontrol finansial ke tangan individu, membuka akses ke jutaan orang yang selama ini tersisih dari sistem keuangan konvensional.</p>
+
+        <p>Sebagai trader, memahami DeFi bukan opsional. Pergerakan TVL, exploit besar, rilis protokol baru, atau regulasi yang menarget DeFi semuanya punya dampak nyata ke harga aset. <strong>DeFi adalah fundamental crypto yang sesungguhnya</strong> — layer di mana nilai benar-benar diciptakan dan diperdagangkan.</p>
+
+        <p>Namun seperti semua instrumen berpotensi tinggi, risikonya juga nyata dan unik. Pelajari protokolnya, pahami smart contract-nya, dan selalu sizing posisi sesuai risk tolerance. <em>In DeFi, not your keys — not your coins.</em></p>
+
+        <div class="callout">
+          <div class="callout-label">📚 Selanjutnya Baca</div>
+          <p>DeFi bertumpu pada fondasi <strong>Smart Contract</strong> untuk semua eksekusinya. Pelajari cara kerja dan logika if-then di balik setiap protokol DeFi. <a href="artikel-smart-contract.html">Baca artikel Smart Contract →</a></p>
+        </div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- ═══════ SIDEBAR ═══════ -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#pengertian">Apa Itu DeFi?</a></li>
+              <li><a href="#mengapa-penting">Mengapa Penting bagi Trader?</a></li>
+              <li><a href="#cara-kerja">Cara Kerja DeFi</a></li>
+              <li><a href="#protokol-utama">Protokol Utama</a></li>
+              <li><a href="#keunggulan">DeFi vs CeFi</a></li>
+              <li><a href="#risiko">Risiko DeFi</a></li>
+              <li><a href="#masa-depan">Masa Depan DeFi</a></li>
+              <li><a href="#kesimpulan">Kesimpulan</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · Blockchain</div>
+                  <div class="related-title"><a href="artikel-smart-contract.html" style="color:var(--text);">Apa Itu Smart Contract? Pengertian dan Cara Kerja</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · On-Chain</div>
+                  <div class="related-title"><a href="artikel-onchain-analysis.html" style="color:var(--text);">Pengertian On-Chain Analysis dan Cara Melakukannya</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · SMC</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text);">Apa Itu Liquidity Sweep? Panduan SMC Lengkap</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Semua Artikel</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Kembali ke Artikel &amp; News</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Analisa Live</h4>
+          <p>Dapatkan signal entry berbasis SMC, on-chain analysis, dan update market setiap hari di grup Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Telegram Gratis →</a>
+        </div>
+
+      </aside>
+
+    </div><!-- .article-layout -->
+  </div><!-- .container -->
+</div><!-- #article-body -->
+
+<!-- ═══ NEXT / PREV ═══ -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-smart-contract.html" class="nav-card">
+        <span class="nav-dir">← Artikel Sebelumnya</span>
+        <span class="nav-cat">Crypto · Blockchain</span>
+        <span class="nav-title">Apa Itu Smart Contract? Pengertian dan Cara Kerja</span>
+      </a>
+      <a href="artikel-news.html" class="nav-card nav-next">
+        <span class="nav-dir">Lihat Semua Artikel →</span>
+        <span class="nav-cat">Artikel &amp; News</span>
+        <span class="nav-title">Kembali ke halaman Artikel &amp; News</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="index-v1.1.html#charts">Charts</a></li>
+          <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-onchain-analysis.html">On-Chain Analysis</a></li>
+          <li><a href="artikel-smart-contract.html">Smart Contract</a></li>
+          <li><a href="artikel-defi.html" style="color:var(--accent);">DeFi</a></li>
+          <li><a href="artikel-news.html">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  /* Mobile menu */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* TOC active highlight */
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  /* Share functions */
+  function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Memahami Revolusi Keuangan Digital: DeFi — Indonesian Secret Entry');
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+  }
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Panduan DeFi lengkap untuk trader crypto oleh @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
