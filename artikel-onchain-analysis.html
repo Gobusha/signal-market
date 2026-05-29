@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panduan lengkap On-Chain Analysis — cara membaca data blockchain, metrik penting, dan bagaimana menggunakannya untuk mengambil keputusan trading crypto yang lebih cerdas." />
+  <meta property="og:title" content="Pengertian On-Chain Analysis dan Cara Melakukan — Indonesian Secret Entry" />
+  <meta property="og:description" content="Pelajari cara menganalisis data langsung dari blockchain untuk memahami pergerakan institusi, akumulasi, dan distribusi di market crypto." />
+  <meta property="og:type" content="article" />
+  <title>Pengertian On-Chain Analysis dan Cara Melakukan — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ═══ NOISE OVERLAY ═══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    /* ═══ UTILITY ═══ */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--text-bright);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      background: rgba(255,106,0,.08);
+      text-decoration: none;
+    }
+    .has-drop { position: relative; }
+    .has-drop .dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-width: 220px;
+      padding: 8px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══ ARTICLE HERO ═══ */
+    #article-hero {
+      position: relative;
+      padding: 80px 0 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,106,0,.08) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .article-hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 860px;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 24px; display: flex; gap: 0; align-items: center; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 6vw, 4.8rem);
+      line-height: 1.0;
+      letter-spacing: .02em;
+      color: var(--text-bright);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .article-title .hl { color: var(--accent); }
+    .article-title--inline {
+      white-space: nowrap;
+      font-size: clamp(1rem, 5.5vw, 4.8rem);
+    }
+
+    .article-meta {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .article-meta .sep { color: var(--border); }
+
+    /* Hero visual strip */
+    .hero-visual {
+      margin-top: 32px;
+      position: relative;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      height: 260px;
+      background: linear-gradient(160deg, #000d14 0%, #001a24 40%, #0a0a0a 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      width: 100%;
+      max-width: 100%;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(255,106,0,.10) 0%, transparent 70%);
+    }
+    .hero-diagram {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 100%;
+      padding: 0 24px;
+      overflow: hidden;
+    }
+
+    /* SVG Chart Diagram */
+    .chart-svg { width: 100%; height: auto; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══ ARTICLE BODY LAYOUT ═══ */
+    #article-body {
+      position: relative; z-index: 1;
+      padding: 0 0 96px;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { order: -1; }
+    }
+
+    /* ═══ PROSE ═══ */
+    .prose { max-width: 100%; min-width: 0; }
+
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      color: var(--text-bright);
+      letter-spacing: .04em;
+      line-height: 1.05;
+      margin: 36px 0 12px;
+      padding-top: 4px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+
+    .prose h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--accent2);
+      letter-spacing: .04em;
+      margin: 32px 0 12px;
+    }
+
+    .prose p {
+      color: var(--text);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .prose strong { color: var(--text-bright); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
+    .prose em { color: var(--accent2); font-style: italic; }
+
+    .prose ul, .prose ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .prose li {
+      color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px;
+    }
+    .prose li::marker { color: var(--accent); }
+
+    /* Callout boxes */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    /* Divider */
+    .prose-divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 36px 0;
+    }
+
+    /* Key point card */
+    .key-points {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      padding: 20px;
+      margin: 24px 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .key-points-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; min-width: 0; flex: 1; word-break: break-word; }
+
+    /* Concept diagram inline */
+    .concept-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .concept-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .concept-header .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .concept-body { padding: 20px; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 0; margin: 8px 0; }
+    .step {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      font-family: var(--font-display); font-size: 2rem; line-height: 1;
+      color: var(--accent); opacity: .35;
+    }
+    .step-body h4 { font-size: .9rem; color: var(--text-bright); margin-bottom: 6px; }
+    .step-body p  { font-size: .85rem; color: var(--text-dim); margin-bottom: 0; overflow-wrap: break-word; }
+
+    /* Table — scrollable on mobile */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 20px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .prose table {
+      width: 100%; border-collapse: collapse;
+      font-size: .83rem;
+      min-width: 360px;
+    }
+    .prose th {
+      background: var(--bg-card2);
+      padding: 10px 14px;
+      text-align: left;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .prose td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:nth-child(even) td { background: rgba(255,255,255,.015); }
+
+    /* Share bar */
+    .share-bar {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .share-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); margin-right: 4px;
+    }
+    .share-btn {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 14px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text-dim); cursor: pointer; transition: .2s;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ═══ SIDEBAR ═══ */
+    .article-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-widget {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      overflow: hidden;
+      position: sticky; top: 84px;
+    }
+    .widget-head {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .widget-head .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .widget-body { padding: 12px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      display: block; padding: 6px 10px; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em;
+      color: var(--text-dim); transition: .2s;
+    }
+    .toc-list a:hover, .toc-list a.active { color: var(--accent); background: rgba(255,106,0,.07); text-decoration: none; }
+
+    .related-list { display: flex; flex-direction: column; gap: 2px; }
+    .related-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px; border-radius: var(--radius); gap: 8px;
+      transition: background .2s; cursor: pointer;
+    }
+    .related-item:hover { background: var(--bg-card2); }
+    .related-body { flex: 1; min-width: 0; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.4; }
+    .related-arrow { color: var(--text-dim); flex-shrink: 0; font-size: .9rem; }
+
+    .cta-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #111 0%, #0d0d0d 100%);
+      padding: 20px;
+      text-align: center;
+    }
+    .cta-card .cta-emoji { font-size: 2rem; margin-bottom: 10px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; letter-spacing: .04em; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block; padding: 10px 20px;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      border-radius: var(--radius); transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .85; text-decoration: none; }
+
+    /* ═══ ARTICLE NAV ═══ */
+    .article-nav { border-top: 1px solid var(--border); padding: 32px 0; }
+    .article-nav-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 16px 20px;
+      display: flex; flex-direction: column; gap: 6px;
+      transition: border-color .2s, background .2s;
+    }
+    .nav-card:hover { border-color: var(--accent); background: var(--bg-card2); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat { font-family: var(--font-mono); font-size: 9px; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* ═══ FOOTER — identik v1.1 ═══ */
+    footer {
+      border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    /* ═══ SCROLL TOP ═══ */
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 768px) {
+      /* layout */
+      .container      { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body   { padding: 0 0 40px; }
+      .article-nav    { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+
+      /* hero */
+      #article-hero        { padding: 68px 0 0; }
+      .article-hero-inner  { max-width: 100%; }
+      .hero-visual         { height: 130px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .hero-diagram        { padding: 0 8px; }
+      .article-title       { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta        { gap: 6px; font-size: 9px; letter-spacing: .04em; margin-bottom: 16px; }
+      .article-tags        { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb          { margin-bottom: 12px; font-size: 9px; }
+      .breadcrumb .sep     { margin: 0 4px; }
+
+      /* prose */
+      .prose h2       { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose h3       { font-size: 1rem; margin: 16px 0 6px; }
+      .prose p        { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li       { font-size: .84rem; line-height: 1.6; margin-bottom: 4px; }
+      .prose ul, .prose ol { padding-left: 15px; margin-bottom: 12px; }
+      .prose strong   { word-break: break-word; }
+
+      /* callout */
+      .callout        { padding: 10px 12px; margin: 14px 0; }
+      .callout p      { font-size: .83rem; }
+
+      /* key-points */
+      .key-points        { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .key-points-title  { font-size: 8px; margin-bottom: 8px; }
+      .kp-item           { gap: 8px; }
+      .kp-icon           { font-size: .8rem; }
+      .kp-text           { font-size: .81rem; line-height: 1.5; }
+
+      /* concept blocks / steps */
+      .concept-block     { margin: 14px 0; border-radius: var(--radius); }
+      .concept-header    { padding: 8px 12px; font-size: 8px; }
+      .concept-body      { padding: 10px; }
+      .step              { grid-template-columns: 24px 1fr; gap: 8px; padding: 12px 0; }
+      .step-num          { font-size: 1.1rem; }
+      .step-body h4      { font-size: .8rem; margin-bottom: 2px; }
+      .step-body p       { font-size: .78rem; }
+
+      /* table */
+      .table-wrap        { margin: 12px 0; }
+      .prose table       { font-size: .78rem; min-width: 300px; }
+      .prose th          { padding: 7px 9px; font-size: 8px; }
+      .prose td          { padding: 7px 9px; }
+
+      /* prose divider & share */
+      .prose-divider     { margin: 16px 0; }
+      .share-bar         { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .share-label       { font-size: 9px; }
+      .share-btn         { padding: 5px 9px; font-size: 8px; letter-spacing: .06em; }
+
+      /* sidebar */
+      .article-sidebar   { gap: 16px; }
+      .sidebar-widget    { position: static; }
+      .widget-head       { padding: 9px 12px; font-size: 8px; }
+      .widget-body       { padding: 10px; }
+      .toc-list a        { padding: 5px 7px; font-size: 9px; }
+      .related-title     { font-size: .75rem; }
+      .cta-card          { padding: 14px; border-radius: var(--radius); }
+      .cta-card .cta-emoji { font-size: 1.6rem; margin-bottom: 6px; }
+      .cta-card h4       { font-size: 1rem; margin-bottom: 5px; }
+      .cta-card p        { font-size: .75rem; margin-bottom: 8px; }
+      .cta-btn           { font-size: 9px; padding: 8px 14px; }
+
+      /* nav prev/next */
+      .nav-card          { padding: 12px; gap: 4px; border-radius: var(--radius); }
+      .nav-card .nav-title { font-size: .8rem; }
+      .nav-card .nav-dir  { font-size: 8px; }
+
+      /* footer */
+      footer             { padding: 20px 0 14px; }
+      .footer-inner      { gap: 14px; margin-bottom: 20px; }
+      .footer-brand p    { font-size: 11px; max-width: 100%; }
+      .footer-nav h4     { margin-bottom: 8px; }
+      .footer-nav ul     { gap: 6px; }
+      .footer-nav ul a   { font-size: 11px; }
+      .footer-bottom     { padding-top: 14px; gap: 8px; }
+      .footer-bottom p   { font-size: 9px; }
+      .footer-bottom .disclaimer { font-size: 8px; }
+    }
+
+    @media (max-width: 400px) {
+      .article-title     { font-size: 1.45rem; }
+      .hero-visual       { height: 100px; }
+      .prose h2          { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html">Crypto</a>
+          <a href="artikel-news.html">Saham</a>
+          <a href="artikel-news.html">Komoditas</a>
+          <a href="artikel-news.html">Edukasi</a>
+          <a href="artikel-news.html">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="index-v1.1.html#charts">Charts</a>
+    <a href="index-v1.1.html#calendar">Calendar</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HERO ═══ -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a>
+        <span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a>
+        <span class="sep">/</span>
+        On-Chain Analysis
+      </div>
+
+      <div class="article-tags">
+        <span class="atag">Edukasi</span>
+        <span class="atag">Crypto</span>
+        <span class="atag atag-dim">On-Chain</span>
+        <span class="atag atag-dim">Blockchain</span>
+      </div>
+
+      <h1 class="article-title article-title--inline">
+        Pengertian <span class="hl">On-Chain Analysis</span>
+      </h1>
+
+      <div class="article-meta">
+        <span>15 Januari 2025</span>
+        <span class="sep">·</span>
+        <span>🕐 8 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero Blockchain Diagram (SVG) -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="blockGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff6a00" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#ff6a00" stop-opacity=".04"/>
+              </linearGradient>
+              <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ff6a00" stop-opacity="0"/>
+                <stop offset="50%" stop-color="#ff6a00" stop-opacity=".7"/>
+                <stop offset="100%" stop-color="#ff6a00" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff6a00" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#ff6a00" stop-opacity=".2"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Grid -->
+            <line x1="0" y1="60"  x2="680" y2="60"  stroke="#1e1e1e" stroke-width="1"/>
+            <line x1="0" y1="120" x2="680" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+            <line x1="0" y1="180" x2="680" y2="180" stroke="#1e1e1e" stroke-width="1"/>
+
+            <!-- Blockchain blocks -->
+            <rect x="30"  y="80" width="72" height="64" rx="6" fill="url(#blockGrad)" stroke="#ff6a00" stroke-width="1" stroke-opacity=".5"/>
+            <text x="66" y="107" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">#4,218,001</text>
+            <text x="66" y="120" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#555">2,840 TXs</text>
+            <text x="66" y="133" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#555">1.24 BTC fees</text>
+
+            <!-- Arrow -->
+            <line x1="105" y1="112" x2="128" y2="112" stroke="#ff6a00" stroke-width="1.5" stroke-opacity=".5"/>
+            <polygon points="128,108 136,112 128,116" fill="#ff6a00" opacity=".5"/>
+
+            <rect x="138" y="80" width="72" height="64" rx="6" fill="url(#blockGrad)" stroke="#ff6a00" stroke-width="1" stroke-opacity=".5"/>
+            <text x="174" y="107" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">#4,218,002</text>
+            <text x="174" y="120" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#555">3,110 TXs</text>
+            <text x="174" y="133" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#555">1.87 BTC fees</text>
+
+            <!-- Arrow -->
+            <line x1="213" y1="112" x2="236" y2="112" stroke="#ff6a00" stroke-width="1.5" stroke-opacity=".5"/>
+            <polygon points="236,108 244,112 236,116" fill="#ff6a00" opacity=".5"/>
+
+            <rect x="246" y="80" width="72" height="64" rx="6" fill="url(#blockGrad)" stroke="#ff9a40" stroke-width="1.5" stroke-opacity=".9"/>
+            <text x="282" y="107" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff9a40">#4,218,003</text>
+            <text x="282" y="120" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#aaa">WHALE TX</text>
+            <text x="282" y="133" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#ff9a40">12,400 BTC</text>
+            <!-- Glow highlight for whale block -->
+            <rect x="242" y="76" width="80" height="72" rx="8" fill="none" stroke="#ff6a00" stroke-width="2" stroke-opacity=".25"/>
+            <text x="282" y="72" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">← WHALE DETECTED</text>
+
+            <!-- Arrow -->
+            <line x1="321" y1="112" x2="344" y2="112" stroke="#ff6a00" stroke-width="1.5" stroke-opacity=".5"/>
+            <polygon points="344,108 352,112 344,116" fill="#ff6a00" opacity=".5"/>
+
+            <rect x="354" y="80" width="72" height="64" rx="6" fill="url(#blockGrad)" stroke="#ff6a00" stroke-width="1" stroke-opacity=".5"/>
+            <text x="390" y="107" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">#4,218,004</text>
+            <text x="390" y="120" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#555">2,990 TXs</text>
+            <text x="390" y="133" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#555">1.52 BTC fees</text>
+
+            <!-- Flow line (on-chain data stream) -->
+            <line x1="30" y1="195" x2="640" y2="195" stroke="url(#flowGrad)" stroke-width="2"/>
+
+            <!-- Exchange flow bars -->
+            <rect x="460" y="155" width="16" height="40" rx="2" fill="url(#barGrad)" opacity=".7"/>
+            <rect x="482" y="140" width="16" height="55" rx="2" fill="url(#barGrad)" opacity=".9"/>
+            <rect x="504" y="148" width="16" height="47" rx="2" fill="url(#barGrad)" opacity=".75"/>
+            <rect x="526" y="130" width="16" height="65" rx="2" fill="#ff3333" opacity=".7"/>
+            <rect x="548" y="160" width="16" height="35" rx="2" fill="url(#barGrad)" opacity=".65"/>
+            <rect x="570" y="145" width="16" height="50" rx="2" fill="#22c55e" opacity=".8"/>
+            <rect x="592" y="135" width="16" height="60" rx="2" fill="#22c55e" opacity=".85"/>
+            <rect x="614" y="120" width="16" height="75" rx="2" fill="#22c55e" opacity=".9"/>
+
+            <text x="543" y="215" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#555">Exchange Netflow</text>
+            <text x="526" y="125" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#ff3333">outflow</text>
+            <text x="614" y="115" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#22c55e">inflow</text>
+
+            <!-- Labels -->
+            <text x="66"  y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#444">Block History</text>
+            <text x="282" y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">On-Chain Signal</text>
+            <text x="390" y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#444">Transparent</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- ═══════ PROSE CONTENT ═══════ -->
+      <article class="prose">
+
+        <div class="key-points">
+          <div class="key-points-title">Ringkasan Artikel</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">🔗</span><span class="kp-text">On-chain analysis adalah proses membaca data langsung dari dalam blockchain — transparan, terdesentralisasi, dan tidak bisa dimanipulasi.</span></div>
+            <div class="kp-item"><span class="kp-icon">🐳</span><span class="kp-text">Data on-chain memungkinkan trader melacak pergerakan whale, akumulasi institusi, dan aliran uang ke/dari exchange.</span></div>
+            <div class="kp-item"><span class="kp-icon">🛠️</span><span class="kp-text">Tools utama: Glassnode, CryptoQuant, Etherscan, dan Blockchain.com — masing-masing menyediakan metrik spesifik.</span></div>
+            <div class="kp-item"><span class="kp-icon">📊</span><span class="kp-text">Kombinasikan on-chain analysis dengan analisis teknikal untuk sinyal entry yang jauh lebih kuat dan tervalidasi.</span></div>
+          </div>
+        </div>
+
+        <h2 id="pengertian">Apa Itu On-Chain Analysis?</h2>
+
+        <p>Dalam dunia investasi dan trading crypto, ada dua dunia analisis yang sering disebut: <strong>analisis teknikal</strong> yang membaca grafik harga, dan <strong>analisis fundamental</strong> yang menilai nilai intrinsik aset. Namun ada pendekatan ketiga yang unik dan hanya ada di ekosistem blockchain — yaitu <em>on-chain analysis</em>.</p>
+
+        <p><strong>On-chain analysis adalah proses memeriksa dan menganalisis data yang tertulis secara langsung di dalam blockchain kripto</strong>, seperti Bitcoin atau Ethereum. Berbeda dengan analisis off-chain yang mengandalkan data dari luar jaringan (berita, sentimen media, laporan keuangan), semua data on-chain bersifat publik, transparan, dan tidak dapat dimanipulasi.</p>
+
+        <p>Bayangkan blockchain sebagai buku besar raksasa yang terbuka untuk siapa saja. Setiap transaksi, setiap perpindahan koin, setiap interaksi kontrak pintar — semuanya tercatat permanen dan bisa dibaca oleh siapa pun. On-chain analysis adalah seni membaca buku besar tersebut untuk menemukan pola, sinyal, dan wawasan yang tidak terlihat di grafik harga biasa.</p>
+
+        <div class="callout">
+          <div class="callout-label">💡 Keunggulan Unik</div>
+          <p>Di pasar saham tradisional, data kepemilikan institusi hanya diungkap setiap kuartal melalui laporan SEC. Di blockchain, kamu bisa melihat setiap pergerakan "institusi" (whale) secara real-time, setiap hari, gratis. Ini adalah keunggulan informasi yang tidak dimiliki kelas aset lain.</p>
+        </div>
+
+        <h2 id="mengapa-penting">Mengapa On-Chain Analysis Penting?</h2>
+
+        <p>Pasar crypto digerakkan oleh beberapa kelompok pelaku utama: <strong>retail trader</strong> kecil, <strong>whale individual</strong>, <strong>institusi</strong>, dan <strong>miner</strong>. Setiap kelompok meninggalkan jejak yang bisa dilacak di blockchain. On-chain analysis membantu kamu memahami apa yang dilakukan kelompok-kelompok ini sebelum pergerakan harga besar terjadi.</p>
+
+        <p>Misalnya, ketika sejumlah besar Bitcoin tiba-tiba berpindah dari cold wallet ke exchange, ini bisa menjadi sinyal bahwa holder besar bersiap untuk menjual — tekanan jual akan meningkat. Sebaliknya, ketika exchange mengalami aliran keluar besar (withdrawal), itu menandakan akumulasi dan holding yang kuat — potensi kenaikan harga.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Perlu Diingat</div>
+          <p>On-chain analysis bukan crystal ball. Sinyal on-chain memberikan konteks dan probabilitas, bukan kepastian. Selalu kombinasikan dengan analisis teknikal dan manajemen risiko yang baik sebelum mengambil keputusan trading.</p>
+        </div>
+
+        <h2 id="data-onchain">Jenis Data On-Chain yang Tersedia</h2>
+
+        <p>Blockchain menyimpan berbagai jenis data yang dapat dianalisis. Berikut adalah kategori utama yang paling sering digunakan trader profesional:</p>
+
+        <ul>
+          <li><strong>Data Transaksi</strong> — pengirim, penerima, jumlah yang ditransfer, biaya (gas fee), dan waktu transaksi. Setiap transaksi memiliki hash unik yang bisa dilacak.</li>
+          <li><strong>Saldo Alamat (Wallet Balance)</strong> — berapa banyak aset yang disimpan di setiap alamat, dan histori perubahannya dari waktu ke waktu.</li>
+          <li><strong>Exchange Flows</strong> — jumlah aset yang masuk (inflow) dan keluar (outflow) dari exchange terpusat. Ini adalah salah satu metrik paling powerful untuk membaca tekanan jual/beli.</li>
+          <li><strong>Miner Activity</strong> — perilaku miner: apakah mereka menjual reward yang diterima atau menyimpannya? Ini mencerminkan keyakinan mereka terhadap harga di masa depan.</li>
+          <li><strong>Smart Contract Interactions</strong> — untuk jaringan seperti Ethereum, aktivitas DeFi, NFT, dan protokol lainnya bisa dibaca dan dianalisis.</li>
+          <li><strong>UTXO Data (Bitcoin)</strong> — Unspent Transaction Output, yang memungkinkan analisis mendalam tentang kapan koin terakhir berpindah tangan dan berapa harganya saat itu.</li>
+        </ul>
+
+        <h2 id="metrik-penting">Metrik On-Chain yang Paling Penting</h2>
+
+        <p>Dari sekian banyak data yang tersedia, beberapa metrik telah terbukti memiliki korelasi kuat dengan pergerakan harga. Ini adalah metrik yang wajib dipahami setiap trader crypto:</p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            Metrik Kunci On-Chain
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Exchange Net Flow</h4>
+                  <p>Selisih antara aset yang masuk dan keluar dari exchange. Netflow negatif (lebih banyak keluar) = akumulasi bullish. Netflow positif besar = potensi tekanan jual. Ini adalah metrik yang paling langsung mencerminkan sentimen pasar jangka pendek.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>SOPR — Spent Output Profit Ratio</h4>
+                  <p>Mengukur apakah holder rata-rata sedang menjual dengan profit atau rugi. SOPR di bawah 1 berarti pasar menjual dengan rugi (sinyal bottom potensial). SOPR jauh di atas 1 menunjukkan kondisi overbought dan potensi distribusi.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Realized Price vs Market Price</h4>
+                  <p>Realized Price adalah rata-rata harga di mana semua BTC terakhir berpindah tangan. Ketika Market Price jauh di atas Realized Price, pasar sedang dalam fase distribusi. Ketika Market Price jatuh di bawah Realized Price, ini historis menjadi zona akumulasi terbaik.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>Long-Term vs Short-Term Holder Supply</h4>
+                  <p>Memisahkan supply berdasarkan durasi holding. Ketika LTH (Long-Term Holder, >155 hari) mulai menjual dalam jumlah besar, itu adalah sinyal distribusi institusional. Ketika STH (Short-Term Holder) panik jual, itu justru sering menjadi sinyal kapitulasi dan bottom.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">05</div>
+                <div class="step-body">
+                  <h4>Active Addresses & Transaction Volume</h4>
+                  <p>Jumlah alamat aktif dan volume transaksi mencerminkan tingkat adopsi dan utilisasi jaringan. Divergensi antara harga dan volume on-chain sering menjadi tanda peringatan awal — harga naik tapi aktivitas menurun adalah tanda kelemahan tersembunyi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="tools">Tools dan Platform untuk On-Chain Analysis</h2>
+
+        <p>Untuk melakukan on-chain analysis secara efektif, kamu membutuhkan akses ke platform yang mengagregasi dan memvisualisasikan data blockchain. Berikut adalah tools yang paling banyak digunakan oleh trader profesional:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Keunggulan Utama</th>
+                <th>Cocok Untuk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Glassnode</strong></td>
+                <td>Metrik paling lengkap, visualisasi terbaik, SOPR, MVRV, LTH/STH data</td>
+                <td>Analisis mendalam BTC &amp; ETH</td>
+              </tr>
+              <tr>
+                <td><strong>CryptoQuant</strong></td>
+                <td>Exchange flow real-time, data miner, fund flow terbaik</td>
+                <td>Memantau tekanan jual/beli exchange</td>
+              </tr>
+              <tr>
+                <td><strong>Etherscan</strong></td>
+                <td>Explorer Ethereum paling lengkap, smart contract, token tracking</td>
+                <td>Melacak alamat spesifik &amp; transaksi ETH</td>
+              </tr>
+              <tr>
+                <td><strong>Blockchain.com</strong></td>
+                <td>Explorer Bitcoin gratis, data hash rate, mempool</td>
+                <td>Analisis dasar Bitcoin</td>
+              </tr>
+              <tr>
+                <td><strong>Nansen</strong></td>
+                <td>Pelabelan wallet (whale, institusi, exchange), smart money tracking</td>
+                <td>Melacak pergerakan institusi dan whale</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Rekomendasi untuk Pemula</div>
+          <p>Mulai dengan <strong>CryptoQuant versi gratis</strong> untuk memantau Exchange Netflow Bitcoin, dan <strong>Glassnode Studio</strong> untuk metrik seperti SOPR dan Realized Price. Kedua platform ini menyediakan tier gratis yang sudah cukup untuk analisis dasar.</p>
+        </div>
+
+        <h2 id="cara-melakukan">Langkah-Langkah Melakukan On-Chain Analysis</h2>
+
+        <p>Setelah memahami dasar-dasarnya, berikut adalah alur kerja praktis untuk mengintegrasikan on-chain analysis ke dalam rutinitas trading kamu:</p>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            Prosedur Analisis On-Chain
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Tentukan Aset dan Blockchain yang Dianalisis</h4>
+                  <p>Pilih blockchain yang relevan dengan aset yang ingin kamu trading. Bitcoin analysis menggunakan Glassnode/CryptoQuant. Untuk token Ethereum, gunakan Etherscan atau Nansen untuk melacak aliran token ERC-20 dan aktivitas smart contract.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>Baca Konteks Makro On-Chain Terlebih Dahulu</h4>
+                  <p>Sebelum melihat sinyal jangka pendek, pahami siklus besar: di mana kita sekarang dalam siklus Bitcoin? Gunakan MVRV Z-Score dan Realized Price untuk menentukan apakah pasar sedang dalam fase akumulasi, ekspansi, distribusi, atau kapitulasi.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Pantau Exchange Flow Secara Reguler</h4>
+                  <p>Setiap hari atau mingguan, cek Exchange Netflow di CryptoQuant. Spike outflow besar biasanya mendahului rally. Spike inflow besar adalah tanda waspada. Catat anomali dan bandingkan dengan harga saat itu untuk membangun intuisi.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>Gunakan SOPR sebagai Konfirmasi Bottom/Top</h4>
+                  <p>Pantau aSOPR (adjusted SOPR) untuk Bitcoin. Ketika nilai turun di bawah 1 dan kemudian memantul kembali di atas 1 — itu adalah salah satu sinyal bottom yang paling reliable secara historis. Gunakan sebagai konfirmasi tambahan untuk entry posisi long.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">05</div>
+                <div class="step-body">
+                  <h4>Kombinasikan dengan Analisis Teknikal</h4>
+                  <p>On-chain analysis memberikan "mengapa" — menjelaskan konteks fundamental di balik pergerakan harga. Analisis teknikal memberikan "kapan" — entry dan exit yang presisi. Keduanya bersama-sama menghasilkan setup trading yang jauh lebih tervalidasi dibanding menggunakan salah satunya saja.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="contoh-penerapan">Contoh Penerapan Nyata</h2>
+
+        <p>Mari lihat bagaimana on-chain analysis bisa diterapkan dalam skenario trading Bitcoin yang nyata:</p>
+
+        <p><strong>Skenario: Mengidentifikasi Bottom Potensial BTC</strong></p>
+
+        <ol>
+          <li>MVRV Z-Score masuk ke zona hijau (nilai historis yang berkorelasi dengan bottom) — ini memberikan konteks makro bahwa pasar dalam fase sangat undersold.</li>
+          <li>aSOPR turun ke 0.97 selama beberapa minggu berturut-turut — holder rata-rata menjual dengan rugi, tanda kapitulasi.</li>
+          <li>Exchange Netflow menunjukkan outflow besar secara konsisten — bahkan di tengah penurunan harga, ada pihak yang justru menarik koin dari exchange.</li>
+          <li>Long-Term Holder Supply mulai meningkat — whale dan institusi diam-diam akumulasi di harga rendah.</li>
+          <li>Pada chart teknikal, harga membentuk double bottom di area Realized Price dengan volume menurun — exhaustion candle klasik.</li>
+          <li>Semua sinyal on-chain dan teknikal beralignment: ini adalah setup high-conviction untuk entry long dengan manajemen risiko yang ketat.</li>
+        </ol>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Tips Multi-Timeframe</div>
+          <p>Gunakan data on-chain mingguan untuk memahami siklus besar (macro), data harian untuk menentukan fase pasar saat ini, dan data exchange flow harian untuk timing entry. Setiap level timeframe memberikan perspektif yang berbeda dan saling melengkapi.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="onchain-vs-offchain">On-Chain vs Off-Chain Analysis — Perbedaan Kunci</h2>
+
+        <p>Memahami perbedaan antara kedua pendekatan ini penting agar kamu bisa menggunakan keduanya secara tepat dan komplementer:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspek</th>
+                <th>On-Chain Analysis</th>
+                <th>Off-Chain Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sumber Data</td>
+                <td>Langsung dari blockchain, publik</td>
+                <td>Berita, sentimen, laporan eksternal</td>
+              </tr>
+              <tr>
+                <td>Akurasi</td>
+                <td>Tidak bisa dimanipulasi, terverifikasi</td>
+                <td>Bisa bias, tergantung sumber</td>
+              </tr>
+              <tr>
+                <td>Keterlambatan</td>
+                <td>Near real-time (tergantung block time)</td>
+                <td>Bervariasi, bisa sangat cepat (breaking news)</td>
+              </tr>
+              <tr>
+                <td>Kekuatan</td>
+                <td>Mengungkap pergerakan modal besar</td>
+                <td>Menangkap sentimen dan narasi pasar</td>
+              </tr>
+              <tr>
+                <td>Cocok untuk</td>
+                <td>Memahami supply-demand aktual</td>
+                <td>Memahami market psychology</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="kesimpulan">Kesimpulan</h2>
+
+        <p>On-chain analysis adalah salah satu keunggulan kompetitif terbesar yang dimiliki trader crypto dibandingkan trader di kelas aset lain. Tidak ada pasar lain di dunia yang menyediakan tingkat transparansi dan aksesibilitas data seperti blockchain.</p>
+
+        <p>Dengan memahami cara membaca data on-chain — mulai dari exchange flows, SOPR, Realized Price, hingga perilaku Long-Term Holder — kamu bisa melampaui sekadar membaca grafik dan mulai memahami <strong>fundamental permintaan dan penawaran secara nyata</strong>, bukan hanya bayangan harga di layar.</p>
+
+        <p>Ingat: <strong>harga adalah opini, tapi on-chain data adalah fakta.</strong> Jadikan data sebagai fondasi analisismu, dan harga sebagai alat konfirmasinya — bukan sebaliknya.</p>
+
+        <div class="callout">
+          <div class="callout-label">📚 Selanjutnya Baca</div>
+          <p>Setelah memahami on-chain analysis, pelajari bagaimana cara mengintegrasikannya dengan konsep SMC seperti <strong>Liquidity Sweep</strong> dan <strong>Order Block</strong> — kombinasi paling powerful untuk trader crypto modern. <a href="artikel-news.html">Lihat semua artikel →</a></p>
+        </div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- ═══════ SIDEBAR ═══════ -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#pengertian">Apa Itu On-Chain Analysis?</a></li>
+              <li><a href="#mengapa-penting">Mengapa Penting?</a></li>
+              <li><a href="#data-onchain">Jenis Data On-Chain</a></li>
+              <li><a href="#metrik-penting">Metrik Penting</a></li>
+              <li><a href="#tools">Tools &amp; Platform</a></li>
+              <li><a href="#cara-melakukan">Cara Melakukan</a></li>
+              <li><a href="#contoh-penerapan">Contoh Penerapan</a></li>
+              <li><a href="#onchain-vs-offchain">On-Chain vs Off-Chain</a></li>
+              <li><a href="#kesimpulan">Kesimpulan</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · SMC</div>
+                  <div class="related-title"><a href="artikel-liquidity-sweep.html" style="color:var(--text);">Apa Itu Liquidity Sweep? Panduan SMC Lengkap</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · Crypto</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Apa Itu Smart Contract: Pengertian dan Cara Kerja</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · DeFi</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Memahami Revolusi Keuangan Digital DeFi</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · FOMC</div>
+                  <div class="related-title"><a href="artikel-news.html" style="color:var(--text);">Makro Ekonomi Amerika dan Dampaknya ke Market</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Analisa Live</h4>
+          <p>Dapatkan signal entry berbasis SMC, on-chain analysis, dan update market setiap hari di grup Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Telegram Gratis →</a>
+        </div>
+
+      </aside>
+
+    </div><!-- .article-layout -->
+  </div><!-- .container -->
+</div><!-- #article-body -->
+
+<!-- ═══ NEXT / PREV ═══ -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-liquidity-sweep.html" class="nav-card">
+        <span class="nav-dir">← Artikel Sebelumnya</span>
+        <span class="nav-cat">Crypto · SMC</span>
+        <span class="nav-title">Apa Itu Liquidity Sweep? Panduan SMC untuk Trader</span>
+      </a>
+      <a href="artikel-news.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Berikutnya →</span>
+        <span class="nav-cat">Edukasi · Crypto</span>
+        <span class="nav-title">Apa Itu Smart Contract: Pengertian dan Cara Kerja</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="index-v1.1.html#charts">Charts</a></li>
+          <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-onchain-analysis.html" style="color:var(--accent);">On-Chain Analysis</a></li>
+          <li><a href="artikel-news.html">Smart Contract</a></li>
+          <li><a href="artikel-news.html">DeFi</a></li>
+          <li><a href="artikel-news.html">Makro Ekonomi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  /* Mobile menu */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* TOC active highlight */
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  /* Share functions */
+  function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Pengertian On-Chain Analysis dan Cara Melakukan — Indonesian Secret Entry');
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+  }
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Panduan On-Chain Analysis untuk trader crypto oleh @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

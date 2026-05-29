@@ -783,8 +783,8 @@
       <div class="footer-nav">
         <h4>Artikel</h4>
         <ul>
-          <li><a href="#">Liquidity Sweep</a></li>
-          <li><a href="#">On-Chain Analysis</a></li>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-onchain-analysis.html">On-Chain Analysis</a></li>
           <li><a href="#">Smart Contract</a></li>
           <li><a href="#">DeFi</a></li>
           <li><a href="#">Makro Ekonomi</a></li>
@@ -864,6 +864,7 @@ const ARTIKEL_DATA = [
     judul: "Apa Itu Liquidity Sweep dan Cara Membacanya di Chart",
     deskripsi: "Liquidity sweep adalah salah satu konsep kunci dalam Smart Money Concept (SMC). Pelajari bagaimana institusi menggunakan area likuiditas untuk mengeksekusi order besar sebelum reversal terjadi.",
     url: "artikel-liquidity-sweep.html",
+    target: "_self",
     tanggal: "12 Jan 2025",
     readTime: "7 min read"
   },
@@ -884,7 +885,8 @@ const ARTIKEL_DATA = [
     kategori: "Crypto",
     judul: "Pengertian On-Chain Analysis dan Cara Melakukannya",
     deskripsi: "Panduan lengkap membaca data on-chain untuk memahami pergerakan whale dan aliran kapital di blockchain.",
-    url: "https://signal.mozellosite.com/istilah-dalam-market/pengertian-on-chain-analysis-dan-cara-melakukan/",
+    url: "artikel-onchain-analysis.html",
+    target: "_self",
     tanggal: "18 Jan 2025",
     readTime: "9 min read"
   },
@@ -1127,11 +1129,12 @@ const NEWS_DATA = [
    ✏️  EDIT TRENDING SIDEBAR DI SINI
    ══════════════════════════════════════════════════════ */
 const TRENDING_DATA = [
-  { judul: "ANTM Didepak MSCI vs Laba +60% — Buy on Weakness?", kategori: "Saham · ANTM" },
-  { judul: "Bitcoin ETF Outflow vs Supply Crunch — Ke Mana BTC Selanjutnya?", kategori: "Crypto · Bitcoin" },
-  { judul: "IHSG −24% YTD: Penurunan Terdalam di Asia 2026", kategori: "Saham · IHSG" },
-  { judul: "Analisis Emas 19 Mei 2026: XAU/USD $4.558", kategori: "Komoditas · Gold" },
-  { judul: "Liquidity Sweep Strategy", kategori: "Edukasi · SMC" },
+  { judul: "ANTM Didepak MSCI vs Laba +60% — Buy on Weakness?", kategori: "Saham · ANTM", url: "news-antm-mei2026.html", target: "_self" },
+  { judul: "Bitcoin ETF Outflow vs Supply Crunch — Ke Mana BTC Selanjutnya?", kategori: "Crypto · Bitcoin", url: "news-bitcoin-mei2026.html", target: "_self" },
+  { judul: "IHSG −24% YTD: Penurunan Terdalam di Asia 2026", kategori: "Saham · IHSG", url: "news-ihsg-turun-tajam-2026.html", target: "_self" },
+  { judul: "Analisis Emas 19 Mei 2026: XAU/USD $4.558", kategori: "Komoditas · Gold", url: "artikel-gold-19mei2026.html", target: "_self" },
+  { judul: "Liquidity Sweep Strategy", kategori: "Edukasi · SMC", url: "artikel-liquidity-sweep.html", target: "_self" },
+  { judul: "Pengertian On-Chain Analysis dan Cara Melakukannya", kategori: "Edukasi · On-Chain", url: "artikel-onchain-analysis.html", target: "_self" },
 ];
 
 
@@ -1264,7 +1267,7 @@ function renderAll() {
           <h2>${featItem.judul}</h2>
           <p>${featItem.deskripsi}</p>
           <span class="read-time">🕐 ${featItem.readTime} &nbsp;·&nbsp; ${featItem.tanggal}</span>
-          <a class="btn-read" href="${featItem.url}" target="_blank">Baca Selengkapnya →</a>
+          <a class="btn-read" href="${featItem.url}" target="${featItem.target || '_blank'}">Baca Selengkapnya →</a>
         </div>
       </div>`;
   } else {
@@ -1287,7 +1290,7 @@ function renderAll() {
         <h3>${a.judul}</h3>
         <p>${a.deskripsi}</p>
         <div class="art-card-footer">
-          <a class="art-link" href="${a.url}" target="_blank">Baca →</a>
+          <a class="art-link" href="${a.url}" target="${a.target || '_blank'}">Baca →</a>
           <span class="art-date">${a.tanggal}</span>
         </div>
       </div>`).join('');
@@ -1339,14 +1342,16 @@ function renderCatList() {
 function renderTrending() {
   const list = document.getElementById('trendingList');
   list.innerHTML = TRENDING_DATA.map((t, i) => `
-    <div class="trending-item">
-      <div class="trend-num">${String(i+1).padStart(2,'0')}</div>
-      <div class="trend-body">
-        <div class="trend-title">${t.judul}</div>
-        <div class="trend-cat">${t.kategori}</div>
+    <a href="${t.url || '#'}" target="${t.target || '_blank'}" style="text-decoration:none;color:inherit;">
+      <div class="trending-item">
+        <div class="trend-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="trend-body">
+          <div class="trend-title">${t.judul}</div>
+          <div class="trend-cat">${t.kategori}</div>
+        </div>
+        <span class="trend-arrow">→</span>
       </div>
-      <span class="trend-arrow">→</span>
-    </div>`).join('');
+    </a>`).join('');
 }
 
 // Init
