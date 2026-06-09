@@ -919,8 +919,9 @@ const ARTIKEL_DATA = [
     kategori: "Crypto",
     icon: "🪙",
     judul: "Pengertian dan Peluang Investasi ICO Crypto",
-    deskripsi: "Panduan lengkap Initial Coin Offering dan cara mengevaluasi peluang investasi ICO dengan benar.",
+    deskripsi: "Panduan lengkap ICO — cara kerja Initial Coin Offering, potensi keuntungan investor awal, risiko scam nyata, checklist due diligence, dan perbandingan ICO vs IPO sebelum kamu masuk ke proyek crypto baru.",
     url: "artikel-ico-crypto.html",
+    target: "_self",
     tanggal: "8 Feb 2025",
     readTime: "5 min read"
   },
@@ -1092,6 +1093,7 @@ const NEWS_DATA = [
     sumber: "ISE Research",
     waktu: "8 Feb 2025",
     url: "artikel-ico-crypto.html",
+    target: "_self",
     badge: "new",
     kategori: "Crypto"
   },
@@ -1422,7 +1424,7 @@ function renderAll() {
     newsList.innerHTML = `<div class="empty-state"><div class="empty-icon">📰</div><p>Tidak ada news ditemukan</p></div>`;
   } else {
     newsList.innerHTML = newsItems.map((n, i) => `
-      <a href="${n.url}" target="_blank" style="text-decoration:none;color:inherit;">
+      <a href="${n.url}" target="${n.target || '_blank'}" style="text-decoration:none;color:inherit;">
         <div class="news-item">
           <div class="news-idx">${String(i+1).padStart(2,'0')}</div>
           <div class="news-body">
