@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panduan lengkap staking crypto — cara kerja Proof of Stake, cara memulai staking, platform terpercaya, keuntungan penghasilan pasif, risiko lock-up & validator, dan perbandingan staking vs trading." />
+  <meta property="og:title" content="Memahami Staking Crypto dan Cara Menghasilkan Passive Income — Indonesian Secret Entry" />
+  <meta property="og:description" content="Pelajari cara kerja staking, pilih platform yang tepat, hitung potensi APY, dan hindari risiko lock-up sebelum mengunci aset kripto kamu." />
+  <meta property="og:type" content="article" />
+  <title>Memahami Staking Crypto dan Cara Menghasilkan Passive Income — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — identik v1.1
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-card2:    #171717;
+      --border:      #2a2a2a;
+      --accent:      #ff6a00;
+      --accent2:     #ff9a40;
+      --danger:      #ff3333;
+      --success:     #22c55e;
+      --text:        #d4d4d4;
+      --text-dim:    #666666;
+      --text-bright: #ffffff;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+      --font-body:    'IBM Plex Sans', sans-serif;
+      --radius:    8px;
+      --radius-lg: 16px;
+      --glow:      0 0 24px rgba(255,106,0,.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .4;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+    /* ═══ NAVBAR ═══ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(10,10,10,.88);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,.5); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: .08em; color: var(--text-bright); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-dim); padding: 8px 14px; border-radius: var(--radius); transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); background: rgba(255,106,0,.08); text-decoration: none; }
+    .has-drop { position: relative; }
+    .has-drop .dropdown {
+      display: none; position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg-card2); border: 1px solid var(--border); border-radius: var(--radius);
+      min-width: 220px; padding: 8px 0; box-shadow: 0 16px 40px rgba(0,0,0,.6);
+    }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 18px !important; border-radius: 0 !important; font-size: 11px !important; }
+    .dropdown a:hover { background: rgba(255,106,0,.06) !important; }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu.open {
+        display: flex; flex-direction: column;
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 16px 24px 24px; gap: 2px;
+      }
+      .mobile-menu a {
+        display: block; padding: 10px 0;
+        font-family: var(--font-mono); font-size: 12px;
+        color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu a:hover { color: var(--accent); }
+    }
+
+    /* ═══ ARTICLE HERO ═══ */
+    #article-hero { position: relative; padding: 80px 0 0; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,106,0,.08) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,42,42,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,42,42,.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 0%, transparent 75%);
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+
+    .article-hero-inner { position: relative; z-index: 1; width: 100%; max-width: 860px; overflow: hidden; }
+
+    .breadcrumb {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-dim); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--accent); margin: 0 10px; }
+
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; opacity: 0; animation: fadeUp .5s .05s forwards; }
+    .atag {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .atag-dim { border-color: var(--border); color: var(--text-dim); }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4.5vw, 3.6rem);
+      line-height: 1.05; letter-spacing: .02em; color: var(--text-bright);
+      margin-bottom: 20px; opacity: 0; animation: fadeUp .6s .1s forwards;
+      overflow-wrap: break-word; word-break: break-word;
+    }
+    .article-title .hl { color: var(--accent); }
+    .article-title--inline { white-space: normal; font-size: clamp(1.5rem, 4.5vw, 3.6rem); }
+
+    .article-meta {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--text-dim);
+      margin-bottom: 24px; opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .article-meta .sep { color: var(--border); }
+
+    /* ═══ HERO IMAGE ═══ */
+    .hero-visual {
+      margin-top: 32px; position: relative;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden; height: 300px;
+      border: 1px solid var(--border); border-bottom: none;
+      width: 100%; max-width: 100%;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0) 40%, rgba(10,10,10,.85) 100%);
+      z-index: 1;
+    }
+    .hero-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: brightness(.7) saturate(1.1);
+      transition: transform .6s ease;
+    }
+    .hero-visual:hover img { transform: scale(1.03); }
+    .hero-visual-caption {
+      position: absolute; bottom: 16px; left: 20px; z-index: 2;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══ ARTICLE BODY ═══ */
+    #article-body { position: relative; z-index: 1; padding: 0 0 96px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 32px; align-items: start; padding-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { order: -1; }
+    }
+
+    /* ═══ PROSE ═══ */
+    .prose { max-width: 100%; min-width: 0; }
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      color: var(--text-bright); letter-spacing: .04em; line-height: 1.05;
+      margin: 36px 0 12px; padding-top: 4px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-family: var(--font-display); font-size: 1.25rem;
+      color: var(--accent2); letter-spacing: .04em; margin: 32px 0 12px;
+    }
+    .prose p { color: var(--text); font-size: .95rem; line-height: 1.8; margin-bottom: 18px; }
+    .prose strong { color: var(--text-bright); font-weight: 600; overflow-wrap: break-word; }
+    .prose em { color: var(--accent2); font-style: italic; }
+    .prose ul, .prose ol { padding-left: 20px; margin-bottom: 20px; }
+    .prose li { color: var(--text); font-size: .93rem; line-height: 1.75; margin-bottom: 8px; }
+    .prose li::marker { color: var(--accent); }
+
+    /* Callout */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(255,106,0,.06) 0%, transparent 100%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px; margin: 20px 0;
+    }
+    .callout.warn { border-color: var(--danger); background: linear-gradient(90deg, rgba(255,51,51,.06) 0%, transparent 100%); }
+    .callout.tip  { border-color: var(--success); background: linear-gradient(90deg, rgba(34,197,94,.06) 0%, transparent 100%); }
+    .callout-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout.warn .callout-label { color: var(--danger); }
+    .callout.tip  .callout-label { color: var(--success); }
+    .callout p { margin-bottom: 0; }
+
+    .prose-divider { width: 48px; height: 2px; background: var(--accent); border-radius: 2px; margin: 36px 0; }
+
+    /* Key points */
+    .key-points {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 20px; margin: 24px 0; width: 100%; overflow: hidden;
+    }
+    .key-points-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    }
+    .key-points-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .kp-list { display: flex; flex-direction: column; gap: 12px; }
+    .kp-item { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .kp-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .kp-text { font-size: .88rem; color: var(--text); line-height: 1.55; min-width: 0; flex: 1; word-break: break-word; }
+
+    /* Content image */
+    .prose-img {
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); margin: 28px 0; position: relative;
+    }
+    .prose-img img {
+      width: 100%; height: 220px; object-fit: cover; object-position: center;
+      filter: brightness(.75) saturate(1.15);
+      transition: transform .5s;
+      display: block;
+    }
+    .prose-img:hover img { transform: scale(1.02); }
+    .prose-img figcaption {
+      padding: 9px 14px;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-dim); background: var(--bg-card); border-top: 1px solid var(--border);
+    }
+
+    /* Concept block */
+    .concept-block {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); overflow: hidden; margin: 32px 0;
+    }
+    .concept-header {
+      padding: 12px 20px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); display: flex; justify-content: space-between; align-items: center;
+    }
+    .concept-header .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .concept-body { padding: 20px; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; }
+    .step {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num { font-family: var(--font-display); font-size: 2rem; line-height: 1; color: var(--accent); opacity: .35; }
+    .step-body h4 { font-size: .9rem; color: var(--text-bright); margin-bottom: 6px; }
+    .step-body p  { font-size: .85rem; color: var(--text-dim); margin-bottom: 0; overflow-wrap: break-word; }
+
+    /* Stat row */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin: 24px 0;
+    }
+    .stat-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 16px; text-align: center;
+    }
+    .stat-val { font-family: var(--font-display); font-size: 1.8rem; color: var(--accent); letter-spacing: .04em; line-height: 1; }
+    .stat-label { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; }
+
+    /* Checklist */
+    .checklist {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); overflow: hidden; margin: 24px 0;
+    }
+    .checklist-head {
+      padding: 11px 16px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+    }
+    .checklist-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
+    .check-item { display: flex; gap: 10px; align-items: flex-start; }
+    .check-box {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+      border: 1.5px solid var(--border); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; background: var(--bg-card2);
+    }
+    .check-box.ok  { border-color: var(--success); background: rgba(34,197,94,.08); color: var(--success); }
+    .check-box.bad { border-color: var(--danger);  background: rgba(255,51,51,.08);  color: var(--danger); }
+    .check-text { font-size: .87rem; color: var(--text); line-height: 1.55; }
+    .check-text strong { color: var(--text-bright); }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      margin: 20px 0; border-radius: var(--radius); border: 1px solid var(--border);
+    }
+    .prose table { width: 100%; border-collapse: collapse; font-size: .83rem; min-width: 360px; }
+    .prose th {
+      background: var(--bg-card2); padding: 10px 14px; text-align: left;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); border-bottom: 1px solid var(--border);
+    }
+    .prose td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+    .prose tr:last-child td { border-bottom: none; }
+    .prose tr:nth-child(even) td { background: rgba(255,255,255,.015); }
+
+    /* Share */
+    .share-bar {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+    }
+    .share-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); margin-right: 4px;
+    }
+    .share-btn {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 14px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text-dim); cursor: pointer; transition: .2s;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ═══ SIDEBAR ═══ */
+    .article-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-widget {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); overflow: hidden; position: sticky; top: 84px;
+    }
+    .widget-head {
+      padding: 11px 16px; border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); display: flex; align-items: center; gap: 10px;
+    }
+    .widget-head .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .widget-body { padding: 12px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      display: block; padding: 6px 10px; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em;
+      color: var(--text-dim); transition: .2s;
+    }
+    .toc-list a:hover, .toc-list a.active { color: var(--accent); background: rgba(255,106,0,.07); text-decoration: none; }
+
+    .related-list { display: flex; flex-direction: column; gap: 2px; }
+    .related-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px; border-radius: var(--radius); gap: 8px;
+      transition: background .2s; cursor: pointer;
+    }
+    .related-item:hover { background: var(--bg-card2); }
+    .related-body { flex: 1; min-width: 0; }
+    .related-cat { font-family: var(--font-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 3px; }
+    .related-title { font-size: .8rem; color: var(--text); line-height: 1.4; }
+    .related-arrow { color: var(--text-dim); flex-shrink: 0; font-size: .9rem; }
+
+    .cta-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #111 0%, #0d0d0d 100%);
+      padding: 20px; text-align: center;
+    }
+    .cta-card .cta-emoji { font-size: 2rem; margin-bottom: 10px; }
+    .cta-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-bright); margin-bottom: 8px; letter-spacing: .04em; }
+    .cta-card p { font-size: .8rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 16px; }
+    .cta-btn {
+      display: inline-block; padding: 10px 20px; background: var(--accent); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      border-radius: var(--radius); transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .85; text-decoration: none; }
+
+    /* ═══ ARTICLE NAV ═══ */
+    .article-nav { border-top: 1px solid var(--border); padding: 32px 0; }
+    .article-nav-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg-card); padding: 16px 20px;
+      display: flex; flex-direction: column; gap: 6px;
+      transition: border-color .2s, background .2s;
+    }
+    .nav-card:hover { border-color: var(--accent); background: var(--bg-card2); text-decoration: none; }
+    .nav-card .nav-dir { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+    .nav-card .nav-cat { font-family: var(--font-mono); font-size: 9px; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
+    .nav-card .nav-title { font-size: .9rem; color: var(--text-bright); line-height: 1.4; }
+    .nav-next { text-align: right; }
+
+    /* ═══ FOOTER ═══ */
+    footer { border-top: 1px solid var(--border); padding: 48px 0 32px; position: relative; z-index: 1; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-bright); letter-spacing: .08em; }
+    .footer-brand .logo-text span { color: var(--accent); }
+    .footer-brand p { font-size: 12px; color: var(--text-dim); margin-top: 8px; max-width: 280px; }
+    .footer-nav h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-nav ul a { font-size: 13px; color: var(--text-dim); }
+    .footer-nav ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .footer-bottom .disclaimer { font-size: 10px; color: var(--text-dim); opacity: .6; }
+
+    #scrollTop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 44px; height: 44px; background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer; font-size: 18px;
+      display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(255,106,0,.4); transition: transform .2s;
+    }
+    #scrollTop:hover { transform: scale(1.1); }
+    #scrollTop.show { display: flex; }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 768px) {
+      .container      { padding: 0 14px; }
+      .article-layout { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }
+      #article-body   { padding: 0 0 40px; }
+      .article-nav    { padding: 24px 0; }
+      .article-nav-inner { grid-template-columns: 1fr; }
+      #article-hero   { padding: 68px 0 0; }
+      .article-hero-inner { max-width: 100%; }
+      .hero-visual    { height: 190px; margin-top: 16px; border-radius: var(--radius) var(--radius) 0 0; }
+      .article-title  { font-size: 1.7rem; line-height: 1.05; margin-bottom: 10px; }
+      .article-meta   { gap: 6px; font-size: 9px; margin-bottom: 16px; }
+      .article-tags   { gap: 5px; margin-bottom: 10px; }
+      .breadcrumb     { margin-bottom: 12px; font-size: 9px; }
+      .breadcrumb .sep { margin: 0 4px; }
+      .prose h2       { font-size: 1.2rem; margin: 24px 0 8px; }
+      .prose h3       { font-size: 1rem; margin: 16px 0 6px; }
+      .prose p        { font-size: .85rem; line-height: 1.68; margin-bottom: 11px; }
+      .prose li       { font-size: .84rem; margin-bottom: 4px; }
+      .prose ul, .prose ol { padding-left: 15px; margin-bottom: 12px; }
+      .callout        { padding: 10px 12px; margin: 14px 0; }
+      .callout p      { font-size: .83rem; }
+      .key-points     { padding: 12px; margin: 14px 0; border-radius: var(--radius); }
+      .key-points-title { font-size: 8px; margin-bottom: 8px; }
+      .kp-text        { font-size: .81rem; }
+      .prose-img      { margin: 16px 0; border-radius: var(--radius); }
+      .prose-img img  { height: 155px; }
+      .concept-block  { margin: 14px 0; border-radius: var(--radius); }
+      .concept-header { padding: 8px 12px; font-size: 8px; }
+      .concept-body   { padding: 10px; }
+      .step           { grid-template-columns: 24px 1fr; gap: 8px; padding: 12px 0; }
+      .step-num       { font-size: 1.1rem; }
+      .step-body h4   { font-size: .8rem; margin-bottom: 2px; }
+      .step-body p    { font-size: .78rem; }
+      .stat-row       { grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+      .stat-val       { font-size: 1.3rem; }
+      .stat-label     { font-size: 7.5px; }
+      .checklist      { margin: 14px 0; }
+      .checklist-head { padding: 8px 12px; font-size: 8px; }
+      .checklist-body { padding: 8px 10px; gap: 7px; }
+      .check-text     { font-size: .8rem; }
+      .table-wrap     { margin: 12px 0; }
+      .prose table    { font-size: .78rem; min-width: 300px; }
+      .prose th       { padding: 7px 9px; font-size: 8px; }
+      .prose td       { padding: 7px 9px; }
+      .prose-divider  { margin: 16px 0; }
+      .share-bar      { margin-top: 20px; padding-top: 16px; gap: 6px; }
+      .share-btn      { padding: 5px 9px; font-size: 8px; }
+      .article-sidebar { gap: 16px; }
+      .sidebar-widget { position: static; }
+      .widget-head    { padding: 9px 12px; font-size: 8px; }
+      .widget-body    { padding: 10px; }
+      .toc-list a     { padding: 5px 7px; font-size: 9px; }
+      .related-title  { font-size: .75rem; }
+      .cta-card       { padding: 14px; border-radius: var(--radius); }
+      .cta-card h4    { font-size: 1rem; }
+      .cta-card p     { font-size: .75rem; margin-bottom: 8px; }
+      .nav-card       { padding: 12px; border-radius: var(--radius); }
+      .nav-card .nav-title { font-size: .8rem; }
+      footer          { padding: 20px 0 14px; }
+      .footer-inner   { gap: 14px; margin-bottom: 20px; }
+      .footer-bottom  { padding-top: 14px; }
+      .footer-bottom p { font-size: 9px; }
+    }
+    @media (max-width: 400px) {
+      .article-title  { font-size: 1.45rem; }
+      .hero-visual    { height: 155px; }
+      .stat-row       { grid-template-columns: repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html">Crypto</a>
+          <a href="artikel-news.html">Saham</a>
+          <a href="artikel-news.html">Komoditas</a>
+          <a href="artikel-news.html">Edukasi</a>
+          <a href="artikel-news.html">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="index-v1.1.html#charts">Charts</a>
+    <a href="index-v1.1.html#calendar">Calendar</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HERO ═══ -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a>
+        <span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a>
+        <span class="sep">/</span>
+        Staking Crypto
+      </div>
+
+      <div class="article-tags">
+        <span class="atag">Edukasi</span>
+        <span class="atag">Crypto</span>
+        <span class="atag atag-dim">Staking</span>
+        <span class="atag atag-dim">Passive Income</span>
+        <span class="atag atag-dim">PoS</span>
+      </div>
+
+      <h1 class="article-title article-title--inline">
+        Staking Crypto: <span class="hl">Passive Income</span> dari Aset Kripto
+      </h1>
+
+      <div class="article-meta">
+        <span>8 Februari 2025</span>
+        <span class="sep">·</span>
+        <span>🕐 8 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero image — WebP -->
+      <div class="hero-visual">
+        <img
+          src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=860&q=75&fm=webp&auto=format&fit=crop"
+          alt="Staking crypto — mengunci aset kripto untuk passive income"
+          loading="eager"
+          decoding="async"
+          width="860" height="300"
+        />
+        <span class="hero-visual-caption">Photo: Unsplash · Crypto Staking &amp; Passive Income</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- ═══ PROSE ═══ -->
+      <article class="prose">
+
+        <div class="key-points">
+          <div class="key-points-title">Ringkasan Artikel</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">🔒</span><span class="kp-text">Staking adalah proses mengunci aset kripto di jaringan blockchain untuk membantu validasi transaksi — dan mendapatkan <strong>reward berupa kripto tambahan</strong> sebagai imbalannya.</span></div>
+            <div class="kp-item"><span class="kp-icon">💸</span><span class="kp-text">Staking bekerja hanya di blockchain berbasis <strong>Proof of Stake (PoS)</strong>. Aset populer yang bisa di-stake: ETH, ADA, SOL, DOT, dan banyak lagi.</span></div>
+            <div class="kp-item"><span class="kp-icon">📈</span><span class="kp-text">Keuntungan utama: pendapatan pasif, partisipasi dalam keamanan jaringan, dan potensi pertumbuhan berlipat jika harga aset naik.</span></div>
+            <div class="kp-item"><span class="kp-icon">⚠️</span><span class="kp-text">Risiko nyata: penurunan harga saat lock-up, unstaking period berhari-hari, dan risiko validator yang bisa memangkas reward kamu.</span></div>
+          </div>
+        </div>
+
+        <h2 id="pengertian">Apa Itu Staking Crypto?</h2>
+
+        <p>Di dunia <strong>cryptocurrency</strong>, istilah <em>staking</em> semakin sering muncul seiring berkembangnya ekosistem blockchain berbasis Proof of Stake. Staking adalah proses di mana kamu memegang atau <strong>"mengunci" sejumlah aset kripto</strong> di dalam dompet untuk membantu mengamankan jaringan blockchain tertentu dan memvalidasi transaksi di dalamnya. Sebagai imbalannya, kamu akan menerima hadiah berupa kripto tambahan secara berkala.</p>
+
+        <p>Analoginya mirip dengan <strong>deposito di perbankan</strong> — kamu menyimpan dana untuk jangka waktu tertentu dan mendapatkan bunga atas simpanan tersebut. Bedanya, staking adalah bagian dari mekanisme teknis blockchain yang menjaga jaringan tetap aman dan berjalan, bukan sekadar instrumen finansial.</p>
+
+        <div class="callout">
+          <div class="callout-label">⚙️ Syarat Utama Staking</div>
+          <p>Staking hanya bisa dilakukan pada jaringan blockchain yang menggunakan mekanisme konsensus <strong>Proof of Stake (PoS)</strong> atau variannya — seperti Delegated Proof of Stake (DPoS). Dalam PoS, validator dipilih secara berbobot berdasarkan jumlah kripto yang di-stake dan durasi penguncian. Blockchain seperti Bitcoin yang masih menggunakan Proof of Work (PoW) <em>tidak mendukung</em> staking.</p>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-val">4–20%</div>
+            <div class="stat-label">APY Rata-rata Staking ETH</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">$50B+</div>
+            <div class="stat-label">Total Nilai Staking Global</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">100+</div>
+            <div class="stat-label">Aset yang Bisa Di-Stake</div>
+          </div>
+        </div>
+
+        <h2 id="cara-kerja">Cara Kerja Staking</h2>
+
+        <p>Sebelum memulai, penting memahami mekanisme di balik staking. Ketika kamu men-stake aset, kamu pada dasarnya menjadi bagian dari konsensus jaringan — membantu memverifikasi bahwa transaksi yang terjadi adalah valid dan sah. Semakin banyak aset yang di-stake, semakin besar peluang kamu untuk dipilih sebagai <em>validator</em> yang mendapatkan reward.</p>
+
+        <figure class="prose-img">
+          <img
+            src="https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=800&q=72&fm=webp&auto=format&fit=crop"
+            alt="Proof of Stake blockchain validator node staking"
+            loading="lazy"
+            decoding="async"
+            width="800" height="220"
+          />
+          <figcaption>Validator node dalam jaringan PoS — backbone keamanan blockchain modern</figcaption>
+        </figure>
+
+        <h2 id="cara-mulai">Cara Memulai Staking: 5 Langkah</h2>
+
+        <div class="concept-block">
+          <div class="concept-header">
+            Langkah-Langkah Memulai Staking
+            <div class="dot"></div>
+          </div>
+          <div class="concept-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <h4>Pilih Aset Kripto yang Mendukung Staking</h4>
+                  <p>Tidak semua kripto mendukung staking. Aset populer: <strong>Ethereum (ETH)</strong>, Cardano (ADA), Polkadot (DOT), Solana (SOL), Avalanche (AVAX), dan Cosmos (ATOM). Pilih berdasarkan APY yang ditawarkan, reputasi jaringan, dan keselarasan dengan strategi investasimu.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <h4>Pilih Platform atau Dompet Staking</h4>
+                  <p>Ada dua jalur: <strong>(a) Self-custody staking</strong> — gunakan dompet seperti MetaMask, Trust Wallet, atau Ledger, lalu stake langsung ke protokol. Memberi kontrol penuh tapi butuh pengetahuan teknis. <strong>(b) Exchange staking</strong> — gunakan Binance, Kraken, Coinbase, atau Bybit yang menawarkan fitur staking satu klik, lebih mudah tapi kamu menyerahkan kendali kunci privat ke exchange.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <h4>Transfer Kripto ke Wallet Staking</h4>
+                  <p>Setelah memilih platform, transfer aset kripto ke wallet staking. Perhatikan <strong>minimum staking</strong> yang dipersyaratkan — ETH native staking misalnya membutuhkan 32 ETH, meski kini ada liquid staking (Lido, Rocket Pool) yang memungkinkan staking dengan jumlah lebih kecil.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                  <h4>Pilih Validator atau Staking Pool</h4>
+                  <p>Tergantung jaringan, kamu bisa memilih validator sendiri atau bergabung ke pool. Pertimbangkan: komisi validator (semakin kecil semakin baik), track record uptime (idealnya &gt;99%), dan reputasi di komunitas. Validator dengan komisi 0% terdengar menarik tapi bisa berarti kualitas lebih rendah.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">05</div>
+                <div class="step-body">
+                  <h4>Pantau dan Klaim Reward Berkala</h4>
+                  <p>Reward staking biasanya dibayarkan setiap epoch (beberapa hari) atau secara otomatis di-compound. Pantau performa validator kamu dan kalkulasikan apakah reward sepadan dengan risiko lock-up. Beberapa platform memungkinkan <em>auto-compound</em> yang memaksimalkan efek bunga-berbunga.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="platform">Platform Staking Populer</h2>
+
+        <p>Memilih platform staking yang tepat sama pentingnya dengan memilih aset yang di-stake. Berikut perbandingan opsi utama yang tersedia saat ini:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Tipe</th>
+                <th>Aset Tersedia</th>
+                <th>Kemudahan</th>
+                <th>Kontrol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Binance Earn</strong></td>
+                <td>Exchange</td>
+                <td>ETH, SOL, ADA, DOT, BNB, 50+</td>
+                <td>⭐⭐⭐⭐⭐</td>
+                <td>Rendah</td>
+              </tr>
+              <tr>
+                <td><strong>Lido Finance</strong></td>
+                <td>Liquid Staking</td>
+                <td>ETH, MATIC, SOL</td>
+                <td>⭐⭐⭐⭐</td>
+                <td>Menengah</td>
+              </tr>
+              <tr>
+                <td><strong>Kraken</strong></td>
+                <td>Exchange</td>
+                <td>ETH, ADA, DOT, ATOM, 20+</td>
+                <td>⭐⭐⭐⭐</td>
+                <td>Rendah</td>
+              </tr>
+              <tr>
+                <td><strong>MetaMask / Trust Wallet</strong></td>
+                <td>Self-custody</td>
+                <td>Tergantung jaringan</td>
+                <td>⭐⭐⭐</td>
+                <td>Penuh</td>
+              </tr>
+              <tr>
+                <td><strong>Rocket Pool</strong></td>
+                <td>Decentralized</td>
+                <td>ETH (min. 0.01 ETH)</td>
+                <td>⭐⭐⭐</td>
+                <td>Tinggi</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <div class="callout-label">💡 Tips Pemula</div>
+          <p>Jika baru mulai, exchange terpusat seperti Binance atau Kraken adalah titik masuk termudah. Setelah lebih familiar dengan mekanismenya, pertimbangkan beralih ke <strong>liquid staking protocol</strong> (Lido, Rocket Pool) untuk mendapatkan kontrol lebih dengan tetap mempertahankan likuiditas lewat token derivatif seperti stETH.</p>
+        </div>
+
+        <h2 id="keuntungan">Keuntungan Staking Crypto</h2>
+
+        <figure class="prose-img">
+          <img
+            src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=72&fm=webp&auto=format&fit=crop"
+            alt="Passive income dari staking crypto — pertumbuhan aset"
+            loading="lazy"
+            decoding="async"
+            width="800" height="220"
+          />
+          <figcaption>Staking memungkinkan aset kripto bekerja untukmu bahkan saat kamu tidur</figcaption>
+        </figure>
+
+        <ul>
+          <li><strong>Pendapatan Pasif Berkelanjutan:</strong> Reward staking masuk secara otomatis — tanpa perlu trading aktif. APY bervariasi dari 3–4% (ETH) hingga 10–20% untuk aset tier-2 yang lebih berisiko. Dengan efek compounding, imbal hasil jangka panjang bisa sangat signifikan.</li>
+          <li><strong>Partisipasi dalam Keamanan Jaringan:</strong> Setiap staker berkontribusi menjaga integritas blockchain. Semakin banyak aset yang di-stake, semakin mahal biaya yang dibutuhkan untuk menyerang jaringan — kamu ikut membangun fondasi kepercayaan ekosistem crypto.</li>
+          <li><strong>Strategi HODLing yang Lebih Produktif:</strong> Bagi investor jangka panjang, staking mengubah aset idle menjadi aset yang bekerja. Daripada hanya menyimpan di dompet, aset yang sama bisa menghasilkan reward sambil kamu menunggu apresiasi harga.</li>
+          <li><strong>Menghindari Godaan Jual saat Volatil:</strong> Dengan mengunci aset, ada "penghambat psikologis" terhadap keputusan jual emosional saat harga turun. Investor dengan pandangan jangka panjang bisa melihat ini sebagai keuntungan tidak langsung.</li>
+          <li><strong>Potensi Pertumbuhan Berlipat:</strong> Jika harga aset yang kamu stake naik signifikan selama periode staking, keuntunganmu berlipat: kenaikan harga + reward staking secara bersamaan.</li>
+        </ul>
+
+        <h2 id="risiko">Risiko Staking yang Harus Dipahami</h2>
+
+        <p>Staking bukan instrumen tanpa risiko. Sebelum mengunci aset, pahami tiga risiko utama berikut:</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Risiko Penurunan Harga</div>
+          <p>Ini risiko paling signifikan. Jika harga aset turun 40% selama periode lock-up tiga bulan, reward staking 5% APY tidak akan mengkompensasi kerugian tersebut. <strong>Staking tidak melindungimu dari penurunan harga pasar</strong> — kamu masih terekspos penuh terhadap volatilitas aset yang di-stake.</p>
+        </div>
+
+        <div class="callout warn">
+          <div class="callout-label">⏳ Lock-up Period & Unstaking Delay</div>
+          <p>Banyak protokol mengharuskan aset dikunci untuk jangka waktu tertentu. Bahkan setelah memutuskan untuk unstake, ada <strong>unstaking period</strong> yang bisa memakan waktu 3–28 hari tergantung jaringan. Ethereum misalnya memiliki antrian validator yang bisa membuat proses unstaking memakan waktu lebih lama saat antrean penuh. Selama periode ini kamu tidak bisa menjual aset meski harga ambruk.</p>
+        </div>
+
+        <div class="callout warn">
+          <div class="callout-label">🔴 Risiko Validator & Slashing</div>
+          <p>Memilih validator yang berperforma buruk atau tidak jujur bisa berakibat <strong>slashing</strong> — penalti yang memotong sebagian aset yang di-stake sebagai hukuman atas perilaku tidak sesuai protokol. Selain itu, validator dengan uptime rendah menghasilkan reward lebih sedikit. Selalu verifikasi reputasi dan track record validator sebelum mendelegasikan stake kamu.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="checklist">Checklist Sebelum Mulai Staking</h2>
+
+        <div class="checklist">
+          <div class="checklist-head">✅ Checklist Staking — Wajib Sebelum Kunci Aset</div>
+          <div class="checklist-body">
+            <div class="check-item">
+              <div class="check-box ok">✓</div>
+              <div class="check-text"><strong>Pahami lock-up period</strong> — berapa lama aset dikunci dan berapa lama proses unstaking?</div>
+            </div>
+            <div class="check-item">
+              <div class="check-box ok">✓</div>
+              <div class="check-text"><strong>Hitung APY realistis</strong> — bandingkan reward tahunan vs risiko penurunan harga yang bisa terjadi.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-box ok">✓</div>
+              <div class="check-text"><strong>Verifikasi reputasi validator</strong> — uptime &gt;99%, komisi wajar, aktif di komunitas, tidak pernah kena slashing.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-box ok">✓</div>
+              <div class="check-text"><strong>Pilih platform terpercaya</strong> — jika pakai exchange, pastikan memiliki rekam jejak keamanan yang baik dan tidak pernah diretas.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-box ok">✓</div>
+              <div class="check-text"><strong>Jangan stake semua aset</strong> — sisakan bagian yang liquid untuk kebutuhan darurat atau peluang trading mendadak.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-box bad">✗</div>
+              <div class="check-text"><strong>Jangan tergiur APY ekstrem</strong> — protokol baru menawarkan 100%+ APY hampir selalu merupakan tanda bahaya skema ponzi atau proyek tidak sustainable.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-box bad">✗</div>
+              <div class="check-text"><strong>Jangan stake aset yang kamu butuhkan segera</strong> — dana darurat, tagihan, atau modal usaha tidak boleh di-stake karena tidak bisa diakses secara instan.</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="staking-vs-trading">Staking vs Trading: Mana yang Lebih Cocok?</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspek</th>
+                <th>Staking</th>
+                <th>Trading Aktif</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Waktu yang Dibutuhkan</strong></td>
+                <td>Minimal — set and forget</td>
+                <td>Intensif — monitor pasar terus-menerus</td>
+              </tr>
+              <tr>
+                <td><strong>Potensi Return</strong></td>
+                <td>3–20% APY (konsisten)</td>
+                <td>Tidak terbatas (tapi negatif juga bisa)</td>
+              </tr>
+              <tr>
+                <td><strong>Risiko Utama</strong></td>
+                <td>Penurunan harga aset + lock-up</td>
+                <td>Kesalahan keputusan + volatilitas</td>
+              </tr>
+              <tr>
+                <td><strong>Likuiditas</strong></td>
+                <td>Rendah saat lock-up aktif</td>
+                <td>Tinggi — bisa keluar kapan saja</td>
+              </tr>
+              <tr>
+                <td><strong>Skill Diperlukan</strong></td>
+                <td>Rendah — cukup pilih platform</td>
+                <td>Tinggi — analisa teknikal + psikologi</td>
+              </tr>
+              <tr>
+                <td><strong>Cocok Untuk</strong></td>
+                <td>HODLer jangka panjang, pemula</td>
+                <td>Trader aktif, risk-tolerant</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="kesimpulan">Kesimpulan</h2>
+
+        <p>Staking adalah salah satu cara paling aksesibel untuk mendapatkan <strong>passive income dari aset kripto</strong> yang kamu miliki. Dibanding trading aktif yang membutuhkan keahlian tinggi dan waktu intensif, staking cocok untuk investor dengan orientasi jangka menengah hingga panjang yang ingin asetnya "bekerja" sambil menunggu apresiasi harga.</p>
+
+        <p>Namun seperti semua instrumen di dunia crypto, staking bukan bebas risiko. Penurunan harga, lock-up period, dan risiko validator adalah faktor nyata yang harus dipertimbangkan. Kunci sukses staking adalah: <strong>pilih aset dengan fundamental kuat, validator yang terpercaya, platform yang aman</strong> — dan jangan mengunci lebih dari yang kamu mampu untuk tidak diakses dalam jangka waktu tertentu.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">💡 Saran Akhir</div>
+          <p>Bagi investor yang ingin eksposur ke ekosistem DeFi dengan risiko lebih terukur, pertimbangkan <strong>liquid staking</strong> lewat protokol seperti Lido (stETH) — kamu mendapatkan reward staking sekaligus tetap bisa menggunakan token derivatif di DeFi. Ini adalah evolusi staking yang menjawab masalah likuiditas klasik. <a href="artikel-defi.html">Pelajari lebih lanjut tentang DeFi →</a></p>
+        </div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- ═══ SIDEBAR ═══ -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">
+            Daftar Isi
+            <div class="dot"></div>
+          </div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#pengertian">Apa Itu Staking?</a></li>
+              <li><a href="#cara-kerja">Cara Kerja Staking</a></li>
+              <li><a href="#cara-mulai">5 Langkah Memulai</a></li>
+              <li><a href="#platform">Platform Populer</a></li>
+              <li><a href="#keuntungan">Keuntungan</a></li>
+              <li><a href="#risiko">Risiko</a></li>
+              <li><a href="#checklist">Checklist</a></li>
+              <li><a href="#staking-vs-trading">Staking vs Trading</a></li>
+              <li><a href="#kesimpulan">Kesimpulan</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · Crypto</div>
+                  <div class="related-title"><a href="artikel-ico-crypto.html" style="color:var(--text);">Pengertian dan Peluang Investasi ICO Crypto</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · DeFi</div>
+                  <div class="related-title"><a href="artikel-defi.html" style="color:var(--text);">Memahami Revolusi Keuangan Digital: DeFi</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · On-Chain</div>
+                  <div class="related-title"><a href="artikel-onchain-analysis.html" style="color:var(--text);">Pengertian On-Chain Analysis dan Cara Melakukannya</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Edukasi · Blockchain</div>
+                  <div class="related-title"><a href="artikel-smart-contract.html" style="color:var(--text);">Apa Itu Smart Contract: Pengertian dan Cara Kerja</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Signal &amp; Analisa Live</h4>
+          <p>Dapatkan signal entry berbasis SMC, on-chain analysis, dan update market setiap hari di grup Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Telegram Gratis →</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PREV/NEXT NAV ═══ -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-ico-crypto.html" class="nav-card">
+        <span class="nav-dir">← Artikel Sebelumnya</span>
+        <span class="nav-cat">Edukasi · Crypto</span>
+        <span class="nav-title">Pengertian dan Peluang Investasi ICO Crypto</span>
+      </a>
+      <a href="artikel-defi.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Berikutnya →</span>
+        <span class="nav-cat">Edukasi · DeFi</span>
+        <span class="nav-title">Memahami Revolusi Keuangan Digital: DeFi</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="index-v1.1.html#charts">Charts</a></li>
+          <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+          <li><a href="artikel-onchain-analysis.html">On-Chain Analysis</a></li>
+          <li><a href="artikel-smart-contract.html">Smart Contract</a></li>
+          <li><a href="artikel-ico-crypto.html">ICO Crypto</a></li>
+          <li><a href="artikel-staking-crypto.html" style="color:var(--accent);">Staking Crypto</a></li>
+          <li><a href="artikel-defi.html">DeFi</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+
+  /* Mobile menu */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* TOC active highlight */
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  /* Share */
+  function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Memahami Staking Crypto: Passive Income dari Aset Kripto — Panduan Lengkap Indonesian Secret Entry');
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+  }
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Cara kerja staking crypto, APY, platform terbaik, dan risiko lock-up yang harus kamu tahu sebelum mulai — @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
