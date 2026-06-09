@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ADRO di Rp2.210 — laba Q1 2026 melonjak +67%, dividen US$447 juta (99,96% laba), buyback Rp5 T disetujui RUPST. Tapi harga stagnan di wave 4, JPMorgan downgrade ke Neutral. Paradoks yield raksasa vs harga flat." />
+  <meta property="og:title" content="ADRO Rp2.210: Laba +67%, Dividen 99,96% & Buyback Rp5 T — Mengapa Harga Belum Gerak? — Indonesian Secret Entry" />
+  <meta property="og:description" content="Update aktual Juni 2026 — ADRO di Rp2.210, laba Q1 +67% ke US$128 juta, dividen US$447,5 juta nyaris 100% laba, buyback Rp5 T aktif. Tapi masih konsolidasi di wave 4. Kapan wave 5?" />
+  <meta property="og:type" content="article" />
+  <title>ADRO Rp2.210: Laba +67%, Dividen 99,96% & Buyback Rp5 T — Indonesian Secret Entry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:#0a0a0a; --bg-card:#111111; --bg-card2:#171717; --border:#2a2a2a;
+      --accent:#ff6a00; --accent2:#ff9a40; --danger:#ff3333; --success:#22c55e;
+      --coal:#f59e0b; --coal2:#fcd34d;
+      --text:#d4d4d4; --text-dim:#666666; --text-bright:#ffffff;
+      --font-display:'Bebas Neue',sans-serif; --font-mono:'IBM Plex Mono',monospace; --font-body:'IBM Plex Sans',sans-serif;
+      --radius:8px; --radius-lg:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.65;overflow-x:clip;width:100%;word-break:break-word;overflow-wrap:break-word}
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+    .container{max-width:1280px;margin:0 auto;padding:0 16px}
+
+    /* NAV */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(18px) saturate(180%);background:rgba(10,10,10,.88);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+    #navbar.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--text-bright)}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding:8px 14px;border-radius:var(--radius);transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(255,106,0,.08);text-decoration:none}
+    .has-drop{position:relative}
+    .has-drop .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);min-width:220px;padding:8px 0;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+    .has-drop:hover .dropdown{display:block}
+    .dropdown a{display:block;padding:10px 18px !important;border-radius:0 !important;font-size:11px !important}
+    .dropdown a:hover{background:rgba(255,106,0,.06) !important}
+    .burger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+    .burger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px}
+    .mobile-menu{display:none}
+    @media(max-width:860px){.nav-links{display:none}.burger{display:flex}.mobile-menu.open{display:flex;flex-direction:column;background:var(--bg-card);border-top:1px solid var(--border);padding:16px 24px 24px;gap:2px}.mobile-menu a{display:block;padding:10px 0;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border)}.mobile-menu a:hover{color:var(--accent)}}
+
+    /* HERO */
+    #article-hero{position:relative;padding:80px 0 0;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(245,158,11,.06) 0%,transparent 65%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,42,42,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(42,42,42,.3) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 100% 100% at 50% 0%,black 0%,transparent 75%);animation:gridShift 20s linear infinite}
+    @keyframes gridShift{from{background-position:0 0}to{background-position:48px 48px}}
+    .article-hero-inner{position:relative;z-index:1;width:100%;max-width:860px;overflow:hidden}
+    .breadcrumb{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;display:flex;gap:0;align-items:center;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color .2s}
+    .breadcrumb a:hover{color:var(--accent);text-decoration:none}
+    .breadcrumb .sep{color:var(--accent);margin:0 10px}
+    .article-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;opacity:0;animation:fadeUp .5s .05s forwards}
+    .atag{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--accent);color:var(--accent)}
+    .atag-coal{border-color:var(--coal);color:var(--coal2)}
+    .atag-dim{border-color:var(--border);color:var(--text-dim)}
+    .atag-ok{border-color:var(--success);color:var(--success)}
+    .atag-red{border-color:var(--danger);color:var(--danger)}
+    .article-title{font-family:var(--font-display);font-size:clamp(1.6rem,6vw,4.8rem);line-height:1.0;letter-spacing:.02em;color:var(--text-bright);margin-bottom:20px;opacity:0;animation:fadeUp .6s .1s forwards;word-break:break-word}
+    .article-title .hl{color:var(--accent)}
+    .article-title .hl-coal{color:var(--coal2)}
+    .article-title .hl-ok{color:var(--success)}
+    .article-title .hl-red{color:var(--danger)}
+    .article-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+    .article-meta .sep{color:var(--border)}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--danger);text-transform:uppercase}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--danger);animation:blink 1.2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+    /* HERO VISUAL */
+    .hero-visual{margin-top:32px;position:relative;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;height:260px;background:linear-gradient(160deg,#0c0900 0%,#1a1200 40%,#0a0a0a 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-bottom:none;width:100%}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 60%,rgba(245,158,11,.08) 0%,transparent 70%)}
+    .hero-diagram{position:relative;z-index:1;width:100%;padding:0 24px}
+    .chart-svg{width:100%;height:auto}
+
+    /* BODY */
+    #article-body{position:relative;z-index:1;padding:0 0 96px}
+    .article-layout{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding-top:36px}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}.article-sidebar{order:-1}}
+
+    /* PROSE */
+    .prose{max-width:100%;min-width:0}
+    .prose h2{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.2rem);color:var(--text-bright);letter-spacing:.04em;line-height:1.05;margin:36px 0 12px}
+    .prose h2:first-child{margin-top:0}
+    .prose p{color:var(--text);font-size:.95rem;line-height:1.8;margin-bottom:18px}
+    .prose strong{color:var(--text-bright);font-weight:600}
+    .prose em{color:var(--accent2);font-style:italic}
+    .prose ul{padding-left:20px;margin-bottom:20px}
+    .prose li{color:var(--text);font-size:.93rem;line-height:1.75;margin-bottom:8px}
+    .prose li::marker{color:var(--coal)}
+
+    .callout{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(255,106,0,.06) 0%,transparent 100%);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:20px 0}
+    .callout.warn{border-color:var(--danger);background:linear-gradient(90deg,rgba(255,51,51,.06) 0%,transparent 100%)}
+    .callout.tip{border-color:var(--success);background:linear-gradient(90deg,rgba(34,197,94,.06) 0%,transparent 100%)}
+    .callout.coal{border-color:var(--coal);background:linear-gradient(90deg,rgba(245,158,11,.06) 0%,transparent 100%)}
+    .callout-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .callout.warn .callout-label{color:var(--danger)}
+    .callout.tip  .callout-label{color:var(--success)}
+    .callout.coal .callout-label{color:var(--coal2)}
+    .callout p{margin-bottom:0}
+
+    .key-points{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:20px;margin:24px 0}
+    .key-points-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coal2);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .key-points-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .kp-list{display:flex;flex-direction:column;gap:12px}
+    .kp-item{display:flex;gap:10px;align-items:flex-start}
+    .kp-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .kp-text{font-size:.88rem;color:var(--text);line-height:1.55;flex:1;word-break:break-word}
+
+    .ticker-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+    .ticker-card{flex:1;min-width:130px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-card);padding:12px 14px}
+    .ticker-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+    .ticker-value{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:1}
+    .ticker-change{font-family:var(--font-mono);font-size:10px;margin-top:3px}
+    .ticker-change.down{color:var(--danger)}
+    .ticker-change.up{color:var(--success)}
+    .ticker-change.neu{color:var(--accent2)}
+
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border)}
+    .prose table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:340px}
+    .prose th{background:var(--bg-card2);padding:9px 13px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;border-bottom:1px solid var(--border)}
+    .prose td{padding:9px 13px;border-bottom:1px solid var(--border);vertical-align:top}
+    .prose tr:last-child td{border-bottom:none}
+    .prose tr:hover td{background:rgba(255,255,255,.02)}
+    td.neg{color:var(--danger);font-weight:600}
+    td.pos{color:var(--success);font-weight:600}
+    td.neu{color:var(--accent2);font-weight:600}
+    td.coa{color:var(--coal2);font-weight:600}
+
+    .prose-divider{width:48px;height:2px;background:var(--coal);border-radius:2px;margin:32px 0}
+
+    .share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:20px}
+    .share-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .share-btn{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius);border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;transition:color .2s,border-color .2s}
+    .share-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+    /* SIDEBAR */
+    .article-sidebar{display:flex;flex-direction:column;gap:24px}
+    .sidebar-widget{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);overflow:hidden}
+    @media(min-width:769px){.sidebar-widget{position:sticky;top:88px}}
+    .widget-head{padding:14px 20px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center}
+    .widget-head .dot{width:7px;height:7px;border-radius:50%;background:var(--coal);animation:blink 1.2s infinite}
+    .widget-body{padding:20px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc-list a{display:block;padding:7px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);border-radius:var(--radius);transition:all .2s}
+    .toc-list a:hover{color:var(--accent);background:rgba(255,106,0,.06);text-decoration:none}
+    .toc-list a.active{color:var(--accent);border-left:2px solid var(--accent);padding-left:8px}
+    .toc-list li+li{border-top:1px solid var(--border)}
+    .related-list{display:flex;flex-direction:column;gap:12px}
+    .related-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid var(--border);transition:padding-left .2s}
+    .related-item:last-child{border-bottom:none;padding-bottom:0}
+    .related-item:hover{padding-left:4px}
+    .related-body{flex:1}
+    .related-cat{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+    .related-title{font-size:.8rem;color:var(--text);line-height:1.35}
+    .related-arrow{color:var(--accent);flex-shrink:0;margin-top:2px;font-size:.75rem}
+    .cta-card{border:1px solid rgba(245,158,11,.2);border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--bg-card) 0%,rgba(245,158,11,.04) 100%);padding:24px;text-align:center}
+    .cta-card .cta-emoji{font-size:2.4rem;margin-bottom:12px}
+    .cta-card h4{font-family:var(--font-display);font-size:1.3rem;color:var(--text-bright);margin-bottom:8px}
+    .cta-card p{font-size:.8rem;color:var(--text-dim);margin-bottom:16px}
+    .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border-radius:var(--radius);transition:opacity .2s,transform .2s}
+    .cta-btn:hover{opacity:.9;transform:translateY(-1px);text-decoration:none}
+
+    /* NAV PREV/NEXT */
+    .article-nav{border-top:1px solid var(--border);padding:48px 0;position:relative;z-index:1}
+    .article-nav-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.article-nav-inner{grid-template-columns:1fr}}
+    .nav-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .3s,transform .25s}
+    .nav-card:hover{border-color:rgba(255,106,0,.3);transform:translateY(-2px);text-decoration:none}
+    .nav-card .nav-dir{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .nav-card .nav-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--accent)}
+    .nav-card .nav-title{font-size:.9rem;color:var(--text-bright);line-height:1.4}
+    .nav-next{text-align:right}
+
+    footer{border-top:1px solid var(--border);padding:48px 0 32px;position:relative;z-index:1}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+    .footer-brand .logo-text{font-family:var(--font-display);font-size:1.6rem;color:var(--text-bright);letter-spacing:.08em}
+    .footer-brand .logo-text span{color:var(--accent)}
+    .footer-brand p{font-size:12px;color:var(--text-dim);margin-top:8px;max-width:280px}
+    .footer-nav h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
+    .footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-nav ul a{font-size:13px;color:var(--text-dim)}
+    .footer-nav ul a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+    .footer-bottom .disclaimer{font-size:10px;opacity:.6}
+
+    #scrollTop{position:fixed;bottom:28px;right:28px;z-index:99;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,106,0,.4);transition:transform .2s}
+    #scrollTop:hover{transform:scale(1.1)}
+    #scrollTop.show{display:flex}
+
+    @media(max-width:768px){
+      .container{padding:0 14px}
+      .article-layout{grid-template-columns:1fr;gap:20px;padding-top:24px}
+      #article-body{padding:0 0 40px}
+      .article-nav{padding:24px 0}
+      .article-nav-inner{grid-template-columns:1fr}
+      #article-hero{padding:68px 0 0}
+      .article-hero-inner{max-width:100%}
+      .hero-visual{height:130px;margin-top:16px;border-radius:var(--radius) var(--radius) 0 0}
+      .hero-diagram{padding:0 8px}
+      .article-title{font-size:1.7rem;line-height:1.05;margin-bottom:10px}
+      .article-meta{gap:6px;font-size:9px;margin-bottom:16px}
+      .article-tags{gap:5px;margin-bottom:10px}
+      .breadcrumb{margin-bottom:12px;font-size:9px}
+      .prose h2{font-size:1.2rem;margin:24px 0 8px}
+      .prose p{font-size:.85rem;line-height:1.68;margin-bottom:11px}
+      .prose li{font-size:.84rem}
+      .callout{padding:10px 12px;margin:14px 0}
+      .key-points{padding:12px;margin:14px 0}
+      .ticker-row{gap:8px}
+      .ticker-card{min-width:100px;padding:10px 12px}
+      .ticker-value{font-size:1.2rem}
+      .table-wrap{margin:12px 0}
+      .prose table{font-size:.78rem;min-width:300px}
+      .prose th,.prose td{padding:7px 9px}
+      .prose th{font-size:8px}
+      .share-bar{margin-top:20px;padding-top:16px;gap:6px}
+      .article-sidebar{gap:16px}
+      .sidebar-widget{position:static}
+      .widget-body{padding:10px}
+      .nav-card{padding:16px}
+      footer{padding:20px 0 14px}
+      .footer-inner{gap:14px;margin-bottom:20px}
+    }
+    @media(max-width:400px){.article-title{font-size:1.45rem}.hero-visual{height:100px}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index-v1.1.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index-v1.1.html">Trader Area</a></li>
+      <li><a href="index-v1.1.html#charts">Charts</a></li>
+      <li><a href="index-v1.1.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html" class="active">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Saham')">Saham</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Komoditas')">Komoditas</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Edukasi')">Edukasi</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Makro')">Makro Ekonomi</a>
+        </div>
+      </li>
+      <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-v1.1.html">Trader Area</a>
+    <a href="artikel-news.html" class="active">Artikel &amp; News</a>
+    <a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="index-v1.1.html">Home</a><span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a><span class="sep">/</span>
+        Saham Indonesia
+      </div>
+
+      <div class="article-tags">
+        <span class="atag atag-coal">🪨 Batubara</span>
+        <span class="atag">ADRO · Alamtri</span>
+        <span class="atag atag-dim">BEI · Garibaldi Thohir</span>
+        <span class="atag atag-ok">Laba +67% Q1</span>
+        <span class="atag atag-ok">Dividen 99,96%</span>
+      </div>
+
+      <h1 class="article-title">
+        <span class="hl-coal">ADRO</span> <span class="hl">Rp2.210</span><br>
+        Laba <span class="hl-ok">+67%</span>, Dividen <span class="hl-ok">Raksasa</span>
+        — Wave <span class="hl-red">4</span> Kapan Selesai?
+      </h1>
+
+      <div class="article-meta">
+        <span class="live-badge"><span class="live-dot"></span>Live Update</span>
+        <span class="sep">·</span>
+        <span>8 Juni 2026</span>
+        <span class="sep">·</span>
+        <span>🕐 6 min read</span>
+        <span class="sep">·</span>
+        <span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero Chart ADRO: konsolidasi sideways wave 4 setelah high 2.530 — inline SVG, zero HTTP request -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="areaUp"  x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity=".22"/>
+                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="areaSide" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity=".10"/>
+                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="gl"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Grid -->
+            <line x1="0" y1="38"  x2="680" y2="38"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="90"  x2="680" y2="90"  stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="142" x2="680" y2="142" stroke="#2a2a2a" stroke-width=".5"/>
+            <line x1="0" y1="194" x2="680" y2="194" stroke="#2a2a2a" stroke-width=".5"/>
+            <!-- Price labels -->
+            <text x="4" y="34"  font-family="IBM Plex Mono" font-size="8" fill="#555">2,530</text>
+            <text x="4" y="86"  font-family="IBM Plex Mono" font-size="8" fill="#555">2,300</text>
+            <text x="4" y="138" font-family="IBM Plex Mono" font-size="8" fill="#555">2,050</text>
+            <text x="4" y="190" font-family="IBM Plex Mono" font-size="8" fill="#555">1,800</text>
+
+            <!-- Wave 1–3 rally area fill -->
+            <path d="M50,188 L110,168 L175,138 L230,105 L270,75 L300,52 L310,44 L310,240 L50,240 Z" fill="url(#areaUp)" opacity=".7"/>
+            <!-- Rally line waves 1–3 -->
+            <polyline points="50,188 110,168 175,138 230,105 270,75 300,52 310,44" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round" filter="url(#gl)"/>
+
+            <!-- Wave 4 sideways consolidation area fill -->
+            <path d="M310,44 L350,68 L390,52 L430,76 L460,60 L490,82 L520,66 L560,88 L600,72 L640,90 L660,95 L660,240 L310,240 Z" fill="url(#areaSide)" opacity=".55"/>
+            <!-- Wave 4 line — choppy sideways -->
+            <polyline points="310,44 350,68 390,52 430,76 460,60 490,82 520,66 560,88 600,72 640,90 660,95" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 3" filter="url(#gl)" opacity=".8"/>
+
+            <!-- High candle at wave peak -->
+            <circle cx="310" cy="44" r="5" fill="#f59e0b" filter="url(#gl)"/>
+            <!-- current price dot -->
+            <circle cx="660" cy="95" r="4" fill="#ff6a00" filter="url(#gl)"/>
+
+            <!-- Event markers -->
+            <line x1="310" y1="12" x2="310" y2="215" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+            <text x="314" y="22" font-family="IBM Plex Mono" font-size="7.5" fill="#fcd34d">52W High</text>
+            <text x="314" y="32" font-family="IBM Plex Mono" font-size="7" fill="#fcd34d" opacity=".7">Rp2.530</text>
+
+            <line x1="430" y1="12" x2="430" y2="215" stroke="#22c55e" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="434" y="22" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e">RUPST</text>
+            <text x="434" y="32" font-family="IBM Plex Mono" font-size="7" fill="#22c55e" opacity=".7">Dividen 99,96%</text>
+
+            <line x1="550" y1="12" x2="550" y2="215" stroke="#ff6a00" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+            <text x="554" y="22" font-family="IBM Plex Mono" font-size="7.5" fill="#ff6a00">Buyback</text>
+            <text x="554" y="32" font-family="IBM Plex Mono" font-size="7" fill="#ff6a00" opacity=".7">Rp5 T aktif</text>
+
+            <!-- Wave labels -->
+            <text x="90"  y="172" font-family="IBM Plex Mono" font-size="9" fill="#f59e0b" opacity=".7">W1</text>
+            <text x="190" y="122" font-family="IBM Plex Mono" font-size="9" fill="#f59e0b" opacity=".7">W3</text>
+            <text x="480" y="55"  font-family="IBM Plex Mono" font-size="9" fill="#fcd34d" opacity=".9">Wave 4 — Konsolidasi</text>
+
+            <!-- Support zone -->
+            <line x1="310" y1="110" x2="660" y2="110" stroke="#22c55e" stroke-width=".8" stroke-dasharray="4 3" opacity=".3"/>
+            <text x="316" y="124" font-family="IBM Plex Mono" font-size="7.5" fill="#22c55e" opacity=".7">Support 2.110–2.300</text>
+
+            <!-- Resistance -->
+            <line x1="310" y1="60" x2="660" y2="60" stroke="#ff3333" stroke-width=".8" stroke-dasharray="4 3" opacity=".3"/>
+            <text x="316" y="74"  font-family="IBM Plex Mono" font-size="7.5" fill="#ff3333" opacity=".7">Resistance 2.430–2.530</text>
+
+            <!-- Current price label -->
+            <text x="576" y="110" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">Rp2.210 ▶</text>
+
+            <!-- Time labels -->
+            <text x="44"  y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Agt'25</text>
+            <text x="180" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Nov'25</text>
+            <text x="296" y="228" font-family="IBM Plex Mono" font-size="8" fill="#fcd34d">Jan'26</text>
+            <text x="420" y="228" font-family="IBM Plex Mono" font-size="8" fill="#444">Apr'26</text>
+            <text x="604" y="228" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">Jun'26</text>
+
+            <!-- Stats badge -->
+            <rect x="10" y="50" width="116" height="28" rx="4" fill="rgba(245,158,11,.10)" stroke="#f59e0b" stroke-width=".8" opacity=".9"/>
+            <text x="16" y="62" font-family="IBM Plex Mono" font-size="7" fill="#fcd34d">Laba Q1  +67,07%</text>
+            <text x="16" y="73" font-family="IBM Plex Mono" font-size="7" fill="#22c55e">Div Yield  ~18,6%</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <article class="prose">
+
+        <div class="ticker-row">
+          <div class="ticker-card">
+            <div class="ticker-label">ADRO · 8 Juni 2026</div>
+            <div class="ticker-value" style="color:var(--coal2)">Rp2.210</div>
+            <div class="ticker-change neu">◀ Sideways wave 4 · Range 2.110–2.530</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Laba Bersih Q1 2026</div>
+            <div class="ticker-value" style="color:var(--success)">US$128 M</div>
+            <div class="ticker-change up">▲ +67,07% YoY</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Dividen FY2025</div>
+            <div class="ticker-value" style="color:var(--success)">US$447 M</div>
+            <div class="ticker-change up">▲ 99,96% dari laba</div>
+          </div>
+          <div class="ticker-card">
+            <div class="ticker-label">Buyback Aktif</div>
+            <div class="ticker-value" style="color:var(--coal2)">Rp5 T</div>
+            <div class="ticker-change up">▲ Disetujui RUPST Apr'26</div>
+          </div>
+        </div>
+
+        <div class="key-points">
+          <div class="key-points-title">Update 8 Juni 2026</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">🪨</span><span class="kp-text">ADRO (PT Alamtri Resources Indonesia Tbk) berada di <strong>Rp2.210</strong> — konsolidasi panjang di zona wave 4 (Rp2.110–2.530) sejak high Rp2.530 di awal 2026. Secara teknikal masih menunggu konfirmasi break ke wave 5 dengan target area Rp2.640–2.940.</span></div>
+            <div class="kp-item"><span class="kp-icon">💰</span><span class="kp-text">Fundamental luar biasa: <strong>laba bersih Q1 2026 melonjak +67,07% YoY ke US$128,14 juta</strong>, pendapatan tumbuh +23,40% ke US$470,91 juta. Kas dan setara kas mencapai US$1,15 miliar — posisi likuiditas yang sangat tebal.</span></div>
+            <div class="kp-item"><span class="kp-icon">🎯</span><span class="kp-text">RUPST 17 April 2026 menyetujui <strong>dividen US$447,50 juta — setara 99,96% dari total laba FY2025 US$447,69 juta</strong>. Dividen interim Rp145,14/saham sudah dibayar 15 Januari 2026. Dividen final sedang dalam proses distribusi.</span></div>
+            <div class="kp-item"><span class="kp-icon">🔄</span><span class="kp-text">Buyback senilai <strong>Rp5 triliun disetujui RUPST</strong>, aktif mulai 18 April 2026. Secara kumulatif ADRO sudah membeli kembali 598,19 juta saham (~2% dari total outstanding), memperkuat EPS dan valuasi per lembar saham.</span></div>
+          </div>
+        </div>
+
+        <h2 id="katalis-laba">Laba +67% — Didorong Batubara &amp; Konflik Timur Tengah</h2>
+
+        <p>Kinerja Q1 2026 ADRO melampaui ekspektasi. Pendapatan usaha tumbuh 23,40% menjadi US$470,91 juta, ditopang lonjakan segmen pertambangan +33,97% ke US$266,46 juta. Katalis utamanya adalah kenaikan harga batubara sekitar 20% sepanjang Maret 2026, yang dipicu eskalasi konflik Timur Tengah akhir Februari 2026 — mendorong permintaan energi darurat dari Eropa dan Asia.</p>
+
+        <p>Ekspor menyumbang 53,2% dari total pendapatan segmen pertambangan, mencerminkan daya saing ADRO di pasar internasional. Segmen jasa pertambangan juga tumbuh 15,30% menjadi US$229,46 juta, menunjukkan diversifikasi pendapatan yang sehat.</p>
+
+        <div class="callout coal">
+          <div class="callout-label">🪨 Efisiensi Operasional</div>
+          <p>Pertumbuhan laba (+67%) jauh melampaui pertumbuhan revenue (+23%) — ini cerminan keberhasilan strategi efisiensi biaya dan optimalisasi aset yang diterapkan manajemen. <strong>Kas dan setara kas mencapai US$1,15 miliar</strong> per akhir Maret 2026, salah satu posisi likuiditas terkuat di BEI.</p>
+        </div>
+
+        <h2 id="dividen-buyback">Dividen 99,96% &amp; Buyback Rp5 T — Yield Raksasa</h2>
+
+        <p>Keputusan RUPST 17 April 2026 adalah yang paling ditunggu investor dividen. ADRO menyetujui dividen tunai US$447,50 juta — setara 99,96% dari laba bersih FY2025 sebesar US$447,69 juta. Ini adalah salah satu payout ratio tertinggi yang pernah dilakukan emiten besar di BEI.</p>
+
+        <p>Jika dihitung terhadap harga saham saat ini Rp2.210, nilai dividen total (setara ~Rp430/saham, termasuk interim Rp145) menghasilkan <strong>dividend yield mendekati ~18–19%</strong> — angka yang luar biasa tinggi untuk saham blue chip. Ini menjadi alasan utama mengapa investor nilai tetap hold meski harga stagnan.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Metrik</th><th>Q1 2026</th><th>Q1 2025</th><th>Δ YoY</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Revenue</strong></td><td>US$470,91 juta</td><td>US$381,62 juta</td><td class="pos">+23,40% ↑</td></tr>
+              <tr><td><strong>Segmen Tambang</strong></td><td>US$266,46 juta</td><td>US$198,90 juta</td><td class="pos">+33,97% ↑</td></tr>
+              <tr><td><strong>Segmen Jasa Tambang</strong></td><td>US$229,46 juta</td><td>US$199,01 juta</td><td class="pos">+15,30% ↑</td></tr>
+              <tr><td><strong>Laba Bersih</strong></td><td>US$128,14 juta</td><td>US$76,70 juta</td><td class="pos">+67,07% ↑</td></tr>
+              <tr><td><strong>Kas &amp; Setara Kas</strong></td><td>US$1,15 miliar</td><td>—</td><td class="coa">Likuiditas tebal</td></tr>
+              <tr><td><strong>Dividen FY2025</strong></td><td>US$447,50 juta</td><td>—</td><td class="pos">99,96% laba</td></tr>
+              <tr><td><strong>Buyback Baru</strong></td><td>Rp5 triliun</td><td>—</td><td class="coa">Disetujui Apr'26</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="teknikal">Teknikal: Wave 4 — Sabar atau Skip?</h2>
+
+        <p>Pertanyaan utama trader ADRO saat ini: kapan wave 4 berakhir? Secara teknikal Elliott Wave, ADRO masih terkonsolidasi di antara support <strong>Rp2.110–2.300</strong> dan resistance <strong>Rp2.430–2.530</strong>. Breakout valid di atas Rp2.530 membuka jalan ke wave 5 dengan target awal Rp2.640 dan target penuh Rp2.940.</p>
+
+        <p>Perlu dicatat, JPMorgan baru-baru ini men-downgrade ADRO dari Overweight ke <strong>Neutral</strong> — sinyal bahwa upside jangka pendek terbatas dari perspektif valuasi. Namun target harga JPMorgan direvisi naik, yang menunjukkan confidence pada fundamental jangka menengah tetap solid.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">✅ Level Watch Investor</div>
+          <p>Support kuat: <strong>Rp2.110–2.300</strong> (area akumulasi). Resistance &amp; trigger wave 5: <strong>Rp2.430–2.530</strong>. Target wave 5: <strong>Rp2.640–2.940</strong>. Stoploss konservatif: di bawah Rp2.110 (52W low Rp1.625 sebagai hard floor).</p>
+        </div>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Risiko Jangka Pendek</div>
+          <p>Rencana B50 biodiesel pemerintah berpotensi menekan permintaan batubara domestik jangka panjang. Namun ADRO sendiri menyatakan sedang memantau regulasi dan sudah menggunakan B40 sejak 2025. Transisi ini bertahap — bukan risiko langsung 2026.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <div class="share-bar">
+          <span class="share-label">Bagikan:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Daftar Isi <div class="dot"></div></div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#katalis-laba">Laba +67% — Katalis</a></li>
+              <li><a href="#dividen-buyback">Dividen 99,96% &amp; Buyback</a></li>
+              <li><a href="#teknikal">Teknikal: Wave 4</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Level Kritis ADRO</div>
+          <div class="widget-body">
+            <div class="kp-list">
+              <div class="kp-item"><span class="kp-icon">🔴</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--danger)">Stoploss</strong><br>Di bawah Rp2.110</span></div>
+              <div class="kp-item"><span class="kp-icon">🟡</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent2)">Support / Akumulasi</strong><br>Rp2.110 – Rp2.300</span></div>
+              <div class="kp-item"><span class="kp-icon">🟠</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--accent)">Resistance / Trigger</strong><br>Rp2.430 – Rp2.530</span></div>
+              <div class="kp-item"><span class="kp-icon">🟢</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--success)">Target Wave 5</strong><br>Rp2.640 → Rp2.940</span></div>
+              <div class="kp-item"><span class="kp-icon">💰</span><span class="kp-text" style="font-size:.8rem;"><strong style="color:var(--coal2)">Div Yield TTM</strong><br>~18–19% (inkl. interim)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head">Artikel Terkait</div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · ANTM</div>
+                  <div class="related-title"><a href="news-antm-mei2026.html" style="color:var(--text)">ANTM Rp3.030: Didepak MSCI vs Laba +60% &amp; EV Battery</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · PTRO</div>
+                  <div class="related-title"><a href="news-ptro-mei2026.html" style="color:var(--text)">PTRO Rp4.850: Revenue +84% vs Koreksi −62% dari ATH</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Saham · TLKM</div>
+                  <div class="related-title"><a href="news-tlkm-mei2026.html" style="color:var(--text)">TLKM Rp2.890: Laba −20% vs Buyback &amp; InfraNexia</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Komoditas · Gold</div>
+                  <div class="related-title"><a href="artikel-gold-19mei2026.html" style="color:var(--text)">Analisis Emas XAU/USD $4.558 — Inflasi AS Tekuk Gold</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">🪨</div>
+          <h4>Signal Saham Live</h4>
+          <p>Update ADRO, ANTM, PTRO &amp; analisa BEI harian di Telegram kami.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Gratis →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT/PREV -->
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel &amp; news terkini</span>
+      </a>
+      <a href="news-antm-mei2026.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Lainnya →</span>
+        <span class="nav-cat">Saham · ANTM</span>
+        <span class="nav-title">ANTM Rp3.030: Didepak MSCI vs Laba +60% &amp; EV Battery</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index-v1.1.html">Trader Area</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="https://signal.mozellosite.com/live-fomc-the-fed/" target="_blank">Live FOMC</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Join Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel Saham</h4>
+        <ul>
+          <li><a href="news-adro-jun2026.html" style="color:var(--accent)">ADRO Update</a></li>
+          <li><a href="news-antm-mei2026.html">ANTM Update</a></li>
+          <li><a href="news-ptro-mei2026.html">PTRO Update</a></li>
+          <li><a href="news-bbca-mei2026.html">BBCA Update</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  sections.forEach(s => new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin:'-80px 0px -60% 0px' }).observe(s));
+  function shareToTelegram() { const u = encodeURIComponent(location.href), t = encodeURIComponent('🪨 ADRO Rp2.210: laba Q1 +67%, dividen 99,96% laba FY25, buyback Rp5 T — tapi masih wave 4. Kapan wave 5? Analisa @IDSecretEntry'); window.open(`https://t.me/share/url?url=${u}&text=${t}`,'_blank'); }
+  function shareToTwitter()  { const u = encodeURIComponent(location.href), t = encodeURIComponent('🪨 ADRO Rp2.210: laba +67%, dividen US$447 juta (99,96%), buyback Rp5 T. Fundamental gila tapi harga sideways wave 4. Target wave 5: Rp2.940. @IDSecretEntry'); window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`,'_blank'); }
+  function copyLink() { navigator.clipboard.writeText(location.href).then(() => { const b = event.target; b.textContent='✅ Copied!'; setTimeout(()=>b.textContent='🔗 Copy Link',2000); }); }
+</script>
+</body>
+</html>
