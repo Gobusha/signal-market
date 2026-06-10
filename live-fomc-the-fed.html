@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tonton siaran langsung FOMC Meeting untuk mengikuti keputusan suku bunga The Fed. Federal Open Market Committee menentukan arah kebijakan moneter AS yang mempengaruhi pasar global." />
+  <meta property="og:title" content="Live FOMC The Fed — Keputusan Suku Bunga Bank Sentral AS | Indonesian Secret Entry" />
+  <meta property="og:type" content="article" />
+  <title>Live FOMC The Fed — Keputusan Suku Bunga Bank Sentral AS | Indonesian Secret Entry</title>
+
+  <!-- ═══ FAVICON — Signal.Market brandmark ═══ -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Crect x='0' y='0' width='64' height='64' rx='14' fill='none' stroke='%23ff6a00' stroke-width='3'/%3E%3Crect x='44' y='4' width='16' height='16' rx='3' fill='%23ff6a00'/%3E%3Crect x='11' y='13' width='26' height='7' rx='2' fill='%23ffffff'/%3E%3Crect x='11' y='28' width='26' height='7' rx='2' fill='%23ff6a00'/%3E%3Crect x='11' y='44' width='26' height='7' rx='2' fill='%23ffffff'/%3E%3Crect x='11' y='13' width='7' height='15' fill='%23ffffff'/%3E%3Crect x='30' y='36' width='7' height='15' fill='%23ffffff'/%3E%3Ccircle cx='55' cy='56' r='4' fill='%23ff6a00'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0a'/%3E%3Crect x='0' y='0' width='32' height='32' rx='7' fill='none' stroke='%23ff6a00' stroke-width='2'/%3E%3Crect x='22' y='2' width='8' height='8' rx='2' fill='%23ff6a00'/%3E%3Crect x='5' y='6' width='13' height='4' rx='1' fill='%23ffffff'/%3E%3Crect x='5' y='14' width='13' height='4' rx='1' fill='%23ff6a00'/%3E%3Crect x='5' y='22' width='13' height='4' rx='1' fill='%23ffffff'/%3E%3Crect x='5' y='6' width='4' height='8' fill='%23ffffff'/%3E%3Crect x='14' y='18' width='4' height='8' fill='%23ffffff'/%3E%3Ccircle cx='27' cy='28' r='2.5' fill='%23ff6a00'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a0a0a'/%3E%3Crect x='0' y='0' width='180' height='180' rx='40' fill='none' stroke='%23ff6a00' stroke-width='5'/%3E%3Crect x='124' y='10' width='46' height='46' rx='10' fill='%23ff6a00'/%3E%3Crect x='30' y='36' width='72' height='20' rx='5' fill='%23ffffff'/%3E%3Crect x='30' y='80' width='72' height='20' rx='5' fill='%23ff6a00'/%3E%3Crect x='30' y='124' width='72' height='20' rx='5' fill='%23ffffff'/%3E%3Crect x='30' y='36' width='20' height='42' fill='%23ffffff'/%3E%3Crect x='82' y='102' width='20' height='42' fill='%23ffffff'/%3E%3Ccircle cx='158' cy='158' r='12' fill='%23ff6a00'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#ff6a00" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:#0a0a0a;--bg-card:#111111;--bg-card2:#171717;--border:#2a2a2a;
+      --accent:#ff6a00;--accent2:#ff9a40;--danger:#ff3333;--success:#22c55e;
+      --text:#d4d4d4;--text-dim:#666666;--text-bright:#ffffff;
+      --fed:#1a5c8a;--fed-light:#2196c4;
+      --font-display:'Bebas Neue',sans-serif;--font-mono:'IBM Plex Mono',monospace;--font-body:'IBM Plex Sans',sans-serif;
+      --radius:8px;--radius-lg:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.65;overflow-x:clip;word-break:break-word;overflow-wrap:break-word}
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+    .container{max-width:1280px;margin:0 auto;padding:0 16px}
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(18px) saturate(180%);background:rgba(10,10,10,.88);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+    #navbar.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--text-bright)}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding:8px 14px;border-radius:var(--radius);transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(255,106,0,.08);text-decoration:none}
+    .has-drop{position:relative}
+    .has-drop .dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);min-width:220px;padding:8px 0;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+    .has-drop:hover .dropdown{display:block}
+    .dropdown a{display:block;padding:10px 18px !important;border-radius:0 !important;font-size:11px !important}
+    .dropdown a:hover{background:rgba(255,106,0,.06) !important}
+    .burger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+    .burger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+    .mobile-menu{display:none}
+    @media(max-width:860px){.nav-links{display:none}.burger{display:flex}.mobile-menu.open{display:flex;flex-direction:column;background:var(--bg-card);border-top:1px solid var(--border);padding:16px 24px 24px;gap:2px}.mobile-menu a{display:block;padding:10px 0;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border)}.mobile-menu a:hover{color:var(--accent)}}
+    /* HERO */
+    #article-hero{position:relative;padding:80px 0 0;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(26,92,138,.10) 0%,transparent 65%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,42,42,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(42,42,42,.3) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 100% 100% at 50% 0%,black 0%,transparent 75%);animation:gridShift 20s linear infinite}
+    @keyframes gridShift{from{background-position:0 0}to{background-position:48px 48px}}
+    .article-hero-inner{position:relative;z-index:1;width:100%;max-width:860px;padding-bottom:0;overflow:hidden}
+    .breadcrumb{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;display:flex;gap:0;align-items:center;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text-dim);transition:color .2s}
+    .breadcrumb a:hover{color:var(--accent);text-decoration:none}
+    .breadcrumb .sep{color:var(--accent);margin:0 10px}
+    .article-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;opacity:0;animation:fadeUp .5s .05s forwards}
+    .atag{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--accent);color:var(--accent)}
+    .atag-fed{border-color:var(--fed-light);color:var(--fed-light)}
+    .atag-dim{border-color:var(--border);color:var(--text-dim)}
+    .atag-live{border-color:var(--success);color:var(--success)}
+    .article-title{font-family:var(--font-display);font-size:clamp(1.5rem,4.5vw,3.6rem);line-height:1.05;letter-spacing:.02em;color:var(--text-bright);margin-bottom:20px;opacity:0;animation:fadeUp .6s .1s forwards;overflow-wrap:break-word;word-break:break-word}
+    .article-title .hl{color:var(--accent)}
+    .article-title .hl-fed{color:var(--fed-light)}
+    .article-title--inline{white-space:normal;font-size:clamp(1.5rem,4.5vw,3.6rem)}
+    .article-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+    .article-meta .sep{color:var(--border)}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--success);text-transform:uppercase}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--success);animation:blink 1.2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero-visual{margin-top:32px;position:relative;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;height:260px;background:linear-gradient(160deg,#060c12 0%,#0d1a24 40%,#0a0a0a 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-bottom:none;width:100%;max-width:100%}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 60%,rgba(26,92,138,.10) 0%,transparent 70%)}
+    .hero-diagram{position:relative;z-index:1;width:100%;max-width:100%;padding:0 24px;overflow:hidden}
+    .chart-svg{width:100%;height:auto}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    /* BODY */
+    #article-body{position:relative;z-index:1;padding:0 0 96px}
+    .article-layout{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding-top:36px}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}.article-sidebar{order:-1}}
+    /* PROSE */
+    .prose{max-width:100%;min-width:0}
+    .prose h2{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.2rem);color:var(--text-bright);letter-spacing:.04em;line-height:1.05;margin:36px 0 12px;padding-top:4px}
+    .prose h2:first-child{margin-top:0}
+    .prose p{color:var(--text);font-size:.95rem;line-height:1.8;margin-bottom:18px}
+    .prose strong{color:var(--text-bright);font-weight:600}
+    .prose em{color:var(--accent2);font-style:italic}
+    .prose ul{padding-left:20px;margin-bottom:20px}
+    .prose li{color:var(--text);font-size:.93rem;line-height:1.75;margin-bottom:8px}
+    .prose li::marker{color:var(--fed-light)}
+    .callout{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(255,106,0,.06) 0%,transparent 100%);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:20px 0}
+    .callout.info{border-color:var(--fed-light);background:linear-gradient(90deg,rgba(33,150,196,.06) 0%,transparent 100%)}
+    .callout.warn{border-color:var(--danger);background:linear-gradient(90deg,rgba(255,51,51,.06) 0%,transparent 100%)}
+    .callout.tip{border-color:var(--success);background:linear-gradient(90deg,rgba(34,197,94,.06) 0%,transparent 100%)}
+    .callout-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .callout.info .callout-label{color:var(--fed-light)}
+    .callout.warn .callout-label{color:var(--danger)}
+    .callout.tip .callout-label{color:var(--success)}
+    .callout p{margin-bottom:0}
+    .key-points{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:20px;margin:24px 0}
+    .key-points-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--fed-light);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .key-points-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .kp-list{display:flex;flex-direction:column;gap:12px}
+    .kp-item{display:flex;gap:10px;align-items:flex-start}
+    .kp-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .kp-text{font-size:.88rem;color:var(--text);line-height:1.55;flex:1}
+    /* VIDEO EMBED */
+    .video-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:#000;margin:24px 0}
+    .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+    /* SCHEDULE TABLE */
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border)}
+    .prose table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:340px}
+    .prose th{background:var(--bg-card2);padding:9px 13px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;border-bottom:1px solid var(--border)}
+    .prose td{padding:9px 13px;border-bottom:1px solid var(--border);vertical-align:top}
+    .prose tr:last-child td{border-bottom:none}
+    .prose tr:hover td{background:rgba(255,255,255,.02)}
+    td.upcoming{color:var(--accent2);font-weight:600}
+    td.done{color:var(--text-dim)}
+    td.live{color:var(--success);font-weight:600}
+    .rate-badge{display:inline-block;font-family:var(--font-mono);font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(33,150,196,.12);color:var(--fed-light);border:1px solid rgba(33,150,196,.25)}
+    .rate-hold{background:rgba(255,106,0,.10);color:var(--accent);border-color:rgba(255,106,0,.25)}
+    .rate-cut{background:rgba(34,197,94,.10);color:var(--success);border-color:rgba(34,197,94,.25)}
+    .prose-divider{width:48px;height:2px;background:var(--fed-light);border-radius:2px;margin:32px 0}
+    .share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:20px}
+    .share-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .share-btn{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius);border:1px solid var(--border);background:none;color:var(--text-dim);cursor:pointer;transition:color .2s,border-color .2s}
+    .share-btn:hover{color:var(--accent);border-color:var(--accent)}
+    /* SIDEBAR */
+    .article-sidebar{display:flex;flex-direction:column;gap:24px}
+    .sidebar-widget{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);overflow:hidden}
+    @media(min-width:769px){.sidebar-widget{position:sticky;top:88px}}
+    .widget-head{padding:14px 20px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center}
+    .widget-head .dot{width:7px;height:7px;border-radius:50%;background:var(--success);animation:blink 1.2s infinite}
+    .widget-body{padding:20px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc-list a{display:block;padding:7px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--text-dim);border-radius:var(--radius);transition:all .2s}
+    .toc-list a:hover{color:var(--accent);background:rgba(255,106,0,.06);text-decoration:none}
+    .toc-list a.active{color:var(--fed-light);border-left:2px solid var(--fed-light);padding-left:8px}
+    .toc-list li+li{border-top:1px solid var(--border)}
+    .related-list{display:flex;flex-direction:column;gap:12px}
+    .related-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid var(--border);transition:padding-left .2s}
+    .related-item:last-child{border-bottom:none;padding-bottom:0}
+    .related-item:hover{padding-left:4px}
+    .related-body{flex:1}
+    .related-cat{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+    .related-title{font-size:.8rem;color:var(--text);line-height:1.35}
+    .related-arrow{color:var(--accent);flex-shrink:0;margin-top:2px;font-size:.75rem}
+    .cta-card{border:1px solid rgba(33,150,196,.25);border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--bg-card) 0%,rgba(26,92,138,.08) 100%);padding:24px;text-align:center}
+    .cta-card .cta-emoji{font-size:2.4rem;margin-bottom:12px}
+    .cta-card h4{font-family:var(--font-display);font-size:1.3rem;color:var(--text-bright);margin-bottom:8px}
+    .cta-card p{font-size:.8rem;color:var(--text-dim);margin-bottom:16px}
+    .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border-radius:var(--radius);transition:opacity .2s,transform .2s}
+    .cta-btn:hover{opacity:.9;transform:translateY(-1px);text-decoration:none}
+    /* ARTICLE NAV */
+    .article-nav{border-top:1px solid var(--border);padding:48px 0;position:relative;z-index:1}
+    .article-nav-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.article-nav-inner{grid-template-columns:1fr}}
+    .nav-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .3s,transform .25s}
+    .nav-card:hover{border-color:rgba(255,106,0,.35);transform:translateY(-2px);text-decoration:none}
+    .nav-card .nav-dir{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+    .nav-card .nav-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--fed-light)}
+    .nav-card .nav-title{font-size:.9rem;color:var(--text-bright);line-height:1.4}
+    .nav-next{text-align:right}
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:48px 0 32px;position:relative;z-index:1}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+    .footer-brand .logo-text{font-family:var(--font-display);font-size:1.6rem;color:var(--text-bright);letter-spacing:.08em}
+    .footer-brand .logo-text span{color:var(--accent)}
+    .footer-brand p{font-size:12px;color:var(--text-dim);margin-top:8px;max-width:280px}
+    .footer-nav h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
+    .footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-nav ul a{font-size:13px;color:var(--text-dim)}
+    .footer-nav ul a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+    .footer-bottom .disclaimer{font-size:10px;opacity:.6}
+    #scrollTop{position:fixed;bottom:28px;right:28px;z-index:99;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,106,0,.4);transition:transform .2s}
+    #scrollTop:hover{transform:scale(1.1)}
+    #scrollTop.show{display:flex}
+    @media(max-width:768px){
+      .container{padding:0 14px}.article-layout{grid-template-columns:1fr;gap:20px;padding-top:24px}
+      #article-body{padding:0 0 40px}.article-nav{padding:24px 0}.article-nav-inner{grid-template-columns:1fr}
+      #article-hero{padding:68px 0 0}.article-hero-inner{max-width:100%}
+      .hero-visual{height:130px;margin-top:16px;border-radius:var(--radius) var(--radius) 0 0}.hero-diagram{padding:0 8px}
+      .article-title{font-size:1.5rem;line-height:1.05;margin-bottom:10px}
+      .article-meta{gap:6px;font-size:9px;margin-bottom:16px}.article-tags{gap:5px;margin-bottom:10px}
+      .breadcrumb{margin-bottom:12px;font-size:9px}
+      .prose h2{font-size:1.2rem;margin:24px 0 8px}.prose p{font-size:.85rem;line-height:1.68;margin-bottom:11px}.prose li{font-size:.84rem}
+      .callout{padding:10px 12px;margin:14px 0}.key-points{padding:12px;margin:14px 0;border-radius:var(--radius)}
+      .share-bar{margin-top:20px;padding-top:16px;gap:6px}
+      .article-sidebar{gap:16px}.sidebar-widget{position:static}.widget-body{padding:10px}
+      .nav-card{padding:16px}
+      footer{padding:20px 0 14px}.footer-inner{gap:14px;margin-bottom:20px}
+    }
+    @media(max-width:400px){.article-title{font-size:1.3rem}.hero-visual{height:100px}}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Signal<span>.</span>Market</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Trader Area</a></li>
+      <li><a href="index.html#charts">Charts</a></li>
+      <li><a href="index.html#calendar">Calendar</a></li>
+      <li class="has-drop">
+        <a href="artikel-news.html">Artikel &amp; News ▾</a>
+        <div class="dropdown">
+          <a href="artikel-news.html">Semua Artikel</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Crypto')">Crypto</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Saham')">Saham</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Makro')">Makro Ekonomi</a>
+          <a href="artikel-news.html" onclick="localStorage.setItem('iseFilter','Edukasi')">Edukasi</a>
+        </div>
+      </li>
+      <li><a href="live-fomc-the-fed.html" class="active">Live FOMC</a></li>
+      <li><a href="https://signal.mozellosite.com/index-macro/" target="_blank">Index Macro</a></li>
+      <li><a href="https://t.me/smcentry" target="_blank" style="padding:8px 16px;font-size:11px;border:1px solid var(--accent);border-radius:var(--radius);color:var(--accent);">Join Grup ↗</a></li>
+    </ul>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Trader Area</a>
+    <a href="artikel-news.html">Artikel &amp; News</a>
+    <a href="live-fomc-the-fed.html" class="active">Live FOMC</a>
+    <a href="https://t.me/smcentry" target="_blank" style="color:var(--accent);">Join Grup ↗</a>
+  </div>
+</nav>
+
+<div id="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="article-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>
+        <a href="artikel-news.html">Artikel</a><span class="sep">/</span>
+        Makro · The Fed
+      </div>
+      <div class="article-tags">
+        <span class="atag atag-live">● Live Stream</span>
+        <span class="atag atag-fed">The Fed</span>
+        <span class="atag">FOMC</span>
+        <span class="atag atag-dim">Suku Bunga</span>
+        <span class="atag atag-dim">Makro Ekonomi</span>
+        <span class="atag atag-dim">USD</span>
+      </div>
+      <h1 class="article-title">
+        <span class="hl-fed">LIVE FOMC</span>:<br>
+        KEPUTUSAN SUKU BUNGA <span class="hl">THE FED</span>
+      </h1>
+      <div class="article-meta">
+        <span class="live-badge"><span class="live-dot"></span>Live Stream</span>
+        <span class="sep">·</span><span>Update 2026</span>
+        <span class="sep">·</span><span>🕐 5 min read</span>
+        <span class="sep">·</span><span>Indonesian Secret Entry</span>
+      </div>
+
+      <!-- Hero visual: Fed rate diagram -->
+      <div class="hero-visual">
+        <div class="hero-diagram">
+          <svg class="chart-svg" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- grid lines -->
+            <line x1="0" y1="30"  x2="680" y2="30"  stroke="#1e2a33" stroke-width=".8"/>
+            <line x1="0" y1="75"  x2="680" y2="75"  stroke="#1e2a33" stroke-width=".8"/>
+            <line x1="0" y1="120" x2="680" y2="120" stroke="#1e2a33" stroke-width=".8"/>
+            <line x1="0" y1="165" x2="680" y2="165" stroke="#1e2a33" stroke-width=".8"/>
+            <!-- labels kiri -->
+            <text x="4" y="26"  font-family="IBM Plex Mono" font-size="8" fill="#2196c4">5.50%</text>
+            <text x="4" y="71"  font-family="IBM Plex Mono" font-size="8" fill="#555">5.00%</text>
+            <text x="4" y="116" font-family="IBM Plex Mono" font-size="8" fill="#555">4.50%</text>
+            <text x="4" y="161" font-family="IBM Plex Mono" font-size="8" fill="#555">4.00%</text>
+            <!-- Fed rate path bar chart: 2023-2026 -->
+            <!-- 2023: 5.25–5.50 (hold) -->
+            <rect x="60"  y="32" width="60" height="170" rx="3" fill="rgba(33,150,196,.15)" stroke="#2196c4" stroke-width="1"/>
+            <text x="90"  y="210" font-family="IBM Plex Mono" font-size="8" fill="#555" text-anchor="middle">2023</text>
+            <!-- 2024: mulai cut ke 4.50 -->
+            <rect x="155" y="75" width="60" height="127" rx="3" fill="rgba(33,150,196,.12)" stroke="#2196c4" stroke-width="1"/>
+            <text x="185" y="210" font-family="IBM Plex Mono" font-size="8" fill="#555" text-anchor="middle">2024</text>
+            <!-- 2025: cut ke 4.25–4.50 -->
+            <rect x="250" y="88" width="60" height="114" rx="3" fill="rgba(33,150,196,.10)" stroke="#2196c4" stroke-width="1"/>
+            <text x="280" y="210" font-family="IBM Plex Mono" font-size="8" fill="#555" text-anchor="middle">2025</text>
+            <!-- 2026 H1: hold 4.25–4.50 -->
+            <rect x="345" y="88" width="60" height="114" rx="3" fill="rgba(255,106,0,.12)" stroke="#ff6a00" stroke-width="1.5"/>
+            <text x="375" y="210" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00" text-anchor="middle">2026 H1</text>
+            <!-- 2026 H2: proyeksi cut -->
+            <rect x="440" y="110" width="60" height="92" rx="3" fill="rgba(34,197,94,.08)" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="470" y="210" font-family="IBM Plex Mono" font-size="8" fill="#22c55e" text-anchor="middle">2026 H2*</text>
+            <!-- legend -->
+            <rect x="540" y="40" width="10" height="10" rx="2" fill="rgba(255,106,0,.3)" stroke="#ff6a00" stroke-width="1"/>
+            <text x="555" y="50" font-family="IBM Plex Mono" font-size="8" fill="#ff6a00">Hold</text>
+            <rect x="540" y="58" width="10" height="10" rx="2" fill="rgba(34,197,94,.2)" stroke="#22c55e" stroke-width="1"/>
+            <text x="555" y="68" font-family="IBM Plex Mono" font-size="8" fill="#22c55e">Proyeksi Cut*</text>
+            <rect x="540" y="76" width="10" height="10" rx="2" fill="rgba(33,150,196,.2)" stroke="#2196c4" stroke-width="1"/>
+            <text x="555" y="86" font-family="IBM Plex Mono" font-size="8" fill="#2196c4">Historical</text>
+            <!-- current rate label -->
+            <line x1="50" y1="88" x2="620" y2="88" stroke="#ff6a00" stroke-width=".8" stroke-dasharray="3,4"/>
+            <text x="630" y="92" font-family="IBM Plex Mono" font-size="9" fill="#ff6a00" font-weight="600">4.25–4.50%</text>
+            <text x="260" y="22" font-family="IBM Plex Mono" font-size="9" fill="#2196c4" text-anchor="middle" font-weight="600">FEDERAL FUNDS RATE — TARGET RANGE</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="article-body">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- MAIN CONTENT -->
+      <main class="prose">
+
+        <h2 id="live-stream">Live Stream FOMC Meeting</h2>
+        <p>Tonton siaran langsung <strong>FOMC Meeting</strong> untuk mengikuti secara real-time keputusan suku bunga The Fed. Setiap pernyataan dan konferensi pers Ketua Fed berdampak langsung pada pasar crypto, saham, dan forex global.</p>
+
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/iEpJwprxDdk?si=2EPiHfoulF7t-Yd9"
+            title="Live FOMC The Fed Meeting"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="callout info">
+          <div class="callout-label">📡 Info Stream</div>
+          <p>Jika stream di atas tidak aktif, berarti tidak ada FOMC Meeting yang berlangsung saat ini. Jadwalkan pantauan sesuai kalender FOMC 2026 di bawah.</p>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="apa-itu-fomc">Apa Itu FOMC?</h2>
+        <p><strong>Federal Open Market Committee (FOMC)</strong> adalah komite utama di dalam sistem Federal Reserve — bank sentral Amerika Serikat — yang bertanggung jawab atas kebijakan moneter AS. FOMC terdiri dari 12 anggota: 7 anggota Board of Governors dan 5 presiden Federal Reserve Bank regional.</p>
+
+        <p>Keputusan yang dihasilkan FOMC, terutama soal <strong>suku bunga acuan (Federal Funds Rate)</strong>, tidak hanya berdampak pada ekonomi domestik AS, tetapi juga mempengaruhi seluruh pasar keuangan global — termasuk nilai tukar USD, harga emas, obligasi, saham, dan aset kripto.</p>
+
+        <div class="key-points">
+          <div class="key-points-title">Poin Kunci FOMC</div>
+          <div class="kp-list">
+            <div class="kp-item"><span class="kp-icon">🏛️</span><div class="kp-text"><strong>12 anggota voting</strong> — 7 Governors + 5 Bank presidents secara bergantian</div></div>
+            <div class="kp-item"><span class="kp-icon">📅</span><div class="kp-text"><strong>8 kali setahun</strong> — rapat rutin dijadwalkan setiap 6–8 minggu sekali</div></div>
+            <div class="kp-item"><span class="kp-icon">📊</span><div class="kp-text"><strong>Data-driven</strong> — keputusan berbasis inflasi (CPI), ketenagakerjaan (NFP), dan pertumbuhan (GDP)</div></div>
+            <div class="kp-item"><span class="kp-icon">🌍</span><div class="kp-text"><strong>Dampak global</strong> — pergerakan USD, emas, obligasi AS, saham, dan kripto sangat sensitif terhadap keputusan FOMC</div></div>
+            <div class="kp-item"><span class="kp-icon">🎙️</span><div class="kp-text"><strong>Press conference</strong> — Ketua Fed memberikan pernyataan dan menjawab pertanyaan media setelah pengumuman</div></div>
+          </div>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="jadwal-2026">Jadwal FOMC 2026</h2>
+        <p>Berikut adalah jadwal rapat FOMC sepanjang 2026. Pantau tanggal-tanggal penting ini karena pasar biasanya bergerak volatil menjelang dan sesaat setelah pengumuman.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Status</th>
+                <th>Keputusan Suku Bunga</th>
+                <th>Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>28–29 Januari 2026</td>
+                <td class="done">✅ Selesai</td>
+                <td><span class="rate-badge rate-hold">Hold 4.25–4.50%</span></td>
+                <td class="done">Tidak ada perubahan</td>
+              </tr>
+              <tr>
+                <td>18–19 Maret 2026</td>
+                <td class="done">✅ Selesai</td>
+                <td><span class="rate-badge rate-hold">Hold 4.25–4.50%</span></td>
+                <td class="done">Pasar menantikan sinyal cut</td>
+              </tr>
+              <tr>
+                <td>6–7 Mei 2026</td>
+                <td class="done">✅ Selesai</td>
+                <td><span class="rate-badge rate-hold">Hold 4.25–4.50%</span></td>
+                <td class="done">Inflasi masih di atas target 2%</td>
+              </tr>
+              <tr>
+                <td><strong>17–18 Juni 2026</strong></td>
+                <td class="upcoming">⏳ Mendatang</td>
+                <td><span class="rate-badge">TBD</span></td>
+                <td class="upcoming">Rapat berikutnya — pantau!</td>
+              </tr>
+              <tr>
+                <td>28–29 Juli 2026</td>
+                <td class="upcoming">⏳ Mendatang</td>
+                <td><span class="rate-badge">TBD</span></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>15–16 September 2026</td>
+                <td class="upcoming">⏳ Mendatang</td>
+                <td><span class="rate-badge">TBD</span></td>
+                <td>Proyeksi: potensi cut pertama</td>
+              </tr>
+              <tr>
+                <td>4–5 November 2026</td>
+                <td class="upcoming">⏳ Mendatang</td>
+                <td><span class="rate-badge">TBD</span></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>15–16 Desember 2026</td>
+                <td class="upcoming">⏳ Mendatang</td>
+                <td><span class="rate-badge">TBD</span></td>
+                <td>Akhir tahun — review dot plot</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="dampak-pasar">Dampak FOMC ke Pasar</h2>
+        <p>Setiap keputusan FOMC memiliki efek berantai yang langsung terasa di berbagai kelas aset. Berikut pola umum reaksi pasar:</p>
+
+        <div class="callout tip">
+          <div class="callout-label">💡 Rate Cut — Bullish untuk Risiko</div>
+          <p>Ketika The Fed memotong suku bunga, likuiditas meningkat. Aset berisiko seperti saham teknologi dan crypto cenderung <strong>naik</strong>, sementara USD melemah dan emas menguat.</p>
+        </div>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠ Rate Hike / Hawkish — Bearish untuk Risiko</div>
+          <p>Kenaikan suku bunga atau pernyataan hawkish dari Ketua Fed menekan aset risiko. Pasar saham dan crypto sering turun tajam, sedangkan USD dan obligasi jangka pendek menguat.</p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-label">📊 Hold + Neutral — Volatilitas Sesaat</div>
+          <p>Rate hold bisa ke segala arah tergantung <em>tone</em> pernyataan dan dot plot revisi. Pasar akan bereaksi pada kata kunci seperti "patient", "data-dependent", atau "higher for longer".</p>
+        </div>
+
+        <ul>
+          <li><strong>Crypto (BTC, ETH):</strong> sangat sensitif terhadap ekspektasi likuiditas. Rate cut = bullish; hawkish surprise = dump.</li>
+          <li><strong>Saham (IDX, S&amp;P 500):</strong> saham growth dan sektor perbankan paling terdampak perubahan suku bunga.</li>
+          <li><strong>Emas (XAU/USD):</strong> biasanya bergerak berlawanan arah dengan USD dan yield obligasi AS.</li>
+          <li><strong>Rupiah (USD/IDR):</strong> penguatan USD pasca FOMC hawkish menekan Rupiah dan aset emerging market.</li>
+          <li><strong>IHSG:</strong> modal asing cenderung keluar ketika suku bunga AS tinggi karena spread imbal hasil menyempit.</li>
+        </ul>
+
+        <div class="prose-divider"></div>
+
+        <h2 id="cara-membaca">Cara Membaca Statement FOMC</h2>
+        <p>Selain angka suku bunga, perhatikan kata kunci dalam <em>official statement</em> dan konferensi pers untuk memahami arah kebijakan ke depan:</p>
+
+        <ul>
+          <li><strong>"Data-dependent"</strong> — Fed tidak berkomitmen, mengikuti data ekonomi berikutnya.</li>
+          <li><strong>"Higher for longer"</strong> — suku bunga tetap tinggi dalam jangka panjang. Bearish aset risiko.</li>
+          <li><strong>"Appropriate to cut"</strong> — sinyal awal pemangkasan suku bunga. Bullish pasar.</li>
+          <li><strong>Dot Plot revisi turun</strong> — lebih banyak anggota FOMC proyeksikan rate cut. Positif.</li>
+          <li><strong>Dot Plot revisi naik</strong> — ekspektasi hawkish meningkat. Negatif untuk risiko.</li>
+          <li><strong>Core PCE di atas 2.5%</strong> — inflasi masih tinggi, Fed enggan memotong rate.</li>
+        </ul>
+
+        <div class="callout info">
+          <div class="callout-label">🎯 Tips Trading FOMC</div>
+          <p>Hindari open posisi besar 30 menit sebelum pengumuman. Volatilitas dapat sangat tajam ke dua arah dalam hitungan detik. Tunggu <em>initial reaction</em> reda sebelum mencari entry yang lebih aman.</p>
+        </div>
+
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <button class="share-btn" onclick="shareToTelegram()">✈ Telegram</button>
+          <button class="share-btn" onclick="shareToTwitter()">𝕏 Twitter</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+        </div>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="sidebar-widget">
+          <div class="widget-head">
+            <span>Live FOMC</span>
+            <span class="dot"></span>
+          </div>
+          <div class="widget-body">
+            <ul class="toc-list" id="tocList">
+              <li><a href="#live-stream">📺 Live Stream</a></li>
+              <li><a href="#apa-itu-fomc">🏛️ Apa Itu FOMC?</a></li>
+              <li><a href="#jadwal-2026">📅 Jadwal 2026</a></li>
+              <li><a href="#dampak-pasar">📊 Dampak ke Pasar</a></li>
+              <li><a href="#cara-membaca">🎯 Cara Membaca Statement</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-head"><span>Artikel Terkait</span></div>
+          <div class="widget-body">
+            <div class="related-list">
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · AS</div>
+                  <div class="related-title"><a href="us-treasury-yield-5persen.html" style="color:var(--text)">US Treasury Yield 5%: Ancaman Nyata bagi Pasar Global</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Makro · IHSG</div>
+                  <div class="related-title"><a href="news-ihsg-turun-tajam-2026.html" style="color:var(--text)">IHSG −24% YTD: Penurunan Terdalam di Asia 2026</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+              <div class="related-item">
+                <div class="related-body">
+                  <div class="related-cat">Crypto · Bitcoin</div>
+                  <div class="related-title"><a href="news-bitcoin-mei2026.html" style="color:var(--text)">Bitcoin: ETF Outflow vs Supply Crunch & CLARITY Act</a></div>
+                </div>
+                <span class="related-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <div class="cta-emoji">📡</div>
+          <h4>Alert FOMC Live</h4>
+          <p>Dapatkan notifikasi real-time saat FOMC meeting berlangsung dan ringkasan keputusan langsung di Telegram.</p>
+          <a href="https://t.me/smcentry" target="_blank" class="cta-btn">Join Gratis →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div class="article-nav">
+  <div class="container">
+    <div class="article-nav-inner">
+      <a href="artikel-news.html" class="nav-card">
+        <span class="nav-dir">← Kembali ke</span>
+        <span class="nav-cat">Semua Artikel</span>
+        <span class="nav-title">Lihat semua artikel &amp; news terkini</span>
+      </a>
+      <a href="us-treasury-yield-5persen.html" class="nav-card nav-next">
+        <span class="nav-dir">Artikel Terkait →</span>
+        <span class="nav-cat">Makro · AS</span>
+        <span class="nav-title">US Treasury Yield 5%: Ancaman Nyata bagi Pasar Global</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">Signal<span>.</span>Market</div>
+        <p>Indonesian Secret Entry — Market Analysis &amp; Signal untuk crypto, saham, dan komoditas.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Trader Area</a></li>
+          <li><a href="artikel-news.html">Artikel &amp; News</a></li>
+          <li><a href="live-fomc-the-fed.html">Live FOMC</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Join Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Artikel</h4>
+        <ul>
+          <li><a href="news-bitcoin-mei2026.html">Bitcoin Update</a></li>
+          <li><a href="news-bbca-mei2026.html">BBCA Update</a></li>
+          <li><a href="us-treasury-yield-5persen.html">US Treasury Yield</a></li>
+          <li><a href="news-ihsg-turun-tajam-2026.html">IHSG −24% YTD</a></li>
+          <li><a href="artikel-liquidity-sweep.html">Liquidity Sweep</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Sosial</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/idsecretentry" target="_blank">Instagram</a></li>
+          <li><a href="https://t.me/smcentry" target="_blank">Telegram</a></li>
+          <li><a href="https://signal.mozellosite.com/tiktok-shop/" target="_blank">TikTok Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indonesian Secret Entry. All rights reserved.</p>
+      <p class="disclaimer">⚠ Konten ini bukan saran investasi. Trading mengandung risiko tinggi.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  });
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  const sections = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('#tocList a');
+  sections.forEach(s => new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`#tocList a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' }).observe(s));
+  function shareToTelegram() {
+    const u = encodeURIComponent(location.href);
+    const t = encodeURIComponent('📡 Live FOMC The Fed — pantau keputusan suku bunga bank sentral AS secara real-time. Dampak ke crypto, saham & Rupiah. @IDSecretEntry');
+    window.open(`https://t.me/share/url?url=${u}&text=${t}`, '_blank');
+  }
+  function shareToTwitter() {
+    const u = encodeURIComponent(location.href);
+    const t = encodeURIComponent('📡 Live #FOMC The Fed — keputusan suku bunga AS yang menggerakkan pasar global. Jadwal 2026, cara baca statement, dan dampak ke #crypto #saham #Rupiah. @IDSecretEntry');
+    window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`, '_blank');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(location.href).then(() => {
+      const b = event.target; b.textContent = '✅ Copied!';
+      setTimeout(() => b.textContent = '🔗 Copy Link', 2000);
+    });
+  }
+</script>
+</body>
+</html>
