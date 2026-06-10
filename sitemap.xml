@@ -4,26 +4,20 @@
   <!-- Halaman Utama -->
   <url>
     <loc>https://signalmarketid.biz.id/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Halaman Artikel -->
+  <!-- Halaman Artikel & News Hub -->
   <url>
     <loc>https://signalmarketid.biz.id/artikel-news.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <url>
-    <loc>https://signalmarketid.biz.id/artikel-gold-19mei2026.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  <!-- Artikel Edukasi -->
   <url>
     <loc>https://signalmarketid.biz.id/artikel-liquidity-sweep.html</loc>
     <lastmod>2026-05-30</lastmod>
@@ -52,7 +46,28 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Halaman Berita Saham & Komoditas -->
+  <url>
+    <loc>https://signalmarketid.biz.id/artikel-ico-crypto.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://signalmarketid.biz.id/artikel-staking-crypto.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://signalmarketid.biz.id/artikel-gold-19mei2026.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- News Saham -->
   <url>
     <loc>https://signalmarketid.biz.id/news-antm-mei2026.html</loc>
     <lastmod>2026-05-30</lastmod>
@@ -89,8 +104,60 @@
   </url>
 
   <url>
+    <loc>https://signalmarketid.biz.id/news-bren-juni2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://signalmarketid.biz.id/news-adro-jun2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://signalmarketid.biz.id/news-mdka-jun2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://signalmarketid.biz.id/news-myor-jun2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- News Komoditas -->
+  <url>
     <loc>https://signalmarketid.biz.id/news-usoil-mei2026.html</loc>
     <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://signalmarketid.biz.id/news-brent-mei2026.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- News Crypto -->
+  <url>
+    <loc>https://signalmarketid.biz.id/news-bitcoin-mei2026.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- News Makro -->
+  <url>
+    <loc>https://signalmarketid.biz.id/news-ihsg-turun-tajam-2026.html</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
